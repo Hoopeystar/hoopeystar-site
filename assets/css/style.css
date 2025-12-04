@@ -28,9 +28,9 @@
     .page {
   width: 100%;
   max-width: var(--max-width);
-  flex: 1;        /* NEW — this makes the footer stick to bottom */
+  flex: 1;
+  margin: 0 auto;   /* ← centers the whole site horizontally */
 }
-
 
     /* HEADER */
     header {
@@ -384,7 +384,9 @@ width: 100%;
       color: var(--text-muted);
       margin-top: 16px;
       padding-top: 10px;
-      border-top: 1px solid rgba(255,255,255,0.04)
+      border-top: 1px solid rgba(255,255,255,0.04);
+      text-align: left;
+      letter-spacing: 0.03em;
     }
 
     footer a {
