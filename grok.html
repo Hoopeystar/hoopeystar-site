@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hoopeystar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Custom LED signs, 3D prints, and design work by Hoopeystar." />
+  <style>
+    :root {
+      --bg: #050509;
+      --bg-alt: #0b0b12;
+      --purple: #9200ff;
+      --red: #ff2d2d;
+      --yellow: #ffd84a;
+      --text-main: #f5f5ff;
+      --text-muted: #a3a3c2;
+      --border-subtle: #2a2a3d;
+      --card-radius: 18px;
+      --shadow-soft: 0 18px 40px rgba(0,0,0,0.7);
+      --max-width: 1040px;
+    }
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1a0b33 0, #050509 55%, #000 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 24px 16px 48px;
+      line-height: 1.5;
+    }
+    .page { width: 100%; max-width: var(--max-width); }
+
+    /* HEADER */
+    header { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-bottom: 32px; flex-wrap: wrap; }
+    .logo-block { display: flex; align-items: center; gap: 14px; }
+    .logo-image { height: 80px; width: auto; }
+    .logo-text-main { font-size: 1.9rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--purple); text-shadow: 0 0 8px rgba(146,0,255,0.5); }
+    .logo-tagline { font-size: 0.78rem; letter-spacing: 0.18em; color: var(--text-muted); text-transform: uppercase; }
+    .nav-links { display: flex; gap: 10px; font-size: 0.88rem; }
+    .nav-link { padding: 6px 12px; border-radius: 999px; text-decoration: none; color: var(--text-muted); border: 1px solid transparent; }
+    .nav-link:hover { color: var(--text-main); border-color: rgba(255,255,255,0.15); background: rgba(20,20,35,0.6); }
+    .nav-link-primary { border-color: rgba(255,255,255,0.15); color: var(--text-main); }
+
+    /* HERO */
+    .hero {
+      border-radius: var(--card-radius);
+      padding: 32px 24px;
+      background: radial-gradient(circle at top left, rgba(146,0,255,0.35), var(--bg-alt));
+      border: 1px solid rgba(146,0,255,0.3);
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    .hero-eyebrow { font-size: 0.8rem; letter-spacing: 0.16em; color: var(--yellow); margin-bottom: 8px; text-transform: uppercase; }
+    .hero-title { font-size: clamp(2rem, 5vw, 2.8rem); margin: 12px 0 16px; color: var(--red); line-height: 1.15; }
+    .hero-subtitle { font-size: 1.02rem; color: var(--text-muted); max-width: 42rem; margin: 0 auto 24px; }
+    .hero-cta-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 32px; }
+
+    /* BUTTONS */
+    .btn {
+      padding: 11px 22px;
+      border-radius: 999px;
+      font-size: 0.94rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    @keyframes btnGlow {
+      0%, 100% { box-shadow: 0 0 20px rgba(146,0,255,0.6); }
+      50% { box-shadow: 0 0 30px rgba(255,45,45,0.9); }
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--red), var(--purple));
+      color: white;
+      animation: btnGlow 3s infinite alternate;
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.8); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+    .btn-secondary:hover {
+      background: rgba(146,0,255,0.15);
+      border-color: var(--purple);
+      box-shadow: 0 0 18px rgba(146,0,255,0.5);
+    }
+
+    /* HERO PREVIEW CARDS — FIXED & RESPONSIVE */
+    .hero-previews {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin: 0 auto;
+      max-width: 900px;
+      padding: 0 8px;
+    }
+    .hero-preview {
+      background: rgba(10,10,20,0.95);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: all 0.25s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    .hero-preview img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-preview-caption {
+      padding: 10px 12px 12px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-align: left;
+    }
+    .hero-preview:hover {
+      transform: translateY(-6px);
+      border-color: var(--purple);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.8);
+    }
+
+    /* REST OF YOUR STYLES (unchanged but cleaned) */
+    .section-label { font-size: 0.76rem; letter-spacing: 0.2em; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; }
+    .section-title { font-size: 1.25rem; margin-bottom: 20px; font-weight: 700; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 32px; }
+    .card { background: rgba(8,8,14,0.96); border-radius: var(--card-radius); border: 1px solid var(--border-subtle); padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.7); }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .pill { font-size: 0.74rem; padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.08); background: rgba(5,5,10,0.9); color: var(--text-muted); transition: 0.2s; }
+    .pill:hover { border-color: var(--purple); color: var(--text-main); }
+
+    .how, .bottom { background: rgba(8,8,14,0.96); border-radius: var(--card-radius); border: 1px solid var(--border-subtle); padding: 20px; box-shadow: 0 12px 32px rgba(0,0,0,0.7); margin-bottom: 24px; }
+    .how-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-top: 12px; }
+    footer { font-size: 0.8rem; color: var(--text-muted); padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; }
+
+    /* MOBILE FIXES */
+    @media (max-width: 768px) {
+      header { flex-direction: column; text-align: center; }
+      .logo-block { flex-direction: column; text-align: center; }
+      .hero { padding: 28px 18px; }
+      .hero-previews { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo-block">
+        <img src="logo.png" alt="Hoopeystar neon logo" class="logo-image">
+        <div>
+          <div class="logo-text-main">HOOPEYSTAR</div>
+          <div class="logo-tagline">3D PRINTS · DESIGN · MUSIC</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a class="nav-link nav-link-primary" href="/">Home</a>
+        <a class="nav-link" href="/gallery">Gallery</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-eyebrow">Custom physical work · One-on-one</div>
+        <h1 class="hero-title">Custom LED signs, 3D prints, and design work made just for you.</h1>
+        <p class="hero-subtitle">
+          If you have an idea—even a rough one—I can turn it into a real physical piece.<br>
+          Tell me what you want made, and I’ll handle the rest.
+        </p>
+        <div class="hero-cta-row">
+          <a class="btn btn-primary" href="mailto:daniel@hoopeystar.com">Email me to start a project</a>
+          <a class="btn btn-secondary" href="/gallery">Or see what I’ve made →</a>
+        </div>
+
+        <!-- PREVIEW CARDS – NOW PERFECTLY CENTERED & RESPONSIVE -->
+        <div class="hero-previews">
+          <a class="hero-preview" href="/gallery#led-signs">
+            <img src="hoopeystar-led-sign-hero.jpg" alt="Pink Hoopeystar LED sign">
+            <div class="hero-preview-caption">LED logo sign with diffused glow</div>
+          </a>
+          <a class="hero-preview" href="/gallery#tap-handles">
+            <img src="beer-taps.jpg" alt="Glowing custom tap handles">
+            <div class="hero-preview-caption">Backlit tap handles for bars</div>
+          </a>
+          <a class="hero-preview" href="/gallery#clips">
+            <img src="xmas-clips.jpg" alt="Custom 3D printed Christmas clips">
+            <div class="hero-preview-caption">Holiday clips & keychains</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Rest of your sections unchanged -->
+      <section id="services">
+        <div class="section-label">Services</div>
+        <h2 class="section-title">What I can build around your idea</h2>
+        <div class="grid">
+          <!-- your four cards here (unchanged) -->
+          <!-- ... -->
+        </div>
+      </section>
+
+      <!-- How it works + bottom CTA + footer (unchanged) -->
+      <!-- ... -->
+
+    </main>
+  </div>
+</body>
+</html>

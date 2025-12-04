@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hoopeystar · Gallery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Gallery of custom LED signs, 3D prints, and design work by Hoopeystar."
+  />
+  <style>
+    :root {
+      --bg: #050509;
+      --bg-alt: #0b0b12;
+      --purple: #9200ff;
+      --red: #ff2d2d;
+      --yellow: #ffd84a;
+      --text-main: #f5f5ff;
+      --text-muted: #a3a3c2;
+      --border-subtle: #2a2a3d;
+      --card-radius: 18px;
+      --shadow-soft: 0 18px 40px rgba(0,0,0,0.7);
+      --max-width: 1040px;
+    }
+
+/* BUTTONS */
+.btn {
+  padding: 9px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+  transition: 0.12s ease-out;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+@keyframes btnGlow {
+  0% {
+    box-shadow: 0 0 12px rgba(146,0,255,0.45);
+  }
+  100% {
+    box-shadow: 0 0 22px rgba(255,45,45,0.8);
+  }
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--red), var(--purple));
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 0 18px rgba(146,0,255,0.6);
+  animation: btnGlow 2.4s ease-in-out infinite alternate;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.9);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-main);
+  border-color: rgba(255,255,255,0.2);
+  font-weight: 500;
+}
+
+.btn-secondary:hover {
+  background: rgba(10,10,18,0.95);
+  box-shadow: 0 0 14px rgba(146,0,255,0.75);
+  transform: translateY(-1px);
+}
+
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-top: 14px;
+}
+
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1a0b33 0, #050509 55%, #000 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 24px 16px 48px;
+    }
+
+    .page {
+      width: 100%;
+      max-width: var(--max-width);
+    }
+
+    a { color: inherit; }
+
+    /* HEADER */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .logo-block {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-image {
+      max-height: 80px;
+      height: 80px;
+      width: auto;
+      display: block;
+    }
+
+    .logo-text-main {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--purple);
+      text-shadow: 0 0 6px rgba(146, 0, 255, 0.45);
+    }
+
+    .logo-tagline {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 10px;
+      font-size: 0.85rem;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-muted);
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    .nav-link:hover {
+      color: var(--text-main);
+      border-color: rgba(255,255,255,0.12);
+      background: rgba(10,10,18,0.8);
+    }
+
+    .nav-link-primary {
+      border-color: rgba(255,255,255,0.12);
+      color: var(--text-main);
+    }
+
+    /* PAGE HERO */
+    .hero {
+      border-radius: var(--card-radius);
+      padding: 20px 20px 18px;
+      background: radial-gradient(circle at top left,
+        rgba(146,0,255,0.3), var(--bg-alt));
+      border: 1px solid rgba(146,0,255,0.3);
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 26px;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--yellow);
+      margin-bottom: 6px;
+    }
+
+    .hero-title {
+      font-size: clamp(1.7rem, 3.6vw, 2.3rem);
+      line-height: 1.1;
+      margin-bottom: 10px;
+      color: var(--red);
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 40rem;
+    }
+
+    /* SECTION HEADINGS */
+    .section {
+      margin-bottom: 28px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .section-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    /* GALLERY GRID */
+    .gallery-card {
+      background: rgba(8,8,14,0.96);
+      border-radius: var(--card-radius);
+      border: 1px solid var(--border-subtle);
+      padding: 14px 14px 16px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.65);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    @media (max-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .thumb {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.04);
+      background: radial-gradient(circle at top, #262040, #050509);
+      min-height: 120px;
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.18s ease-out, opacity 0.18s ease-out;
+    }
+
+    .thumb:hover img {
+      transform: scale(1.03);
+      opacity: 0.94;
+    }
+
+    .thumb-label {
+      position: absolute;
+      left: 8px;
+      bottom: 8px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      background: rgba(5,5,9,0.85);
+      color: var(--text-muted);
+      border: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .empty-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    /* FOOTER */
+    footer {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 20px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      text-align: left;
+    }
+
+    footer a {
+      color: var(--red);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="logo-block">
+        <img src="logo.png" alt="Hoopeystar logo" class="logo-image">
+        <div>
+          <div class="logo-text-main">HOOPEYSTAR</div>
+          <div class="logo-tagline">3D PRINTS • DESIGN • MUSIC</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link nav-link-primary" href="/gallery">Gallery</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- PAGE HERO -->
+      <section class="hero">
+        <div class="hero-eyebrow">Gallery</div>
+        <h1 class="hero-title">
+          A look at some of the things I’ve made.
+        </h1>
+        <p class="hero-subtitle">
+          Finished pieces, experiments, and client projects across LED signs, 3D prints,
+          and design work. If something here sparks an idea, you can send me a message and we’ll
+          build your version of it.
+        </p>
+
+<div class="hero-cta-row">
+  <a class="btn btn-primary" href="mailto:daniel@hoopeystar.com">
+    ⚡ Email me to start a project
+  </a>
+</div>
+      </section>
+
+      <!-- Anchor targets that match home-page links -->
+      <div id="tap-handles"></div>
+
+<!-- LED SIGNS & LIGHTING -->
+<section class="section" id="led-signs">
+  <div class="section-header">
+    <div>
+      <h2 class="section-title">LED signs & lighting</h2>
+    </div>
+    <div class="section-note">
+      For creators, bars, rooms, and setups that need a specific vibe.
+    </div>
+  </div>
+
+  <div class="gallery-card">
+    <div class="gallery-grid">
+
+      <div class="thumb">
+        <img src="hoopeystar-led-sign-hero.jpg" alt="Pink Hoopeystar LED sign on desk">
+        <div class="thumb-label">Logo desk sign</div>
+      </div>
+
+      <div class="thumb">
+        <img src="beer-taps.jpg" alt="Two custom tap handles on a bar top">
+        <div class="thumb-label">Dual tap handles</div>
+      </div>
+
+      <div class="thumb">
+        <img src="hoopeystar-tap-handle.jpg" alt="Hoopeystar logo tap handle">
+        <div class="thumb-label">Hoopeystar tap handle</div>
+      </div>
+
+      <!-- EMPTY PLACEHOLDER -->
+      <div class="thumb">
+        <div style="
+          width:100%;
+          height:100%;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          background:rgba(20,20,30,0.65);
+          color:var(--text-muted);
+          font-size:0.75rem;
+        ">
+          (new LED photo coming)
+        </div>
+      </div>
+
+    </div>
+    <p class="empty-note">
+      More lighting pieces will land here as new projects get finished.
+    </p>
+  </div>
+</section>
+
+
+      <!-- Anchor for clips link from home page -->
+      <div id="clips"></div>
+
+      <!-- 3D PRINTS & PHYSICAL PIECES -->
+      <section class="section" id="prints">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">3D prints & physical pieces</h2>
+          </div>
+          <div class="section-note">
+            Clips, dinos, runs of small parts, and whatever else comes up.
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <div class="gallery-grid">
+            <div class="thumb">
+              <img src="pink-beckies-on-plate.jpg" alt="Batch of pink Becky prints on the plate">
+              <div class="thumb-label">Pink Beckies batch</div>
+            </div>
+            <div class="thumb">
+              <img src="festival-clips-assorted.jpg" alt="Assorted festival clips on a desk mat">
+              <div class="thumb-label">Festival clips set</div>
+            </div>
+            <div class="thumb">
+              <img src="dino-duo-crossing-necks.jpg" alt="Two dinos crossing necks">
+              <div class="thumb-label">Crossing dinos</div>
+            </div>
+            <div class="thumb">
+              <img src="dino-family-lineup.jpg" alt="Lineup of dinos in multiple colors">
+              <div class="thumb-label">Dino family lineup</div>
+            </div>
+          </div>
+          <p class="empty-note">
+            I’ll keep adding more one-off prints, functional parts, and experiments here.
+          </p>
+        </div>
+      </section>
+
+      <!-- DESIGN WORK & BRANDING -->
+      <section class="section" id="design">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Design work & branding</h2>
+          </div>
+          <div class="section-note">
+            Branded runs, cards, and pieces that lean heavier on graphics.
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <div class="gallery-grid">
+
+            <!-- 1. Juanky keychains pile (filename fixed: no "s") -->
+            <div class="thumb">
+              <img src="juanky-keychain-pile.jpg" alt="Pile of Juanky Style keychains with QR card">
+              <div class="thumb-label">Branded keychain set</div>
+            </div>
+
+            <!-- 2. Psych cards -->
+            <div class="thumb">
+              <img src="psych-card-set.jpg" alt="Set of custom Psych! cards">
+              <div class="thumb-label">Custom card design</div>
+            </div>
+
+            <!-- 3. Xmas tree seasonal display (kept) -->
+            <div class="thumb">
+              <img src="xmas-clips.jpg" alt="Tree display of seasonal clips">
+              <div class="thumb-label">Seasonal display</div>
+            </div>
+
+            <!-- 4. EMPTY PLACEHOLDER for future design/branding shot -->
+            <div class="thumb">
+              <div style="
+                width:100%;
+                height:100%;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                background:rgba(20,20,30,0.65);
+                color:var(--text-muted);
+                font-size:0.75rem;
+              ">
+                (new design photo coming)
+              </div>
+            </div>
+
+          </div>
+          <p class="empty-note">
+            More close-ups of cards, labels, and packaging will get added as new projects wrap up.
+          </p>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      © 2025 Hoopeystar. All rights reserved. · Contact:
+      <a href="mailto:daniel@hoopeystar.com">daniel@hoopeystar.com</a>
+    </footer>
+  </div>
+</body>
+</html>
