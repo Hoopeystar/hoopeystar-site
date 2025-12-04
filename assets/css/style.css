@@ -41,6 +41,32 @@
       gap: 12px;
     }
 
+    .logo-block {
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+    /* Remove default link blue */
+    .logo-block {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Force underline color when the browser shows one */
+    .logo-block:link,
+    .logo-block:visited,
+    .logo-block:hover,
+    .logo-block:active {
+      text-decoration-color: #ff2d2d; /* your red */
+    }
+
+    /* Optional: only show underline on hover, in red */
+    .logo-block:hover {
+      text-decoration: underline;
+      text-decoration-color: #ff2d2d;
+    }
+
+
     .logo-image {
       max-height: 80px;
       height: 80px;
