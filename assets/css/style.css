@@ -45,6 +45,13 @@
       display: flex;
       align-items: center;
       gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .logo-block img,
+    .logo-block div {
+      pointer-events: none;
     }
 
     .logo-block {
