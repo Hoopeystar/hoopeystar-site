@@ -9,6 +9,107 @@
     content="Gallery of custom LED signs, 3D prints, and design work by Hoopeystar."
   />
   <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Gallery-specific layout styles -->
+  <style>
+    .section {
+      margin-top: 56px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 24px;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .section-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .gallery-card {
+      background: var(--bg-alt);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .thumb {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      background: radial-gradient(circle at top left,
+        rgba(255, 255, 255, 0.06),
+        transparent);
+      min-height: 240px; /* controls card height */
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .thumb-label {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      border-radius: 999px;
+      color: var(--text-main);
+      background: rgba(5, 5, 9, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .thumb-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(20, 20, 30, 0.65);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+    }
+
+    .empty-note {
+      margin-top: 12px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 640px) {
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .gallery-card {
+        padding: 14px;
+      }
+      .thumb {
+        min-height: 200px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="page">
@@ -40,68 +141,58 @@
           build your version of it.
         </p>
 
-<div class="hero-cta-row">
-  <a class="btn btn-primary" href="mailto:daniel@hoopeystar.com">
-    ⚡ Email me to start a project
-  </a>
-</div>
+        <div class="hero-cta-row">
+          <a class="btn btn-primary" href="mailto:daniel@hoopeystar.com">
+            ⚡ Email me to start a project
+          </a>
+        </div>
       </section>
 
       <!-- Anchor targets that match home-page links -->
       <div id="tap-handles"></div>
 
-<!-- LED SIGNS & LIGHTING -->
-<section class="section" id="led-signs">
-  <div class="section-header">
-    <div>
-      <h2 class="section-title">LED signs & lighting</h2>
-    </div>
-    <div class="section-note">
-      For creators, bars, rooms, and setups that need a specific vibe.
-    </div>
-  </div>
-
-  <div class="gallery-card">
-    <div class="gallery-grid">
-
-      <div class="thumb">
-        <img src="assets/img/hoopeystar-led-sign-hero.jpg" alt="Pink Hoopeystar LED sign on desk">
-        <div class="thumb-label">Logo desk sign</div>
-      </div>
-
-      <div class="thumb">
-        <img src="assets/img/beer-taps.jpg" alt="Two custom tap handles on a bar top">
-        <div class="thumb-label">Dual tap handles</div>
-      </div>
-
-      <div class="thumb">
-        <img src="assets/img/hoopeystar-tap-handle.jpg" alt="Hoopeystar logo tap handle">
-        <div class="thumb-label">Hoopeystar tap handle</div>
-      </div>
-
-      <!-- EMPTY PLACEHOLDER -->
-      <div class="thumb">
-        <div style="
-          width:100%;
-          height:100%;
-          display:flex;
-          align-items:center;
-          justify-content:center;
-          background:rgba(20,20,30,0.65);
-          color:var(--text-muted);
-          font-size:0.75rem;
-        ">
-          (new LED photo coming)
+      <!-- LED SIGNS & LIGHTING -->
+      <section class="section" id="led-signs">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">LED signs &amp; lighting</h2>
+          </div>
+          <div class="section-note">
+            For creators, bars, rooms, and setups that need a specific vibe.
+          </div>
         </div>
-      </div>
 
-    </div>
-    <p class="empty-note">
-      More lighting pieces will land here as new projects get finished.
-    </p>
-  </div>
-</section>
+        <div class="gallery-card">
+          <div class="gallery-grid">
 
+            <div class="thumb">
+              <img src="assets/img/hoopeystar-led-sign-hero.jpg" alt="Pink Hoopeystar LED sign on desk">
+              <div class="thumb-label">Logo desk sign</div>
+            </div>
+
+            <div class="thumb">
+              <img src="assets/img/beer-taps.jpg" alt="Two custom tap handles on a bar top">
+              <div class="thumb-label">Dual tap handles</div>
+            </div>
+
+            <div class="thumb">
+              <img src="assets/img/hoopeystar-tap-handle.jpg" alt="Hoopeystar logo tap handle">
+              <div class="thumb-label">Hoopeystar tap handle</div>
+            </div>
+
+            <!-- EMPTY PLACEHOLDER -->
+            <div class="thumb">
+              <div class="thumb-placeholder">
+                (new LED photo coming)
+              </div>
+            </div>
+
+          </div>
+          <p class="empty-note">
+            More lighting pieces will land here as new projects get finished.
+          </p>
+        </div>
+      </section>
 
       <!-- Anchor for clips link from home page -->
       <div id="clips"></div>
@@ -110,7 +201,7 @@
       <section class="section" id="prints">
         <div class="section-header">
           <div>
-            <h2 class="section-title">3D prints & physical pieces</h2>
+            <h2 class="section-title">3D prints &amp; physical pieces</h2>
           </div>
           <div class="section-note">
             Clips, dinos, runs of small parts, and whatever else comes up.
@@ -146,7 +237,7 @@
       <section class="section" id="design">
         <div class="section-header">
           <div>
-            <h2 class="section-title">Design work & branding</h2>
+            <h2 class="section-title">Design work &amp; branding</h2>
           </div>
           <div class="section-note">
             Branded runs, cards, and pieces that lean heavier on graphics.
@@ -156,7 +247,7 @@
         <div class="gallery-card">
           <div class="gallery-grid">
 
-            <!-- 1. Juanky keychains pile (filename fixed: no "s") -->
+            <!-- 1. Juanky keychains pile -->
             <div class="thumb">
               <img src="assets/img/juanky-keychain-pile.jpg" alt="Pile of Juanky Style keychains with QR card">
               <div class="thumb-label">Branded keychain set</div>
@@ -168,7 +259,7 @@
               <div class="thumb-label">Custom card design</div>
             </div>
 
-            <!-- 3. Xmas tree seasonal display (kept) -->
+            <!-- 3. Xmas tree seasonal display -->
             <div class="thumb">
               <img src="assets/img/xmas-clips.jpg" alt="Tree display of seasonal clips">
               <div class="thumb-label">Seasonal display</div>
@@ -176,16 +267,7 @@
 
             <!-- 4. EMPTY PLACEHOLDER for future design/branding shot -->
             <div class="thumb">
-              <div style="
-                width:100%;
-                height:100%;
-                display:flex;
-                align-items:center;
-                justify-content:center;
-                background:rgba(20,20,30,0.65);
-                color:var(--text-muted);
-                font-size:0.75rem;
-              ">
+              <div class="thumb-placeholder">
                 (new design photo coming)
               </div>
             </div>
