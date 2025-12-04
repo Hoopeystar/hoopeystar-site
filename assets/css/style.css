@@ -362,11 +362,12 @@ width: 100%;
     }
     
     .bottom-cta-btn {
-  max-width: 380px;   /* nice premium width */
+  max-width: 240px;   /* nice premium width */
   width: 100%;
   text-align: center;
-  padding: 14px 24px;
-  border-radius: 999px;
+  display: inline-block;
+  flex: 0 0 auto !important;
+  width: auto !important;
 }
     .bottom-text {
       font-size: 0.86rem;
@@ -535,8 +536,22 @@ width: 100%;
   color: #ff2d2d;
 }
 
-label::after {
+.label::after {
   color: #ff2d2d;
+}
+
+.bottom-cta {
+  display: flex;
+  justify-content: center;  /* center the button */
+  margin-top: 12px;
+  width: 100%;
+}
+
+.bottom-cta-btn {
+  max-width: 360px;    /* perfect premium CTA size */
+  width: 100%;         /* allows responsiveness without going full width */
+  text-align: center;  
+  display: inline-block;
 }
 
 
