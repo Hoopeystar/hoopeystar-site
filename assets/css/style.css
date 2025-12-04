@@ -434,6 +434,23 @@ width: 100%;
       .grid {
         grid-template-columns: 1fr;
       }
+
+      .nav-links {
+  justify-content: center;
+}
+
+  .nav-links {
+    flex-wrap: wrap;          /* allow buttons to wrap underneath */
+    justify-content: flex-start; 
+    gap: 6px 10px;            /* tighter spacing for mobile */
+  }
+
+  .nav-link {
+    padding: 6px 12px;         /* slightly larger tap area */
+    font-size: 0.8rem;         /* keeps them tidy on small screens */
+  }
+}
+
     }
     /* Contact page */
 
