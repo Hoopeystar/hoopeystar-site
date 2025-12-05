@@ -415,49 +415,47 @@ width: 100%;
 
     /* RESPONSIVE */
     @media(max-width:768px){
-      body {
-        padding: 20px 14px 40px;
-      }
+  body {
+    padding: 20px 14px 40px;
+  }
 
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
 
-      .logo-block {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-      }
+  /* KEEP LOGO + NAME HORIZONTAL */
+  .logo-block {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
 
-      .hero {
-        padding: 22px 16px 20px;
-      }
+  .hero {
+    padding: 22px 16px 20px;
+  }
 
-      .hero-previews {
-        max-width: 260px;
-      }
+  .hero-previews {
+    max-width: 260px;
+  }
 
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .nav-links {
-  justify-content: center;
-}
+  .grid {
+    grid-template-columns: 1fr;
+  }
 
   .nav-links {
-    flex-wrap: wrap;          /* allow buttons to wrap underneath */
-    justify-content: flex-start; 
-    gap: 6px 10px;            /* tighter spacing for mobile */
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 6px 10px;
   }
 
   .nav-link {
-    padding: 6px 12px;         /* slightly larger tap area */
-    font-size: 0.8rem;         /* keeps them tidy on small screens */
+    padding: 6px 12px;
+    font-size: 0.8rem;
   }
 }
+
 
 /* Contact page */
 
