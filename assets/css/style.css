@@ -600,15 +600,29 @@ width: 100%;
     width: 100%;
   }
 
-  /* Mobile expand state */
+  .bottom-cta {
+    justify-content: center;
+  }
+}
+
+/* Touch devices: tap-to-expand hero preview images */
+@media (hover: none) and (pointer: coarse) {
+  .hero-preview {
+    cursor: pointer;
+  }
+
+  /* default: cropped */
+  .hero-preview .photo-frame {
+    height: 120px;
+    overflow: hidden;
+  }
+
+  /* tapped: uncrop by letting the image spill outside the frame */
   .hero-preview.expanded .photo-frame {
     overflow: visible;
     z-index: 30;
-  }
-
-  /* Keep corners when expanded */
-  .hero-preview.expanded .photo-frame {
     border-radius: var(--card-radius);
   }
 }
+
 

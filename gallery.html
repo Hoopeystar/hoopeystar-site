@@ -8,7 +8,7 @@
     name="description"
     content="Gallery of custom LED signs, 3D prints, and design work by Hoopeystar."
   />
-  <link rel="stylesheet" href="assets/css/style.css?v=8">
+  <link rel="stylesheet" href="assets/css/style.css?v=9">
 
   <!-- Gallery-specific layout styles -->
   <style>
@@ -329,6 +329,13 @@
       }, { passive: true });
     });
   })();
+</script>
+<script>
+document.querySelectorAll('.gallery-item').forEach(item => {
+  item.addEventListener('click', () => {
+    item.classList.toggle('expanded');
+  });
+});
 </script>
 </body>
 </html>

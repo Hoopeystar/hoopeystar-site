@@ -8,7 +8,7 @@
     name="description"
     content="Custom LED signs, 3D prints, and design work by Hoopeystar. Send an idea, get a unique physical piece made just for you."
   />
-  <link rel="stylesheet" href="assets/css/style.css?v=8">
+  <link rel="stylesheet" href="assets/css/style.css?v=9">
 </head>
 <body>
   <div class="page">
@@ -194,26 +194,27 @@
   </div>
   <script>
   // Mobile tap-to-expand for hero previews
-  document.querySelectorAll('.hero-preview').forEach(card => {
-    let tappedOnce = false;
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.hero-preview');
 
-    card.addEventListener('touchstart', function (e) {
-      // If it's already expanded from a previous tap → allow normal link navigation
-      if (card.classList.contains('expanded')) return;
+    cards.forEach(card => {
+      card.addEventListener('click', function (e) {
+        // If already expanded -> allow link navigation
+        if (card.classList.contains('expanded')) return;
 
-      // First tap = expand instead of navigating
-      e.preventDefault();
-      card.classList.add('expanded');
-
-      // Reset "tapped once" after short delay
-      setTimeout(() => { tappedOnce = false; }, 400);
+        // Prevent navigation on first tap; expand instead
+        e.preventDefault();
+        card.classList.add('expanded');
+      });
     });
 
-    // Collapse when tapping outside (optional but feels clean)
-    document.addEventListener('touchstart', function (e) {
-      if (!card.contains(e.target)) {
-        card.classList.remove('expanded');
-      }
+    // Collapse any expanded card when tapping anywhere else
+    document.addEventListener('click', function (e) {
+      cards.forEach(card => {
+        if (!card.contains(e.target)) {
+          card.classList.remove('expanded');
+        }
+      });
     });
   });
 </script>
