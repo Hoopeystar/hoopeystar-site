@@ -386,8 +386,8 @@ header {
 }
 
 .bottom-text {
-  font-size: 0.86rem;
-  color: var(--text-muted);
+  font-size: 0.8rem;
+  color: #ffffff;
 }
 
 .bottom-cta {
@@ -569,7 +569,60 @@ footer a:hover {
 }
 
 /* Mobile tweaks for contact + hero previews */
+/* MOBILE (≤ 768px) */
 @media (max-width: 768px) {
+
+  body {
+    padding: 20px 14px 40px;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .logo-block {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero {
+    padding: 22px 16px 20px;
+  }
+
+  .hero-previews {
+    max-width: none;
+    width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 6px 10px;
+  }
+
+  .nav-link {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  /* How it works — stack on mobile */
+  .how-steps {
+    flex-direction: column;
+    gap: 16px; /* cleaner vertical spacing */
+  }
+
+  .how-step {
+    flex: 1 1 100%;
+  }
+
+  /* Contact page tweaks */
   .contact-section {
     margin-top: 64px;
   }
@@ -582,20 +635,15 @@ footer a:hover {
     font-size: 2rem;
   }
 
-  /* Make previews use full width on mobile */
-  .hero-previews {
-    max-width: none;
-    width: 100%;
-  }
-
   .bottom-cta {
     justify-content: center;
   }
 }
 
-/* Touch devices: make hero previews feel tappable */
+/* TOUCH DEVICES (tap affordance) */
 @media (hover: none) and (pointer: coarse) {
   .hero-preview {
     cursor: pointer;
   }
 }
+
