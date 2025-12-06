@@ -617,11 +617,28 @@ width: 100%;
     overflow: hidden;
   }
 
-  /* tapped: uncrop by letting the image spill outside the frame */
+  .hero-preview .photo-frame img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: auto;
+    transform: translate(-50%, -50%);
+  }
+
+  /* expanded: show full image nicely in the card */
   .hero-preview.expanded .photo-frame {
+    height: auto;
+    max-height: 70vh;
     overflow: visible;
-    z-index: 30;
     border-radius: var(--card-radius);
+  }
+
+  .hero-preview.expanded .photo-frame img {
+    position: static;
+    width: 100%;
+    height: auto;
+    transform: none;
   }
 }
 

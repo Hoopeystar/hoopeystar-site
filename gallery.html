@@ -8,7 +8,7 @@
     name="description"
     content="Gallery of custom LED signs, 3D prints, and design work by Hoopeystar."
   />
-  <link rel="stylesheet" href="assets/css/style.css?v=9">
+  <link rel="stylesheet" href="assets/css/style.css?v=10">
 
   <!-- Gallery-specific layout styles -->
   <style>
@@ -306,36 +306,33 @@
   </div>
   <script>
   (function () {
-    const thumbs = document.querySelectorAll('.thumb');
+    const cards = document.querySelectorAll('.hero-preview');
+    if (!cards.length) return;
 
-    // Simple tap-to-toggle for touch devices
-    thumbs.forEach(thumb => {
-      thumb.addEventListener('touchstart', function (e) {
-        // If user is scrolling, don't fight it
-        // (tiny debounce by only acting on quick taps)
-        const alreadyExpanded = thumb.classList.contains('expanded');
-
-        // Collapse all others first
-        thumbs.forEach(t => {
-          if (t !== thumb) t.classList.remove('expanded');
-        });
-
-        // Toggle this one
-        if (!alreadyExpanded) {
-          thumb.classList.add('expanded');
-        } else {
-          thumb.classList.remove('expanded');
+    // First tap on image = expand instead of navigate
+    cards.forEach(card => {
+      card.addEventListener('click', function (e) {
+        // If already expanded, let the link behave normally
+        if (card.classList.contains('expanded')) {
+          return;
         }
-      }, { passive: true });
+
+        // First tap → stop navigation and expand
+        e.preventDefault();
+        card.classList.add('expanded');
+      });
+    });
+
+    // Tap anywhere else = collapse all
+    document.addEventListener('click', function (e) {
+      cards.forEach(card => {
+        if (!card.contains(e.target)) {
+          card.classList.remove('expanded');
+        }
+      });
     });
   })();
 </script>
-<script>
-document.querySelectorAll('.gallery-item').forEach(item => {
-  item.addEventListener('click', () => {
-    item.classList.toggle('expanded');
-  });
-});
-</script>
+
 </body>
 </html>
