@@ -64,7 +64,7 @@ header {
 .logo-block:visited,
 .logo-block:hover,
 .logo-block:active {
-  text-decoration-color: #ff2d2d; /* your red */
+  text-decoration-color: #ff2d2d;
 }
 
 /* Only show underline on hover, in red */
@@ -240,7 +240,7 @@ header {
   position: relative;
 }
 
-/* Cropping frame for images that can "uncrop" on hover */
+/* Cropping frame */
 .photo-frame {
   position: relative;
   height: 120px;
@@ -248,7 +248,7 @@ header {
   border-radius: 12px;
 }
 
-/* The actual image is already larger than the frame */
+/* Image inside frame */
 .photo-frame img {
   position: absolute;
   top: 50%;
@@ -259,10 +259,20 @@ header {
   display: block;
 }
 
-/* On hover, stop clipping so the same-scale image spills outward */
-.hero-preview:hover .photo-frame {
+/* Expanded state (click-to-expand) */
+.hero-preview.expanded .photo-frame {
+  height: auto;
+  max-height: 70vh;
   overflow: visible;
+  border-radius: var(--card-radius);
   z-index: 20;
+}
+
+.hero-preview.expanded .photo-frame img {
+  position: static;
+  width: 100%;
+  height: auto;
+  transform: none;
 }
 
 .hero-preview-caption {
@@ -481,7 +491,7 @@ footer a:hover {
   font-size: 2.5rem;
   letter-spacing: 0.08em;
   margin: 0 0 8px;
-  color: #ff2d2d; /* final chosen color */
+  color: #ff2d2d;
 }
 
 .contact-subtitle {
@@ -578,39 +588,9 @@ footer a:hover {
   }
 }
 
-/* Touch devices: tap-to-expand hero preview images */
+/* Touch devices: make hero previews feel tappable */
 @media (hover: none) and (pointer: coarse) {
   .hero-preview {
     cursor: pointer;
-  }
-
-  /* default: cropped */
-  .hero-preview .photo-frame {
-    height: 120px;
-    overflow: hidden;
-  }
-
-  .hero-preview .photo-frame img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: auto;
-    transform: translate(-50%, -50%);
-  }
-
-  /* expanded: show full image nicely in the card */
-  .hero-preview.expanded .photo-frame {
-    height: auto;
-    max-height: 70vh;
-    overflow: visible;
-    border-radius: var(--card-radius);
-  }
-
-  .hero-preview.expanded .photo-frame img {
-    position: static;
-    width: 100%;
-    height: auto;
-    transform: none;
   }
 }
