@@ -55,21 +55,27 @@
 
   <!-- CARDS NOW STACK BELOW LIKE YOU WANT -->
   <div class="hero-previews">
-    <a class="hero-preview" href="/gallery#led-signs">
+  <a class="hero-preview" href="/gallery#led-signs">
+    <div class="photo-frame">
       <img src="assets/img/hoopeystar-led-sign-hero.jpg" alt="Pink Hoopeystar LED sign on a desk">
-      <div class="hero-preview-caption">LED logo sign with diffused lighting.</div>
-    </a>
+    </div>
+    <div class="hero-preview-caption">LED logo sign with diffused lighting.</div>
+  </a>
 
-    <a class="hero-preview" href="/gallery#tap-handles">
+  <a class="hero-preview" href="/gallery#tap-handles">
+    <div class="photo-frame">
       <img src="assets/img/beer-taps.jpg" alt="Custom glowing tap handles on a bar top">
-      <div class="hero-preview-caption">Custom tap handles with backlit graphics.</div>
-    </a>
+    </div>
+    <div class="hero-preview-caption">Custom tap handles with backlit graphics.</div>
+  </a>
 
-    <a class="hero-preview" href="/gallery#clips">
+  <a class="hero-preview" href="/gallery#clips">
+    <div class="photo-frame">
       <img src="assets/img/xmas-clips.jpg" alt="Christmas tree covered in custom 3D printed clips">
-      <div class="hero-preview-caption">Festival & holiday keychains and clips.</div>
-    </a>
-  </div>
+    </div>
+    <div class="hero-preview-caption">Festival & holiday keychains and clips.</div>
+  </a>
+</div>
 </section>
 
 
@@ -81,16 +87,17 @@
         <div class="grid">
           <!-- LED signs & lighting -->
           <article class="card">
-            <div class="card-title">LED signs & lighting</div>
+            <div class="card-title">Lighting & electronics</div>
             <div class="card-body">
-              Custom LED signage and lighting pieces for creators, events, workspaces,
+              Custom LED signage and electronic pieces for creators, events, workspaces,
               and anyone who wants something unique in their space.
             </div>
             <div class="pill-row">
-              <div class="pill">LED signs</div>
-              <div class="pill">Ambient lighting</div>
-              <div class="pill">Light boxes</div>
-              <div class="pill">Custom vibes</div>
+              <div class="pill">Personalized name signs</div>
+              <div class="pill">Branded logo displays</div>
+              <div class="pill">Ambient  lighting</div>
+              <div class="pill">Levitating displays</div>
+              <div class="pill">Custom gifts</div>
             </div>
           </article>
 
@@ -102,12 +109,11 @@
               functional parts, or anything you want made.
             </div>
             <div class="pill-row">
-              <div class="pill">Displays</div>
-              <div class="pill">Gifts</div>
-              <div class="pill">Promo items</div>
+              <div class="pill">Customized gifts</div>
+              <div class="pill">Value added ideas</div>
+              <div class="pill">Branded promo items</div>
               <div class="pill">Prototypes</div>
               <div class="pill">Functional parts</div>
-              <div class="pill">Custom ideas</div>
             </div>
           </article>
 
@@ -120,10 +126,10 @@
               thermal-printed labels for packaging, stickers, and small product runs.
             </div>
             <div class="pill-row">
-              <div class="pill">Business cards</div>
-              <div class="pill">Print layouts</div>
-              <div class="pill">Brand accents</div>
-              <div class="pill">Digital graphics</div>
+              <div class="pill">Business card design</div>
+              <div class="pill">Logo creation / refinement</div>
+              <div class="pill">Print ready layouts</div>
+              <div class="pill">Product labels / stickers</div>
             </div>
           </article>
 
@@ -135,10 +141,10 @@
               or small tracks to give your content its own sound.
             </div>
             <div class="pill-row">
-              <div class="pill">Podcast intros</div>
-              <div class="pill">Outros</div>
-              <div class="pill">Jingles</div>
-              <div class="pill">Simple tracks</div>
+              <div class="pill">Intros / outros</div>
+              <div class="pill">Personalized audio branding</div>
+              <div class="pill">Custom background tracks</div>
+              <div class="pill">Sound design / audio cues</div>
             </div>
           </article>
         </div>
@@ -186,5 +192,30 @@
       <a href="mailto:daniel@hoopeystar.com">daniel@hoopeystar.com</a>
     </footer>
   </div>
+  <script>
+  // Mobile tap-to-expand for hero previews
+  document.querySelectorAll('.hero-preview').forEach(card => {
+    let tappedOnce = false;
+
+    card.addEventListener('touchstart', function (e) {
+      // If it's already expanded from a previous tap → allow normal link navigation
+      if (card.classList.contains('expanded')) return;
+
+      // First tap = expand instead of navigating
+      e.preventDefault();
+      card.classList.add('expanded');
+
+      // Reset "tapped once" after short delay
+      setTimeout(() => { tappedOnce = false; }, 400);
+    });
+
+    // Collapse when tapping outside (optional but feels clean)
+    document.addEventListener('touchstart', function (e) {
+      if (!card.contains(e.target)) {
+        card.classList.remove('expanded');
+      }
+    });
+  });
+</script>
 </body>
 </html>
