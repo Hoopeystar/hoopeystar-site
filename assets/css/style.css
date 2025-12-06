@@ -581,8 +581,7 @@ width: 100%;
 
 
 /* Mobile tweaks */
-
-@media (max-width: 720px) {
+@media (max-width: 768px) {
   .contact-section {
     margin-top: 64px;
   }
@@ -594,15 +593,22 @@ width: 100%;
   .contact-title {
     font-size: 2rem;
   }
+
+  /* FIX: make previews use full width on mobile */
+  .hero-previews {
+    max-width: none;
+    width: 100%;
+  }
+
   /* Mobile expand state */
-.hero-preview.expanded .photo-frame {
-  overflow: visible;
-  z-index: 30;
+  .hero-preview.expanded .photo-frame {
+    overflow: visible;
+    z-index: 30;
+  }
+
+  /* Keep corners when expanded */
+  .hero-preview.expanded .photo-frame {
+    border-radius: var(--card-radius);
+  }
 }
 
-/* Keep corners when expanded */
-.hero-preview.expanded .photo-frame {
-  border-radius: var(--card-radius);
-}
-
-}
