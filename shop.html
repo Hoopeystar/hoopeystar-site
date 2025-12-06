@@ -8,44 +8,56 @@
     name="description"
     content="Shop custom LED signs, 3D prints, and physical pieces from Hoopeystar."
   />
-  <link rel="stylesheet" href="assets/css/style.css?v=12">
+  <link rel="stylesheet" href="assets/css/style.css?v=13">
 </head>
 
 <body>
   <div class="page">
     <!-- HEADER -->
     <header>
-  <a href="/index.html" class="logo-block">
-  <img src="assets/img/logo.png" alt="Hoopeystar logo" class="logo-image">
-  <div>
-    <div class="logo-text-main">HOOPEYSTAR</div>
-    <div class="logo-tagline">3D PRINTS · DESIGN · MUSIC</div>
-  </div>
-</a>
-  <nav class="nav-links">
-    <a class="nav-link" href="/index.html">Home</a>
-    <a class="nav-link" href="/gallery.html">Gallery</a>
-    <a class="nav-link nav-link-primary" href="/shop.html">Shop</a>
-    <a class="nav-link" href="/contact.html">Contact</a>
-  </nav>
-</header>
-
+      <a href="/" class="logo-block">
+        <img src="assets/img/logo.png" alt="Hoopeystar logo" class="logo-image">
+        <div>
+          <div class="logo-text-main">HOOPEYSTAR</div>
+          <div class="logo-tagline">3D PRINTS · DESIGN · MUSIC</div>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/gallery">Gallery</a>
+        <a class="nav-link nav-link-primary" href="/shop">Shop</a>
+        <a class="nav-link" href="/contact">Contact</a>
+      </nav>
+    </header>
 
     <main>
       <!-- HERO -->
       <section class="hero">
+        <div class="hero-eyebrow">Shop</div>
         <h1 class="hero-title">Shop</h1>
         <p class="hero-subtitle">
-          Coming soon...
+          A small shop for select pieces is coming soon. For now, if you want something made,
+          you can message me directly and we’ll build it one-on-one.
         </p>
+        <div class="hero-cta-row">
+          <a class="btn btn-primary" href="/contact">
+            ✉️ Message me to start a project
+          </a>
+          <a class="btn btn-secondary" href="/gallery">
+            Or browse the gallery →
+          </a>
+        </div>
       </section>
-
     </main>
 
+    <!-- FOOTER -->
     <footer>
       © 2025 Hoopeystar LLC. All rights reserved. · Contact:
-      <a href="mailto:daniel@hoopeystar.com">daniel@hoopeystar.com</a>
+      <span class="copy-email" data-email="daniel@hoopeystar.com">daniel@hoopeystar.com</span>
     </footer>
   </div>
+
+  <!-- Global site JS (email copy, etc.) -->
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

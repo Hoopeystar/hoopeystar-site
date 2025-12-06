@@ -417,7 +417,16 @@ body::after {
   z-index: -1;
 }
 
-/* FOOTER */
+/* FOOTER + EMAIL COPY */
+.copy-email {
+  color: var(--red);
+  cursor: pointer;
+}
+
+.copy-email:hover {
+  text-decoration: underline;
+}
+
 footer {
   font-size: 0.75rem;
   color: var(--text-muted);
@@ -557,10 +566,6 @@ footer a:hover {
 
 .contact-submit {
   padding-inline: 36px;
-}
-
-.label::after {
-  color: #ff2d2d;
 }
 
 /* Mobile tweaks for contact + hero previews */

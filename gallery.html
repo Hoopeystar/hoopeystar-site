@@ -8,7 +8,7 @@
     name="description"
     content="Gallery of custom LED signs, 3D prints, and design work by Hoopeystar."
   />
-  <link rel="stylesheet" href="assets/css/style.css?v=12">
+  <link rel="stylesheet" href="assets/css/style.css?v=13">
 
   <!-- Gallery-specific layout styles -->
   <style>
@@ -153,7 +153,7 @@
   <div class="page">
     <!-- HEADER -->
     <header>
-      <a href="/index.html" class="logo-block">
+      <a href="/" class="logo-block">
         <img src="assets/img/logo.png" alt="Hoopeystar logo" class="logo-image">
         <div>
           <div class="logo-text-main">HOOPEYSTAR</div>
@@ -182,7 +182,7 @@
         </p>
 
         <div class="hero-cta-row">
-          <a class="btn btn-primary" href="mailto:daniel@hoopeystar.com">
+          <a class="btn btn-primary" href="/contact">
             ✉️ Message me to start a project
           </a>
         </div>
@@ -323,10 +323,11 @@
     <!-- FOOTER -->
     <footer>
       © 2025 Hoopeystar LLC. All rights reserved. · Contact:
-      <a href="mailto:daniel@hoopeystar.com">daniel@hoopeystar.com</a>
+      <span class="copy-email" data-email="daniel@hoopeystar.com">daniel@hoopeystar.com</span>
     </footer>
   </div>
 
+  <!-- Gallery thumb click-to-expand -->
   <script>
     (function () {
       const thumbs = document.querySelectorAll('.thumb');
@@ -361,5 +362,7 @@
     })();
   </script>
 
+  <!-- Global site JS (email copy, etc.) -->
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

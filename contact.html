@@ -8,14 +8,14 @@
     name="description"
     content="Contact Hoopeystar for custom LED signs, 3D prints, and design work."
   />
-  <link rel="stylesheet" href="assets/css/style.css?v=12">
+  <link rel="stylesheet" href="assets/css/style.css?v=13">
 </head>
 
 <body>
   <div class="page">
     <!-- HEADER -->
     <header>
-      <a href="/index.html" class="logo-block">
+      <a href="/" class="logo-block">
         <img src="assets/img/logo.png" alt="Hoopeystar logo" class="logo-image">
         <div>
           <div class="logo-text-main">HOOPEYSTAR</div>
@@ -35,7 +35,7 @@
         <h1 class="contact-title">CONTACT FORM</h1>
 
         <p class="contact-subtitle">
-          Please reach out with any questions or requests.<br />
+          Please reach out with any questions or requests.
         </p>
 
         <p id="form-status" style="color:#9200ff; display:none; margin-top:12px;">
@@ -45,7 +45,7 @@
           Something went wrong. Please try again in a moment.
         </p>
 
-        <!-- IMPORTANT: Formspree endpoint + POST -->
+        <!-- Formspree endpoint + POST -->
         <form
           class="contact-form"
           action="https://formspree.io/f/xblnkydq"
@@ -70,7 +70,7 @@
                 name="phone"
                 type="tel"
                 maxlength="14"
-               inputmode="numeric"
+                inputmode="numeric"
               >
             </div>
           </div>
@@ -83,7 +83,6 @@
           </div>
 
           <div class="contact-actions">
-            <!-- match home button style: btn + btn-primary -->
             <button type="submit" class="btn btn-primary contact-submit">
               SEND
             </button>
@@ -92,84 +91,84 @@
       </section>
     </main>
 
+    <!-- FOOTER -->
     <footer>
       © 2025 Hoopeystar LLC. All rights reserved. · Contact:
-      <a href="mailto:daniel@hoopeystar.com">daniel@hoopeystar.com</a>
+      <span class="copy-email" data-email="daniel@hoopeystar.com">daniel@hoopeystar.com</span>
     </footer>
   </div>
 
-  <!-- Simple JS handler for Formspree -->
+  <!-- PHONE AUTO-FORMATTING + FORM HANDLER -->
   <script>
-  // ------------------------
-  // PHONE AUTO-FORMATTING
-  // ------------------------
-  const phoneInput = document.getElementById("phone");
+    // PHONE AUTO-FORMATTING
+    const phoneInput = document.getElementById("phone");
 
-  if (phoneInput) {
-    phoneInput.addEventListener("input", function (e) {
-      let digits = e.target.value.replace(/\D/g, "");
+    if (phoneInput) {
+      phoneInput.addEventListener("input", function (e) {
+        let digits = e.target.value.replace(/\D/g, "");
 
-      if (digits.length > 10) digits = digits.slice(0, 10);
+        if (digits.length > 10) digits = digits.slice(0, 10);
 
-      let formatted = "";
+        let formatted = "";
 
-      if (digits.length === 0) {
-        formatted = "";
-      } else if (digits.length <= 3) {
-        formatted = `(${digits}`;
-      } else if (digits.length <= 6) {
-        formatted = `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
-      } else {
-        formatted = `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
-      }
-
-      e.target.value = formatted;
-    });
-  }
-
-  // ------------------------
-  // FORM HANDLER
-  // ------------------------
-  (function () {
-    const form = document.querySelector(".contact-form");
-    if (!form) return;
-
-    const status = document.getElementById("form-status");
-    const errorMsg = document.getElementById("form-error");
-
-    form.addEventListener("submit", async function (e) {
-      e.preventDefault();
-
-      // PHONE VALIDATION (optional or exactly 10 digits)
-      const rawDigits = phoneInput.value.replace(/\D/g, "");
-      if (rawDigits.length !== 0 && rawDigits.length !== 10) {
-        alert("Please enter a valid 10-digit phone number.");
-        return;
-      }
-
-      if (status) status.style.display = "none";
-      if (errorMsg) errorMsg.style.display = "none";
-
-      const data = new FormData(form);
-
-      try {
-        const response = await fetch(form.action, {
-          method: "POST",
-          body: data,
-          headers: { "Accept": "application/json" }
-        });
-
-        if (response.ok) {
-          if (status) status.style.display = "block";
-          form.reset();
+        if (digits.length === 0) {
+          formatted = "";
+        } else if (digits.length <= 3) {
+          formatted = `(${digits}`;
+        } else if (digits.length <= 6) {
+          formatted = `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
         } else {
+          formatted = `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+        }
+
+        e.target.value = formatted;
+      });
+    }
+
+    // FORM HANDLER
+    (function () {
+      const form = document.querySelector(".contact-form");
+      if (!form) return;
+
+      const status = document.getElementById("form-status");
+      const errorMsg = document.getElementById("form-error");
+
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        // PHONE VALIDATION (optional or exactly 10 digits)
+        const rawDigits = phoneInput.value.replace(/\D/g, "");
+        if (rawDigits.length !== 0 && rawDigits.length !== 10) {
+          alert("Please enter a valid 10-digit phone number.");
+          return;
+        }
+
+        if (status) status.style.display = "none";
+        if (errorMsg) errorMsg.style.display = "none";
+
+        const data = new FormData(form);
+
+        try {
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: data,
+            headers: { "Accept": "application/json" }
+          });
+
+          if (response.ok) {
+            if (status) status.style.display = "block";
+            form.reset();
+          } else {
+            if (errorMsg) errorMsg.style.display = "block";
+          }
+        } catch (err) {
           if (errorMsg) errorMsg.style.display = "block";
         }
-      } catch (err) {
-        if (errorMsg) errorMsg.style.display = "block";
-      }
-    });
-  })();
-</script>
+      });
+    })();
+  </script>
+
+  <!-- Global site JS (email copy, etc.) -->
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
