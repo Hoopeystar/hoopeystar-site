@@ -248,15 +248,14 @@ header {
   border-radius: 12px;
 }
 
-/* Image inside frame */
+/* Image inside frame — FORCE uniform thumbnails */
 .photo-frame img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
   width: 100%;
-  height: auto;
-  transform: translate(-50%, -50%);
+  height: 100%;
+  object-fit: cover;   /* crops to match the frame */
   display: block;
+  position: static;
+  transform: none;
 }
 
 /* Expanded state (click-to-expand) */
@@ -269,10 +268,9 @@ header {
 }
 
 .hero-preview.expanded .photo-frame img {
-  position: static;
-  width: 100%;
   height: auto;
-  transform: none;
+  width: 100%;
+  object-fit: contain;  /* show the full image when expanded */
 }
 
 .hero-preview-caption {
