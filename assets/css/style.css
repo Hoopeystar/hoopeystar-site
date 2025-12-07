@@ -660,25 +660,40 @@ footer a:hover {
 /* Contact page base */
 .contact-section {
   max-width: var(--max-width);
-  margin: 80px auto 96px;
+  margin: 0 auto 96px;
   padding: 0 18px;
 }
 
-.contact-title {
-  font-size: 2.5rem;
-  letter-spacing: 0.08em;
-  margin: 0 0 8px;
-  color: #ff2d2d;
+/* Hero-style header for contact */
+.contact-section .section-header {
+  border-radius: var(--card-radius);
+  padding: 20px 18px 18px;
+  background: radial-gradient(
+    circle at top left,
+    rgba(146, 0, 255, 0.35),
+    var(--bg-alt)
+  );
+  border: 1px solid rgba(146, 0, 255, 0.3);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 26px;
 }
 
-.contact-subtitle {
-  margin: 0 0 32px;
-  font-size: 0.9rem;
+.contact-section .section-title {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--text-muted);
+  color: var(--yellow);
 }
 
+.contact-section .section-note {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  max-width: 32rem;
+}
+
+/* Form layout under the hero block */
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -735,6 +750,7 @@ footer a:hover {
 .contact-submit {
   padding-inline: 36px;
 }
+
 
 /* TOUCH DEVICES (tap affordance for hero previews) */
 @media (hover: none) and (pointer: coarse) {
