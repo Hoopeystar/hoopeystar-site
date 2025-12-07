@@ -8,151 +8,12 @@
     name="description"
     content="Gallery of custom LED signs, 3D prints, and design work by Hoopeystar."
   />
-  <link rel="stylesheet" href="assets/css/style.css?v=15">
-
-  <!-- Gallery-specific layout styles -->
-  <style>
-    .section {
-      margin-top: 56px;
-    }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 24px;
-      margin-bottom: 18px;
-    }
-
-    .section-title {
-      margin: 0;
-      font-size: 1rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .section-note {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .gallery-card {
-      background: var(--bg-alt);
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 20px;
-    }
-
-    .thumb {
-      position: relative;
-      border-radius: 18px;
-      overflow: hidden;
-      background: radial-gradient(circle at top left,
-        rgba(255, 255, 255, 0.06),
-        transparent);
-      height: 240px; /* fixed card height for cropped grid look */
-      transition:
-        transform 0.18s ease-out,
-        box-shadow 0.18s ease-out,
-        height 0.18s ease-out;
-    }
-
-    /* Desktop hover niceness */
-    .thumb:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 30px rgba(0,0,0,0.8);
-    }
-
-    .thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* cropped by default */
-      display: block;
-      transition:
-        transform 0.18s ease-out,
-        height 0.18s ease-out;
-    }
-
-    /* Click/tap-to-enlarge (desktop + mobile) */
-    .thumb.expanded {
-      height: auto;          /* uncrop vertically */
-      max-height: 70vh;      /* don't exceed viewport too much */
-      transform: none;       /* kill extra hover bump */
-      box-shadow: 0 18px 40px rgba(0,0,0,0.9);
-      z-index: 40;
-    }
-
-    .thumb.expanded:hover {
-      transform: none;       /* keep it stable when expanded */
-    }
-
-    .thumb.expanded img {
-      height: auto;
-      object-fit: contain;   /* show full image inside the card */
-    }
-
-    .thumb-label {
-      position: absolute;
-      left: 12px;
-      bottom: 12px;
-      padding: 4px 10px;
-      font-size: 0.75rem;
-      border-radius: 999px;
-      color: var(--text-main);
-      background: rgba(5, 5, 9, 0.8);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-    }
-
-    .thumb-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(20, 20, 30, 0.65);
-      color: var(--text-muted);
-      font-size: 0.75rem;
-    }
-
-    .empty-note {
-      margin-top: 12px;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    @media (max-width: 640px) {
-      .section-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-      }
-      .gallery-card {
-        padding: 14px;
-      }
-      .thumb {
-        height: 200px; /* slightly shorter crop on small screens */
-      }
-    }
-
-    /* Touch-specific polish: make thumbs obviously tappable */
-    @media (hover: none) and (pointer: coarse) {
-      .thumb {
-        cursor: pointer;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/style.css?v=20">
 </head>
 <body>
   <div class="page">
     <!-- HEADER -->
-    <header>
+    <header class="reveal">
       <a href="/" class="logo-block">
         <img src="assets/img/logo.png" alt="Hoopeystar logo" class="logo-image">
         <div>
@@ -170,7 +31,7 @@
 
     <main>
       <!-- PAGE HERO -->
-      <section class="hero">
+      <section class="hero reveal">
         <div class="hero-eyebrow">Gallery</div>
         <h1 class="hero-title">
           A look at some of the things I’ve made.
@@ -192,7 +53,7 @@
       <div id="tap-handles"></div>
 
       <!-- LED SIGNS & LIGHTING -->
-      <section class="section" id="led-signs">
+      <section class="section reveal" id="led-signs">
         <div class="section-header">
           <div>
             <h2 class="section-title">LED signs &amp; lighting</h2>
@@ -202,7 +63,7 @@
           </div>
         </div>
 
-        <div class="gallery-card">
+        <div class="gallery-card reveal">
           <div class="gallery-grid">
 
             <div class="thumb">
@@ -238,7 +99,7 @@
       <div id="clips"></div>
 
       <!-- 3D PRINTS & PHYSICAL PIECES -->
-      <section class="section" id="prints">
+      <section class="section reveal" id="prints">
         <div class="section-header">
           <div>
             <h2 class="section-title">3D prints &amp; physical pieces</h2>
@@ -248,7 +109,7 @@
           </div>
         </div>
 
-        <div class="gallery-card">
+        <div class="gallery-card reveal">
           <div class="gallery-grid">
             <div class="thumb">
               <img src="assets/img/pink-beckies-on-plate.jpg" alt="Batch of pink Becky prints on the plate">
@@ -274,7 +135,7 @@
       </section>
 
       <!-- DESIGN WORK & BRANDING -->
-      <section class="section" id="design">
+      <section class="section reveal" id="design">
         <div class="section-header">
           <div>
             <h2 class="section-title">Design work &amp; branding</h2>
@@ -284,7 +145,7 @@
           </div>
         </div>
 
-        <div class="gallery-card">
+        <div class="gallery-card reveal">
           <div class="gallery-grid">
 
             <!-- 1. Juanky keychains pile -->
@@ -321,11 +182,38 @@
     </main>
 
     <!-- FOOTER -->
-    <footer>
+    <footer class="reveal">
       © 2025 Hoopeystar LLC. All rights reserved. · Contact:
       <span class="copy-email" data-email="daniel@hoopeystar.com">daniel@hoopeystar.com</span>
     </footer>
   </div>
+
+  <!-- Scroll reveal (uses global .reveal CSS) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const reveals = document.querySelectorAll(".reveal");
+      if (!reveals.length) return;
+
+      if (!("IntersectionObserver" in window)) {
+        reveals.forEach(el => el.classList.add("is-visible"));
+        return;
+      }
+
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      reveals.forEach(el => observer.observe(el));
+    });
+  </script>
 
   <!-- Gallery thumb click-to-expand -->
   <script>
@@ -333,25 +221,20 @@
       const thumbs = document.querySelectorAll('.thumb');
       if (!thumbs.length) return;
 
-      // Click/tap on a thumb toggles expanded state
       thumbs.forEach(thumb => {
         thumb.addEventListener('click', function (e) {
-          // Prevent weird image focus behavior on some mobile browsers
           e.preventDefault();
 
-          // If this thumb is already expanded, collapse it
           if (thumb.classList.contains('expanded')) {
             thumb.classList.remove('expanded');
             return;
           }
 
-          // Collapse others, then expand this one
           thumbs.forEach(t => t.classList.remove('expanded'));
           thumb.classList.add('expanded');
         });
       });
 
-      // Click/tap anywhere else = collapse all thumbs
       document.addEventListener('click', function (e) {
         thumbs.forEach(thumb => {
           if (!thumb.contains(e.target)) {

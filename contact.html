@@ -8,7 +8,7 @@
     name="description"
     content="Contact Hoopeystar for custom LED signs, 3D prints, and design work."
   />
-  <link rel="stylesheet" href="assets/css/style.css?v=15">
+  <link rel="stylesheet" href="assets/css/style.css?v=20">
 </head>
 
 <body>
@@ -75,6 +75,46 @@
             </div>
           </div>
 
+          <!-- REFERRAL QUESTION -->
+          <div class="contact-row">
+            <div class="field">
+              <label>Were you referred by someone or a specific place?*</label>
+              <div class="referral-options">
+                <label class="referral-option">
+                  <input
+                    type="radio"
+                    name="referral_type"
+                    value="referred"
+                    required
+                  />
+                  Yes, I was referred
+                </label>
+                <label class="referral-option">
+                  <input
+                    type="radio"
+                    name="referral_type"
+                    value="not_referred"
+                  />
+                  No, I found you on my own
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- REFERRAL DETAILS (HIDDEN UNTIL YES) -->
+          <div class="contact-row referral-details-row" id="referral-details-row">
+            <div class="field">
+              <label for="referral_details">Who or what referred you?</label>
+              <input
+                id="referral_details"
+                name="referral_details"
+                type="text"
+                placeholder="Name, business, event, link, etc."
+                disabled
+              />
+            </div>
+          </div>
+
           <div class="contact-row">
             <div class="field">
               <label for="message">Message*</label>
@@ -133,14 +173,71 @@
       const status = document.getElementById("form-status");
       const errorMsg = document.getElementById("form-error");
 
+      const referralRadios = form.querySelectorAll('input[name="referral_type"]');
+      const referralDetails = document.getElementById("referral_details");
+      const referralRow = document.getElementById("referral-details-row");
+
+      function updateReferralState() {
+        if (!referralRow || !referralDetails) return;
+
+        const selected = form.querySelector('input[name="referral_type"]:checked');
+
+        if (!selected) {
+          referralRow.classList.remove("is-visible");
+          referralDetails.disabled = true;
+          referralDetails.required = false;
+          referralDetails.value = "";
+          return;
+        }
+
+        if (selected.value === "referred") {
+          referralRow.classList.add("is-visible");
+          referralDetails.disabled = false;
+          referralDetails.required = true;
+        } else {
+          referralRow.classList.remove("is-visible");
+          referralDetails.disabled = true;
+          referralDetails.required = false;
+          referralDetails.value = "";
+        }
+      }
+
+      if (referralRadios.length && referralDetails && referralRow) {
+        referralRadios.forEach((radio) => {
+          radio.addEventListener("change", updateReferralState);
+        });
+        // initial hidden state
+        updateReferralState();
+      }
+
       form.addEventListener("submit", async function (e) {
         e.preventDefault();
 
         // PHONE VALIDATION (optional or exactly 10 digits)
-        const rawDigits = phoneInput.value.replace(/\D/g, "");
-        if (rawDigits.length !== 0 && rawDigits.length !== 10) {
-          alert("Please enter a valid 10-digit phone number.");
-          return;
+        if (phoneInput) {
+          const rawDigits = phoneInput.value.replace(/\D/g, "");
+          if (rawDigits.length !== 0 && rawDigits.length !== 10) {
+            alert("Please enter a valid 10-digit phone number.");
+            return;
+          }
+        }
+
+        // REFERRAL VALIDATION
+        if (referralRadios.length) {
+          const selected = form.querySelector('input[name="referral_type"]:checked');
+
+          if (!selected) {
+            alert("Please tell me if you were referred or not.");
+            return;
+          }
+
+          if (selected.value === "referred") {
+            if (!referralDetails.value.trim()) {
+              alert("Please let me know who or what referred you.");
+              referralDetails.focus();
+              return;
+            }
+          }
         }
 
         if (status) status.style.display = "none";
@@ -158,6 +255,14 @@
           if (response.ok) {
             if (status) status.style.display = "block";
             form.reset();
+
+            // reset referral state after reset
+            if (referralRow && referralDetails) {
+              referralRow.classList.remove("is-visible");
+              referralDetails.disabled = true;
+              referralDetails.required = false;
+              referralDetails.value = "";
+            }
           } else {
             if (errorMsg) errorMsg.style.display = "block";
           }
