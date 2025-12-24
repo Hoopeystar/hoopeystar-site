@@ -1,0 +1,528 @@
+/* =========================================================
+   All 4 Dirty Paws — styles.css
+   Clean, professional, modern, conversion-focused
+   ========================================================= */
+
+/* -------------------------
+   CSS RESET / BASE
+-------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: #1a1a1a;
+  background-color: #ffffff;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* -------------------------
+   VARIABLES
+-------------------------- */
+:root {
+  --bg-dark: #0f0f0f;
+  --bg-light: #ffffff;
+  --bg-alt: #f6f7f8;
+
+  --text-dark: #1a1a1a;
+  --text-muted: #6b6f76;
+  --text-light: #ffffff;
+
+  --accent: #c89b3c; /* warm premium gold */
+  --accent-dark: #a87f2f;
+
+  --border: #e3e5e8;
+  --radius: 14px;
+
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* -------------------------
+   UTILITIES
+-------------------------- */
+.container {
+  max-width: 1200px;
+  padding: 0 1.25rem;
+  margin: 0 auto;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.section-alt {
+  background: var(--bg-alt);
+}
+
+.section-head {
+  max-width: 720px;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  margin: 0 0 0.75rem;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.sep {
+  margin: 0 0.5rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* -------------------------
+   BUTTONS & LINKS
+-------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.4rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #000;
+}
+
+.btn-primary:hover {
+  background: var(--accent-dark);
+}
+
+.btn-secondary {
+  background: #000;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background: #222;
+}
+
+.btn-ghost {
+  border: 1px solid var(--border);
+  color: var(--text-dark);
+}
+
+.btn-ghost:hover {
+  border-color: var(--text-dark);
+}
+
+.link {
+  font-weight: 600;
+  border-bottom: 1px solid transparent;
+}
+
+.link:hover {
+  border-color: currentColor;
+}
+
+/* -------------------------
+   HEADER
+-------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-mark {
+  width: 44px;
+  height: 44px;
+}
+
+.brand-name {
+  font-weight: 700;
+}
+
+.brand-tagline {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.site-nav ul {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.site-nav a {
+  font-weight: 600;
+}
+
+.nav-cta {
+  padding: 0.5rem 1rem;
+  background: var(--accent);
+  border-radius: 999px;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.announcement {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.announcement p {
+  margin: 0;
+  padding: 0.5rem 0;
+  text-align: center;
+}
+
+/* -------------------------
+   HERO
+-------------------------- */
+.hero {
+  padding: 6rem 0;
+  background: linear-gradient(180deg, #fff 0%, #f3f4f5 100%);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  color: var(--accent-dark);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.hero-title {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  margin: 0 0 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-highlights li {
+  margin-bottom: 0.75rem;
+}
+
+.hero-highlights strong {
+  display: block;
+}
+
+.trust-row {
+  margin-top: 2rem;
+  font-weight: 600;
+}
+
+.hero-media {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.media-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.media-card figcaption {
+  padding: 0.75rem;
+  background: #fff;
+  font-size: 0.85rem;
+}
+
+/* -------------------------
+   INFO STRIP
+-------------------------- */
+.info-strip {
+  background: #000;
+  color: #fff;
+  padding: 2.5rem 0;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.info-title {
+  margin-bottom: 0.75rem;
+}
+
+.hours li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+/* -------------------------
+   CARDS / SERVICES
+-------------------------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  padding: 2rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: #fff;
+}
+
+.card-title {
+  margin-top: 0;
+}
+
+.card-bullets li {
+  margin-bottom: 0.5rem;
+}
+
+/* -------------------------
+   PROCESS
+-------------------------- */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.step {
+  padding: 2rem;
+  border-radius: var(--radius);
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+/* -------------------------
+   SHOP
+-------------------------- */
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.shop-card {
+  padding: 2rem;
+  border-radius: var(--radius);
+  background: #fff;
+  border: 1px solid var(--border);
+}
+
+/* -------------------------
+   REVIEWS
+-------------------------- */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.review {
+  padding: 2rem;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.review blockquote {
+  margin: 0 0 1rem;
+  font-style: italic;
+}
+
+/* -------------------------
+   BOOKING
+-------------------------- */
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+}
+
+.booking-panel .panel {
+  padding: 2rem;
+  background: #fff;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.kv-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+/* -------------------------
+   FAQ
+-------------------------- */
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
+}
+
+.faq-item summary {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* -------------------------
+   CONTACT / MAP
+-------------------------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.map-card iframe {
+  width: 100%;
+  height: 360px;
+  border: 0;
+  border-radius: var(--radius);
+}
+
+/* -------------------------
+   FOOTER
+-------------------------- */
+.site-footer {
+  background: var(--bg-dark);
+  color: #ccc;
+  padding: 4rem 0 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2rem;
+}
+
+.footer-nav ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-bottom {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #333;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+}
+
+/* -------------------------
+   RESPONSIVE
+-------------------------- */
+@media (max-width: 900px) {
+  .hero-grid,
+  .booking-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .site-nav ul {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
