@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#07070D" />
+
+  <title>Hoopeystar — Physical Products (3D Prints + Stickers)</title>
+  <meta name="description" content="3D prints, stickers, magnets, and small-run custom physical products. Made in Chicago. Clean execution, no gimmicks." />
+
+  <link rel="preload" href="styles.css" as="style" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <meta property="og:title" content="Hoopeystar — Physical Products" />
+  <meta property="og:description" content="3D prints, stickers, magnets, and small-run custom physical products. Made in Chicago." />
+  <meta property="og:type" content="website" />
+</head>
+
+<body>
+  <!-- same ambient background -->
+  <canvas id="fx-canvas" aria-hidden="true"></canvas>
+
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="topbar" data-elevate>
+    <div class="wrap topbar-inner">
+      <!-- Brand goes back to home page -->
+      <a class="brand" href="index.html" aria-label="Hoopeystar home">
+        <span class="brand-mark">
+          <img src="assets/img/logo.svg" alt="Hoopeystar logo" />
+        </span>
+
+        <span class="brand-text">
+          <span class="brand-name">Hoopeystar</span>
+          <span class="brand-tag">Websites + GBP • 3D Printing + Promo</span>
+        </span>
+      </a>
+
+      <!-- Nav points back to home sections + current page -->
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="index.html">Services</a>
+        <a class="nav-link" href="index.html#contact">Contact</a>
+        <a class="nav-link" href="products.html" aria-current="page">Physical products</a>
+      </nav>
+
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <div class="mobile-nav" data-mobile-nav hidden>
+      <a href="index.html">Services</a>
+      <a href="index.html#contact" class="btn btn-primary">Request a quote</a>
+      <a href="products.html">Physical products</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section id="top" class="hero">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <div class="eyebrow reveal">3D prints · Thermal Stickers/Labels · For business or personal needs</div>
+          <h1 class="hero-title reveal">
+            Well-built physical products designed to represent your brand.
+          </h1>
+
+          <p class="hero-sub reveal">
+            From custom LED signs to promo keychains, magnets, and stickers, each item is designed to live in real spaces—on counters, in hands, and out in public.
+          </p>
+
+          <div class="hero-actions reveal">
+            <a class="btn btn-primary magnet" href="index.html#contact" data-magnet>
+              Request a quote
+              <span class="btn-glow" aria-hidden="true"></span>
+            </a>
+            <a class="btn btn-ghost" href="#gallery">See examples</a>
+          </div>
+        </div>
+
+        <!-- Reuse your panel style for “what you get” -->
+        <div class="hero-art" aria-hidden="true">
+          <div class="orb orb-a"></div>
+          <div class="orb orb-b"></div>
+          <div class="orb orb-c"></div>
+
+          <div class="panel panel-main tilt" data-tilt>
+            <div class="panel-top">
+              <div class="chip">Small-batch</div>
+              <div class="chip chip-warn">Clean finish</div>
+              <div class="chip chip-sun">Custom options</div>
+            </div>
+
+            <div class="panel-mid proof">
+              <div class="proof-col">
+                <div class="proof-title">What I make</div>
+                <ul class="proof-list">
+                  <li><span class="tick"></span> Keychains, magnets, desk pieces</li>
+                  <li><span class="tick"></span> Signage / nameplates</li>
+                  <li><span class="tick"></span> Simple branded items for local businesses</li>
+                  <li><span class="tick"></span> Sticker packs + labels</li>
+                </ul>
+              </div>
+
+              <div class="proof-col">
+                <div class="proof-title">How it works</div>
+                <ul class="proof-list proof-dots">
+                  <li><span class="dot-mini"></span><span>Tell me goal/idea</span></li>
+                  <li><span class="dot-mini"></span><span>I confirm materials + timeline</span></li>
+                  <li><span class="dot-mini"></span><span>Simple approval + build</span></li>
+                  <li><span class="dot-mini"></span><span>Pickup/shipping as needed</span></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="panel-bottom">
+              <div class="micro">This is a service catalog page, not an online store (yet).</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFFER CATEGORIES -->
+    <section class="section" id="offers-products">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="reveal">What I offer</h2>
+          <p class="muted reveal">Pick a category. If you’re not sure, explain what you’re trying to achieve.</p>
+        </div>
+
+        <div class="grid offers">
+          <article class="card offer reveal tilt" data-tilt>
+            <div class="card-top">
+              <h3>Branded 3D Prints</h3>
+            </div>
+            <p class="muted">Practical, branded pieces designed for promotion, visibility, and daily use.</p>
+            <ul class="list">
+              <li>Promo keychains and magnets</li>
+              <li>Countertop signs and stands</li>
+              <li>Branded added value items</li>
+              <li>Small-batch runs for shops or events</li>
+            </ul>
+            <div class="card-foot">
+              <a class="btn btn-primary" href="index.html#contact">Request quote</a>
+              <span class="pill">Promo focused</span>
+            </div>
+          </article>
+
+          <article class="card offer reveal tilt" data-tilt>
+            <div class="card-top">
+              <h3>Stickers / Labels</h3>
+            </div>
+            <p class="muted">Flat, high-visibility items designed for repetition and easy placement.</p>
+            <ul class="list">
+              <li>Logo stickers + packs</li>
+              <li>Simple label designs</li>
+              <li>High-contrast, readable layouts</li>
+              <li>Small-run ordering guidance</li>
+            </ul>
+            <div class="card-foot">
+              <a class="btn btn-primary" href="index.html#contact">Request quote</a>
+              <span class="pill pill-yellow">Easy win</span>
+            </div>
+          </article>
+
+          <article class="card offer reveal tilt" data-tilt>
+            <div class="card-top">
+              <h3>Custom 3D Prints</h3>
+            </div>
+            <p class="muted">One-off or personal pieces made for desks, shelves, or display.</p>
+            <ul class="list">
+              <li>Desk pieces and decorative objects</li>
+              <li>Personal projects and gifts</li>
+              <li>Non-standard shapes or ideas</li>
+              <li>Size and material planning</li>
+            </ul>
+            <div class="card-foot">
+              <a class="btn btn-primary" href="index.html#contact">Request quote</a>
+              <span class="pill pill-purple">Personalized </span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+<!-- EXAMPLE GALLERY (CAROUSELS) -->
+<section class="section section-alt" id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="reveal">Examples</h2>
+    </div>
+
+    <div class="grid gallery-grid">
+
+      <!-- Carousel 1 -->
+      <figure class="card reveal">
+        <div class="carousel" data-carousel>
+          <div class="carousel-viewport">
+            <div class="carousel-track">
+              <img src="assets/img/beer-taps.jpg" alt="LED tap handles" data-caption="Decorative LED tap handles">
+              <img src="assets/img/hoopeystar-magnet.jpg" alt="Branded magnets" data-caption="Branded promo magnets">
+              <img src="assets/img/juanky-keychain-pile.jpg" alt="Keychains" data-caption="Bulk custom keychains and magnets with QR codes">
+            </div>
+          </div>
+
+          <button class="carousel-btn prev" type="button">‹</button>
+          <button class="carousel-btn next" type="button">›</button>
+          <div class="carousel-dots"></div>
+        </div>
+
+        <figcaption class="carousel-caption muted"></figcaption>
+      </figure>
+
+      <!-- Carousel 2 -->
+      <figure class="card reveal">
+        <div class="carousel" data-carousel>
+          <div class="carousel-viewport">
+            <div class="carousel-track">
+              <img src="assets/img/hoopeystar-branding-tall.jpg"
+                   alt="Stickers and labels"
+                   data-caption="Stickers, decals, QR labels">
+            </div>
+          </div>
+
+          <button class="carousel-btn prev" type="button">‹</button>
+          <button class="carousel-btn next" type="button">›</button>
+          <div class="carousel-dots"></div>
+        </div>
+
+        <figcaption class="carousel-caption muted"></figcaption>
+      </figure>
+
+      <!-- Carousel 3 -->
+      <figure class="card reveal">
+        <div class="carousel" data-carousel>
+          <div class="carousel-viewport">
+            <div class="carousel-track">
+              <img src="assets/img/hoopeystar-led-sign-wide.jpg" data-caption="Custom LED desk sign">
+              <img src="assets/img/dino-family-lineup.jpg" data-caption="Decorative desk prints">
+              <img src="assets/img/tesseract-clock.jpg" data-caption="Functional display pieces">
+              <img src="assets/img/festival-clips-assorted.jpg" data-caption="Event & festival trinkets">
+              <img src="assets/img/xmas-clips.jpg" data-caption="Seasonal custom prints">
+            </div>
+          </div>
+
+          <button class="carousel-btn prev" type="button">‹</button>
+          <button class="carousel-btn next" type="button">›</button>
+          <div class="carousel-dots"></div>
+        </div>
+
+        <figcaption class="carousel-caption muted"></figcaption>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+
+    <!-- CTA -->
+    <section class="section">
+      <div class="wrap">
+        <div class="disclaimer reveal" role="note" aria-label="Product notes">
+          <div class="disc-title">Quick notes</div>
+          <ul class="disc-list">
+            <li>This page is informational—no direct checkout on-site yet.</li>
+            <li>Pricing depends on size, complexity, finish level, and quantity.</li>
+            <li>If it might need to survive heat/impact, let me know and I’ll recommend the right material.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div class="wrap foot-bottom">
+        <div class="muted tiny">© <span data-year></span> Hoopeystar LLC. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="main.js"></script>
+</body>
+</html>

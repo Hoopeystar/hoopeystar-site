@@ -95,10 +95,11 @@ header {
 }
 
 .logo-tagline {
-  font-size: 0.78rem;
+  font-size: .85rem;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: #ff2d2d;
+  font-weight: 650;
 }
 
 .nav-links {
