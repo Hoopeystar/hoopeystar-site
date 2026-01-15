@@ -207,10 +207,10 @@
         if (res.ok) {
           form.reset();
           status.className = 'form-status ok';
-          status.textContent = 'Sent. If you included enough detail, you’ll get a clean quote back.';
+          status.textContent = 'Sent. Thank you! I will get back to you soon.';
         } else {
           status.className = 'form-status err';
-          status.textContent = 'Something failed sending the form. Try again, or double-check your Formspree endpoint.';
+          status.textContent = 'Something failed sending the form. Try again.';
         }
       } catch {
         status.className = 'form-status err';
