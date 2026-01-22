@@ -281,7 +281,7 @@ header {
 }
 
 .btn-secondary {
-  background: transparent;
+  background: linear-gradient(135deg, var(--red), var(--purple));
   color: var(--text-main);
   border-color: rgba(255,255,255,0.2);
   font-weight: 500;
