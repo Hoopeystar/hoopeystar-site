@@ -1020,3 +1020,19 @@ body{
 
 /* Extra safety */
 .mobile-nav[hidden] { display: none !important; }
+
+/* Reduce gap between disclaimer and FAQ */
+#faq { padding-top: 0px; }
+
+:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  border-radius: 12px;
+}

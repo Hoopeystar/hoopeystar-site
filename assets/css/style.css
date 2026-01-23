@@ -1099,6 +1099,7 @@ footer a:hover {
 .product-disclaimer {
   font-size: 0.72rem;
   margin-top: 8px;
+  margin-bottom: 0px;
   color: var(--red);
   opacity: 0.9;
 }

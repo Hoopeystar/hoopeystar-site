@@ -29,39 +29,44 @@
     const next = root.querySelector('.carousel-btn.next');
     const dotsWrap = root.querySelector('.carousel-dots');
 
-    // ✅ caption element lives outside .carousel (inside the same figure)
+    // Caption lives outside .carousel (inside same figure)
     const caption = root.closest('figure')?.querySelector('.carousel-caption');
+
+    // Viewport (used for swipe + keyboard)
+    const viewport = root.querySelector('.carousel-viewport');
 
     let index = 0;
 
     // Build dots (only if wrapper exists)
-    const dots = dotsWrap ? slides.map((_, i) => {
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'carousel-dot';
-      b.setAttribute('aria-label', `Go to image ${i + 1}`);
-      b.addEventListener('click', () => goTo(i));
-      dotsWrap.appendChild(b);
-      return b;
-    }) : [];
+    const dots = dotsWrap
+      ? slides.map((_, i) => {
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'carousel-dot';
+          b.setAttribute('aria-label', `Go to image ${i + 1}`);
+          b.addEventListener('click', () => goTo(i));
+          dotsWrap.appendChild(b);
+          return b;
+        })
+      : [];
 
     function render() {
       track.style.transform = `translateX(-${index * 100}%)`;
 
       if (dots.length) {
-        dots.forEach((d, i) =>
-          d.setAttribute('aria-current', i === index ? 'true' : 'false')
-        );
+        dots.forEach((d, i) => d.setAttribute('aria-current', i === index ? 'true' : 'false'));
       }
 
-      // ✅ CAPTION SYNC
+      // Caption sync
       if (caption) caption.textContent = slides[index].dataset.caption || '';
 
-      // buttons might not exist (ex: single-image carousel)
-      if (prev && next) {
+      // Disable buttons at ends (if buttons exist)
+      if (prev) {
         prev.disabled = (index === 0);
-        next.disabled = (index === slides.length - 1);
         prev.style.opacity = prev.disabled ? 0.45 : 1;
+      }
+      if (next) {
+        next.disabled = (index === slides.length - 1);
         next.style.opacity = next.disabled ? 0.45 : 1;
       }
     }
@@ -74,8 +79,19 @@
     if (prev) prev.addEventListener('click', () => goTo(index - 1));
     if (next) next.addEventListener('click', () => goTo(index + 1));
 
+    // Keyboard support
+    if (viewport) {
+      viewport.tabIndex = 0;
+      viewport.setAttribute('role', 'group');
+      viewport.setAttribute('aria-label', 'Image carousel');
+
+      viewport.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') goTo(index - 1);
+        if (e.key === 'ArrowRight') goTo(index + 1);
+      });
+    }
+
     // Swipe support
-    const viewport = root.querySelector('.carousel-viewport');
     if (viewport) {
       let startX = null;
 
@@ -94,6 +110,7 @@
     render();
   });
 })();
+
 
 
   // Mobile nav
