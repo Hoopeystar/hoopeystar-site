@@ -103,9 +103,9 @@
   <div class="proof-col">
     <div class="proof-title">What you get</div>
     <ul class="proof-list">
-      <li><span class="tick"></span> Hand-coded landing page</li>
-      <li><span class="tick"></span> Mobile-first responsive layout</li>
-      <li><span class="tick"></span> Performance-focused static build</li>
+      <li><span class="tick"></span> Custom-built landing page</li>
+      <li><span class="tick"></span> Mobile-friendly responsive layout</li>
+      <li><span class="tick"></span> Performance-focused build</li>
       <li><span class="tick"></span> Basic on-page search optimization</li>
       <li><span class="tick"></span> Contact form integration</li>
     </ul>
@@ -118,7 +118,7 @@
   <li><span class="dot-mini"></span><span>Clean semantic headings</span></li>
   <li><span class="dot-mini"></span><span>Accessibility basics (focus + contrast)</span></li>
   <li><span class="dot-mini"></span><span>Lightweight motion (no heavy frameworks)</span></li>
-  <li><span class="dot-mini"></span><span>Easy handoff: you own the files</span></li>
+  <li><span class="dot-mini"></span><span>Easy handoff: you own everything</span></li>
 </ul>
   </div>
 </div>
@@ -418,6 +418,28 @@
                   <option>Not sure yet (explain needs in the message)</option>
                 </select>
               </label>
+
+              <label class="field">
+                <span>How did you hear about me?</span>
+                <select name="referral" required>
+                  <option value="" selected disabled>Select one</option>
+                  <option value="google">Google search</option>
+                  <option value="card">Your business card</option>
+                  <option value="referred">Someone sent me to your site</option>
+                  <option value="social">Social media</option>
+                  <option value="ad">Advertisement</option>
+                  <option value="other">Other</option>
+                </select>
+                <label class="field" id="referral-name-field" hidden>
+                  <span>Who referred you?</span>
+                   <input
+                    type="text"
+                    name="referral_name"
+                    placeholder="Name or business"
+                    />
+                </label>
+
+              </label>              
 
               <label class="field field-wide">
                 <span>What are you trying to achieve?</span>

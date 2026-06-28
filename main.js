@@ -193,22 +193,51 @@
     });
   }
 
-  // Formspree-ready form UX:
-  // - If action is still "#", we prevent submission and show a clear status.
-  // - Once you add a Formspree endpoint, it submits normally.
-  const form = $('[data-form]');
-  const status = $('[data-status]');
-  if (form && status) {
+// Formspree-ready form UX + conditional referral name field:
+// - If action is still "#", prevent submission + show status.
+// - AJAX submit to avoid navigation (works with Formspree endpoints).
+// - Shows a required text input when referral === "referred".
+
+const form = $('[data-form]');
+const status = $('[data-status]');
+
+if (form) {
+  // ---- Referral conditional field wiring ----
+  const referralSelect = form.querySelector('select[name="referral"]');
+  const referralField = form.querySelector('#referral-name-field'); // label wrapper
+  const referralInput = referralField ? referralField.querySelector('input[name="referral_name"]') : null;
+
+  function syncReferralField() {
+    if (!referralSelect || !referralField || !referralInput) return;
+
+    const isReferred = referralSelect.value === 'referred';
+    referralField.hidden = !isReferred;
+    referralInput.required = isReferred;
+
+    if (!isReferred) referralInput.value = '';
+  }
+
+  if (referralSelect && referralField && referralInput) {
+    referralSelect.addEventListener('change', syncReferralField);
+    syncReferralField(); // set correct state on load (and after form.reset())
+  }
+
+  // ---- Submit handler ----
+  if (status) {
     form.addEventListener('submit', async (e) => {
-      const action = form.getAttribute('action') || '';
-      if (action.trim() === '#' || action.trim() === '') {
+      const action = (form.getAttribute('action') || '').trim();
+
+      if (action === '#' || action === '') {
         e.preventDefault();
         status.className = 'form-status err';
-        status.textContent = 'Form not connected yet. Add your Formspree endpoint to the form action in index.html.';
+        status.textContent =
+          'Form not connected yet. Add your Formspree endpoint to the form action in index.html.';
         return;
       }
-      // Optional enhancement: AJAX submit to avoid navigation (works with Formspree endpoints).
-      // If you prefer standard POST navigation, delete this block.
+
+      // Let native validation run (required fields, email format, etc.)
+      if (!form.checkValidity()) return;
+
       e.preventDefault();
       status.className = 'form-status';
       status.textContent = 'Sending…';
@@ -218,11 +247,14 @@
         const res = await fetch(action, {
           method: 'POST',
           body: fd,
-          headers: { 'Accept': 'application/json' }
+          headers: { Accept: 'application/json' },
         });
 
         if (res.ok) {
           form.reset();
+          // reset() does not trigger change events, so re-sync conditional fields:
+          syncReferralField();
+
           status.className = 'form-status ok';
           status.textContent = 'Sent. Thank you! I will get back to you soon.';
         } else {
@@ -235,6 +267,8 @@
       }
     });
   }
+}
+
 
   // Ambient Canvas FX (premium motion, low cost)
   const canvas = $('#fx-canvas');
