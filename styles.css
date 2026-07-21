@@ -1091,7 +1091,17 @@ textarea:focus-visible {
 .project-body { padding: 1.65rem 1.7rem 1.9rem; }
 .project-meta { display: flex; flex-wrap: wrap; gap: .55rem; margin-bottom: .8rem; }
 .project-meta span { padding: .35rem .65rem; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; }
-.project-body h3 { margin: 0 0 .55rem; font-size: 1.65rem; }
+.project-title-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: .55rem; }
+.project-body h3 { margin: 0; font-size: 1.65rem; }
+.project-site-link {
+  display: inline-flex; align-items: center; gap: .35rem; flex: 0 0 auto;
+  padding: .55rem .8rem; border: 1px solid rgba(122,92,255,.55); border-radius: 999px;
+  background: rgba(122,92,255,.1); color: var(--text); font-size: .78rem; font-weight: 800;
+  letter-spacing: .04em; text-decoration: none; transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+.project-site-link span { color: var(--p); font-size: 1rem; line-height: 1; }
+.project-site-link:hover { transform: translateY(-2px); border-color: var(--p); background: rgba(122,92,255,.2); }
+.project-site-link:focus-visible { outline: 2px solid var(--p); outline-offset: 3px; }
 .project-body p { margin: 0; color: var(--muted); line-height: 1.65; }
 
 .project-media-bingo img { object-position: center 34%; }
@@ -1115,6 +1125,8 @@ textarea:focus-visible {
   .portfolio-hero h1 { font-size: clamp(2.8rem, 14vw, 4rem); }
   .project-media { height: 235px; }
   .project-body { padding: 1.35rem; }
+  .project-title-row { align-items: flex-start; }
+  .project-site-link { padding: .5rem .7rem; }
   .portfolio-cta { padding-bottom: 4rem; }
 }
 
