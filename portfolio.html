@@ -27,8 +27,8 @@
       </a>
 
       <nav class="nav" aria-label="Primary">
-        <a class="nav-link" href="index.html#process">Process</a>
         <a class="nav-link" href="index.html#offers">Services</a>
+        <a class="nav-link" href="index.html#faq">FAQ</a>
         <a class="nav-link is-current" href="portfolio.html" aria-current="page">Portfolio</a>
         <a class="nav-link" href="index.html#contact">Contact</a>
         <a class="nav-link" href="products.html">Physical products</a>
@@ -41,9 +41,9 @@
 
     <div class="mobile-nav" data-mobile-nav hidden>
       <a href="index.html#offers">Services</a>
-      <a href="index.html#process">Process</a>
+      <a href="index.html#faq">FAQ</a>
       <a href="portfolio.html" aria-current="page">Portfolio</a>
-      <a href="index.html#contact" class="btn btn-primary">Start a project</a>
+      <a href="index.html#contact" class="btn btn-primary">Get More Local Customers</a>
       <a href="products.html">Physical products</a>
     </div>
   </header>
@@ -51,7 +51,6 @@
   <main id="main">
     <section class="portfolio-hero">
       <div class="wrap portfolio-hero-inner">
-        <div class="eyebrow reveal">Selected work • Websites + games</div>
         <h1 class="reveal">Websites, games &amp; digital experiences <span class="accent">I’ve built.</span></h1>
         <p class="reveal">A small collection of projects made to be useful, memorable, and easy to enjoy. Each one is thoughtfully designed and hand-built around its audience.</p>
         <a class="portfolio-scroll reveal" href="#projects">Explore the work <span aria-hidden="true">↓</span></a>
@@ -71,8 +70,20 @@
         <div class="project-grid">
           <article class="project-card reveal tilt" data-tilt>
             <div class="project-media project-media-pbd" aria-label="Pour Brothers Decisions website preview">
-              <img src="assets/img/pbd.png" alt="Pour Brothers Decisions website homepage" loading="lazy" />
-              <span class="project-number">01</span>
+              <div class="carousel project-carousel" data-carousel>
+                <div class="carousel-viewport">
+                  <div class="carousel-track">
+                    <img src="assets/img/pbd.png" alt="Pour Brothers Decisions website homepage" loading="lazy" />
+                    <img src="assets/img/pbd (1).png" alt="Pour Brothers Decisions website preview 2" loading="lazy" />
+                    <img src="assets/img/pbd (2).png" alt="Pour Brothers Decisions website preview 3" loading="lazy" />
+                    <img src="assets/img/pbd (3).png" alt="Pour Brothers Decisions website preview 4" loading="lazy" />
+                    <img src="assets/img/pbd (4).png" alt="Pour Brothers Decisions website preview 5" loading="lazy" />
+                  </div>
+                </div>
+                <button class="carousel-btn prev" type="button" aria-label="Previous Pour Brothers Decisions image">&#8249;</button>
+                <button class="carousel-btn next" type="button" aria-label="Next Pour Brothers Decisions image">&#8250;</button>
+                <div class="carousel-dots" aria-label="Choose a Pour Brothers Decisions image"></div>
+              </div>
             </div>
             <div class="project-body">
               <div class="project-meta"><span>Website</span><span>YouTube Creators</span></div>
@@ -83,8 +94,20 @@
 
           <article class="project-card reveal tilt" data-tilt>
             <div class="project-media project-media-gamenight" aria-label="KTZED Gamenight trivia game preview">
-              <img src="assets/img/ktgame.png" alt="KTZED Gamenight trivia game lobby" loading="lazy" />
-              <span class="project-number">02</span>
+              <div class="carousel project-carousel" data-carousel>
+                <div class="carousel-viewport">
+                  <div class="carousel-track">
+                    <img src="assets/img/ktgame.png" alt="KTZED Gamenight trivia game lobby" loading="lazy" />
+                    <img src="assets/img/ktgame (1).png" alt="KTZED Gamenight game preview 2" loading="lazy" />
+                    <img src="assets/img/ktgame (2).png" alt="KTZED Gamenight game preview 3" loading="lazy" />
+                    <img src="assets/img/ktgame (3).png" alt="KTZED Gamenight game preview 4" loading="lazy" />
+                    <img src="assets/img/ktgame (4).png" alt="KTZED Gamenight game preview 5" loading="lazy" />
+                  </div>
+                </div>
+                <button class="carousel-btn prev" type="button" aria-label="Previous KTZED Gamenight image">&#8249;</button>
+                <button class="carousel-btn next" type="button" aria-label="Next KTZED Gamenight image">&#8250;</button>
+                <div class="carousel-dots" aria-label="Choose a KTZED Gamenight image"></div>
+              </div>
             </div>
             <div class="project-body">
               <div class="project-meta"><span>Game</span><span>Custom Trivia</span></div>
@@ -96,7 +119,6 @@
           <article class="project-card reveal tilt" data-tilt>
             <div class="project-media project-media-bingo" aria-label="Bodycam Bingo game preview">
               <img src="assets/img/bingo.png" alt="Booze and Bodycams Bodycam Bingo game board" loading="lazy" />
-              <span class="project-number">03</span>
             </div>
             <div class="project-body">
               <div class="project-meta"><span>Game</span><span>Design + Development</span></div>
@@ -112,9 +134,8 @@
       <div class="wrap">
         <div class="portfolio-cta-card reveal">
           <div>
-            <div class="eyebrow">Have an idea?</div>
             <h2>Want something built?</h2>
-            <p class="muted">Tell me what you’re working on. I’ll help turn it into something clear, fast, and ready to share.</p>
+            <p class="muted">Tell me what you’re thinking. I’ll help turn it into something clear, fast, and ready to use.</p>
           </div>
           <a class="btn btn-primary magnet" href="index.html#contact" data-magnet>Start a project<span class="btn-glow" aria-hidden="true"></span></a>
         </div>
