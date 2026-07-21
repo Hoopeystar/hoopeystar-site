@@ -112,21 +112,50 @@ body{
 }
 
 .brand-text{
+  position:relative;
   display: flex;
   flex-direction: column;
-  line-height: 1.3;
+  align-items:flex-start;
+  gap:3px;
+  line-height: 1.15;
   color: var(--p);
 }
 
 .brand-name{
-  font-weight: 800;
+  position:relative;
+  display:inline-block;
+  font-weight: 900;
   font-size: 28px;
+  letter-spacing:-.035em;
+  color:#a600ff;
+  background:linear-gradient(110deg, #c000ff 0%, #a000ff 38%, #7200e6 72%, #9500ff 100%);
+  background-clip:text;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 3px 10px rgba(135,0,255,.38));
+}
+
+.brand-name::after{
+  content:"";
+  position:absolute;
+  right:-7px;
+  top:2px;
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:var(--y);
+  box-shadow:0 0 9px rgba(255,216,74,.75);
 }
 
 .brand-tag{
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--r)
+  display:inline-flex;
+  align-items:center;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing:.055em;
+  color:rgba(255,72,86,.95);
+  text-transform:uppercase;
+  text-shadow:0 0 12px rgba(255,45,45,.22);
 }
 
 .nav{
