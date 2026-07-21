@@ -1036,3 +1036,78 @@ select:focus-visible,
 textarea:focus-visible {
   border-radius: 12px;
 }
+.portfolio-page { overflow-x: hidden; }
+
+.nav-link.is-current { color: var(--text); }
+.nav-link.is-current::after { transform: scaleX(1); }
+
+.portfolio-hero {
+  min-height: 72vh;
+  display: grid;
+  align-items: center;
+  padding: 9rem 0 5rem;
+  position: relative;
+}
+
+.portfolio-hero::after {
+  content: "";
+  position: absolute;
+  width: 34rem;
+  height: 34rem;
+  right: -10rem;
+  top: 5rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(122, 92, 255, .2), transparent 67%);
+  pointer-events: none;
+}
+
+.portfolio-hero-inner { max-width: 980px; }
+.portfolio-hero h1 { max-width: 900px; margin: 1.1rem 0 1.4rem; font-size: clamp(3rem, 7vw, 6.8rem); line-height: .96; letter-spacing: -.055em; }
+.portfolio-hero p { max-width: 680px; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.25rem); line-height: 1.7; }
+.portfolio-scroll { display: inline-flex; align-items: center; gap: .65rem; margin-top: 2rem; color: var(--text); font-weight: 750; text-decoration: none; }
+.portfolio-scroll span { color: var(--p); transition: transform .2s ease; }
+.portfolio-scroll:hover span { transform: translateY(4px); }
+
+.portfolio-work { padding-top: 5rem; }
+.portfolio-section-head { display: flex; align-items: end; justify-content: space-between; gap: 2rem; }
+.portfolio-section-head p { max-width: 380px; }
+.project-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+.project-card { grid-column: span 6; overflow: hidden; border: 1px solid var(--line); border-radius: 24px; background: linear-gradient(155deg, rgba(255,255,255,.07), rgba(255,255,255,.025)); box-shadow: 0 24px 70px rgba(0,0,0,.22); }
+.project-card:last-child { grid-column: 4 / span 6; }
+.project-media { height: 330px; position: relative; display: grid; place-items: center; overflow: hidden; border-bottom: 1px solid var(--line); }
+.project-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .55s cubic-bezier(.2,.8,.2,1); }
+.project-card:hover .project-media img { transform: scale(1.04); }
+.project-media-pbd img { object-position: center 42%; }
+.project-media-gamenight img { object-position: center 38%; }
+.project-number { position: absolute; right: 1rem; top: 1rem; display: grid; place-items: center; width: 2.6rem; height: 2.6rem; border: 1px solid rgba(255,255,255,.18); border-radius: 50%; color: rgba(255,255,255,.8); background: rgba(7,7,13,.65); backdrop-filter: blur(10px); font: 700 .75rem/1 var(--font-mono, monospace); }
+.project-body { padding: 1.65rem 1.7rem 1.9rem; }
+.project-meta { display: flex; flex-wrap: wrap; gap: .55rem; margin-bottom: .8rem; }
+.project-meta span { padding: .35rem .65rem; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; }
+.project-body h3 { margin: 0 0 .55rem; font-size: 1.65rem; }
+.project-body p { margin: 0; color: var(--muted); line-height: 1.65; }
+
+.project-media-bingo img { object-position: center 34%; }
+
+.portfolio-cta { padding: 3rem 0 7rem; }
+.portfolio-cta-card { display: flex; align-items: center; justify-content: space-between; gap: 3rem; padding: clamp(2rem, 5vw, 4.5rem); border: 1px solid var(--line); border-radius: 28px; background: radial-gradient(circle at 90% 20%, rgba(122,92,255,.24), transparent 38%), linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025)); }
+.portfolio-cta-card h2 { margin: .55rem 0 .6rem; font-size: clamp(2rem, 4vw, 3.6rem); }
+.portfolio-cta-card p { max-width: 620px; margin: 0; }
+.portfolio-cta-card .btn { flex: 0 0 auto; }
+
+@media (max-width: 820px) {
+  .portfolio-hero { min-height: auto; padding: 8rem 0 4rem; }
+  .portfolio-section-head, .portfolio-cta-card { align-items: flex-start; flex-direction: column; }
+  .project-card, .project-card:last-child { grid-column: 1 / -1; }
+  .project-media { height: 290px; }
+}
+
+@media (max-width: 520px) {
+  .portfolio-hero h1 { font-size: clamp(2.8rem, 14vw, 4rem); }
+  .project-media { height: 235px; }
+  .project-body { padding: 1.35rem; }
+  .portfolio-cta { padding-bottom: 4rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-media img, .portfolio-scroll span { transition: none; }
+}

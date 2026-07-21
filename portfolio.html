@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#07070D" />
+  <title>Portfolio — Hoopeystar Websites & Games</title>
+  <meta name="description" content="A selection of websites and games designed and built by Hoopeystar." />
+  <link rel="preload" href="styles.css" as="style" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon.png" />
+</head>
+
+<body class="portfolio-page">
+  <canvas id="fx-canvas" aria-hidden="true"></canvas>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="topbar" data-elevate>
+    <div class="wrap topbar-inner">
+      <a class="brand" href="index.html" aria-label="Hoopeystar home">
+        <span class="brand-mark"><img src="assets/img/logo.svg" alt="Hoopeystar logo" /></span>
+        <span class="brand-text">
+          <span class="brand-name">Hoopeystar</span>
+          <span class="brand-tag">Websites + GBP • 3D Printing + Promo</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="index.html#process">Process</a>
+        <a class="nav-link" href="index.html#offers">Services</a>
+        <a class="nav-link is-current" href="portfolio.html" aria-current="page">Portfolio</a>
+        <a class="nav-link" href="index.html#contact">Contact</a>
+        <a class="nav-link" href="products.html">Physical products</a>
+      </nav>
+
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle>
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <div class="mobile-nav" data-mobile-nav hidden>
+      <a href="index.html#offers">Services</a>
+      <a href="index.html#process">Process</a>
+      <a href="portfolio.html" aria-current="page">Portfolio</a>
+      <a href="index.html#contact" class="btn btn-primary">Start a project</a>
+      <a href="products.html">Physical products</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="portfolio-hero">
+      <div class="wrap portfolio-hero-inner">
+        <div class="eyebrow reveal">Selected work • Websites + games</div>
+        <h1 class="reveal">Websites, games &amp; digital experiences <span class="accent">I’ve built.</span></h1>
+        <p class="reveal">A small collection of projects made to be useful, memorable, and easy to enjoy. Each one is thoughtfully designed and hand-built around its audience.</p>
+        <a class="portfolio-scroll reveal" href="#projects">Explore the work <span aria-hidden="true">↓</span></a>
+      </div>
+    </section>
+
+    <section class="section portfolio-work" id="projects">
+      <div class="wrap">
+        <div class="section-head portfolio-section-head">
+          <div>
+            <div class="eyebrow reveal">03 projects</div>
+            <h2 class="reveal">Built with purpose.</h2>
+          </div>
+          <p class="muted reveal">From polished business websites to an interactive party game.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card reveal tilt" data-tilt>
+            <div class="project-media project-media-pbd" aria-label="Pour Brothers Decisions website preview">
+              <img src="assets/img/pbd.png" alt="Pour Brothers Decisions website homepage" loading="lazy" />
+              <span class="project-number">01</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>Website</span><span>YouTube Creators</span></div>
+              <h3>Pour Brothers Decisions</h3>
+              <p>A custom website for the Pour Brothers Decisions YouTube streamers, giving their content and community a polished home beyond the channel.</p>
+            </div>
+          </article>
+
+          <article class="project-card reveal tilt" data-tilt>
+            <div class="project-media project-media-gamenight" aria-label="KTZED Gamenight trivia game preview">
+              <img src="assets/img/ktgame.png" alt="KTZED Gamenight trivia game lobby" loading="lazy" />
+              <span class="project-number">02</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>Game</span><span>Custom Trivia</span></div>
+              <h3>KTZED Gamenight</h3>
+              <p>A custom trivia game created for YouTube streamer KTZED, built to make live game nights more interactive and entertaining.</p>
+            </div>
+          </article>
+
+          <article class="project-card reveal tilt" data-tilt>
+            <div class="project-media project-media-bingo" aria-label="Bodycam Bingo game preview">
+              <img src="assets/img/bingo.png" alt="Booze and Bodycams Bodycam Bingo game board" loading="lazy" />
+              <span class="project-number">03</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span>Game</span><span>Design + Development</span></div>
+              <h3>Bodycam Bingo</h3>
+              <p>A quick, replayable browser game that turns familiar bodycam moments into a competitive bingo board.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio-cta">
+      <div class="wrap">
+        <div class="portfolio-cta-card reveal">
+          <div>
+            <div class="eyebrow">Have an idea?</div>
+            <h2>Want something built?</h2>
+            <p class="muted">Tell me what you’re working on. I’ll help turn it into something clear, fast, and ready to share.</p>
+          </div>
+          <a class="btn btn-primary magnet" href="index.html#contact" data-magnet>Start a project<span class="btn-glow" aria-hidden="true"></span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner"><div class="wrap foot-bottom"><div class="muted tiny">© <span data-year></span> Hoopeystar LLC. All rights reserved.</div></div></div>
+  </footer>
+  <script defer src="main.js"></script>
+</body>
+</html>
