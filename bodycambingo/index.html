@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#02050d">
+  <title>Booze and Bodycams Bingo</title>
+  <style>
+    :root {
+      --red: #ff0000;
+      --blue: #0066ff;
+      --ink: #f7f9ff;
+      --muted: #8994aa;
+      --panel: #090f1d;
+      --line: rgba(154, 174, 215, .25);
+      --gap: clamp(3px, .55vmin, 7px);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+
+    body {
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 16% 18%, rgba(255, 0, 0, .11), transparent 26%),
+        radial-gradient(circle at 84% 20%, rgba(0, 102, 255, .13), transparent 28%),
+        linear-gradient(145deg, #010207, #050b17 52%, #010207);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      user-select: none;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .16;
+      background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 32px 32px;
+      mask-image: radial-gradient(circle, black, transparent 82%);
+    }
+
+    button { font: inherit; }
+
+    .app {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      padding: max(8px, env(safe-area-inset-top)) max(10px, env(safe-area-inset-right)) max(6px, env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left));
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      gap: clamp(5px, .85vh, 10px);
+    }
+
+    header {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 42px;
+    }
+
+    .brand { text-align: center; line-height: .9; letter-spacing: -.04em; text-transform: uppercase; }
+    .brand-spacer { display: block; height: calc(clamp(8px, 1.15vmin, 12px) + 4px); }
+    .brand-subtitle {
+      display: block; margin-top: 6px; color: #eef3ff; font-size: clamp(10px, 1.65vmin, 17px); font-weight: 950;
+      letter-spacing: .34em; text-shadow: -2px 0 8px rgba(255,0,0,.65), 2px 0 8px rgba(0,102,255,.75);
+    }
+    h1 { margin: 0; font-size: clamp(24px, 4.4vmin, 54px); font-weight: 1000; }
+    .booze { color: var(--red); text-shadow: 0 0 8px rgba(255,0,0,.8), 0 0 24px rgba(255,0,0,.35); }
+    .and { color: #fff; font-size: .58em; vertical-align: .12em; padding: 0 .12em; }
+    .bodycams { color: var(--blue); text-shadow: 0 0 8px rgba(0,102,255,.9), 0 0 24px rgba(0,102,255,.4); }
+
+    .icon-controls { position: absolute; right: 0; display: flex; gap: 6px; }
+    .volume-control { position: relative; }
+    .icon-btn {
+      width: clamp(34px, 4.5vmin, 44px); height: clamp(34px, 4.5vmin, 44px); padding: 0;
+      border: 1px solid var(--line); border-radius: 10px; background: rgba(8,15,29,.88); color: white;
+      display: grid; place-items: center; cursor: pointer; transition: .2s ease; font-size: clamp(16px, 2.2vmin, 21px);
+    }
+    .icon-btn:hover, .icon-btn:focus-visible { border-color: var(--blue); box-shadow: 0 0 14px rgba(0,102,255,.45); outline: none; transform: translateY(-1px); }
+    .volume-panel {
+      position: absolute; z-index: 30; top: calc(100% + 8px); right: 0; width: clamp(160px, 18vw, 210px);
+      padding: 10px 12px; border: 1px solid rgba(0,102,255,.65); border-radius: 10px;
+      background: rgba(5,10,20,.96); box-shadow: 0 0 20px rgba(0,102,255,.35); opacity: 0;
+      visibility: hidden; transform: translateY(-5px); transition: .16s ease;
+    }
+    .volume-control.open .volume-panel { opacity: 1; visibility: visible; transform: translateY(0); }
+    .volume-readout { display: flex; justify-content: space-between; margin-bottom: 6px; color: #dce5f7; font-size: 11px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .volume-slider { width: 100%; height: 5px; accent-color: var(--blue); cursor: pointer; }
+
+    .generator {
+      display: flex; flex: 0 0 38px; justify-content: center; align-items: stretch; width: 100%;
+      margin-bottom: clamp(10px, 1.4vh, 16px);
+    }
+    .primary, .secondary {
+      border: 0; color: white; text-transform: uppercase; letter-spacing: .09em; font-weight: 950; cursor: pointer;
+      border-radius: 9px; transition: transform .16s ease, filter .16s ease, box-shadow .16s ease;
+    }
+    .primary {
+      min-width: clamp(190px, 30vw, 350px); padding: 0 clamp(14px, 2.4vw, 30px); font-size: clamp(12px, 1.8vmin, 18px);
+      background: linear-gradient(105deg, #b80000, var(--red) 48%, #1749a3 52%, var(--blue));
+      box-shadow: -8px 0 22px rgba(255,0,0,.23), 8px 0 22px rgba(0,102,255,.3), inset 0 1px rgba(255,255,255,.28);
+      animation: buttonPulse 3s ease-in-out infinite;
+    }
+    .primary:hover, .primary:focus-visible, .secondary:hover, .secondary:focus-visible { transform: translateY(-1px) scale(1.015); filter: brightness(1.18); outline: none; }
+    @keyframes buttonPulse { 50% { box-shadow: -12px 0 30px rgba(255,0,0,.38), 12px 0 30px rgba(0,102,255,.45), inset 0 1px rgba(255,255,255,.28); } }
+
+    .board-wrap {
+      min-height: 0; display: flex; flex-direction: column; justify-content: center; align-items: center;
+      gap: 0;
+    }
+    .board {
+      height: calc(100% - 104px); max-height: min(calc(100% - 104px), 68vw); aspect-ratio: 1;
+      width: auto; max-width: 100%; flex: 0 1 auto; display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr)); grid-template-rows: repeat(5, minmax(0, 1fr)); gap: var(--gap);
+      padding: var(--gap); border-radius: 15px; background: linear-gradient(135deg, rgba(255,0,0,.7), rgba(255,255,255,.15) 44%, rgba(0,102,255,.75));
+      box-shadow: -12px 0 32px rgba(255,0,0,.16), 12px 0 32px rgba(0,102,255,.2);
+    }
+
+    .cell {
+      position: relative; min-width: 0; min-height: 0; border: 1px solid rgba(174,194,232,.2); border-radius: clamp(6px, 1vmin, 10px);
+      background: linear-gradient(145deg, #121b2d, #080d18); color: white; padding: clamp(3px, .7vmin, 8px);
+      font-size: clamp(9px, min(1.75vw, 2.1vh), 20px); font-weight: 900; line-height: 1.06; text-align: center;
+      display: grid; place-items: center; cursor: pointer; overflow: hidden; text-wrap: balance;
+      hyphens: none; word-break: normal; overflow-wrap: normal;
+      transition: transform .12s ease, border-color .18s ease, filter .18s ease; touch-action: manipulation;
+    }
+    .cell:hover, .cell:focus-visible { z-index: 2; border-color: rgba(255,255,255,.75); filter: brightness(1.25); outline: none; }
+    .cell:active { transform: scale(.96); }
+    .cell:nth-child(odd) { box-shadow: inset 3px 0 rgba(255,0,0,.15); }
+    .cell:nth-child(even) { box-shadow: inset -3px 0 rgba(0,102,255,.18); }
+    .cell.marked { background: linear-gradient(145deg, #241019, #100811); border-color: rgba(255,44,44,.9); color: #d3d7e0; }
+    .cell.marked::before, .cell.marked::after {
+      content: ""; position: absolute; z-index: 2; width: 78%; height: clamp(6px, 1.05vmin, 11px); border-radius: 999px;
+      background: var(--red); box-shadow: 0 0 7px #ff0000, 0 0 18px rgba(255,0,0,.8); transform: rotate(45deg);
+    }
+    .cell.marked::after { transform: rotate(-45deg); }
+    .cell.marked span { opacity: .42; }
+
+    .cell.free { padding: 0; cursor: default; background: linear-gradient(145deg, #141b29, #050810); }
+    .free-logo {
+      width: 82%; height: 82%; aspect-ratio: 1; object-fit: cover; border-radius: 50%;
+      border: 2px solid rgba(255,255,255,.9);
+      filter: drop-shadow(-3px 0 6px rgba(255,0,0,.75)) drop-shadow(3px 0 6px rgba(0,102,255,.85));
+    }
+    .free-fallback { position: absolute; font-size: clamp(18px, 5vmin, 46px); font-weight: 1000; letter-spacing: -.12em; color: white; }
+    .free-fallback b:first-child { color: var(--red); } .free-fallback b:last-child { color: var(--blue); }
+
+    .board-actions { display: flex; flex: 0 0 auto; justify-content: center; gap: 8px; margin-top: clamp(10px, 1.4vh, 16px); }
+    .secondary { padding: clamp(7px, 1vh, 10px) clamp(14px, 2.8vw, 34px); font-size: clamp(10px, 1.4vmin, 14px); background: #0b1221; border: 1px solid var(--line); }
+    .secondary.clear:hover { border-color: var(--red); box-shadow: 0 0 18px rgba(255,0,0,.25); }
+
+    footer {
+      min-height: 66px; padding-bottom: clamp(8px, 1.2vh, 14px); display: flex;
+      justify-content: center; gap: clamp(16px, 2vw, 26px); align-items: center;
+    }
+    .footer-logo {
+      width: clamp(58px, 6.5vmin, 82px); aspect-ratio: 1; border-radius: 50%; object-fit: cover;
+      background: #000; border: 2px solid rgba(255,255,255,.7);
+    }
+    .footer-logo:first-child { border-color: #fff; box-shadow: 0 0 12px rgba(255,0,0,.55); }
+    .footer-logo:nth-child(2) { border-color: #fff; box-shadow: 0 0 12px rgba(255,255,255,.42); }
+    .footer-logo:last-child { border-color: #fff; box-shadow: 0 0 12px rgba(0,102,255,.65); }
+
+    .celebration { position: fixed; z-index: 20; inset: 0; display: grid; place-items: center; pointer-events: none; opacity: 0; }
+    .celebration.active { opacity: 1; animation: celebrationFade 4s ease both; }
+    .celebration.blackout.active { animation-duration: 6s; }
+    .strobe { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(255,0,0,.62), transparent 43%, transparent 57%, rgba(0,102,255,.68)); mix-blend-mode: screen; opacity: 0; }
+    .active .strobe { animation: strobe .16s steps(2) 10; }
+    .blackout.active .strobe { animation: megaStrobe .13s steps(2) 45; }
+    .bingo-text {
+      position: relative; z-index: 2; padding: .12em .28em; color: white; font-size: clamp(68px, 17vmin, 190px); line-height: .82;
+      font-style: italic; font-weight: 1000; letter-spacing: -.07em; text-shadow: -8px 0 0 var(--red), 8px 0 0 var(--blue), 0 0 36px #000;
+      transform: rotate(-4deg) scale(.25); opacity: 0;
+    }
+    .active .bingo-text { animation: stampIn 3.8s cubic-bezier(.2,.8,.2,1) both; }
+    .blackout.active .bingo-text { animation-duration: 5.8s; }
+    .blackout .bingo-text { font-size: clamp(62px, 15vmin, 180px); }
+    .bingo-text small { display: block; text-align: center; font-size: .2em; letter-spacing: .24em; margin: .6em 0 0 .24em; }
+    .confetti { position: absolute; inset: 0; overflow: hidden; }
+    .confetti-piece { position: absolute; top: -8%; width: clamp(5px, .7vmin, 10px); height: clamp(10px, 1.5vmin, 18px); animation: fall var(--fall-time) cubic-bezier(.15,.7,.55,1) forwards; transform: rotate(var(--spin)); }
+    .balloon {
+      position: absolute; top: -18%; width: var(--balloon-size); aspect-ratio: .78; border-radius: 52% 52% 46% 46%;
+      background: var(--balloon-color); box-shadow: inset -8px -7px 12px rgba(0,0,0,.22), inset 7px 5px 9px rgba(255,255,255,.28), 0 0 14px color-mix(in srgb, var(--balloon-color), transparent 42%);
+      animation: balloonFall var(--balloon-time) linear forwards;
+    }
+    .balloon::before { content: ""; position: absolute; left: 43%; bottom: -8%; border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom: 9px solid var(--balloon-color); }
+    .balloon::after { content: ""; position: absolute; left: 50%; top: 106%; width: 1px; height: clamp(30px, 7vh, 75px); background: rgba(255,255,255,.55); transform-origin: top; transform: rotate(8deg); }
+    @keyframes celebrationFade { 0% { opacity: 1 } 85% { opacity: 1 } 100% { opacity: 0 } }
+    @keyframes strobe { 0%,100% { opacity: .18 } 50% { opacity: .95; filter: saturate(1.8) } }
+    @keyframes megaStrobe { 0%,100% { opacity: .35 } 50% { opacity: 1; filter: saturate(2.3) brightness(1.2) } }
+    @keyframes stampIn { 0% { opacity: 0; transform: rotate(-10deg) scale(2.6) } 16% { opacity: 1; transform: rotate(-4deg) scale(.92) } 23% { transform: rotate(-4deg) scale(1.05) } 70% { opacity: 1; transform: rotate(-4deg) scale(1) } 100% { opacity: 0; transform: rotate(-4deg) scale(1.15) } }
+    @keyframes fall { to { top: 110%; transform: translateX(var(--drift)) rotate(calc(var(--spin) + 720deg)); } }
+    @keyframes balloonFall {
+      0% { top: -18%; transform: translateX(0) rotate(-6deg); }
+      30% { transform: translateX(calc(var(--balloon-drift) * .35)) rotate(7deg); }
+      65% { transform: translateX(calc(var(--balloon-drift) * .7)) rotate(-5deg); }
+      100% { top: 112%; transform: translateX(var(--balloon-drift)) rotate(6deg); }
+    }
+
+    body.flash-red::after, body.flash-blue::after { content: ""; position: fixed; z-index: 10; inset: 0; pointer-events: none; }
+    body.flash-red::after { box-shadow: inset 0 0 14vmin rgba(255,0,0,.75); }
+    body.flash-blue::after { box-shadow: inset 0 0 14vmin rgba(0,102,255,.8); }
+
+    @media (max-width: 620px) {
+      .app { gap: 5px; }
+      header { justify-content: flex-start; padding-left: 2px; }
+      .brand { text-align: left; }
+      .brand-subtitle { letter-spacing: .24em; }
+      .generator { min-height: 36px; }
+      .primary { min-width: 0; flex: 1; }
+      .board { max-height: min(calc(100% - 100px), 96vw); }
+      .cell { font-size: clamp(8px, 2.65vw, 15px); }
+    }
+
+    @media (max-height: 560px) and (orientation: landscape) {
+      .app { grid-template-columns: minmax(260px, 1fr) auto; grid-template-rows: auto minmax(0,1fr) auto; }
+      header, footer { grid-column: 1; }
+      header { justify-content: center; }
+      .board-wrap { grid-column: 2; grid-row: 1 / -1; }
+      .board { max-height: calc(100% - 100px); max-width: 56vw; }
+      footer { align-self: end; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div class="brand" aria-label="Booze and Bodycams Bingo">
+        <span class="brand-spacer" aria-hidden="true"></span>
+        <h1><span class="booze">Booze</span><span class="and">and</span><span class="bodycams">Bodycams</span></h1>
+        <span class="brand-subtitle">Bodycam Bingo</span>
+      </div>
+      <div class="icon-controls">
+        <div class="volume-control" id="volumeControl">
+          <button class="icon-btn" id="muteButton" type="button" aria-label="Adjust volume" aria-expanded="false" title="Volume">🔊</button>
+          <div class="volume-panel" id="volumePanel">
+            <label class="volume-readout" for="volumeSlider"><span>Volume</span><output id="volumeValue">70%</output></label>
+            <input class="volume-slider" id="volumeSlider" type="range" min="0" max="100" value="70" step="1">
+          </div>
+        </div>
+        <button class="icon-btn" id="fullscreenButton" type="button" aria-label="Enter fullscreen" title="Fullscreen">⛶</button>
+      </div>
+    </header>
+
+    <section class="board-wrap">
+      <section class="generator" aria-label="Card generator">
+        <button class="primary" id="generateButton" type="button">Generate New Card</button>
+      </section>
+      <div class="board" id="board" role="grid" aria-label="Booze and Bodycams bingo card"></div>
+      <section class="board-actions" aria-label="Board controls">
+        <button class="secondary clear" id="clearButton" type="button">Clear Board</button>
+      </section>
+    </section>
+
+    <footer aria-label="Creators">
+      <img class="footer-logo" src="ktzedcircle2.jpg" alt="KTZED">
+      <img class="footer-logo" src="kfarrcircle-cropped.png" alt="KFarr">
+      <img class="footer-logo" src="hoopeystarcircle.png" alt="Hoopey Star">
+    </footer>
+  </main>
+
+  <div class="celebration" id="celebration" aria-live="assertive" aria-atomic="true">
+    <div class="strobe"></div>
+    <div class="confetti" id="confetti"></div>
+    <div class="bingo-text" id="bingoText">BINGO!</div>
+  </div>
+
+  <audio id="bingoSound" preload="auto">
+    <source src="bingo.wav" type="audio/wav">
+    <source src="bingo.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="blackoutSound" preload="auto">
+    <source src="blackout.wav" type="audio/wav">
+    <source src="blackout.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // PASTE YOUR BINGO ANSWERS HERE — use one answer per line.
+    // Blank lines are ignored, so pasted line spacing is preserved correctly.
+    const bingoAnswers = `
+I dindu nuffin
+I know my rights
+Don't touch me
+Overly reasonable cop
+Hair falls out/off
+I'm pregnant
+Calls/wants mom
+Why am I arrested? (after it was explained)
+I pay your salary
+I can't breathe
+You're gonna lose your job
+'My lawyer' mentioned
+I have a medical condition
+Somebody call 911!
+Tries to record on phone
+I'm not resisting (while resisting)
+Active warrant
+Do you know who I know (am)?
+Why are you doing this to me?
+Tries to get away mid-stop
+I didn't consent to this
+Has a child with them
+But my kids (not present)
+Race card
+Repeating the same thing over and over
+You’re hurting me! (while resisting)
+You can't do that
+Demands supervisor
+Complains about cuffs
+For what?
+Bro/bruh
+Spit hood
+Asks for name and badge number
+I'm gonna sue
+I just got off work
+I know the law
+Taser deployed
+Only had a few drinks
+Demonic screaming
+Refuses to show ID
+Fake name/ID
+Shoes fell off
+(unintelligable)
+Refuses to exit vehicle
+Random bystander gets involved
+Canine deployed
+Hits or kicks officer
+Prior criminal record
+Asks for warrant
+Cries like a child
+    `.split(/\r?\n/).map(answer => answer.trim()).filter(Boolean);
+
+    const board = document.querySelector("#board");
+    const celebration = document.querySelector("#celebration");
+    const bingoText = document.querySelector("#bingoText");
+    const confetti = document.querySelector("#confetti");
+    const muteButton = document.querySelector("#muteButton");
+    const volumeControl = document.querySelector("#volumeControl");
+    const volumeSlider = document.querySelector("#volumeSlider");
+    const volumeValue = document.querySelector("#volumeValue");
+    const bingoSound = document.querySelector("#bingoSound");
+    const blackoutSound = document.querySelector("#blackoutSound");
+    bingoSound.volume = 0.65;
+    blackoutSound.volume = 0.65;
+    let marked = new Set([12]);
+    let activeLines = new Set();
+    let blackoutActive = false;
+    let celebrationTimer;
+    let muted = false;
+    let audioContext;
+
+    const winningLines = [
+      [0,1,2,3,4], [5,6,7,8,9], [10,11,12,13,14], [15,16,17,18,19], [20,21,22,23,24],
+      [0,5,10,15,20], [1,6,11,16,21], [2,7,12,17,22], [3,8,13,18,23], [4,9,14,19,24],
+      [0,6,12,18,24], [4,8,12,16,20],
+    ];
+
+    function hashSeed(text) {
+      let h = 2166136261;
+      for (let i = 0; i < text.length; i++) {
+        h ^= text.charCodeAt(i);
+        h = Math.imul(h, 16777619);
+      }
+      return h >>> 0;
+    }
+
+    function seededRandom(seed) {
+      return function () {
+        seed |= 0;
+        seed = seed + 0x6D2B79F5 | 0;
+        let t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+        t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+        return ((t ^ t >>> 14) >>> 0) / 4294967296;
+      };
+    }
+
+    function shuffledAnswers(seed) {
+      const source = bingoAnswers.map(answer => String(answer).trim()).filter(Boolean);
+      if (!source.length) source.push("Add an answer");
+      const pool = [];
+      while (pool.length < 24) pool.push(...source);
+      const random = seededRandom(hashSeed(seed));
+      for (let i = pool.length - 1; i > 0; i--) {
+        const j = Math.floor(random() * (i + 1));
+        [pool[i], pool[j]] = [pool[j], pool[i]];
+      }
+      return pool.slice(0, 24);
+    }
+
+    function newRandomSeed() {
+      return Math.random().toString(36).slice(2, 8).toUpperCase();
+    }
+
+    function renderBoard(seed) {
+      const answers = shuffledAnswers(seed);
+      marked = new Set([12]);
+      activeLines = new Set();
+      blackoutActive = false;
+      board.replaceChildren();
+      let answerIndex = 0;
+
+      for (let index = 0; index < 25; index++) {
+        const cell = document.createElement("button");
+        cell.type = "button";
+        cell.className = "cell";
+        cell.setAttribute("role", "gridcell");
+        cell.dataset.index = index;
+
+        if (index === 12) {
+          cell.classList.add("free");
+          cell.setAttribute("aria-label", "Free space, automatically marked");
+          cell.setAttribute("aria-pressed", "true");
+          cell.disabled = true;
+          cell.innerHTML = '<span class="free-fallback" aria-hidden="true"><b>B</b>×<b>B</b></span><img class="free-logo" src="boozeducksquare.jpg" alt="" onload="this.previousElementSibling.hidden=true" onerror="this.hidden=true">';
+        } else {
+          const answer = answers[answerIndex++];
+          cell.innerHTML = `<span>${escapeHtml(answer)}</span>`;
+          cell.setAttribute("aria-label", answer);
+          cell.setAttribute("aria-pressed", "false");
+          cell.addEventListener("click", () => toggleCell(cell, index));
+        }
+        board.append(cell);
+      }
+    }
+
+    function escapeHtml(value) {
+      const temp = document.createElement("div");
+      temp.textContent = value;
+      return temp.innerHTML;
+    }
+
+    function toggleCell(cell, index) {
+      if (marked.has(index)) marked.delete(index); else marked.add(index);
+      cell.classList.toggle("marked", marked.has(index));
+      cell.setAttribute("aria-pressed", String(marked.has(index)));
+      detectBingo();
+    }
+
+    function detectBingo() {
+      const completeNow = new Set();
+      winningLines.forEach((line, index) => {
+        if (line.every(cell => marked.has(cell))) completeNow.add(index);
+      });
+      const newLines = [...completeNow].filter(line => !activeLines.has(line));
+      const isBlackout = marked.size === 25;
+
+      if (isBlackout && !blackoutActive) celebrate(true);
+      else if (newLines.length) celebrate(false);
+
+      activeLines = completeNow;
+      blackoutActive = isBlackout;
+    }
+
+    function celebrate(isBlackout) {
+      clearTimeout(celebrationTimer);
+      celebration.className = `celebration ${isBlackout ? "blackout " : ""}active`;
+      bingoText.textContent = isBlackout ? "BLACKOUT!" : "BINGO!";
+      makeConfetti(isBlackout ? 280 : 65, isBlackout);
+      playCelebrationSound(isBlackout);
+      pulsePage(isBlackout ? 52 : 12);
+      celebrationTimer = setTimeout(() => celebration.className = "celebration", isBlackout ? 6000 : 4000);
+    }
+
+    function makeConfetti(count, isBlackout = false) {
+      confetti.replaceChildren();
+      const celebrationDuration = isBlackout ? 6 : 4;
+      const confettiDelayWindow = isBlackout ? 3 : 2;
+      const colors = isBlackout
+        ? ["#ff0000", "#0066ff", "#ffffff", "#ffd700", "#00d9ff", "#ff3cac"]
+        : ["#ff0000", "#0066ff", "#ffffff"];
+      for (let i = 0; i < count; i++) {
+        const piece = document.createElement("i");
+        piece.className = "confetti-piece";
+        piece.style.left = `${Math.random() * 100}%`;
+        piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.width = `${isBlackout ? 5 + Math.random() * 10 : 5 + Math.random() * 5}px`;
+        piece.style.height = `${isBlackout ? 8 + Math.random() * 18 : 10 + Math.random() * 8}px`;
+        piece.style.borderRadius = i % 5 === 0 ? "50%" : i % 3 === 0 ? "2px" : "0";
+        const pieceDelay = i === 0 ? 0 : Math.random() * confettiDelayWindow;
+        piece.style.setProperty("--fall-time", `${celebrationDuration - pieceDelay}s`);
+        piece.style.setProperty("--drift", `${isBlackout ? -180 + Math.random() * 360 : -90 + Math.random() * 180}px`);
+        piece.style.setProperty("--spin", `${Math.random() * 360}deg`);
+        piece.style.animationDelay = `${pieceDelay}s`;
+        piece.style.animationTimingFunction = isBlackout ? "linear" : "cubic-bezier(.2,.55,.45,1)";
+        confetti.append(piece);
+      }
+
+      const balloonColors = isBlackout
+        ? ["#ff0000", "#0066ff", "#ffd700", "#ffffff", "#ff3cac"]
+        : ["#ff0000", "#0066ff", "#ffffff"];
+      const balloonCount = isBlackout ? 26 : 12;
+      for (let i = 0; i < balloonCount; i++) {
+        const balloon = document.createElement("i");
+        balloon.className = "balloon";
+        balloon.style.left = `${2 + Math.random() * 94}%`;
+        balloon.style.setProperty("--balloon-color", balloonColors[Math.floor(Math.random() * balloonColors.length)]);
+        balloon.style.setProperty("--balloon-size", `${isBlackout ? 34 + Math.random() * 42 : 28 + Math.random() * 28}px`);
+        balloon.style.setProperty("--balloon-drift", `${-100 + Math.random() * 200}px`);
+        const balloonDelay = i === 0 ? 0 : Math.random() * (isBlackout ? 2.5 : 1.7);
+        balloon.style.setProperty("--balloon-time", `${celebrationDuration - balloonDelay}s`);
+        balloon.style.animationDelay = `${balloonDelay}s`;
+        confetti.append(balloon);
+      }
+    }
+
+    function pulsePage(flashes) {
+      let count = 0;
+      const timer = setInterval(() => {
+        document.body.classList.remove("flash-red", "flash-blue");
+        document.body.classList.add(count % 2 ? "flash-blue" : "flash-red");
+        if (++count >= flashes) {
+          clearInterval(timer);
+          document.body.classList.remove("flash-red", "flash-blue");
+        }
+      }, 110);
+    }
+
+    function playCelebrationSound(isBlackout) {
+      if (muted) return;
+      const sound = isBlackout ? blackoutSound : bingoSound;
+      [bingoSound, blackoutSound].forEach(audio => {
+        audio.pause();
+        audio.currentTime = 0;
+      });
+      sound.play().catch(() => playSirenFallback(isBlackout));
+    }
+
+    function playSirenFallback(isBlackout) {
+      if (muted) return;
+      audioContext ||= new (window.AudioContext || window.webkitAudioContext)();
+      const now = audioContext.currentTime;
+      const duration = isBlackout ? 2.8 : 1.15;
+      const oscillator = audioContext.createOscillator();
+      const gain = audioContext.createGain();
+      oscillator.type = "sawtooth";
+      oscillator.frequency.setValueAtTime(520, now);
+      for (let t = .15; t < duration; t += .3) {
+        oscillator.frequency.linearRampToValueAtTime(860, now + t);
+        oscillator.frequency.linearRampToValueAtTime(520, now + t + .15);
+      }
+      gain.gain.setValueAtTime(.0001, now);
+      gain.gain.exponentialRampToValueAtTime(.075, now + .04);
+      gain.gain.setValueAtTime(.075, now + duration - .08);
+      gain.gain.exponentialRampToValueAtTime(.0001, now + duration);
+      oscillator.connect(gain).connect(audioContext.destination);
+      oscillator.start(now); oscillator.stop(now + duration);
+    }
+
+    function generate() {
+      renderBoard(newRandomSeed());
+    }
+
+    document.querySelector("#generateButton").addEventListener("click", generate);
+    document.querySelector("#clearButton").addEventListener("click", () => {
+      marked = new Set([12]); activeLines.clear(); blackoutActive = false;
+      board.querySelectorAll(".cell.marked").forEach(cell => {
+        cell.classList.remove("marked"); cell.setAttribute("aria-pressed", "false");
+      });
+    });
+    function setVolume(value) {
+      const volume = Number(value) / 100;
+      muted = volume === 0;
+      bingoSound.volume = volume;
+      blackoutSound.volume = volume;
+      volumeValue.value = value;
+      volumeValue.textContent = `${value}%`;
+      muteButton.textContent = muted ? "🔇" : volume < .5 ? "🔉" : "🔊";
+      muteButton.setAttribute("aria-label", muted ? "Volume muted; adjust volume" : `Adjust volume, ${value} percent`);
+      if (muted) {
+        [bingoSound, blackoutSound].forEach(audio => {
+          audio.pause();
+          audio.currentTime = 0;
+        });
+      }
+    }
+
+    muteButton.addEventListener("click", event => {
+      event.stopPropagation();
+      const isOpen = volumeControl.classList.toggle("open");
+      muteButton.setAttribute("aria-expanded", String(isOpen));
+      if (isOpen) volumeSlider.focus();
+    });
+    volumeSlider.addEventListener("input", () => setVolume(volumeSlider.value));
+    volumeControl.addEventListener("click", event => event.stopPropagation());
+    document.addEventListener("click", () => {
+      volumeControl.classList.remove("open");
+      muteButton.setAttribute("aria-expanded", "false");
+    });
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        volumeControl.classList.remove("open");
+        muteButton.setAttribute("aria-expanded", "false");
+        muteButton.focus();
+      }
+    });
+    document.querySelector("#fullscreenButton").addEventListener("click", async () => {
+      if (!document.fullscreenElement) await document.documentElement.requestFullscreen();
+      else await document.exitFullscreen();
+    });
+
+    renderBoard(newRandomSeed());
+  </script>
+</body>
+</html>
