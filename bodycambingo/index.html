@@ -4,7 +4,41 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#02050d">
-  <title>Booze and Bodycams Bingo</title>
+  <title>Bodycam Bingo | Free Online Body Cam Bingo Game</title>
+  <meta name="description" content="Play free online with an interactive Bodycam Bingo card. Generate a randomized body cam bingo card, mark classic police bodycam moments, and compete with friends.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://hoopeystar.com/bodycambingo/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Hoopeystar">
+  <meta property="og:title" content="Bodycam Bingo | Free Online Body Cam Bingo Game">
+  <meta property="og:description" content="Generate a free randomized Bodycam Bingo card and play along with police bodycam videos.">
+  <meta property="og:url" content="https://hoopeystar.com/bodycambingo/">
+  <meta property="og:image" content="https://hoopeystar.com/assets/img/bingo.png">
+  <meta property="og:image:alt" content="Bodycam Bingo online game board">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bodycam Bingo | Free Online Body Cam Bingo Game">
+  <meta name="twitter:description" content="Play a free randomized body cam bingo game online.">
+  <meta name="twitter:image" content="https://hoopeystar.com/assets/img/bingo.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "Bodycam Bingo",
+    "alternateName": "Body Cam Bingo",
+    "url": "https://hoopeystar.com/bodycambingo/",
+    "description": "A free interactive Bodycam Bingo card and randomized body cam bingo card for playing along with police bodycam videos.",
+    "image": "https://hoopeystar.com/assets/img/bingo.png",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Any web browser",
+    "playMode": "MultiPlayer",
+    "isAccessibleForFree": true,
+    "publisher": {
+      "@type": "Organization",
+      "name": "Hoopeystar",
+      "url": "https://hoopeystar.com/"
+    }
+  }
+  </script>
   <style>
     :root {
       --red: #ff0000;
@@ -17,6 +51,10 @@
     }
 
     * { box-sizing: border-box; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+    }
 
     html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
 
@@ -232,11 +270,11 @@
 </head>
 <body>
   <main class="app">
+    <p class="sr-only">Play Bodycam Bingo free online with an interactive Bodycam Bingo card. Generate a randomized body cam bingo card and mark familiar moments while watching police bodycam videos with friends.</p>
     <header>
       <div class="brand" aria-label="Booze and Bodycams Bingo">
         <span class="brand-spacer" aria-hidden="true"></span>
-        <h1><span class="booze">Booze</span><span class="and">and</span><span class="bodycams">Bodycams</span></h1>
-        <span class="brand-subtitle">Bodycam Bingo</span>
+        <h1><span class="booze">Booze</span><span class="and">and</span><span class="bodycams">Bodycams</span><span class="brand-subtitle">Bodycam Bingo</span></h1>
       </div>
       <div class="icon-controls">
         <div class="volume-control" id="volumeControl">
@@ -254,7 +292,7 @@
       <section class="generator" aria-label="Card generator">
         <button class="primary" id="generateButton" type="button">Generate New Card</button>
       </section>
-      <div class="board" id="board" role="grid" aria-label="Booze and Bodycams bingo card"></div>
+      <div class="board" id="board" role="grid" aria-label="Interactive Bodycam Bingo card"></div>
       <section class="board-actions" aria-label="Board controls">
         <button class="secondary clear" id="clearButton" type="button">Clear Board</button>
       </section>
