@@ -166,6 +166,7 @@
       hyphens: none; word-break: normal; overflow-wrap: normal;
       transition: transform .12s ease, border-color .18s ease, filter .18s ease; touch-action: manipulation;
     }
+    .cell > span { display: block; max-width: 100%; }
     .cell:hover, .cell:focus-visible { z-index: 2; border-color: rgba(255,255,255,.75); filter: brightness(1.25); outline: none; }
     .cell:active { transform: scale(.96); }
     .cell:nth-child(odd) { box-shadow: inset 3px 0 rgba(255,0,0,.15); }
@@ -473,7 +474,31 @@ Cries like a child
         }
         board.append(cell);
       }
+
+      requestAnimationFrame(fitBoardText);
     }
+
+    function fitBoardText() {
+      board.querySelectorAll(`.cell:not(.free)`).forEach(cell => {
+        const label = cell.querySelector(`span`);
+        if (!label) return;
+
+        label.style.fontSize = ``;
+        const cellStyle = getComputedStyle(cell);
+        const availableWidth = cell.clientWidth - parseFloat(cellStyle.paddingLeft) - parseFloat(cellStyle.paddingRight);
+        const availableHeight = cell.clientHeight - parseFloat(cellStyle.paddingTop) - parseFloat(cellStyle.paddingBottom);
+        let fontSize = parseFloat(cellStyle.fontSize);
+        const minimumFontSize = 7;
+
+        while ((label.scrollWidth > availableWidth || label.scrollHeight > availableHeight) && fontSize > minimumFontSize) {
+          fontSize = Math.max(minimumFontSize, fontSize - .5);
+          label.style.fontSize = `${fontSize}px`;
+        }
+      });
+    }
+
+    const boardResizeObserver = new ResizeObserver(() => requestAnimationFrame(fitBoardText));
+    boardResizeObserver.observe(board);
 
     function escapeHtml(value) {
       const temp = document.createElement("div");
