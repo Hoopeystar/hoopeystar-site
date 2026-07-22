@@ -5,6 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KTZED Game Night</title>
     <meta name="description" content="Bodycam & true crime trivia game for member game nights." />
+    <style>
+      /* Give the pre-game lobby enough room for the full join address. */
+      .ov-waiting {
+        width: min(100% - 32px, 1100px);
+        margin: auto;
+        padding: clamp(48px, 8vh, 90px) 0 !important;
+        font-size: clamp(44px, 6vw, 68px) !important;
+      }
+
+      .ov-waiting-sub {
+        font-size: clamp(15px, 1.8vw, 20px) !important;
+      }
+
+      .ov-waiting > div[style] {
+        width: min(100%, 760px);
+        max-width: none !important;
+        margin: clamp(32px, 5vh, 52px) auto 0 !important;
+      }
+
+      .ov-waiting .ov-join-card {
+        padding: clamp(24px, 3vw, 36px) !important;
+      }
+
+      /* Join cards also appear in the narrower sidebar during gameplay. */
+      .ov-join-url {
+        overflow: visible !important;
+        white-space: normal !important;
+        overflow-wrap: anywhere;
+        line-height: 1.08;
+      }
+
+      .ov-join-url::after {
+        content: 'CLICK "JOIN AS BYSTANDER"';
+        display: block;
+        margin-top: 12px;
+        font-family: 'Share Tech Mono', monospace;
+        font-size: clamp(10px, 0.9vw, 14px);
+        font-weight: 400;
+        line-height: 1.4;
+        letter-spacing: 2px;
+        color: #cfc4b4;
+        text-shadow: none;
+      }
+
+      .ov-waiting .ov-join-url {
+        font-size: clamp(28px, 4vw, 46px) !important;
+      }
+
+      .ov-waiting .ov-join-url::after {
+        margin-top: clamp(14px, 2.2vh, 22px);
+        font-size: clamp(14px, 1.8vw, 19px);
+        letter-spacing: 3px;
+      }
+
+      .ov-waiting .ov-join-code {
+        font-size: clamp(108px, 16vw, 180px) !important;
+        line-height: 1;
+      }
+
+      .ov-waiting .ov-join-sub,
+      .ov-waiting .ov-join-kicker {
+        font-size: clamp(14px, 1.8vw, 19px) !important;
+      }
+
+      @media (max-width: 520px) {
+        .ov-waiting {
+          width: min(100% - 20px, 1100px);
+        }
+
+        .ov-waiting .ov-join-card {
+          padding: 22px 14px !important;
+        }
+      }
+    </style>
     <script type="module" crossorigin src="/ktzedgamenight/assets/index-CxcH4i8_.js"></script>
   </head>
   <body>
