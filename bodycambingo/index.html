@@ -199,9 +199,10 @@
       width: clamp(58px, 6.5vmin, 82px); aspect-ratio: 1; border-radius: 50%; object-fit: cover;
       background: #000; border: 2px solid rgba(255,255,255,.7);
     }
-    .footer-logo:first-child { border-color: #fff; box-shadow: 0 0 12px rgba(255,0,0,.55); }
-    .footer-logo:nth-child(2) { border-color: #fff; box-shadow: 0 0 12px rgba(255,255,255,.42); }
-    .footer-logo:last-child { border-color: #fff; box-shadow: 0 0 12px rgba(0,102,255,.65); }
+    footer a { display: inline-flex; border-radius: 50%; }
+    footer > :first-child .footer-logo { border-color: #fff; box-shadow: 0 0 12px rgba(255,0,0,.55); }
+    footer > :nth-child(2) .footer-logo { border-color: #fff; box-shadow: 0 0 12px rgba(255,255,255,.42); }
+    footer > .footer-logo:last-child { border-color: #fff; box-shadow: 0 0 12px rgba(0,102,255,.65); }
 
     .celebration { position: fixed; z-index: 20; inset: 0; display: grid; place-items: center; pointer-events: none; opacity: 0; }
     .celebration.active { opacity: 1; animation: celebrationFade 4s ease both; }
@@ -299,8 +300,12 @@
     </section>
 
     <footer aria-label="Creators">
-      <img class="footer-logo" src="ktzedcircle2.jpg" alt="KTZED">
-      <img class="footer-logo" src="kfarrcircle-cropped.png" alt="KFarr">
+      <a href="https://www.youtube.com/@KTZed" target="_blank" rel="noopener noreferrer" aria-label="Visit KTZED on YouTube">
+        <img class="footer-logo" src="ktzedcircle2.jpg" alt="KTZED">
+      </a>
+      <a href="https://www.youtube.com/@KFARR" target="_blank" rel="noopener noreferrer" aria-label="Visit KFARR on YouTube">
+        <img class="footer-logo" src="kfarrcircle-cropped.png" alt="KFarr">
+      </a>
       <img class="footer-logo" src="hoopeystarcircle.png" alt="Hoopey Star">
     </footer>
   </main>
