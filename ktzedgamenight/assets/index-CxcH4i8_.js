@@ -957,8 +957,13 @@ html, body { background: #0d0d0d; font-family: 'Barlow Condensed', sans-serif; }
 .question-long .ov-join-code { font-size: clamp(70px, 6.5vw, 94px); }
 .question-very-long .ov-join-code { font-size: clamp(58px, 5.5vw, 78px); }
 .ov-join-sub { font-size: 14px; }
-.ov-join-url { font-size: clamp(24px, 2vw, 36px); }
-.question-long .ov-join-url, .question-very-long .ov-join-url { font-size: clamp(21px, 1.5vw, 28px); }
+.ov-join-url {
+  font-size: clamp(18px, 1.3vw, 24px);
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+.question-long .ov-join-url, .question-very-long .ov-join-url { font-size: clamp(17px, 1.2vw, 22px); }
 .ov-waiting { font-size: 44px; }
 .ov-waiting-sub { font-size: 15px; }
 .ov-final-crown { font-size: 78px; }
