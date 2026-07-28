@@ -150,7 +150,7 @@
     @keyframes buttonPulse { 50% { box-shadow: -12px 0 30px rgba(255,0,0,.38), 12px 0 30px rgba(0,102,255,.45), inset 0 1px rgba(255,255,255,.28); } }
 
     .board-wrap {
-      min-height: 0; display: flex; flex-direction: column; justify-content: center; align-items: center;
+      position: relative; min-height: 0; display: flex; flex-direction: column; justify-content: center; align-items: center;
       gap: 0;
     }
     .board {
@@ -194,6 +194,26 @@
     .board-actions { display: flex; flex: 0 0 auto; justify-content: center; gap: 8px; margin-top: clamp(10px, 1.4vh, 16px); }
     .secondary { padding: clamp(7px, 1vh, 10px) clamp(14px, 2.8vw, 34px); font-size: clamp(10px, 1.4vmin, 14px); background: #0b1221; border: 1px solid var(--line); }
     .secondary.clear:hover { border-color: var(--red); box-shadow: 0 0 18px rgba(255,0,0,.25); }
+    .play-info {
+      position: absolute; z-index: 8; bottom: 0; left: 0;
+      color: #dce5f7; font-size: 13px; line-height: 1.55;
+    }
+    .play-info summary {
+      width: 36px; height: 36px; border: 1px solid var(--line); border-radius: 10px;
+      background: rgba(8,15,29,.9); color: white; cursor: pointer; display: grid; place-items: center;
+      font-weight: 950; list-style: none; transition: .2s ease;
+    }
+    .play-info summary::-webkit-details-marker { display: none; }
+    .play-info summary:hover, .play-info summary:focus-visible {
+      border-color: var(--blue); box-shadow: 0 0 14px rgba(0,102,255,.4); outline: none;
+    }
+    .play-info-copy {
+      position: absolute; bottom: 44px; left: 0; width: min(270px, calc(100vw - 24px)); padding: 16px;
+      border: 1px solid rgba(0,102,255,.5); border-radius: 12px; background: rgba(5,10,20,.97);
+      box-shadow: 0 14px 36px rgba(0,0,0,.45), 0 0 22px rgba(0,102,255,.16);
+    }
+    .play-info-copy strong { display: block; margin-bottom: 7px; color: white; font-size: 14px; letter-spacing: .02em; }
+    .play-info-copy p { margin: 0; }
 
     footer {
       min-height: 66px; padding-bottom: clamp(8px, 1.2vh, 14px); display: flex;
@@ -268,6 +288,19 @@
       footer { align-self: end; }
     }
 
+    @media (min-width: 1600px) and (min-height: 680px) {
+      .play-info {
+        top: 50%; right: auto; bottom: auto; left: var(--play-info-left, calc(50% + 400px));
+        width: 260px; transform: translateY(-50%); font-size: 15.5px; line-height: 1.65;
+      }
+      .play-info summary { display: none; }
+      .play-info-copy {
+        position: static; width: auto; padding: 20px; border-color: rgba(154,174,215,.28);
+        background: linear-gradient(145deg, rgba(12,21,39,.92), rgba(5,10,20,.94));
+      }
+      .play-info-copy strong { margin-bottom: 10px; font-size: 18px; line-height: 1.3; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
     }
@@ -301,6 +334,13 @@
       <section class="board-actions" aria-label="Board controls">
         <button class="secondary clear" id="clearButton" type="button">Clear Board</button>
       </section>
+      <details class="play-info" id="playInfo">
+        <summary aria-label="Bodycam Bingo by Hoopeystar" title="How to play">?</summary>
+        <div class="play-info-copy">
+          <strong>Bodycam Bingo by Hoopeystar</strong>
+          <p>Generate a random card and mark moments while watching police bodycam videos. Keep going after the first bingo for a full blackout!</p>
+        </div>
+      </details>
     </section>
 
     <footer aria-label="Creators">
@@ -679,6 +719,25 @@ Cries like a child
       if (!document.fullscreenElement) await document.documentElement.requestFullscreen();
       else await document.exitFullscreen();
     });
+
+    const playInfo = document.querySelector("#playInfo");
+    const wideInfoLayout = window.matchMedia("(min-width: 1600px) and (min-height: 680px)");
+    function positionPlayInfo() {
+      if (!wideInfoLayout.matches) {
+        playInfo.style.removeProperty("--play-info-left");
+        return;
+      }
+      playInfo.style.setProperty("--play-info-left", `${board.offsetLeft + board.offsetWidth + 48}px`);
+    }
+    function syncPlayInfoLayout(event) {
+      playInfo.open = event.matches;
+      requestAnimationFrame(positionPlayInfo);
+    }
+    syncPlayInfoLayout(wideInfoLayout);
+    wideInfoLayout.addEventListener("change", syncPlayInfoLayout);
+    new ResizeObserver(() => requestAnimationFrame(positionPlayInfo)).observe(board);
+    new ResizeObserver(() => requestAnimationFrame(positionPlayInfo)).observe(board.parentElement);
+    window.addEventListener("resize", () => requestAnimationFrame(positionPlayInfo));
 
     renderBoard(newRandomSeed());
   </script>
