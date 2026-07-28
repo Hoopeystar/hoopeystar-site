@@ -138,10 +138,15 @@
     .volume-slider { width: 100%; height: 5px; accent-color: var(--blue); cursor: pointer; }
 
     .generator {
-      display: flex; flex: 0 0 38px; justify-content: center; align-items: stretch; gap: 8px; width: 100%;
+      display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      flex: 0 0 38px; align-items: stretch; gap: 8px; width: 100%;
       margin-bottom: clamp(10px, 1.4vh, 16px);
     }
-    .theme-picker { position: relative; display: flex; align-items: center; min-width: clamp(126px, 16vw, 190px); }
+    .generator .primary { grid-column: 2; }
+    .theme-picker {
+      position: relative; grid-column: 3; justify-self: start; display: flex; align-items: center;
+      width: 230px; flex: 0 0 230px;
+    }
     .theme-picker select {
       width: 100%; height: 100%; padding: 0 34px 0 13px; appearance: none;
       border: 1px solid var(--line); border-radius: 9px; background: var(--theme-controls); color: white;
@@ -285,14 +290,18 @@
     body.flash-red::after { box-shadow: inset 0 0 14vmin rgba(var(--red-rgb),.75); }
     body.flash-blue::after { box-shadow: inset 0 0 14vmin rgba(var(--blue-rgb),.8); }
 
+    @media (max-width: 900px) {
+      .generator { display: flex; justify-content: center; }
+      .generator .primary { flex: 0 1 350px; }
+    }
+
     @media (max-width: 620px) {
       .app { gap: 5px; }
       header { justify-content: flex-start; padding-left: 2px; }
       .brand { text-align: left; }
       .brand-subtitle { letter-spacing: .24em; }
       .generator { min-height: 36px; }
-      .primary { min-width: 0; flex: 1; }
-      .theme-picker { min-width: 118px; }
+      .primary { min-width: 0; }
       .board { max-height: min(calc(100% - 100px), 96vw); }
       .cell { font-size: clamp(8px, 2.65vw, 15px); }
     }
@@ -416,7 +425,7 @@
       },
       {
         name: "KFARR",
-        title: "KFARR",
+        title: "KFARR News Network",
         freeSpaceImage: "kfarrnews.jpg",
         colors: { red: "#F7BB0F", redRgb: "247, 187, 15", blue: "#03076B", blueRgb: "3, 7, 107", background: "#010207", controls: "#0b1221" },
         leftFooterLogo: "kfarrcircle-cropped.png",
@@ -432,7 +441,7 @@
         colors: { red: "#C8860A", redRgb: "200, 134, 10", blue: "#7A4F02", blueRgb: "122, 79, 2", background: "#0D0905", controls: "#201609" },
         leftFooterLogo: "pbdglassclink.png",
         leftFooterName: "PBD",
-        leftFooterUrl: "https://www.youtube.com/@PourBrothersDecisions",
+        leftFooterUrl: "https://mrzedmedia.com/pbd",
       }
     ];
     const themeStorageKey = "bodycamBingoTheme";
