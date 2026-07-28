@@ -408,12 +408,12 @@
   </div>
 
   <audio id="bingoSound" preload="auto">
-    <source src="bingo.wav" type="audio/wav">
-    <source src="bingo.mp3" type="audio/mpeg">
+    <source src="bingo2.wav" type="audio/wav">
+    <source src="bingo2.mp3" type="audio/mpeg">
   </audio>
   <audio id="blackoutSound" preload="auto">
-    <source src="blackout.wav" type="audio/wav">
-    <source src="blackout.mp3" type="audio/mpeg">
+    <source src="blackout3.wav" type="audio/wav">
+    <source src="blackout3.mp3" type="audio/mpeg">
   </audio>
 
   <script>
@@ -783,8 +783,14 @@ Cries like a child
       confetti.replaceChildren();
       const celebrationDuration = isBlackout ? 6 : 4;
       const confettiDelayWindow = isBlackout ? 3 : 2;
+      const isPbdTheme = activeTheme.name === "PBD";
+      const isKfarrTheme = activeTheme.name === "KFARR";
       const colors = isBlackout
-        ? [activeTheme.colors.red, activeTheme.colors.blue, "#ffffff", "#ffd700", "#00d9ff", "#ff3cac"]
+        ? isPbdTheme
+          ? [activeTheme.colors.red, activeTheme.colors.blue, "#ffffff", "#ffd700", "#050403", "#3a2415"]
+          : isKfarrTheme
+            ? [activeTheme.colors.red, activeTheme.colors.blue, "#ffffff", "#ffd700", "#00d9ff", "#00d9ff"]
+            : [activeTheme.colors.red, activeTheme.colors.blue, "#ffffff", "#ffd700", "#00d9ff", "#ff3cac"]
         : [activeTheme.colors.red, activeTheme.colors.blue, "#ffffff"];
       for (let i = 0; i < count; i++) {
         const piece = document.createElement("i");
@@ -808,7 +814,11 @@ Cries like a child
       }
 
       const balloonColors = isBlackout
-        ? [activeTheme.colors.red, activeTheme.colors.blue, "#ffd700", "#ffffff", "#ff3cac"]
+        ? isPbdTheme
+          ? [activeTheme.colors.red, activeTheme.colors.blue, "#ffd700", "#ffffff", "#050403", "#3a2415"]
+          : isKfarrTheme
+            ? [activeTheme.colors.red, activeTheme.colors.blue, "#ffd700", "#ffffff", "#00d9ff"]
+            : [activeTheme.colors.red, activeTheme.colors.blue, "#ffd700", "#ffffff", "#ff3cac"]
         : [activeTheme.colors.red, activeTheme.colors.blue, "#ffffff"];
       const balloonCount = isBlackout ? 26 : 12;
       for (let i = 0; i < balloonCount; i++) {
