@@ -175,11 +175,18 @@
       gap: 0;
     }
     .board {
+      position: relative; z-index: 2;
       height: calc(100% - 104px); max-height: min(calc(100% - 104px), 68vw); aspect-ratio: 1;
       width: auto; max-width: 100%; flex: 0 1 auto; display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr)); grid-template-rows: repeat(5, minmax(0, 1fr)); gap: var(--gap);
       padding: var(--gap); border-radius: 15px; background: linear-gradient(135deg, rgba(var(--red-rgb),.7), rgba(255,255,255,.15) 44%, rgba(var(--blue-rgb),.75));
       box-shadow: -12px 0 32px rgba(var(--red-rgb),.16), 12px 0 32px rgba(var(--blue-rgb),.2);
+    }
+    .cockroach {
+      position: absolute; z-index: 1; width: clamp(30px, 5.2vmin, 62px); height: auto;
+      pointer-events: none; user-select: none; transform-origin: 50% 52%;
+      filter: drop-shadow(2px 3px 3px rgba(0,0,0,.72));
+      will-change: transform, opacity;
     }
 
     .cell {
@@ -456,6 +463,12 @@
         leftFooterLogo: "pbdglassclink.png",
         leftFooterName: "PBD",
         leftFooterUrl: "https://mrzedmedia.com/pbd",
+      },
+     {
+        name: "Baldy",
+        title: "Baldy's",
+        freeSpaceImage: "baldy.png",
+        colors: { red: "#B87333", redRgb: "184, 115, 51", blue: "#777777", blueRgb: "119, 119, 119", background: "#050403", controls: "#3A2415" },
       }
     ];
     const themeStorageKey = "bodycamBingoTheme";
@@ -528,6 +541,8 @@ Cries like a child
     const bingoSound = document.querySelector("#bingoSound");
     const blackoutSound = document.querySelector("#blackoutSound");
     const themeSelect = document.querySelector("#themeSelect");
+    const boardWrap = document.querySelector(".board-wrap");
+    const cockroachImages = ["roach1.png", "roach2.png", "roach3.png"];
     bingoSound.volume = 0.65;
     blackoutSound.volume = 0.65;
     let marked = new Set([12]);
@@ -536,6 +551,120 @@ Cries like a child
     let celebrationTimer;
     let muted = false;
     let audioContext;
+    let cockroachSpawnTimer;
+    let cockroachGeneration = 0;
+
+    function clearCockroaches() {
+      cockroachGeneration++;
+      clearTimeout(cockroachSpawnTimer);
+      boardWrap.querySelectorAll(".cockroach").forEach(cockroach => cockroach.remove());
+    }
+
+    function cockroachPoint(edge, boardBox, wrapBox, inset = 0) {
+      const left = boardBox.left - wrapBox.left;
+      const top = boardBox.top - wrapBox.top;
+      const width = boardBox.width;
+      const height = boardBox.height;
+      const along = .12 + Math.random() * .76;
+      if (edge === "top") return { x: left + width * along, y: top + inset };
+      if (edge === "right") return { x: left + width - inset, y: top + height * along };
+      if (edge === "bottom") return { x: left + width * along, y: top + height - inset };
+      return { x: left + inset, y: top + height * along };
+    }
+
+    function spawnCockroach(generation) {
+      if (generation !== cockroachGeneration || activeTheme.name !== "Baldy") return;
+      const boardBox = board.getBoundingClientRect();
+      const wrapBox = boardWrap.getBoundingClientRect();
+      if (!boardBox.width || !boardBox.height) return;
+
+      const edges = ["top", "right", "bottom", "left"];
+      const startEdge = edges[Math.floor(Math.random() * edges.length)];
+      const endEdge = edges[(edges.indexOf(startEdge) + 1 + Math.floor(Math.random() * 12)) % 4];
+      const sizeScales = [1, 1.25, 1.5, 1.75, 2];
+      const sizeScale = sizeScales[Math.floor(Math.random() * sizeScales.length)];
+      const baseSize = Math.max(30, Math.min(62, Math.min(boardBox.width, boardBox.height) * (.065 + Math.random() * .025)));
+      const size = baseSize * sizeScale;
+      const hidden = -size * .58;
+      const start = cockroachPoint(startEdge, boardBox, wrapBox, hidden);
+      const emerge = cockroachPoint(startEdge, boardBox, wrapBox, size * .12);
+      const middleA = {
+        x: boardBox.left - wrapBox.left + boardBox.width * (.18 + Math.random() * .64),
+        y: boardBox.top - wrapBox.top + boardBox.height * (.16 + Math.random() * .68)
+      };
+      const middleB = {
+        x: boardBox.left - wrapBox.left + boardBox.width * (.18 + Math.random() * .64),
+        y: boardBox.top - wrapBox.top + boardBox.height * (.16 + Math.random() * .68)
+      };
+      const leave = cockroachPoint(endEdge, boardBox, wrapBox, size * .1);
+      const hiddenEnd = cockroachPoint(endEdge, boardBox, wrapBox, hidden);
+      const points = [start, emerge, middleA, middleB, leave, hiddenEnd];
+      // The cockroach artwork faces left, so rotate its left-facing axis toward travel.
+      const angleFor = (point, next) => Math.atan2(next.y - point.y, next.x - point.x) * 180 / Math.PI - 180;
+      const roach = document.createElement("img");
+      roach.className = "cockroach";
+      roach.src = cockroachImages[Math.floor(Math.random() * cockroachImages.length)];
+      roach.alt = "";
+      roach.setAttribute("aria-hidden", "true");
+      roach.style.width = `${size}px`;
+      roach.style.left = `${-size / 2}px`;
+      roach.style.top = `${-size / 2}px`;
+      boardWrap.append(roach);
+
+      const duration = 6500 + Math.random() * 4500;
+      const headings = points.slice(0, -1).map((point, index) =>
+        angleFor(point, points[index + 1]) + (Math.random() * 4 - 2)
+      );
+      for (let index = 1; index < headings.length; index++) {
+        while (headings[index] - headings[index - 1] > 180) headings[index] -= 360;
+        while (headings[index] - headings[index - 1] < -180) headings[index] += 360;
+      }
+
+      const keyframes = [];
+      const moveShare = .16;
+      const turnShare = .05;
+      let offset = 0;
+      const frame = (point, angle, frameOffset, opacity, easing) => ({
+        transform: `translate(${point.x}px, ${point.y}px) rotate(${angle}deg)`,
+        opacity,
+        offset: Math.min(1, frameOffset),
+        easing
+      });
+      keyframes.push(frame(points[0], headings[0], 0, .35, "linear"));
+      for (let index = 0; index < points.length - 1; index++) {
+        offset += moveShare;
+        const destination = points[index + 1];
+        const destinationOpacity = index === points.length - 2 ? .35 : 1;
+        keyframes.push(frame(destination, headings[index], offset, destinationOpacity, "ease-in-out"));
+        if (index < headings.length - 1) {
+          offset += turnShare;
+          keyframes.push(frame(destination, headings[index + 1], offset, destinationOpacity, "ease-in-out"));
+        }
+      }
+      const animation = roach.animate(keyframes, { duration, fill: "forwards" });
+      const revealTimer = setTimeout(() => { if (roach.isConnected) roach.style.zIndex = "3"; }, duration * .1);
+      const hideTimer = setTimeout(() => { if (roach.isConnected) roach.style.zIndex = "1"; }, duration * .88);
+      animation.finished.catch(() => {}).finally(() => {
+        clearTimeout(revealTimer);
+        clearTimeout(hideTimer);
+        roach.remove();
+      });
+    }
+
+    function scheduleCockroaches() {
+      clearCockroaches();
+      if (activeTheme.name !== "Baldy" || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      const generation = cockroachGeneration;
+      const spawnGroup = () => {
+        if (generation !== cockroachGeneration || activeTheme.name !== "Baldy") return;
+        const count = 1 + Math.floor(Math.random() * 9);
+        for (let index = 0; index < count; index++) {
+          setTimeout(() => spawnCockroach(generation), index * (350 + Math.random() * 650));
+        }
+        cockroachSpawnTimer = setTimeout(spawnGroup, 7000 + Math.random() * 9000);
+      };
+      cockroachSpawnTimer = setTimeout(spawnGroup, 1800 + Math.random() * 3500);
+    }
 
     function setThemeTitle(theme) {
       const brand = document.querySelector(".brand");
@@ -618,6 +747,7 @@ Cries like a child
       );
       const freeLogo = board.querySelector(".free-logo");
       if (freeLogo) freeLogo.src = activeTheme.freeSpaceImage;
+      scheduleCockroaches();
       if (persist) {
         themeSelect.value = activeTheme.name;
         try { localStorage.setItem(themeStorageKey, activeTheme.name); } catch {}
@@ -785,8 +915,11 @@ Cries like a child
       const confettiDelayWindow = isBlackout ? 3 : 2;
       const isPbdTheme = activeTheme.name === "PBD";
       const isKfarrTheme = activeTheme.name === "KFARR";
+      const isBaldyTheme = activeTheme.name === "Baldy";
       const colors = isBlackout
-        ? isPbdTheme
+        ? isBaldyTheme
+          ? ["#050403", "#b87333", "#ffffff", "#777777", "#3a2415"]
+          : isPbdTheme
           ? [activeTheme.colors.red, activeTheme.colors.blue, "#ffffff", "#ffd700", "#050403", "#3a2415"]
           : isKfarrTheme
             ? [activeTheme.colors.red, activeTheme.colors.blue, "#ffffff", "#ffd700", "#00d9ff", "#00d9ff"]
@@ -814,7 +947,9 @@ Cries like a child
       }
 
       const balloonColors = isBlackout
-        ? isPbdTheme
+        ? isBaldyTheme
+          ? ["#050403", "#b87333", "#ffffff", "#777777", "#3a2415"]
+          : isPbdTheme
           ? [activeTheme.colors.red, activeTheme.colors.blue, "#ffd700", "#ffffff", "#050403", "#3a2415"]
           : isKfarrTheme
             ? [activeTheme.colors.red, activeTheme.colors.blue, "#ffd700", "#ffffff", "#00d9ff"]
