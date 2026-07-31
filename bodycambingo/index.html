@@ -471,7 +471,6 @@
         colors: { red: "#B87333", redRgb: "184, 115, 51", blue: "#777777", blueRgb: "119, 119, 119", background: "#050403", controls: "#3A2415" },
       }
     ];
-    const themeStorageKey = "bodycamBingoTheme";
     let activeTheme = themes[0];
 
     // PASTE BINGO ANSWERS HERE - use one answer per line.
@@ -721,7 +720,7 @@ Cries like a child
       }
     }
 
-    function applyTheme(themeName, persist = true) {
+    function applyTheme(themeName, updateDropdown = true) {
       activeTheme = themes.find(theme => theme.name === themeName) || themes[0];
       const { colors } = activeTheme;
       const rootStyle = document.documentElement.style;
@@ -748,10 +747,7 @@ Cries like a child
       const freeLogo = board.querySelector(".free-logo");
       if (freeLogo) freeLogo.src = activeTheme.freeSpaceImage;
       scheduleCockroaches();
-      if (persist) {
-        themeSelect.value = activeTheme.name;
-        try { localStorage.setItem(themeStorageKey, activeTheme.name); } catch {}
-      }
+      if (updateDropdown) themeSelect.value = activeTheme.name;
     }
 
     const themePlaceholder = document.createElement("option");
@@ -768,9 +764,7 @@ Cries like a child
       option.textContent = theme.name;
       themeSelect.append(option);
     });
-    let savedTheme = themes[0].name;
-    try { savedTheme = localStorage.getItem(themeStorageKey) || savedTheme; } catch {}
-    applyTheme(savedTheme, false);
+    applyTheme(themes[0].name, false);
     themeSelect.addEventListener("change", () => applyTheme(themeSelect.value));
 
     const winningLines = [
