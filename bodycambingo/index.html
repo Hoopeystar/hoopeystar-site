@@ -118,6 +118,20 @@
     .and { color: #fff; font-size: .58em; vertical-align: .12em; padding: 0 .12em; }
     .bodycams { color: var(--blue); text-shadow: 0 0 8px rgba(var(--blue-rgb),.9), 0 0 24px rgba(var(--blue-rgb),.4); }
     .brand.three-part-title .and { font-size: 1em; vertical-align: 0; color: var(--red); }
+    body.hoopeystar-theme .brand { line-height: 1.08; letter-spacing: -.035em; text-transform: none; }
+    body.hoopeystar-theme .brand h1 { font-size: clamp(27px, 4.9vmin, 60px); font-weight: 900; }
+    body.hoopeystar-theme .brand-subtitle { font-size: clamp(14px, 2.25vmin, 24px); }
+    body.hoopeystar-theme .brand .booze {
+      display: inline-block;
+      padding-bottom: .08em;
+      color: #a600ff;
+      background: linear-gradient(110deg, #c000ff 0%, #a000ff 38%, #7200e6 72%, #9500ff 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 3px 10px rgba(135,0,255,.38));
+      text-shadow: none;
+    }
 
     .icon-controls { position: absolute; right: 0; display: flex; gap: 6px; }
     .volume-control { position: relative; }
@@ -835,6 +849,7 @@ Cries like a child
     function applyTheme(themeName, updateDropdown = true) {
       activeTheme = themes.find(theme => theme.name === themeName) || themes[0];
       document.body.classList.toggle("split-primary-theme", activeTheme.name === "Booze and Bodycams");
+      document.body.classList.toggle("hoopeystar-theme", activeTheme.name === "Hoopeystar");
       const { colors } = activeTheme;
       const rootStyle = document.documentElement.style;
       rootStyle.setProperty("--red", colors.red);
