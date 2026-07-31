@@ -110,7 +110,7 @@
     .brand { text-align: center; line-height: .9; letter-spacing: -.04em; text-transform: uppercase; }
     .brand-spacer { display: block; height: calc(clamp(8px, 1.15vmin, 12px) + 4px); }
     .brand-subtitle {
-      display: block; margin-top: 6px; color: #eef3ff; font-size: clamp(10px, 1.65vmin, 17px); font-weight: 950;
+      display: block; margin-top: 10px; color: #eef3ff; font-size: clamp(13px, 2.1vmin, 22px); font-weight: 950;
       letter-spacing: .34em; text-shadow: -2px 0 8px rgba(var(--red-rgb),.65), 2px 0 8px rgba(var(--blue-rgb),.75);
     }
     h1 { margin: 0; font-size: clamp(24px, 4.4vmin, 54px); font-weight: 1000; }
@@ -167,6 +167,15 @@
       box-shadow: -8px 0 22px rgba(var(--red-rgb),.23), 8px 0 22px rgba(var(--blue-rgb),.3), inset 0 1px rgba(255,255,255,.28);
       animation: buttonPulse 3s ease-in-out infinite;
     }
+    .primary.themed-card-button, .secondary.themed-card-button {
+      background: var(--red); box-shadow: 0 0 22px rgba(var(--red-rgb),.34), inset 0 1px rgba(255,255,255,.28);
+      animation: none;
+    }
+    body.split-primary-theme .primary.themed-card-button, body.split-primary-theme .secondary.themed-card-button {
+      background: linear-gradient(105deg, color-mix(in srgb, var(--red) 72%, black), var(--red) 48%, color-mix(in srgb, var(--blue) 65%, black) 52%, var(--blue));
+      box-shadow: -8px 0 22px rgba(var(--red-rgb),.23), 8px 0 22px rgba(var(--blue-rgb),.3), inset 0 1px rgba(255,255,255,.28);
+      animation: buttonPulse 3s ease-in-out infinite;
+    }
     .primary:hover, .primary:focus-visible, .secondary:hover, .secondary:focus-visible { transform: translateY(-1px) scale(1.015); filter: brightness(1.18); outline: none; }
     @keyframes buttonPulse { 50% { box-shadow: -12px 0 30px rgba(var(--red-rgb),.38), 12px 0 30px rgba(var(--blue-rgb),.45), inset 0 1px rgba(255,255,255,.28); } }
 
@@ -192,7 +201,7 @@
     .cell {
       position: relative; min-width: 0; min-height: 0; border: 1px solid rgba(174,194,232,.2); border-radius: clamp(6px, 1vmin, 10px);
       background: linear-gradient(145deg, color-mix(in srgb, var(--theme-controls) 84%, white), color-mix(in srgb, var(--theme-controls) 72%, var(--theme-background))); color: white; padding: clamp(3px, .7vmin, 8px);
-      font-size: clamp(9px, min(1.75vw, 2.1vh), 20px); font-weight: 900; line-height: 1.06; text-align: center;
+      font-size: clamp(11px, min(1.95vw, 2.35vh), 24px); font-weight: 900; line-height: 1.06; text-align: center;
       display: grid; place-items: center; cursor: pointer; overflow: hidden; text-wrap: balance;
       hyphens: none; word-break: normal; overflow-wrap: normal;
       transition: transform .12s ease, border-color .18s ease, filter .18s ease; touch-action: manipulation;
@@ -222,8 +231,20 @@
     .board-actions { display: flex; flex: 0 0 auto; justify-content: center; gap: 8px; margin-top: clamp(10px, 1.4vh, 16px); }
     .secondary { padding: clamp(7px, 1vh, 10px) clamp(14px, 2.8vw, 34px); font-size: clamp(10px, 1.4vmin, 14px); background: var(--theme-controls); border: 1px solid var(--line); }
     .secondary.clear:hover { border-color: var(--red); box-shadow: 0 0 18px rgba(var(--red-rgb),.25); }
-    .play-info {
+    .secondary.custom:hover { border-color: var(--blue); box-shadow: 0 0 18px rgba(var(--blue-rgb),.25); }
+    .secondary.custom-space-picker-button {
+      background: var(--blue); border-color: transparent;
+      box-shadow: 0 0 22px rgba(var(--blue-rgb),.34), inset 0 1px rgba(255,255,255,.28);
+    }
+    .secondary.custom-space-picker-button:hover { border-color: var(--blue); box-shadow: 0 0 22px rgba(var(--blue-rgb),.44); }
+    .secondary.custom.themed-card-button:hover { border-color: var(--red); box-shadow: 0 0 22px rgba(var(--red-rgb),.4); }
+    body.split-primary-theme .secondary.custom.themed-card-button:hover { border-color: var(--blue); box-shadow: -7px 0 20px rgba(var(--red-rgb),.3), 7px 0 20px rgba(var(--blue-rgb),.38); }
+    .info-stack {
       position: absolute; z-index: 8; bottom: 0; left: 0;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .play-info {
+      position: relative;
       color: #dce5f7; font-size: 13px; line-height: 1.55;
     }
     .play-info summary {
@@ -242,6 +263,34 @@
     }
     .play-info-copy strong { display: block; margin-bottom: 7px; color: white; font-size: 14px; letter-spacing: .02em; }
     .play-info-copy p { margin: 0; }
+    .play-info-copy p + p { margin-top: 8px; }
+    .space-count-message { margin-top: 10px !important; color: #aebbd4; font-size: 12px; }
+    .wide-info-controls { display: none; }
+
+    .custom-dialog {
+      width: min(920px, calc(100vw - 24px)); max-height: min(820px, calc(100dvh - 24px)); padding: 0;
+      border: 1px solid rgba(var(--blue-rgb),.55); border-radius: 16px; color: #dce5f7;
+      background: color-mix(in srgb, var(--theme-controls) 97%, var(--theme-background));
+      box-shadow: 0 24px 70px rgba(0,0,0,.72), 0 0 30px rgba(var(--blue-rgb),.2); overflow: hidden;
+    }
+    .custom-dialog::backdrop { background: rgba(0,0,0,.76); backdrop-filter: blur(5px); }
+    .custom-dialog-inner { display: flex; flex-direction: column; max-height: min(818px, calc(100dvh - 26px)); padding: clamp(16px, 2.5vw, 28px); overflow: hidden; }
+    .custom-dialog-header { display: flex; align-items: start; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+    .custom-dialog-header h2 { margin: 0 0 4px; color: white; font-size: clamp(20px, 3vw, 30px); }
+    .custom-dialog-header p { margin: 0; font-size: 13px; }
+    .dialog-close { width: 38px; height: 38px; flex: 0 0 auto; border: 1px solid var(--line); border-radius: 9px; background: var(--theme-background); color: white; cursor: pointer; }
+    .custom-options {
+      min-height: 0; overflow-y: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 8px; padding: 4px 4px 12px;
+    }
+    .custom-option { display: flex; align-items: center; gap: 9px; min-height: 46px; padding: 9px 11px; border: 1px solid var(--line); border-radius: 9px; background: var(--theme-background); cursor: pointer; }
+    .custom-option:has(input:checked) { border-color: var(--blue); background: color-mix(in srgb, var(--theme-controls) 82%, var(--blue)); }
+    .custom-option:has(input:disabled) { opacity: .45; cursor: not-allowed; }
+    .custom-option input { flex: 0 0 auto; accent-color: var(--blue); }
+    .custom-option span { font-size: 13px; font-weight: 750; line-height: 1.2; }
+    .custom-dialog-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 14px; border-top: 1px solid var(--line); }
+    .custom-count { font-size: 13px; font-weight: 850; }
+    .custom-dialog-actions .primary { min-width: 210px; min-height: 42px; }
 
     footer {
       min-height: 66px; padding-bottom: clamp(8px, 1.2vh, 14px); display: flex;
@@ -258,8 +307,7 @@
     footer > :last-child .footer-logo { border-color: #fff; box-shadow: 0 0 12px rgba(var(--blue-rgb),.65); }
 
     .celebration { position: fixed; z-index: 20; inset: 0; display: grid; place-items: center; pointer-events: none; opacity: 0; }
-    .celebration.active { opacity: 1; animation: celebrationFade 4s ease both; }
-    .celebration.blackout.active { animation-duration: 6s; }
+    .celebration.active { opacity: 1; animation: celebrationFade var(--celebration-duration, 4s) ease both; }
     .strobe { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(var(--red-rgb),.62), transparent 43%, transparent 57%, rgba(var(--blue-rgb),.68)); mix-blend-mode: screen; opacity: 0; }
     .active .strobe { animation: strobe .16s steps(2) 10; }
     .blackout.active .strobe { animation: megaStrobe .13s steps(2) 45; }
@@ -268,8 +316,7 @@
       font-style: italic; font-weight: 1000; letter-spacing: -.07em; text-shadow: -8px 0 0 var(--red), 8px 0 0 var(--blue), 0 0 36px #000;
       transform: rotate(-4deg) scale(.25); opacity: 0;
     }
-    .active .bingo-text { animation: stampIn 3.8s cubic-bezier(.2,.8,.2,1) both; }
-    .blackout.active .bingo-text { animation-duration: 5.8s; }
+    .active .bingo-text { animation: stampIn var(--text-duration, 3.8s) cubic-bezier(.2,.8,.2,1) both; }
     .blackout .bingo-text { font-size: clamp(62px, 15vmin, 180px); }
     .bingo-text small { display: block; text-align: center; font-size: .2em; letter-spacing: .24em; margin: .6em 0 0 .24em; }
     .confetti { position: absolute; inset: 0; overflow: hidden; }
@@ -314,6 +361,7 @@
     @media (max-width: 900px) {
       .generator { display: flex; justify-content: center; }
       .generator .primary { flex: 0 1 350px; }
+      .cell { padding: clamp(3px, .6vmin, 6px); font-size: clamp(10px, min(2.2vw, 2.5vh), 19px); }
     }
 
     @media (max-width: 620px) {
@@ -324,7 +372,10 @@
       .generator { min-height: 36px; }
       .primary { min-width: 0; }
       .board { max-height: min(calc(100% - 100px), 96vw); }
-      .cell { font-size: clamp(8px, 2.65vw, 15px); }
+      .cell { padding: clamp(2px, .8vw, 5px); font-size: clamp(9px, 3vw, 17px); }
+      .custom-options { grid-template-columns: 1fr; }
+      .custom-dialog-actions { align-items: stretch; flex-direction: column; }
+      .custom-dialog-actions .primary { width: 100%; min-width: 0; padding: 10px; }
     }
 
     @media (max-height: 560px) and (orientation: landscape) {
@@ -337,7 +388,9 @@
     }
 
     @media (min-width: 1600px) and (min-height: 680px) {
-      .play-info {
+      .board { height: calc(100% - 52px); max-height: min(calc(100% - 52px), 68vw); }
+      .cell { padding: clamp(4px, .55vmin, 7px); font-size: clamp(20px, 2.7vmin, 30px); }
+      .info-stack {
         top: 50%; right: auto; bottom: auto; left: var(--play-info-left, calc(50% + 400px));
         width: 260px; transform: translateY(-50%); font-size: 15.5px; line-height: 1.65;
       }
@@ -347,6 +400,17 @@
         background: linear-gradient(145deg, color-mix(in srgb, var(--theme-controls) 92%, transparent), color-mix(in srgb, var(--theme-controls) 94%, var(--theme-background)));
       }
       .play-info-copy strong { margin-bottom: 10px; font-size: 18px; line-height: 1.3; }
+      .generator, .board-actions { display: none; }
+      .wide-info-controls {
+        display: grid; gap: 9px; width: 100%; padding: 20px;
+        border: 1px solid rgba(154,174,215,.28); border-radius: 12px;
+        background: linear-gradient(145deg, color-mix(in srgb, var(--theme-controls) 92%, transparent), color-mix(in srgb, var(--theme-controls) 94%, var(--theme-background)));
+        box-shadow: 0 14px 36px rgba(0,0,0,.45), 0 0 22px rgba(var(--blue-rgb),.16);
+      }
+      .wide-info-controls .theme-picker { grid-column: auto; justify-self: stretch; width: 100%; height: 42px; }
+      .wide-info-controls .primary, .wide-info-controls .secondary {
+        width: 100%; min-width: 0; min-height: 42px; padding: 8px 12px; font-size: 12px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -376,7 +440,7 @@
 
     <section class="board-wrap">
       <section class="generator" aria-label="Card generator">
-        <button class="primary" id="generateButton" type="button">Generate New Card</button>
+        <button class="primary themed-card-button" id="generateButton" type="button">Generate Random Card</button>
         <label class="theme-picker">
           <span class="sr-only">Theme</span>
           <select id="themeSelect" aria-label="Theme"></select>
@@ -384,15 +448,30 @@
       </section>
       <div class="board" id="board" role="grid" aria-label="Interactive Bodycam Bingo card"></div>
       <section class="board-actions" aria-label="Board controls">
-        <button class="secondary clear" id="clearButton" type="button">Clear Board</button>
+        <button class="secondary custom custom-space-picker-button" id="customSpacesButton" type="button">Custom Spaces</button>
+        <button class="secondary clear" id="clearButton" type="button">Clear Board Marks</button>
       </section>
-      <details class="play-info" id="playInfo">
-        <summary aria-label="Bodycam Bingo by Hoopeystar" title="How to play">?</summary>
-        <div class="play-info-copy">
-          <strong>Bodycam Bingo by Hoopeystar</strong>
-          <p>Generate a random card and mark moments while watching police bodycam videos. Keep going after the first bingo for a full blackout!</p>
+      <div class="info-stack" id="infoStack">
+        <details class="play-info" id="playInfo">
+          <summary aria-label="Bodycam Bingo by Hoopeystar" title="How to play">?</summary>
+          <div class="play-info-copy">
+            <strong>Bodycam Bingo by Hoopeystar</strong>
+            <p>Pick your favorite theme from the dropdown.</p>
+            <p>Generate a random card and mark moments while watching police bodycam videos.</p>
+            <p>Keep going after the first bingo for a full blackout!</p>
+            <p class="space-count-message">Currently drawing from <span id="uniqueSpaceCount">0</span> possible squares.</p>
+          </div>
+        </details>
+        <div class="wide-info-controls" aria-label="Board controls">
+          <label class="theme-picker">
+            <span class="sr-only">Theme</span>
+            <select id="wideThemeSelect" aria-label="Theme"></select>
+          </label>
+          <button class="primary themed-card-button" id="wideGenerateButton" type="button">Generate Random Card</button>
+          <button class="secondary custom custom-space-picker-button" id="wideCustomSpacesButton" type="button">Choose Custom Spaces</button>
+          <button class="secondary clear" id="wideClearButton" type="button">Clear Board Marks</button>
         </div>
-      </details>
+      </div>
     </section>
 
     <footer aria-label="Creators">
@@ -408,6 +487,23 @@
     </footer>
   </main>
 
+  <dialog class="custom-dialog" id="customSpacesDialog" aria-labelledby="customSpacesTitle">
+    <div class="custom-dialog-inner">
+      <div class="custom-dialog-header">
+        <div>
+          <h2 id="customSpacesTitle">Choose Custom Spaces</h2>
+          <p>Select up to 24 spaces. Any remaining spots will be filled randomly.</p>
+        </div>
+        <button class="dialog-close" id="customDialogClose" type="button" aria-label="Close custom space picker">&#10005;</button>
+      </div>
+      <div class="custom-options" id="customOptions"></div>
+      <div class="custom-dialog-actions">
+        <span class="custom-count"><span id="customSelectedCount">0</span> of 24 selected</span>
+        <button class="primary themed-card-button" id="generateCustomButton" type="button">Generate Custom Card</button>
+      </div>
+    </div>
+  </dialog>
+
   <div class="celebration" id="celebration" aria-live="assertive" aria-atomic="true">
     <div class="strobe"></div>
     <div class="confetti" id="confetti"></div>
@@ -419,8 +515,8 @@
     <source src="bingo2.mp3" type="audio/mpeg">
   </audio>
   <audio id="blackoutSound" preload="auto">
-    <source src="blackout3.wav" type="audio/wav">
-    <source src="blackout3.mp3" type="audio/mpeg">
+    <source src="blackout4.wav" type="audio/wav">
+    <source src="blackout4.mp3" type="audio/mpeg">
   </audio>
 
   <script>
@@ -493,12 +589,12 @@ Somebody call 911!
 Tries to record on phone
 I'm not resisting (while resisting)
 Active warrant
-Do you know who I know (am)?
+Do you know who I am/know?
 Why are you doing this to me?
 Tries to get away mid-stop
 I didn't consent to this
 Has a child with them
-But my kids (not present)
+But my kids (not present) excuse
 Race card
 Needs double cuffs
 Repeating the same thing over and over
@@ -529,6 +625,8 @@ Asks for warrant
 Cries like a child
     `.split(/\r?\n/).map(answer => answer.trim()).filter(Boolean);
 
+    document.querySelector("#uniqueSpaceCount").textContent = new Set(bingoAnswers).size;
+
     const board = document.querySelector("#board");
     const celebration = document.querySelector("#celebration");
     const bingoText = document.querySelector("#bingoText");
@@ -540,6 +638,8 @@ Cries like a child
     const bingoSound = document.querySelector("#bingoSound");
     const blackoutSound = document.querySelector("#blackoutSound");
     const themeSelect = document.querySelector("#themeSelect");
+    const wideThemeSelect = document.querySelector("#wideThemeSelect");
+    const themeSelects = [themeSelect, wideThemeSelect];
     const boardWrap = document.querySelector(".board-wrap");
     const cockroachImages = ["roach1.png", "roach2.png", "roach3.png"];
     bingoSound.volume = 0.65;
@@ -548,6 +648,7 @@ Cries like a child
     let activeLines = new Set();
     let blackoutActive = false;
     let celebrationTimer;
+    let celebrationLockedButtons = [];
     let muted = false;
     let audioContext;
     let cockroachSpawnTimer;
@@ -722,6 +823,7 @@ Cries like a child
 
     function applyTheme(themeName, updateDropdown = true) {
       activeTheme = themes.find(theme => theme.name === themeName) || themes[0];
+      document.body.classList.toggle("split-primary-theme", activeTheme.name === "Booze and Bodycams");
       const { colors } = activeTheme;
       const rootStyle = document.documentElement.style;
       rootStyle.setProperty("--red", colors.red);
@@ -747,25 +849,27 @@ Cries like a child
       const freeLogo = board.querySelector(".free-logo");
       if (freeLogo) freeLogo.src = activeTheme.freeSpaceImage;
       scheduleCockroaches();
-      if (updateDropdown) themeSelect.value = activeTheme.name;
+      if (updateDropdown) themeSelects.forEach(select => { select.value = activeTheme.name; });
     }
 
-    const themePlaceholder = document.createElement("option");
-    themePlaceholder.value = "";
-    themePlaceholder.textContent = "Choose theme";
-    themePlaceholder.disabled = true;
-    themePlaceholder.selected = true;
-    themePlaceholder.hidden = true;
-    themeSelect.append(themePlaceholder);
+    themeSelects.forEach(select => {
+      const themePlaceholder = document.createElement("option");
+      themePlaceholder.value = "";
+      themePlaceholder.textContent = "Choose theme";
+      themePlaceholder.disabled = true;
+      themePlaceholder.selected = true;
+      themePlaceholder.hidden = true;
+      select.append(themePlaceholder);
 
-    themes.forEach(theme => {
-      const option = document.createElement("option");
-      option.value = theme.name;
-      option.textContent = theme.name;
-      themeSelect.append(option);
+      themes.forEach(theme => {
+        const option = document.createElement("option");
+        option.value = theme.name;
+        option.textContent = theme.name;
+        select.append(option);
+      });
+      select.addEventListener("change", () => applyTheme(select.value));
     });
     applyTheme(themes[0].name, false);
-    themeSelect.addEventListener("change", () => applyTheme(themeSelect.value));
 
     const winningLines = [
       [0,1,2,3,4], [5,6,7,8,9], [10,11,12,13,14], [15,16,17,18,19], [20,21,22,23,24],
@@ -773,44 +877,27 @@ Cries like a child
       [0,6,12,18,24], [4,8,12,16,20],
     ];
 
-    function hashSeed(text) {
-      let h = 2166136261;
-      for (let i = 0; i < text.length; i++) {
-        h ^= text.charCodeAt(i);
-        h = Math.imul(h, 16777619);
+    function shuffle(items) {
+      for (let i = items.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [items[i], items[j]] = [items[j], items[i]];
       }
-      return h >>> 0;
+      return items;
     }
 
-    function seededRandom(seed) {
-      return function () {
-        seed |= 0;
-        seed = seed + 0x6D2B79F5 | 0;
-        let t = Math.imul(seed ^ seed >>> 15, 1 | seed);
-        t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
-        return ((t ^ t >>> 14) >>> 0) / 4294967296;
-      };
-    }
-
-    function shuffledAnswers(seed) {
-      const source = bingoAnswers.map(answer => String(answer).trim()).filter(Boolean);
+    function shuffledAnswers(forcedAnswers = []) {
+      const source = [...new Set(bingoAnswers.map(answer => String(answer).trim()).filter(Boolean))];
       if (!source.length) source.push("Add an answer");
-      const pool = [];
-      while (pool.length < 24) pool.push(...source);
-      const random = seededRandom(hashSeed(seed));
-      for (let i = pool.length - 1; i > 0; i--) {
-        const j = Math.floor(random() * (i + 1));
-        [pool[i], pool[j]] = [pool[j], pool[i]];
-      }
-      return pool.slice(0, 24);
+      const forced = [...new Set(forcedAnswers)].filter(answer => source.includes(answer)).slice(0, 24);
+      const forcedSet = new Set(forced);
+      const remaining = shuffle(source.filter(answer => !forcedSet.has(answer)));
+      const answers = forced.concat(remaining.slice(0, 24 - forced.length));
+      while (answers.length < 24) answers.push(source[answers.length % source.length]);
+      return shuffle(answers);
     }
 
-    function newRandomSeed() {
-      return Math.random().toString(36).slice(2, 8).toUpperCase();
-    }
-
-    function renderBoard(seed) {
-      const answers = shuffledAnswers(seed);
+    function renderBoard(forcedAnswers = []) {
+      const answers = shuffledAnswers(forcedAnswers);
       marked = new Set([12]);
       activeLines = new Set();
       blackoutActive = false;
@@ -886,27 +973,41 @@ Cries like a child
       const newLines = [...completeNow].filter(line => !activeLines.has(line));
       const isBlackout = marked.size === 25;
 
-      if (isBlackout && !blackoutActive) celebrate(true);
-      else if (newLines.length) celebrate(false);
+      if (isBlackout && !blackoutActive) celebrate(true, Math.max(1, activeLines.size));
+      else if (newLines.length) celebrate(false, completeNow.size);
 
       activeLines = completeNow;
       blackoutActive = isBlackout;
     }
 
-    function celebrate(isBlackout) {
+    function celebrate(isBlackout, bingoNumber = 1) {
       clearTimeout(celebrationTimer);
+      if (!celebrationLockedButtons.length) {
+        celebrationLockedButtons = [...document.querySelectorAll("button:not(:disabled)")];
+        celebrationLockedButtons.forEach(button => { button.disabled = true; });
+      }
+      const celebrationDuration = isBlackout ? 6 : 4;
+      const confettiCount = isBlackout ? 360 : 65 + (Math.max(1, bingoNumber) - 1) * 18;
+      const balloonCount = isBlackout ? 42 : 12 + (Math.max(1, bingoNumber) - 1) * 2;
       celebration.className = `celebration ${isBlackout ? "blackout " : ""}active`;
+      celebration.style.setProperty("--celebration-duration", `${celebrationDuration}s`);
+      celebration.style.setProperty("--text-duration", `${isBlackout ? 5.8 : 3.8}s`);
       bingoText.textContent = isBlackout ? "BLACKOUT!" : "BINGO!";
-      makeConfetti(isBlackout ? 280 : 65, isBlackout);
+      makeConfetti(confettiCount, balloonCount, isBlackout, celebrationDuration);
       playCelebrationSound(isBlackout);
       pulsePage(isBlackout ? 52 : 12);
-      celebrationTimer = setTimeout(() => celebration.className = "celebration", isBlackout ? 6000 : 4000);
+      celebrationTimer = setTimeout(() => {
+        celebration.className = "celebration";
+        celebrationLockedButtons.forEach(button => {
+          if (button.isConnected) button.disabled = false;
+        });
+        celebrationLockedButtons = [];
+      }, celebrationDuration * 1000);
     }
 
-    function makeConfetti(count, isBlackout = false) {
+    function makeConfetti(count, balloonCount, isBlackout = false, celebrationDuration = 4) {
       confetti.replaceChildren();
-      const celebrationDuration = isBlackout ? 6 : 4;
-      const confettiDelayWindow = isBlackout ? 3 : 2;
+      const confettiDelayWindow = isBlackout ? Math.min(4, celebrationDuration / 2) : Math.min(3, celebrationDuration / 2);
       const isPbdTheme = activeTheme.name === "PBD";
       const isKfarrTheme = activeTheme.name === "KFARR";
       const isBaldyTheme = activeTheme.name === "Baldy";
@@ -949,7 +1050,6 @@ Cries like a child
             ? [activeTheme.colors.red, activeTheme.colors.blue, "#ffd700", "#ffffff", "#00d9ff"]
             : [activeTheme.colors.red, activeTheme.colors.blue, "#ffd700", "#ffffff", "#ff3cac"]
         : [activeTheme.colors.red, activeTheme.colors.blue, "#ffffff"];
-      const balloonCount = isBlackout ? 26 : 12;
       for (let i = 0; i < balloonCount; i++) {
         const balloon = document.createElement("i");
         balloon.className = "balloon";
@@ -1035,15 +1135,56 @@ Cries like a child
     }
 
     function generate() {
-      renderBoard(newRandomSeed());
+      renderBoard();
     }
 
     document.querySelector("#generateButton").addEventListener("click", generate);
-    document.querySelector("#clearButton").addEventListener("click", () => {
+    document.querySelector("#wideGenerateButton").addEventListener("click", generate);
+    function clearBoard() {
       marked = new Set([12]); activeLines.clear(); blackoutActive = false;
       board.querySelectorAll(".cell.marked").forEach(cell => {
         cell.classList.remove("marked"); cell.setAttribute("aria-pressed", "false");
       });
+    }
+    document.querySelector("#clearButton").addEventListener("click", clearBoard);
+    document.querySelector("#wideClearButton").addEventListener("click", clearBoard);
+
+    const customSpacesDialog = document.querySelector("#customSpacesDialog");
+    const customOptions = document.querySelector("#customOptions");
+    const customSelectedCount = document.querySelector("#customSelectedCount");
+
+    bingoAnswers.forEach((answer, index) => {
+      const option = document.createElement("label");
+      option.className = "custom-option";
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.value = index;
+      const text = document.createElement("span");
+      text.textContent = answer;
+      option.append(checkbox, text);
+      customOptions.append(option);
+    });
+
+    function syncCustomSelection() {
+      const checkboxes = [...customOptions.querySelectorAll('input[type="checkbox"]')];
+      const selectedCount = checkboxes.filter(checkbox => checkbox.checked).length;
+      customSelectedCount.textContent = selectedCount;
+      checkboxes.forEach(checkbox => { checkbox.disabled = !checkbox.checked && selectedCount >= 24; });
+    }
+
+    customOptions.addEventListener("change", syncCustomSelection);
+    function openCustomSpaces() {
+      syncCustomSelection();
+      customSpacesDialog.showModal();
+    }
+    document.querySelector("#customSpacesButton").addEventListener("click", openCustomSpaces);
+    document.querySelector("#wideCustomSpacesButton").addEventListener("click", openCustomSpaces);
+    document.querySelector("#customDialogClose").addEventListener("click", () => customSpacesDialog.close());
+    document.querySelector("#generateCustomButton").addEventListener("click", () => {
+      const selectedAnswers = [...customOptions.querySelectorAll('input[type="checkbox"]:checked')]
+        .map(checkbox => bingoAnswers[Number(checkbox.value)]);
+      renderBoard(selectedAnswers);
+      customSpacesDialog.close();
     });
     function setVolume(value) {
       const volume = Number(value) / 100;
@@ -1086,17 +1227,18 @@ Cries like a child
       else await document.exitFullscreen();
     });
 
-    const playInfo = document.querySelector("#playInfo");
+    const infoStack = document.querySelector("#infoStack");
+    const infoPanels = infoStack.querySelectorAll(".play-info");
     const wideInfoLayout = window.matchMedia("(min-width: 1600px) and (min-height: 680px)");
     function positionPlayInfo() {
       if (!wideInfoLayout.matches) {
-        playInfo.style.removeProperty("--play-info-left");
+        infoStack.style.removeProperty("--play-info-left");
         return;
       }
-      playInfo.style.setProperty("--play-info-left", `${board.offsetLeft + board.offsetWidth + 48}px`);
+      infoStack.style.setProperty("--play-info-left", `${board.offsetLeft + board.offsetWidth + 48}px`);
     }
     function syncPlayInfoLayout(event) {
-      playInfo.open = event.matches;
+      infoPanels.forEach(panel => { panel.open = event.matches; });
       requestAnimationFrame(positionPlayInfo);
     }
     syncPlayInfoLayout(wideInfoLayout);
@@ -1105,7 +1247,7 @@ Cries like a child
     new ResizeObserver(() => requestAnimationFrame(positionPlayInfo)).observe(board.parentElement);
     window.addEventListener("resize", () => requestAnimationFrame(positionPlayInfo));
 
-    renderBoard(newRandomSeed());
+    renderBoard();
   </script>
 </body>
 </html>
