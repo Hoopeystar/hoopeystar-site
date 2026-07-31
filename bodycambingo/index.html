@@ -518,6 +518,11 @@
     <source src="blackout4.wav" type="audio/wav">
     <source src="blackout4.mp3" type="audio/mpeg">
   </audio>
+  <audio id="squareSelectSound" preload="auto" src="squareselect.mp3"></audio>
+  <audio id="quackSound" preload="auto">
+    <source src="quack2.wav" type="audio/wav">
+    <source src="quack2.mp3" type="audio/mpeg">
+  </audio>
 
   <script>
     // Add future presets here. The dropdown and themed presentation update automatically.
@@ -637,6 +642,8 @@ Cries like a child
     const volumeValue = document.querySelector("#volumeValue");
     const bingoSound = document.querySelector("#bingoSound");
     const blackoutSound = document.querySelector("#blackoutSound");
+    const squareSelectSound = document.querySelector("#squareSelectSound");
+    const quackSound = document.querySelector("#quackSound");
     const themeSelect = document.querySelector("#themeSelect");
     const wideThemeSelect = document.querySelector("#wideThemeSelect");
     const themeSelects = [themeSelect, wideThemeSelect];
@@ -644,6 +651,8 @@ Cries like a child
     const cockroachImages = ["roach1.png", "roach2.png", "roach3.png"];
     bingoSound.volume = 0.65;
     blackoutSound.volume = 0.65;
+    squareSelectSound.volume = 0.65;
+    quackSound.volume = 0.65;
     let marked = new Set([12]);
     let activeLines = new Set();
     let blackoutActive = false;
@@ -653,6 +662,7 @@ Cries like a child
     let audioContext;
     let cockroachSpawnTimer;
     let cockroachGeneration = 0;
+    let quackCooldownTimer;
 
     function clearCockroaches() {
       cockroachGeneration++;
@@ -848,6 +858,7 @@ Cries like a child
       );
       const freeLogo = board.querySelector(".free-logo");
       if (freeLogo) freeLogo.src = activeTheme.freeSpaceImage;
+      syncFreeSquareInteractivity();
       scheduleCockroaches();
       if (updateDropdown) themeSelects.forEach(select => { select.value = activeTheme.name; });
     }
@@ -916,6 +927,7 @@ Cries like a child
           cell.setAttribute("aria-label", "Free space, automatically marked");
           cell.setAttribute("aria-pressed", "true");
           cell.disabled = true;
+          cell.addEventListener("click", playDuckQuack);
           cell.innerHTML = `<span class="free-fallback" aria-hidden="true"><b>B</b>×<b>B</b></span><img class="free-logo" src="${escapeHtml(activeTheme.freeSpaceImage)}" alt="" onload="this.previousElementSibling.hidden=true" onerror="this.hidden=true">`;
         } else {
           const answer = answers[answerIndex++];
@@ -927,7 +939,35 @@ Cries like a child
         board.append(cell);
       }
 
+      syncFreeSquareInteractivity();
       requestAnimationFrame(fitBoardText);
+    }
+
+    function syncFreeSquareInteractivity() {
+      clearTimeout(quackCooldownTimer);
+      const freeCell = board.querySelector(".cell.free");
+      if (!freeCell) return;
+      const canQuack = activeTheme.name === "Booze and Bodycams";
+      const celebrationActive = celebration.classList.contains("active");
+      freeCell.disabled = !canQuack || celebrationActive;
+      if (canQuack && celebrationActive && !celebrationLockedButtons.includes(freeCell)) {
+        celebrationLockedButtons.push(freeCell);
+      }
+      freeCell.setAttribute("aria-label", canQuack
+        ? "Duck free space, click to quack"
+        : "Free space, automatically marked");
+    }
+
+    function playDuckQuack(event) {
+      const freeCell = event.currentTarget;
+      if (activeTheme.name !== "Booze and Bodycams" || freeCell.disabled) return;
+      freeCell.disabled = true;
+      if (!muted) {
+        quackSound.currentTime = 0;
+        quackSound.play().catch(() => {});
+      }
+      clearTimeout(quackCooldownTimer);
+      quackCooldownTimer = setTimeout(syncFreeSquareInteractivity, 500);
     }
 
     function fitBoardText() {
@@ -960,9 +1000,14 @@ Cries like a child
 
     function toggleCell(cell, index) {
       if (marked.has(index)) marked.delete(index); else marked.add(index);
-      cell.classList.toggle("marked", marked.has(index));
-      cell.setAttribute("aria-pressed", String(marked.has(index)));
-      detectBingo();
+      const isSelected = marked.has(index);
+      cell.classList.toggle("marked", isSelected);
+      cell.setAttribute("aria-pressed", String(isSelected));
+      const startedCelebration = detectBingo();
+      if (isSelected && !startedCelebration && !muted) {
+        squareSelectSound.currentTime = 0;
+        squareSelectSound.play().catch(() => {});
+      }
     }
 
     function detectBingo() {
@@ -973,11 +1018,13 @@ Cries like a child
       const newLines = [...completeNow].filter(line => !activeLines.has(line));
       const isBlackout = marked.size === 25;
 
+      const startedCelebration = isBlackout && !blackoutActive || newLines.length > 0;
       if (isBlackout && !blackoutActive) celebrate(true, Math.max(1, activeLines.size));
       else if (newLines.length) celebrate(false, completeNow.size);
 
       activeLines = completeNow;
       blackoutActive = isBlackout;
+      return startedCelebration;
     }
 
     function celebrate(isBlackout, bingoNumber = 1) {
@@ -1002,6 +1049,7 @@ Cries like a child
           if (button.isConnected) button.disabled = false;
         });
         celebrationLockedButtons = [];
+        syncFreeSquareInteractivity();
       }, celebrationDuration * 1000);
     }
 
@@ -1106,7 +1154,7 @@ Cries like a child
     function playCelebrationSound(isBlackout) {
       if (muted) return;
       const sound = isBlackout ? blackoutSound : bingoSound;
-      [bingoSound, blackoutSound].forEach(audio => {
+      [bingoSound, blackoutSound, squareSelectSound, quackSound].forEach(audio => {
         audio.pause();
         audio.currentTime = 0;
       });
@@ -1191,12 +1239,14 @@ Cries like a child
       muted = volume === 0;
       bingoSound.volume = volume;
       blackoutSound.volume = volume;
+      squareSelectSound.volume = volume;
+      quackSound.volume = volume;
       volumeValue.value = value;
       volumeValue.textContent = `${value}%`;
       muteButton.textContent = muted ? "🔇" : volume < .5 ? "🔉" : "🔊";
       muteButton.setAttribute("aria-label", muted ? "Volume muted; adjust volume" : `Adjust volume, ${value} percent`);
       if (muted) {
-        [bingoSound, blackoutSound].forEach(audio => {
+        [bingoSound, blackoutSound, squareSelectSound, quackSound].forEach(audio => {
           audio.pause();
           audio.currentTime = 0;
         });
