@@ -8,7 +8,7 @@
     if (!timerPanel || !bar || timerPanel.classList.contains('answer-overlay-timer')) return;
 
     timerPanel.classList.add('answer-overlay-timer');
-    const duration = overlayAnswerScreen.querySelector('[data-label="// FUN FACT"]') ? 12 : 5;
+    const duration = overlayAnswerScreen.querySelector('[data-label="// FUN FACT"]') ? 12 : 10;
     const startedAt = performance.now();
 
     const tick = () => {

@@ -95,6 +95,13 @@
         animation: answer-timer-pulse 0.8s ease-in-out infinite alternate;
       }
 
+      /* Make the seconds tick labels beneath settings sliders easier to read. */
+      .settings-slider + div {
+        height: 22px !important;
+        font-size: 14px !important;
+        line-height: 1.25;
+      }
+
       @keyframes answer-timer-pulse {
         from { opacity: 0.25; }
         to { opacity: 1; }
