@@ -78,9 +78,39 @@
           padding: 22px 14px !important;
         }
       }
+
+      .answer-overlay-timer .ov-timer-num {
+        display: none;
+      }
+
+      .answer-overlay-timer .ov-timer-bar {
+        background: #FFD600;
+        box-shadow: 0 0 12px rgba(255, 214, 0, 0.45);
+        transition: none !important;
+        will-change: width;
+      }
+
+      .answer-overlay-timer.is-advancing .ov-timer-bar {
+        width: 100% !important;
+        animation: answer-timer-pulse 0.8s ease-in-out infinite alternate;
+      }
+
+      @keyframes answer-timer-pulse {
+        from { opacity: 0.25; }
+        to { opacity: 1; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .answer-overlay-timer .ov-timer-bar {
+          width: 100%;
+          animation: none;
+          background: #FFD600;
+        }
+      }
     </style>
     <script src="/ktzedgamenight/questions.js"></script>
     <script type="module" crossorigin src="/ktzedgamenight/assets/index-CxcH4i8_.js"></script>
+    <script defer src="/ktzedgamenight/answer-progress.js"></script>
   </head>
   <body>
     <div id="root"></div>
