@@ -256,7 +256,7 @@ if (form) {
           syncReferralField();
 
           status.className = 'form-status ok';
-          status.textContent = 'Sent. Thank you! I will get back to you soon.';
+          status.textContent = 'Thanks! Your request was sent. I typically reply within 24 hours from hoopeystar@gmail.com. If you do not see my response, please check your spam or promotions folder.';
         } else {
           status.className = 'form-status err';
           status.textContent = 'Something failed sending the form. Try again.';
