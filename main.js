@@ -200,6 +200,13 @@
 
 const form = $('[data-form]');
 const status = $('[data-status]');
+const submissionModal = $('[data-submission-modal]');
+const submissionModalClose = $('[data-submission-modal-close]');
+
+if (submissionModal && submissionModalClose) {
+  submissionModalClose.addEventListener('click', () => submissionModal.close());
+  submissionModal.addEventListener('cancel', (e) => e.preventDefault());
+}
 
 if (form) {
   // ---- Referral conditional field wiring ----
@@ -255,8 +262,9 @@ if (form) {
           // reset() does not trigger change events, so re-sync conditional fields:
           syncReferralField();
 
-          status.className = 'form-status ok';
-          status.textContent = 'Thanks! Your request was sent. I typically reply within 24 hours from hoopeystar@gmail.com. If you do not see my response, please check your spam or promotions folder.';
+          status.className = 'form-status';
+          status.textContent = '';
+          if (submissionModal) submissionModal.showModal();
         } else {
           status.className = 'form-status err';
           status.textContent = 'Something failed sending the form. Try again.';

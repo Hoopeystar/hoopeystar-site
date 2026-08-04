@@ -453,7 +453,7 @@
                 By sending, you acknowledge: no ranking guarantees, 50% upfront after terms agreed on, no refunds on deliverables.
               </p>
               <p class="muted tiny">
-                I typically reply within 24 hours from hoopeystar@gmail.com. If you do not see my response, please check your spam or promotions folder.
+                <strong class="form-spam-reminder">* I typically reply within 24 hours from hoopeystar@gmail.com. If you do not see my response, please check your spam or promotions folder.</strong>
               </p>
             </div>
 
@@ -475,6 +475,14 @@
       </div>
     </div>
   </footer>
+
+  <dialog class="submission-modal" data-submission-modal aria-labelledby="submission-modal-title">
+    <button class="submission-modal-close" type="button" data-submission-modal-close aria-label="Close confirmation">&times;</button>
+    <div class="submission-modal-icon" aria-hidden="true">&#10003;</div>
+    <h2 id="submission-modal-title">Request sent!</h2>
+    <p>Thanks! I typically reply within 24 hours from hoopeystar@gmail.com.</p>
+    <p class="submission-modal-reminder">* If you do not see my response, please check your spam or promotions folder.</p>
+  </dialog>
 
   <script defer src="main.js"></script>
 </body>
