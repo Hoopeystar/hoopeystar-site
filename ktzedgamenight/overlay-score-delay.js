@@ -49,14 +49,27 @@
         rank.textContent = snapshot.rank;
       }
     });
-    rows
+    const snapshottedRows = rows
       .filter((row) => displayedScores.has(row.querySelector('.ov-lb-name')?.textContent?.trim()))
       .sort((a, b) => {
         const aName = a.querySelector('.ov-lb-name')?.textContent?.trim();
         const bName = b.querySelector('.ov-lb-name')?.textContent?.trim();
         return displayedScores.get(aName).order - displayedScores.get(bName).order;
-      })
-      .forEach((row) => standings.appendChild(row));
+      });
+
+    // appendChild moves an existing node and therefore creates another mutation.
+    // Re-appending rows that are already ordered makes this observer continuously
+    // trigger itself, eventually starving the overlay's render loop.
+    const currentSnapshottedRows = rows.filter((row) =>
+      displayedScores.has(row.querySelector('.ov-lb-name')?.textContent?.trim())
+    );
+    const orderChanged = snapshottedRows.some(
+      (row, index) => row !== currentSnapshottedRows[index]
+    );
+
+    if (orderChanged) {
+      snapshottedRows.forEach((row) => standings.appendChild(row));
+    }
     restoring = false;
   };
 
