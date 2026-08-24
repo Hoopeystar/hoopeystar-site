@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="dark" />
   <meta name="theme-color" content="#1a0b2e" />
-  <meta name="description" content="Lost Lands 2026 lineup lock-in. Mark Must Sees and Would Likes, share a blind link, and find your crossover." />
+  <meta name="description" content="Lost Lands 2026 lineup lock-in. Mark Must Sees and Wants, then compare lists with friends." />
   <title>LOCKED LANDS · Lost Lands 2026</title>
   <link rel="icon" href="hoopeystarsquare.png" />
   <link rel="apple-touch-icon" href="hoopeystarsquare.png" />
@@ -40,6 +40,9 @@
       --blood: #ff3b12;
       --blood-2: #ff6a32;
       --blood-dim: rgba(255, 59, 18, 0.16);
+      --like: #3b9eff;
+      --like-2: #7cc4ff;
+      --like-dim: rgba(59, 158, 255, 0.18);
       --moss: #8f9788;
       --ok: #7dffb3;
       --day-wed: #2dd4bf;
@@ -187,6 +190,14 @@
       color: var(--bone-dim);
       font-size: 0.98rem;
     }
+    .foot-note {
+      margin: 28px auto 0;
+      padding: 0 8px;
+      max-width: 52ch;
+      text-align: center;
+      color: var(--bone-dim);
+      font-size: 0.82rem;
+    }
     .brand-text h1 { margin-top: 4px; }
     @media (max-width: 640px) {
       .hero { padding: 16px 14px 14px; }
@@ -247,7 +258,7 @@
     }
     .pill strong { font-size: 1.05rem; letter-spacing: 0; }
     .pill.must { border-color: rgba(198,255,26,0.45); color: var(--toxic); }
-    .pill.like { border-color: rgba(255,59,18,0.45); color: var(--blood-2); }
+    .pill.like { border-color: rgba(59, 158, 255, 0.55); color: var(--like-2); }
     .pill.xover { border-color: rgba(139, 92, 246, 0.55); color: var(--purple-hot); }
 
     /* ---------- Banners / alerts ---------- */
@@ -438,8 +449,8 @@
       box-shadow: 0 0 0 1px rgba(198,255,26,0.2), 0 0 22px rgba(198,255,26,0.08);
     }
     .card.is-like {
-      border-color: rgba(255,59,18,0.5);
-      box-shadow: 0 0 0 1px rgba(255,106,50,0.18), 0 0 22px rgba(255,59,18,0.08);
+      border-color: rgba(59, 158, 255, 0.55);
+      box-shadow: 0 0 0 1px rgba(59, 158, 255, 0.22), 0 0 22px rgba(59, 158, 255, 0.12);
     }
     .card.is-xover {
       outline: 1px dashed rgba(243,238,227,0.35);
@@ -456,7 +467,7 @@
     .artist-name {
       font-family: var(--font-head);
       font-weight: 700;
-      font-size: 0.78rem;
+      font-size: 1.08rem;
       letter-spacing: 0.03em;
       text-transform: uppercase;
       margin: 0;
@@ -514,9 +525,9 @@
       font-weight: 700;
     }
     .pri-btn[data-pri="like"][aria-pressed="true"] {
-      background: var(--blood);
-      color: var(--bone);
-      border-color: var(--blood);
+      background: var(--like);
+      color: #041018;
+      border-color: var(--like);
       font-weight: 700;
     }
     .note {
@@ -596,7 +607,7 @@
       align-items: baseline;
       margin-bottom: 8px;
     }
-    .cmp-head .artist-name { font-size: 0.92rem; }
+    .cmp-head .artist-name { font-size: 1.12rem; }
     .cmp-who { display: flex; flex-wrap: wrap; gap: 6px; }
     .who-pill {
       display: inline-flex;
@@ -612,7 +623,7 @@
       text-transform: uppercase;
     }
     .who-pill.must { background: var(--toxic); color: #121406; border-color: var(--toxic); }
-    .who-pill.like { background: var(--blood); color: var(--bone); border-color: var(--blood); }
+    .who-pill.like { background: var(--like); color: #041018; border-color: var(--like); }
     .xover-grid, .sides {
       display: grid;
       gap: 12px;
@@ -962,7 +973,7 @@
           <p class="subhead">2026 Lineup Lock-In</p>
         </div>
       </div>
-      <p class="lede">Mark Must / Like, then Submit. Share the compare link so friends can log in as themselves and add their lists — they cannot edit yours.</p>
+      <p class="lede">Mark Must / Want, then Submit. Share the compare link so friends can log in as themselves and add their lists — they cannot edit yours.</p>
       <div class="who-bar" id="whoBar"></div>
       <div class="hero-row">
         <div class="stats" id="stats"></div>
@@ -980,7 +991,7 @@
           <li>Log in with a username and a 4-digit PIN. A new username creates your list.</li>
           <li>If that username already exists, the PIN must match or you cannot open it.</li>
           <li>Share the compare link. Friends open it, log in as themselves, and only edit their own list.</li>
-          <li>On Compare, toggle people on to see who marked Must vs Like.</li>
+          <li>On Compare, toggle people on to see who marked Must vs Want.</li>
         </ol>
       </details>
     </header>
@@ -1001,7 +1012,7 @@
 
     <main id="listRoot"></main>
     <section id="printRoot" class="print-view hidden"></section>
-    <p class="lede" style="margin:28px 8px 0;text-align:center;font-size:0.82rem">Fan-made lock-in tool — not affiliated with Excision or Lost Lands. Lineup from the official 2026 daily poster. Stages and clock times are TBA; when they drop, fill in <code>stage</code>, <code>start</code>, and <code>end</code> on each artist in this file.</p>
+    <p class="foot-note">Fan-made lock-in tool — not affiliated with Excision or Lost Lands. Lineup from the official 2026 daily poster. Stages and clock times are TBA; when they drop, fill in <code>stage</code>, <code>start</code>, and <code>end</code> on each artist in this file.</p>
   </div>
 
   <nav class="dock pick-mode no-print" aria-label="List actions">
@@ -1652,7 +1663,7 @@
     }
 
     function comboLabel(pri) {
-      return pri === "must" ? "Must" : "Like";
+      return pri === "must" ? "Must" : "Want";
     }
     function compareRows() {
       const crew = selectedPeople();
@@ -1744,7 +1755,7 @@
       }
       document.getElementById("stats").innerHTML =
         '<div class="pill must"><strong>' + countPri(state.picks, "must") + "</strong> Must See</div>" +
-        '<div class="pill like"><strong>' + countPri(state.picks, "like") + "</strong> Would Like</div>" +
+        '<div class="pill like"><strong>' + countPri(state.picks, "like") + "</strong> Want</div>" +
         '<div class="pill xover"><strong>' + state.people.length + "</strong> People</div>" +
         (crew.length >= 2 ? '<div class="pill xover"><strong>' + shared + "</strong> Shared</div>" : "");
     }
@@ -1793,7 +1804,7 @@
       if (!HAS_TIMES || state.screen !== "pick") { el.innerHTML = ""; return; }
       const mine = personalConflicts();
       if (!mine.length) { el.innerHTML = ""; return; }
-      let html = '<div class="alert crit"><h2>Schedule collisions</h2><p>Overlapping Must Sees rank highest. Must×Like is flagged next.</p><ul class="conflict-list">';
+      let html = '<div class="alert crit"><h2>Schedule collisions</h2><p>Overlapping Must Sees rank highest. Must×Want is flagged next.</p><ul class="conflict-list">';
       mine.forEach(function (c) {
         html += "<li><strong>" + esc(c.a.name) + "</strong> (" + comboLabel(c.pa) + ") overlaps <strong>" + esc(c.b.name) + "</strong> (" + comboLabel(c.pb) + ")</li>";
       });
@@ -1817,7 +1828,7 @@
         state.people.forEach(function (p) {
           peopleHtml +=
             '<div class="admin-row">' +
-              "<span>" + esc(p.name) + ' <span class="meta">' + countPri(p.picks, "must") + " must · " + countPri(p.picks, "like") + " like</span></span>" +
+              "<span>" + esc(p.name) + ' <span class="meta">' + countPri(p.picks, "must") + " must · " + countPri(p.picks, "like") + " want</span></span>" +
               '<button type="button" class="btn danger" data-admin-delete="' + esc(p.id) + '" style="min-height:40px;padding:0 12px">Delete</button>' +
             "</div>";
         });
@@ -1915,8 +1926,8 @@
 
     function renderToolbar() {
       const pri = state.screen === "compare"
-        ? [["all", "All picks"], ["shared", "Shared"], ["everyone", "Everyone"], ["must", "Must"], ["like", "Like"]]
-        : [["all", "All"], ["must", "Must only"], ["like", "Like only"]];
+        ? [["all", "All picks"], ["shared", "Shared"], ["everyone", "Everyone"], ["must", "Must"], ["like", "Want"]]
+        : [["all", "All"], ["must", "Must only"], ["like", "Want only"]];
       if (["shared", "everyone"].indexOf(state.priFilter) >= 0 && state.screen === "pick") state.priFilter = "all";
       document.getElementById("priChips").innerHTML = pri.map(function (p) {
         return '<button class="chip" data-pri="' + p[0] + '" aria-pressed="' + (state.priFilter === p[0]) + '">' + p[1] + "</button>";
@@ -1961,7 +1972,7 @@
       const mine = personalConflicts().filter(function (c) { return c.a.id === id || c.b.id === id; });
       if (!mine.length) return "";
       const hot = mine.some(function (c) { return c.score >= 3; });
-      return '<span class="tag conflict' + (hot ? "" : " soft") + '">' + (hot ? "Must clash" : "Must×Like clash") + "</span>";
+      return '<span class="tag conflict' + (hot ? "" : " soft") + '">' + (hot ? "Must clash" : "Must×Want clash") + "</span>";
     }
 
     function cardHTML(a) {
@@ -1977,7 +1988,7 @@
         "</div>" +
         '<div class="pri-row">' +
           '<button class="pri-btn" data-id="' + a.id + '" data-pri="must" aria-pressed="' + (pri === "must") + '" aria-label="Must See">Must</button>' +
-          '<button class="pri-btn" data-id="' + a.id + '" data-pri="like" aria-pressed="' + (pri === "like") + '" aria-label="Would Like">Like</button>' +
+          '<button class="pri-btn" data-id="' + a.id + '" data-pri="like" aria-pressed="' + (pri === "like") + '" aria-label="Want">Want</button>' +
           '<button class="note-btn" type="button" data-note-toggle="' + a.id + '" aria-label="Note"' + (note ? ' data-has="1"' : "") + ">✎</button>" +
         "</div>" +
         '<textarea class="note' + (note ? "" : " hidden") + '" data-note="' + a.id + '" maxlength="80" rows="1" placeholder="Note">' + esc(note) + "</textarea>" +
@@ -2045,7 +2056,7 @@
       } else {
         html += "<h2>Lost Lands 2026 · " + esc(state.name || "My list") + "</h2>";
         html += printCol("Must See", ARTISTS.filter(function (a) { return state.picks[a.id] === "must"; }));
-        html += printCol("Would Like", ARTISTS.filter(function (a) { return state.picks[a.id] === "like"; }));
+        html += printCol("Want", ARTISTS.filter(function (a) { return state.picks[a.id] === "like"; }));
       }
       root.innerHTML = html;
       document.getElementById("btnPrintGo").onclick = function () { window.print(); };
@@ -2220,7 +2231,7 @@
     function clearList() {
       showModal(
         "Clear your list?",
-        "<p>This clears Must Sees, Would Likes, and notes for <strong>" + esc(state.name || "you") + "</strong> only. Everyone else’s lists stay put.</p>",
+        "<p>This clears Must Sees, Wants, and notes for <strong>" + esc(state.name || "you") + "</strong> only. Everyone else’s lists stay put.</p>",
         [
           { label: "Clear my list", danger: true, fn: function () {
             state.picks = {}; state.notes = {};
