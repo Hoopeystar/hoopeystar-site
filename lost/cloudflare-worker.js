@@ -53,7 +53,7 @@ export default {
     if (!path.endsWith("/api") && !path.endsWith("/api.php")) {
       return json(404, {
         ok: false,
-        error: "This Worker should only be routed to /lost/api* — not the whole /lost/ folder."
+        error: "This Worker should only be routed to /lost/api*, not the whole /lost/ folder."
       });
     }
     if (request.method !== "GET" && request.method !== "POST") {

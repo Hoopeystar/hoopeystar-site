@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Bebas+Neue&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
   <style>
     /* ============================================================
-       LOCKED LANDS — forced dark theme. No light-mode overrides.
+       LOCKED LANDS: forced dark theme. No light-mode overrides.
        Palette: void black, Hoopeystar purple, toxic green, bone, blood orange.
        Purple is chrome/branding. Must See stays toxic; Would Like stays blood.
        ============================================================ */
@@ -89,7 +89,7 @@
       opacity: 1;
     }
 
-    /* Low-opacity dinosaur silhouettes — decorative only */
+    /* Low-opacity dinosaur silhouettes. Decorative only. */
     body::after {
       content: "";
       position: fixed;
@@ -973,7 +973,7 @@
           <p class="subhead">2026 Lineup Lock-In</p>
         </div>
       </div>
-      <p class="lede">Mark Must / Want, then Submit. Share the compare link so friends can log in as themselves and add their lists — they cannot edit yours.</p>
+      <p class="lede">Mark Must / Want, then Submit. Share the compare link so friends can log in as themselves and add their lists. They cannot edit yours.</p>
       <div class="who-bar" id="whoBar"></div>
       <div class="hero-row">
         <div class="stats" id="stats"></div>
@@ -1012,7 +1012,7 @@
 
     <main id="listRoot"></main>
     <section id="printRoot" class="print-view hidden"></section>
-    <p class="foot-note">Fan-made lock-in tool — not affiliated with Excision or Lost Lands. Lineup from the official 2026 daily poster. Stages and clock times are TBA; when they drop, fill in <code>stage</code>, <code>start</code>, and <code>end</code> on each artist in this file.</p>
+    <p class="foot-note">Fan-made lock-in tool, not affiliated with Excision or Lost Lands. Lineup from the official 2026 daily poster. Stages and clock times are TBA; when they drop, fill in <code>stage</code>, <code>start</code>, and <code>end</code> on each artist in this file.</p>
   </div>
 
   <nav class="dock pick-mode no-print" aria-label="List actions">
@@ -1027,12 +1027,12 @@
 
   <script>
   /* =========================================================================
-     LOCKED LANDS — Lost Lands 2026 lineup lock-in
+     LOCKED LANDS: Lost Lands 2026 lineup lock-in
      -------------------------------------------------------------------------
      HOW TO UPDATE ARTISTS
        Add/edit entries in ARTISTS via A(id, name, day, extra).
        Days: "Wed" | "Thu" | "Fri" | "Sat" | "Sun"
-       Keep `id` stable — share links encode ids, not display names.
+       Keep `id` stable. Share links encode ids, not display names.
 
      HOW TO ADD SET TIMES LATER
        Pass extra fields on any artist:
@@ -2051,7 +2051,7 @@
         compareRows().forEach(function (r) {
           const who = r.marks.map(function (m) { return esc(m.name) + " " + comboLabel(m.pri); }).join(" · ");
           const when = r.artist.day ? " · " + DAYS[r.artist.day].label : "";
-          html += '<div class="print-item"><strong>' + esc(r.artist.name) + "</strong>" + when + " — " + who + "</div>";
+          html += '<div class="print-item"><strong>' + esc(r.artist.name) + "</strong>" + when + ": " + who + "</div>";
         });
       } else {
         html += "<h2>Lost Lands 2026 · " + esc(state.name || "My list") + "</h2>";
@@ -2066,7 +2066,7 @@
       const sorted = arr.slice().sort(function (a, b) { return a.name.localeCompare(b.name, "en", { sensitivity: "base" }); });
       return '<div class="print-col"><h3 class="section-title">' + title + " · " + sorted.length + "</h3>" +
         sorted.map(function (a) {
-          const note = state.notes[a.id] ? " — " + esc(state.notes[a.id]) : "";
+          const note = state.notes[a.id] ? ": " + esc(state.notes[a.id]) : "";
           const when = a.day ? " · " + DAYS[a.day].label + (a.start ? " " + fmtTime(a.start) : "") : "";
           return '<div class="print-item"><strong>' + esc(a.name) + "</strong>" + when + note + "</div>";
         }).join("") + "</div>";
@@ -2101,7 +2101,7 @@
       function fallback() {
         const ta = document.createElement("textarea");
         ta.value = text; document.body.appendChild(ta); ta.select();
-        try { document.execCommand("copy"); toast("Link copied"); } catch (e) { toast("Copy failed — select the URL"); }
+        try { document.execCommand("copy"); toast("Link copied"); } catch (e) { toast("Copy failed. Select the URL."); }
         ta.remove();
       }
     }
@@ -2159,7 +2159,7 @@
       const url = location.href.split("#")[0];
       showModal(
         "Share this page",
-        "<p>Lists are saved online. Send this link — friends log in with their own username and PIN, and everyone’s picks show up on Compare.</p>" +
+        "<p>Lists are saved online. Send this link. Friends log in with their own username and PIN, and everyone’s picks show up on Compare.</p>" +
         '<input class="share-url" id="shareUrl" readonly />',
         [
           { label: "Copy link", primary: true, fn: function () { copyText(url); } },
