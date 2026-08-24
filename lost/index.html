@@ -288,7 +288,20 @@
       padding-left: 18px;
       color: var(--bone);
     }
-    .conflict-list li { margin: 4px 0; }
+    .conflict-list li { margin: 6px 0; }
+    .conflict-list small { display: block; color: var(--moss); font-size: 0.82rem; }
+    .pill.conflict { border-color: rgba(255,59,18,0.55); color: var(--blood-2); }
+    .card.is-conflict {
+      outline: 2px solid var(--blood);
+      outline-offset: 1px;
+      box-shadow: 0 0 18px rgba(255, 59, 18, 0.28);
+    }
+    .chip[data-pri="conflict"] { color: var(--blood-2); border-color: rgba(255,59,18,0.5); }
+    .chip[data-pri="conflict"][aria-pressed="true"] {
+      background: var(--blood);
+      color: var(--bone);
+      border-color: var(--blood);
+    }
 
     /* ---------- Toolbar ---------- */
     .toolbar {
@@ -497,14 +510,18 @@
     .tag.conflict.soft { background: var(--blood-2); }
     .pri-row { display: grid; grid-template-columns: 1fr 1fr 32px; gap: 5px; }
     .pri-btn {
+      height: 36px;
       min-height: 36px;
+      padding: 0 4px;
       border-radius: 8px;
       border: 1px solid var(--line);
       background: var(--void);
       font-family: var(--font-head);
-      letter-spacing: 0.06em;
+      font-weight: 700;
+      letter-spacing: 0.02em;
       text-transform: uppercase;
-      font-size: 0.68rem;
+      font-size: 1rem;
+      line-height: 1;
     }
     .note-btn {
       min-height: 36px;
@@ -771,20 +788,6 @@
     .print-col { break-inside: avoid; }
     .print-item { padding: 6px 0; border-bottom: 1px solid var(--line); }
 
-    .howto {
-      margin-top: 12px;
-      color: var(--moss);
-      font-size: 0.92rem;
-    }
-    .howto summary {
-      cursor: pointer;
-      font-family: var(--font-head);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--bone-dim);
-    }
-    .howto ol { margin: 8px 0 0; padding-left: 18px; color: var(--bone-dim); }
-
     body.screen-compare .views { display: none; }
     body.screen-compare .name-field { display: none; }
     body.screen-compare .skip-compare { display: none; }
@@ -973,7 +976,7 @@
           <p class="subhead">2026 Lineup Lock-In</p>
         </div>
       </div>
-      <p class="lede">Mark Must / Want, then Submit. Share the compare link so friends can log in as themselves and add their lists. They cannot edit yours.</p>
+      <p class="lede">Mark Must/Want to see, then Submit. Compare your schedule with friends who have submitted their list.</p>
       <div class="who-bar" id="whoBar"></div>
       <div class="hero-row">
         <div class="stats" id="stats"></div>
@@ -985,15 +988,6 @@
         </span>
         <span class="arrow" aria-hidden="true">→</span>
       </button>
-      <details class="howto">
-        <summary>How it works</summary>
-        <ol>
-          <li>Log in with a username and a 4-digit PIN. A new username creates your list.</li>
-          <li>If that username already exists, the PIN must match or you cannot open it.</li>
-          <li>Share the compare link. Friends open it, log in as themselves, and only edit their own list.</li>
-          <li>On Compare, toggle people on to see who marked Must vs Want.</li>
-        </ol>
-      </details>
     </header>
 
     <div id="modeBanner"></div>
@@ -1692,30 +1686,52 @@
       return rows;
     }
 
-    /* Weighted conflicts. Score: Must×Must = 3, Must×Like = 2, Like×Like = 1 */
+    /* Must×Must = 3, Must×Want = 2, Want×Want = 1. All overlaps are shown. */
     function comboScore(p1, p2) {
       if (p1 === "must" && p2 === "must") return 3;
       if (p1 === "must" || p2 === "must") return 2;
       return 1;
     }
+    var conflictCache = null;
     function personalConflicts() {
-      if (!HAS_TIMES) return [];
+      if (conflictCache) return conflictCache;
+      if (!HAS_TIMES) { conflictCache = []; return conflictCache; }
       const rows = [];
       const ids = Object.keys(state.picks).filter(function (id) { return state.picks[id] && BY_ID[id]; });
       for (let i = 0; i < ids.length; i++) {
         for (let j = i + 1; j < ids.length; j++) {
           const a = BY_ID[ids[i]], b = BY_ID[ids[j]];
           if (!overlaps(a, b)) continue;
-          const s = comboScore(state.picks[a.id], state.picks[b.id]);
-          if (s < 2) continue; // only flag Must-involved overlaps
-          rows.push({ a: a, b: b, score: s, pa: state.picks[a.id], pb: state.picks[b.id] });
+          rows.push({
+            a: a,
+            b: b,
+            score: comboScore(state.picks[a.id], state.picks[b.id]),
+            pa: state.picks[a.id],
+            pb: state.picks[b.id]
+          });
         }
       }
       rows.sort(function (x, y) { return y.score - x.score; });
+      conflictCache = rows;
       return rows;
+    }
+    function conflictIdSet() {
+      const set = {};
+      personalConflicts().forEach(function (c) {
+        set[c.a.id] = true;
+        set[c.b.id] = true;
+      });
+      return set;
+    }
+    function whenLabel(a) {
+      const day = a.day && DAYS[a.day] ? DAYS[a.day].label : "";
+      const time = (a.start && a.end) ? (fmtTime(a.start) + "-" + fmtTime(a.end)) : "";
+      const stage = a.stage || "";
+      return [day, time, stage].filter(Boolean).join(" · ");
     }
     /* ---------- render ---------- */
     function render() {
+      conflictCache = null;
       const y = window.scrollY;
       if (state.admin && state.screen === "pick") state.screen = "compare";
       document.body.classList.toggle("screen-login", state.screen === "login");
@@ -1753,11 +1769,13 @@
       if (crew.length >= 2) {
         compareRows().forEach(function (r) { if (r.hit >= 2) shared++; });
       }
+      const clashes = HAS_TIMES ? personalConflicts().length : 0;
       document.getElementById("stats").innerHTML =
         '<div class="pill must"><strong>' + countPri(state.picks, "must") + "</strong> Must See</div>" +
         '<div class="pill like"><strong>' + countPri(state.picks, "like") + "</strong> Want</div>" +
         '<div class="pill xover"><strong>' + state.people.length + "</strong> People</div>" +
-        (crew.length >= 2 ? '<div class="pill xover"><strong>' + shared + "</strong> Shared</div>" : "");
+        (crew.length >= 2 ? '<div class="pill xover"><strong>' + shared + "</strong> Shared</div>" : "") +
+        (clashes ? '<div class="pill conflict"><strong>' + clashes + "</strong> Overlap" + (clashes === 1 ? "" : "s") + "</div>" : "");
     }
 
     function renderWhoBar() {
@@ -1801,12 +1819,19 @@
 
     function renderConflicts() {
       const el = document.getElementById("conflictBanner");
-      if (!HAS_TIMES || state.screen !== "pick") { el.innerHTML = ""; return; }
+      if (!HAS_TIMES || state.admin || (state.screen !== "pick" && state.screen !== "compare")) {
+        el.innerHTML = "";
+        return;
+      }
       const mine = personalConflicts();
       if (!mine.length) { el.innerHTML = ""; return; }
-      let html = '<div class="alert crit"><h2>Schedule collisions</h2><p>Overlapping Must Sees rank highest. Must×Want is flagged next.</p><ul class="conflict-list">';
+      let html = '<div class="alert crit"><h2>Overlapping sets</h2><p>' +
+        mine.length + " pair" + (mine.length === 1 ? "" : "s") +
+        " on your list run at the same time. Must vs Must is listed first.</p><ul class='conflict-list'>";
       mine.forEach(function (c) {
-        html += "<li><strong>" + esc(c.a.name) + "</strong> (" + comboLabel(c.pa) + ") overlaps <strong>" + esc(c.b.name) + "</strong> (" + comboLabel(c.pb) + ")</li>";
+        html += "<li><strong>" + esc(c.a.name) + "</strong> (" + comboLabel(c.pa) + ") overlaps <strong>" +
+          esc(c.b.name) + "</strong> (" + comboLabel(c.pb) + ")" +
+          "<small>" + esc(whenLabel(c.a)) + " / " + esc(whenLabel(c.b)) + "</small></li>";
       });
       html += "</ul></div>";
       el.innerHTML = html;
@@ -1928,7 +1953,9 @@
       const pri = state.screen === "compare"
         ? [["all", "All picks"], ["shared", "Shared"], ["everyone", "Everyone"], ["must", "Must"], ["like", "Want"]]
         : [["all", "All"], ["must", "Must only"], ["like", "Want only"]];
+      if (state.screen === "pick" && HAS_TIMES) pri.push(["conflict", "Overlaps"]);
       if (["shared", "everyone"].indexOf(state.priFilter) >= 0 && state.screen === "pick") state.priFilter = "all";
+      if (state.priFilter === "conflict" && (!HAS_TIMES || state.screen !== "pick")) state.priFilter = "all";
       document.getElementById("priChips").innerHTML = pri.map(function (p) {
         return '<button class="chip" data-pri="' + p[0] + '" aria-pressed="' + (state.priFilter === p[0]) + '">' + p[1] + "</button>";
       }).join("");
@@ -1964,6 +1991,7 @@
       const pri = state.picks[a.id] || "";
       if (state.priFilter === "must" && pri !== "must") return false;
       if (state.priFilter === "like" && pri !== "like") return false;
+      if (state.priFilter === "conflict" && !conflictIdSet()[a.id]) return false;
       return true;
     }
 
@@ -1972,14 +2000,15 @@
       const mine = personalConflicts().filter(function (c) { return c.a.id === id || c.b.id === id; });
       if (!mine.length) return "";
       const hot = mine.some(function (c) { return c.score >= 3; });
-      return '<span class="tag conflict' + (hot ? "" : " soft") + '">' + (hot ? "Must clash" : "Must×Want clash") + "</span>";
+      return '<span class="tag conflict' + (hot ? "" : " soft") + '">' + (hot ? "Must overlap" : "Overlap") + "</span>";
     }
 
     function cardHTML(a) {
       const pri = state.picks[a.id] || "";
       const note = state.notes[a.id] || "";
-      const time = (a.start && a.end) ? (fmtTime(a.start) + "–" + fmtTime(a.end)) : "";
-      return '<article class="card day-' + a.day + (pri === "must" ? " is-must" : pri === "like" ? " is-like" : "") + '" data-id="' + a.id + '">' +
+      const time = (a.start && a.end) ? (fmtTime(a.start) + "-" + fmtTime(a.end)) : "";
+      const clash = HAS_TIMES && conflictIdSet()[a.id];
+      return '<article class="card day-' + a.day + (pri === "must" ? " is-must" : pri === "like" ? " is-like" : "") + (clash ? " is-conflict" : "") + '" data-id="' + a.id + '">' +
         '<div class="card-top">' +
           '<p class="artist-name">' + esc(a.name) + "</p>" +
           (a.stage ? '<span class="tag">' + esc(a.stage) + "</span>" : "") +
