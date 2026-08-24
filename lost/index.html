@@ -677,8 +677,8 @@
       backdrop-filter: blur(16px);
     }
     .dock.pick-mode { grid-template-columns: 1.5fr 1fr; }
-    .dock.compare-mode { grid-template-columns: repeat(3, 1fr); }
-    .dock.admin-mode { grid-template-columns: 1fr 1fr; }
+    .dock.compare-mode { grid-template-columns: 1fr 1fr; }
+    .dock.admin-mode { grid-template-columns: 1fr; }
     .btn {
       min-height: var(--tap);
       border-radius: 12px;
@@ -980,7 +980,7 @@
           <li>Log in with a username and a 4-digit PIN. A new username creates your list.</li>
           <li>If that username already exists, the PIN must match or you cannot open it.</li>
           <li>Share the compare link. Friends open it, log in as themselves, and only edit their own list.</li>
-          <li>On Compare, toggle people on to see who marked Must vs Like. Lists from a link stay locked unless it’s yours.</li>
+          <li>On Compare, toggle people on to see who marked Must vs Like.</li>
         </ol>
       </details>
     </header>
@@ -1006,7 +1006,7 @@
 
   <nav class="dock pick-mode no-print" aria-label="List actions">
     <button class="btn primary" id="btnPrimary">Submit</button>
-    <button class="btn hidden" id="btnScreen">Picks</button>
+    <button class="btn hidden" id="btnScreen">Edit picks</button>
     <button class="btn hidden" id="btnJson">Add</button>
     <button class="btn danger" id="btnClear">Clear</button>
   </nav>
@@ -1315,9 +1315,13 @@
       pin: localStorage.getItem("ll26-pin") || ""
     };
 
-    const API_URL = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
-      ? "/api"
-      : "api.php";
+    const API_URL = (function () {
+      if (location.hostname === "localhost" || location.hostname === "127.0.0.1") return "/api";
+      var path = location.pathname.replace(/\/index\.html$/i, "/");
+      if (path.indexOf(".") >= 0) path = path.replace(/\/[^/]+$/, "/");
+      if (path.slice(-1) !== "/") path += "/";
+      return path + "api";
+    })();
 
     const ADMIN_USER = "hoopeystar";
     const ADMIN_PIN = "1432";
@@ -1780,7 +1784,7 @@
           "<h2>Compare</h2>" +
           "<p>Toggle people on to compare. You can only edit <strong>" +
           esc((mine && mine.name) || "your list") +
-          "</strong>. Everyone else is locked.</p>" +
+          "</strong>.</p>" +
         "</div>";
     }
 
@@ -1813,7 +1817,7 @@
         state.people.forEach(function (p) {
           peopleHtml +=
             '<div class="admin-row">' +
-              "<span>" + esc(p.name) + ' <span class="meta">' + countPri(p.picks, "must") + " must · " + countPri(p.picks, "like") + " like" + (p.owned ? "" : " · from a link") + "</span></span>" +
+              "<span>" + esc(p.name) + ' <span class="meta">' + countPri(p.picks, "must") + " must · " + countPri(p.picks, "like") + " like</span></span>" +
               '<button type="button" class="btn danger" data-admin-delete="' + esc(p.id) + '" style="min-height:40px;padding:0 12px">Delete</button>' +
             "</div>";
         });
@@ -1823,16 +1827,13 @@
       state.people.forEach(function (p) {
         const on = !!state.on[p.id];
         const you = !state.admin && p.id === state.meId;
-        const locked = !p.owned;
-        const canDelete = state.admin || !you;
         peopleHtml +=
           '<span class="person-chip">' +
             '<button class="chip' + (you ? " you-chip" : "") + '" type="button" data-toggle-person="' + esc(p.id) + '" aria-pressed="' + on + '">' +
               esc(p.name) +
-              (you ? " · you" : locked ? " · from a link" : "") +
               " · " + countPri(p.picks, "must") + "/" + countPri(p.picks, "like") +
             "</button>" +
-            (canDelete ? '<button class="person-x" type="button" data-remove-person="' + esc(p.id) + '" aria-label="Remove ' + esc(p.name) + '">×</button>' : "") +
+            (state.admin ? '<button class="person-x" type="button" data-remove-person="' + esc(p.id) + '" aria-label="Remove ' + esc(p.name) + '">×</button>' : "") +
           "</span>";
       });
       peopleHtml += "</div>";
@@ -1892,8 +1893,8 @@
         dock.classList.remove("pick-mode");
         dock.classList.add("compare-mode");
         dock.classList.toggle("admin-mode", !!state.admin);
-        p.textContent = "Share";
-        s.textContent = "Picks";
+        p.classList.add("hidden");
+        s.textContent = "Edit picks";
         if (state.admin) s.classList.add("hidden");
         else s.classList.remove("hidden");
         j.classList.add("hidden");
@@ -1902,6 +1903,8 @@
       } else {
         dock.classList.add("pick-mode");
         dock.classList.remove("compare-mode");
+        dock.classList.remove("admin-mode");
+        p.classList.remove("hidden");
         p.textContent = "Submit";
         s.classList.add("hidden");
         j.classList.add("hidden");
@@ -2162,16 +2165,16 @@
       render();
     }
     function removePerson(id, skipConfirm) {
+      if (!state.admin) return;
       const p = personById(id);
       if (!p) return;
-      if (!state.admin && p.id === state.meId) { toast("You can't remove the list you're editing"); return; }
       function wipe() {
         const finish = function () {
           closeModal();
           render();
           toast("Deleted " + p.name);
         };
-        if (state.admin && state.pin) {
+        if (state.pin) {
           api("delete", { username: "HOOPEYSTAR", pin: ADMIN_PIN, id: id }).then(function (res) {
             if (res.ok && res.people) applyPeople(res.people);
             else if (!res.ok) toast(res.error || "Delete failed");
@@ -2254,8 +2257,8 @@
       toast("JSON downloaded");
     }
     function onPrimary() {
-      if (state.screen === "compare") shareRoster();
-      else submitList();
+      if (state.screen === "compare") return;
+      submitList();
     }
     function onScreen() {
       if (state.admin) { goScreen("compare"); return; }

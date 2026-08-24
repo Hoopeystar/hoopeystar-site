@@ -1,3 +1,18 @@
 {
-  "users": {}
+  "users": {
+    "hoopey": {
+      "id": "p49de4ec4307b",
+      "name": "hoopey",
+      "pinHash": "604b0d432df33702751d523fc0ba9a206327985e18e459a4b20d1acfc48e8996",
+      "picks": {
+        "dollar-j": "must",
+        "2dy4": "must",
+        "adventure-club-throwback": "like",
+        "aeon-mode-b2b-blossom": "like",
+        "alienpark": "like"
+      },
+      "notes": {},
+      "updatedAt": "2026-08-24T02:11:27.312Z"
+    }
+  }
 }
