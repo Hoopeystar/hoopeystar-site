@@ -594,11 +594,15 @@
       font-size: 1.1rem;
       line-height: 1;
     }
-    .cmp-list { display: grid; gap: 8px; }
+    .cmp-list { display: grid; gap: 3px; }
     .cmp-row {
       position: relative;
-      padding: 10px 10px 10px 14px;
-      border-radius: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 4px 8px;
+      padding: 4px 8px 4px 12px;
+      border-radius: 8px;
       border: 1px solid var(--line);
       background: var(--card);
     }
@@ -606,8 +610,8 @@
       content: "";
       position: absolute;
       left: 0; top: 0; bottom: 0;
-      width: 5px;
-      border-radius: 12px 0 0 12px;
+      width: 4px;
+      border-radius: 8px 0 0 8px;
       background: var(--day, var(--line));
     }
     .cmp-row.shared {
@@ -619,24 +623,28 @@
     }
     .cmp-head {
       display: flex;
-      justify-content: space-between;
-      gap: 8px;
-      align-items: baseline;
-      margin-bottom: 8px;
+      margin: 0;
+      flex: 1 1 150px;
+      min-width: 0;
+      align-items: center;
     }
-    .cmp-head .artist-name { font-size: 1.12rem; }
-    .cmp-who { display: flex; flex-wrap: wrap; gap: 6px; }
+    .cmp-head .artist-name {
+      font-size: 0.88rem;
+      flex: 1 1 auto;
+      text-align: left;
+    }
+    .cmp-who { display: flex; flex-wrap: wrap; gap: 4px; flex: 2 1 180px; }
     .who-pill {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      min-height: 32px;
-      padding: 0 10px;
+      gap: 4px;
+      min-height: 22px;
+      padding: 0 7px;
       border-radius: 999px;
       border: 1px solid var(--line);
       font-family: var(--font-head);
-      font-size: 0.72rem;
-      letter-spacing: 0.06em;
+      font-size: 0.65rem;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
     }
     .who-pill.must { background: var(--toxic); color: #121406; border-color: var(--toxic); }
