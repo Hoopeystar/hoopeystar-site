@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c0c0e">
+  <title>Naga Trainer</title>
+  <link rel="icon" href="hoopeystar.png">
+  <style>
+    /*
+      Color roles (do not mix):
+        #F10000  error / miss / fail flash
+        #8D00FF  chrome, selected controls, sequence preview, dual left-click target
+        #FFE800  live side-button target, primary CTA, streak / score accent
+      Inactive cell numbers stay muted gray — never colored.
+    */
+    :root {
+      --red: #F10000;
+      --purple: #8D00FF;
+      --yellow: #FFE800;
+      --bg: #0c0c0e;
+      --panel: #121216;
+      --cell: #16161b;
+      --cell-edge: #8D00FF;
+      --text: #f3f3f5;
+      --muted: #7a7a82;
+      --line: #26262e;
+      --ease: cubic-bezier(.2,.7,.2,1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { color-scheme: dark; height: 100%; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+      min-height: 100%;
+      min-height: 100dvh;
+      line-height: 1.3;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      justify-content: safe center;
+      align-items: safe center;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--purple);
+      z-index: 20;
+    }
+
+    button, .cell { font-family: inherit; }
+    button { cursor: pointer; }
+    button:focus-visible {
+      outline: 2px solid var(--purple);
+      outline-offset: 3px;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 32px;
+    }
+
+    header.top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 48px;
+      margin-bottom: 22px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+    .brand img {
+      width: 36px;
+      height: 36px;
+      display: block;
+      flex: 0 0 36px;
+    }
+    .brand h1 {
+      font-size: 0.95rem;
+      letter-spacing: 0.16em;
+      font-weight: 800;
+    }
+    .brand p {
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-top: 1px;
+    }
+    .chip {
+      display: none;
+      border: 1px solid var(--purple);
+      color: var(--text);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      padding: 6px 12px;
+    }
+    body.playing .chip { display: inline-block; }
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--purple);
+      color: var(--text);
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      font-size: 0.72rem;
+      padding: 8px 14px;
+    }
+    .btn-ghost:hover { background: #8D00FF22; }
+    .btn-ghost.hide { display: none; }
+
+    .view { display: none; }
+    .view.show { display: block; }
+    #view-setup.show {
+      display: grid;
+      grid-template-columns: minmax(320px, 1fr) minmax(320px, 1fr);
+      gap: 48px 56px;
+      align-items: center;
+    }
+
+    .label {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      font-weight: 700;
+      color: var(--muted);
+      margin: 0 0 8px;
+    }
+    .group { margin-bottom: 20px; }
+    .seg { display: flex; gap: 8px; flex-wrap: wrap; }
+    .seg button, .toggles button {
+      background: #1a1a20;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 10px 14px;
+      min-height: 40px;
+    }
+    .seg button.on, .toggles button.on {
+      background: var(--purple);
+      border-color: var(--purple);
+      color: #fff;
+    }
+    .seg button:hover:not(.on), .toggles button:hover:not(.on) {
+      border-color: var(--purple);
+      color: var(--text);
+    }
+    .toggles { display: flex; gap: 8px; }
+
+    .btn-start {
+      display: block;
+      width: 100%;
+      margin-top: 8px;
+      background: var(--yellow);
+      color: #111;
+      border: 0;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      font-size: 0.95rem;
+      height: 52px;
+    }
+    .btn-start:hover { filter: brightness(1.05); }
+    .btn-start:disabled { opacity: 0.4; cursor: not-allowed; filter: none; }
+
+    .note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+    .err {
+      min-height: 1.2em;
+      margin-top: 10px;
+      color: var(--red);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .bind-col { width: max-content; max-width: 100%; }
+    .bind-head { margin-bottom: 10px; }
+    .bind-head .label { margin: 0 0 4px; }
+    #bind-hint {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--purple);
+      min-height: 1.1em;
+    }
+
+    #bind-grid {
+      --s: 100px;
+      display: grid;
+      grid-template-columns: repeat(3, var(--s));
+      grid-auto-rows: var(--s);
+      gap: 8px;
+    }
+    .bind {
+      position: relative;
+      background: var(--cell);
+      border: 1px solid var(--cell-edge);
+      color: var(--text);
+      padding: 8px;
+      text-align: left;
+    }
+    .bind:hover { background: #1c1c22; }
+    .bind.listening {
+      border-width: 2px;
+      border-color: var(--purple);
+      background: #1a1024;
+    }
+    .bind-n {
+      position: absolute;
+      top: 6px; left: 8px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+    .bind-k {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      font-size: 1.55rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .bests {
+      margin-top: 22px;
+      border: 1px solid var(--line);
+      padding: 14px 16px;
+    }
+    .bests h2 {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .bests .row { font-size: 0.88rem; }
+    .bests .row strong { color: var(--yellow); font-weight: 700; }
+    .bests .empty { color: var(--muted); font-size: 0.85rem; }
+
+    body.mode6 [data-n="7"],
+    body.mode6 [data-n="8"],
+    body.mode6 [data-n="9"],
+    body.mode6 [data-n="10"],
+    body.mode6 [data-n="11"],
+    body.mode6 [data-n="12"] { opacity: 0.3; }
+
+    .hud {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 4px;
+      margin-bottom: 18px;
+    }
+    .stat {
+      min-width: 92px;
+      text-align: center;
+      padding: 8px 10px;
+    }
+    .stat .lbl {
+      display: block;
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .stat .val {
+      font-size: 1.35rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+    .stat .val.accent { color: var(--yellow); }
+    body[data-type="reaction"] .timed-only,
+    body[data-type="sequence"] .timed-only,
+    body[data-type="dual"] .timed-only,
+    body[data-type="audio"] .timed-only { display: none; }
+    body[data-type="dual"] #game-grid .cell { cursor: pointer; }
+
+    #game-grid {
+      --s: min(148px, 15.2vh, calc((100vw - 96px) / 3.4));
+      display: grid;
+      grid-template-columns: repeat(3, var(--s));
+      grid-auto-rows: var(--s);
+      gap: 12px;
+      margin: 0 auto;
+      width: max-content;
+      user-select: none;
+    }
+    .cell {
+      background: var(--cell);
+      border: 1px solid var(--cell-edge);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .cell .num {
+      font-size: clamp(1.8rem, 4.2vh, 3rem);
+      font-weight: 700;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+    }
+    body.blind .cell .num { visibility: hidden; }
+
+    .cell.live,
+    .cell.hit {
+      background: var(--yellow);
+      border-color: var(--yellow);
+    }
+    .cell.live .num,
+    .cell.hit .num { color: #111; }
+    .cell.live { animation: pop 150ms var(--ease); }
+    .cell.hit { animation: pop 150ms var(--ease); }
+
+    .cell.seq,
+    .cell.click-live {
+      background: var(--purple);
+      border-color: var(--purple);
+    }
+    .cell.seq .num,
+    .cell.click-live .num { color: #fff; }
+    .cell.click-live { animation: pop 150ms var(--ease); }
+    .cell .pip {
+      display: none;
+      position: absolute;
+      bottom: 10px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #fff;
+    }
+    .cell.click-live .pip { display: block; }
+
+    .cell.miss {
+      background: var(--red);
+      border-color: var(--red);
+    }
+    .cell.miss .num { color: #fff; }
+
+    @keyframes pop {
+      0% { transform: scale(1); }
+      40% { transform: scale(1.045); }
+      100% { transform: scale(1); }
+    }
+
+    .status {
+      text-align: center;
+      margin-top: 16px;
+      min-height: 1.4em;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+    }
+    .status.go { color: var(--yellow); }
+    .status.watch { color: var(--purple); }
+    .status.fail { color: var(--red); }
+    .legend {
+      display: none;
+      justify-content: center;
+      gap: 22px;
+      margin-top: 12px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+    body[data-type="dual"] .legend { display: flex; }
+    .legend .swatch {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 8px;
+      vertical-align: -1px;
+    }
+    .legend .swatch.yellow { background: var(--yellow); }
+    .legend .swatch.purple { background: var(--purple); }
+    .hint {
+      text-align: center;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+    }
+
+    .card {
+      border: 1px solid var(--purple);
+      background: var(--panel);
+      max-width: 460px;
+      margin: 24px auto 0;
+      padding: 32px 36px 28px;
+    }
+    .card h2 {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .badge {
+      display: none;
+      color: var(--yellow);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      margin-bottom: 16px;
+    }
+    .badge.show { display: block; }
+    .sum-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 20px;
+      margin: 8px 0 24px;
+    }
+    .sum-grid .lbl {
+      display: block;
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+    .sum-grid .val {
+      font-size: 1.45rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+    .sum-grid .val.accent { color: var(--yellow); }
+    .sum-actions { display: flex; gap: 10px; }
+    .sum-actions button { flex: 1; height: 46px; font-weight: 800; letter-spacing: 0.12em; font-size: 0.78rem; }
+    .btn-again {
+      background: var(--yellow);
+      color: #111;
+      border: 0;
+    }
+    .btn-setup {
+      background: transparent;
+      border: 1px solid var(--purple);
+      color: var(--text);
+    }
+
+    @media (max-width: 1100px) {
+      #view-setup.show { grid-template-columns: 1fr; gap: 28px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .cell.live, .cell.hit, .cell.click-live { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div class="brand">
+        <img src="hoopeystar.png" width="36" height="36" alt="" onerror="this.style.display='none'">
+        <div>
+          <h1>NAGA TRAINER</h1>
+          <p>Thumb-grid muscle memory</p>
+        </div>
+      </div>
+      <div id="run-chip" class="chip"></div>
+      <button type="button" id="btn-pause" class="btn-ghost hide">PAUSE</button>
+    </header>
+
+    <section id="view-setup" class="view show">
+      <div>
+        <div class="group">
+          <span class="label">BUTTONS</span>
+          <div class="seg" data-field="buttons">
+            <button type="button" data-v="6">6 BUTTONS</button>
+            <button type="button" data-v="12">12 BUTTONS</button>
+          </div>
+        </div>
+        <div class="group">
+          <span class="label">GAME</span>
+          <div class="seg" data-field="type">
+            <button type="button" data-v="reaction">REACTION</button>
+            <button type="button" data-v="sequence">SEQUENCE</button>
+            <button type="button" data-v="timed">TIMED</button>
+            <button type="button" data-v="dual">DUAL</button>
+            <button type="button" data-v="audio">AUDIO</button>
+          </div>
+        </div>
+        <div class="group">
+          <span class="label" id="diff-label">WINDOW</span>
+          <div class="seg" data-field="diff" id="diff-seg">
+            <button type="button" data-v="0">1500ms</button>
+            <button type="button" data-v="1">1200ms</button>
+            <button type="button" data-v="2">800ms</button>
+            <button type="button" data-v="3">500ms</button>
+            <button type="button" data-v="4">350ms</button>
+          </div>
+        </div>
+        <div class="group" id="dur-group" hidden>
+          <span class="label">DURATION</span>
+          <div class="seg" data-field="duration">
+            <button type="button" data-v="15">15s</button>
+            <button type="button" data-v="30">30s</button>
+            <button type="button" data-v="45">45s</button>
+            <button type="button" data-v="60">60s</button>
+          </div>
+        </div>
+        <div class="group">
+          <span class="label">OPTIONS</span>
+          <div class="toggles">
+            <button type="button" id="tog-blind" aria-pressed="false">BLIND</button>
+            <button type="button" id="tog-sound" aria-pressed="true">SOUND</button>
+          </div>
+        </div>
+        <button type="button" class="btn-start" id="btn-start">START</button>
+        <p class="err" id="setup-err"></p>
+        <p class="note" id="setup-note">Side buttons must already be remapped. Match those keys in the grid — you will press them with your thumb, not the number row.</p>
+      </div>
+
+      <div>
+        <div class="bind-col">
+          <div class="bind-head">
+            <span class="label">KEYBINDS</span>
+            <span id="bind-hint"></span>
+          </div>
+          <div id="bind-grid" aria-label="Keybind editor"></div>
+          <div class="bests" id="bests"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-play" class="view">
+      <div class="hud">
+        <div class="stat"><span class="lbl">HITS</span><span class="val" id="h-hits">0</span></div>
+        <div class="stat"><span class="lbl">MISS</span><span class="val" id="h-miss">0</span></div>
+        <div class="stat"><span class="lbl">ACC</span><span class="val" id="h-acc">—</span></div>
+        <div class="stat"><span class="lbl">AVG</span><span class="val" id="h-avg">—</span></div>
+        <div class="stat"><span class="lbl">STREAK</span><span class="val accent" id="h-streak">0</span></div>
+        <div class="stat"><span class="lbl">BEST</span><span class="val accent" id="h-best">0</span></div>
+        <div class="stat timed-only"><span class="lbl">TIME</span><span class="val" id="h-time">1:00</span></div>
+        <div class="stat timed-only"><span class="lbl">SCORE</span><span class="val accent" id="h-score">0</span></div>
+      </div>
+      <div id="game-grid" class="grid-game" aria-label="Naga 12-button grid"></div>
+      <p class="status" id="status" aria-live="polite"></p>
+      <p class="legend" id="dual-legend">
+        <span><span class="swatch yellow"></span>SIDE BUTTON</span>
+        <span><span class="swatch purple"></span>LEFT CLICK</span>
+      </p>
+      <p class="hint" id="play-hint">Esc pause · F2 restart</p>
+    </section>
+
+    <section id="view-summary" class="view">
+      <div class="card">
+        <h2>RUN OVER</h2>
+        <p class="badge" id="sum-best">NEW BEST</p>
+        <div class="sum-grid">
+          <div class="timed-only"><span class="lbl">SCORE</span><span class="val accent" id="s-score">0</span></div>
+          <div><span class="lbl">HITS</span><span class="val" id="s-hits">0</span></div>
+          <div><span class="lbl">ACC</span><span class="val" id="s-acc">—</span></div>
+          <div><span class="lbl">AVG</span><span class="val" id="s-avg">—</span></div>
+          <div><span class="lbl">BEST STREAK</span><span class="val accent" id="s-streak">0</span></div>
+        </div>
+        <div class="sum-actions">
+          <button type="button" class="btn-again" id="btn-again">PLAY AGAIN</button>
+          <button type="button" class="btn-setup" id="btn-setup">SETUP</button>
+        </div>
+        <p class="hint" style="margin-top:14px">Enter play again · Esc setup</p>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    /*
+      Naga 12-button thumb grid (3 columns × 4 rows):
+        1   2   3
+        4   5   6
+        7   8   9
+       10  11  12
+
+      Default binds (keyboard keys the side buttons are remapped to):
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 0, -, =
+
+      Dual mode lights:
+        yellow fill  = press that side-button key (the number on the mouse)
+        purple fill  = left-click that cell
+
+      Audio mode:
+        spoken number is the only target cue — grid does not light until hit/miss
+
+      Color roles:
+        #F10000  miss / fail
+        #8D00FF  chrome, selected mode, sequence steps, dual left-click, focus
+        #FFE800  live side-button target, Start / Play again, streak & score
+    */
+
+    const DEFAULT_BINDS = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "="];
+    const WINDOWS = [1500, 1200, 800, 500, 350];
+    const SEQ_START = [3, 4, 6];
+    const TIMED_SECS = [15, 30, 45, 60];
+    const LS_BINDS = "nagaTrainer.binds.v1";
+    const LS_SCORES = "nagaTrainer.scores.v1";
+    const FEEDBACK_MS = 150;
+    const SEQ_ON = 140;
+    const SEQ_GAP = 80;
+
+    const state = {
+      screen: "setup",
+      buttons: 6,
+      type: "reaction",
+      diff: 2,
+      duration: 60,
+      blind: false,
+      sound: true,
+      binds: DEFAULT_BINDS.slice(),
+      capturing: null,
+      scores: {},
+      runId: 0,
+      hits: 0,
+      misses: 0,
+      times: [],
+      streak: 0,
+      bestStreak: 0,
+      score: 0,
+      completed: 0,
+      seqWins: 0,
+      seqLen: 3,
+      sequence: [],
+      seqI: 0,
+      live: null,
+      liveAt: 0,
+      lastTarget: 0,
+      action: "key",
+      lastAction: "",
+      phase: "idle",
+      timer: 0,
+      timedEnd: 0,
+      raf: 0,
+      newBest: false
+    };
+
+    const NUMBER_WORDS = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve"];
+
+    let audioCtx = null;
+    let speechVoice = null;
+    let speechTimer = 0;
+
+    const $ = (id) => document.getElementById(id);
+    const now = () => performance.now();
+
+    function loadBinds() {
+      try {
+        const raw = JSON.parse(localStorage.getItem(LS_BINDS));
+        if (Array.isArray(raw) && raw.length === 12 && raw.every((k) => typeof k === "string" && k.length)) {
+          state.binds = raw;
+        }
+      } catch (e) { /* keep defaults */ }
+    }
+
+    function saveBinds() {
+      try { localStorage.setItem(LS_BINDS, JSON.stringify(state.binds)); } catch (e) { /* ignore */ }
+    }
+
+    function loadScores() {
+      try {
+        const raw = JSON.parse(localStorage.getItem(LS_SCORES));
+        if (raw && typeof raw === "object") state.scores = raw;
+      } catch (e) { /* empty */ }
+    }
+
+    function saveScores() {
+      try { localStorage.setItem(LS_SCORES, JSON.stringify(state.scores)); } catch (e) { /* ignore */ }
+    }
+
+    function scoreKey() {
+      if (state.type === "sequence") {
+        return "sequence-" + state.buttons + "-len" + SEQ_START[Math.min(state.diff, SEQ_START.length - 1)];
+      }
+      if (state.type === "timed") {
+        return "timed-" + state.buttons + "-" + windowMs() + "-" + state.duration;
+      }
+      return state.type + "-" + state.buttons + "-" + windowMs();
+    }
+
+    function buildGrids() {
+      const game = $("game-grid");
+      const binds = $("bind-grid");
+      for (let n = 1; n <= 12; n++) {
+        const cell = document.createElement("div");
+        cell.className = "cell";
+        cell.dataset.n = String(n);
+        cell.innerHTML = '<span class="num">' + n + '</span><span class="pip" aria-hidden="true"></span>';
+        game.appendChild(cell);
+
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "bind";
+        btn.dataset.n = String(n);
+        btn.innerHTML = '<span class="bind-n">' + n + '</span><span class="bind-k"></span>';
+        btn.addEventListener("click", () => beginCapture(n));
+        binds.appendChild(btn);
+      }
+    }
+
+    function keyLabel(k) {
+      if (k === " ") return "SPC";
+      if (k === "Escape") return "Esc";
+      if (k === "ArrowUp") return "↑";
+      if (k === "ArrowDown") return "↓";
+      if (k === "ArrowLeft") return "←";
+      if (k === "ArrowRight") return "→";
+      if (k === "Backspace") return "⌫";
+      if (k === "Enter") return "↵";
+      if (k.length === 1) return k.toUpperCase();
+      return k;
+    }
+
+    function paintBinds() {
+      document.querySelectorAll("#bind-grid .bind").forEach((el) => {
+        const n = Number(el.dataset.n);
+        el.classList.toggle("listening", state.capturing === n);
+        el.querySelector(".bind-k").textContent = keyLabel(state.binds[n - 1] || "·");
+      });
+      $("bind-hint").textContent = state.capturing
+        ? "Press a key for " + state.capturing + " — Esc to cancel"
+        : "Click a slot, then press a key";
+    }
+
+    function beginCapture(n) {
+      if (state.screen !== "setup") return;
+      state.capturing = state.capturing === n ? null : n;
+      paintBinds();
+    }
+
+    function assignBind(n, key) {
+      const prev = state.binds[n - 1];
+      const other = state.binds.findIndex((k, i) => i !== n - 1 && k === key);
+      state.binds[n - 1] = key;
+      if (other !== -1) state.binds[other] = prev;
+      state.capturing = null;
+      saveBinds();
+      paintBinds();
+    }
+
+    function isModifier(key) {
+      return key === "Shift" || key === "Control" || key === "Alt" || key === "Meta" || key === "Dead";
+    }
+
+    function activeButtonForKey(key) {
+      const max = state.buttons;
+      for (let i = 0; i < max; i++) {
+        if (state.binds[i] === key) return i + 1;
+      }
+      return 0;
+    }
+
+    function missingBinds() {
+      for (let i = 0; i < state.buttons; i++) {
+        if (!state.binds[i]) return true;
+      }
+      return false;
+    }
+
+    function paintSetup() {
+      const seq = state.type === "sequence";
+      if (seq && state.diff >= SEQ_START.length) state.diff = SEQ_START.length - 1;
+
+      document.querySelectorAll(".seg").forEach((seg) => {
+        const field = seg.dataset.field;
+        seg.querySelectorAll("button").forEach((btn) => {
+          const v = btn.dataset.v;
+          const cur = String(state[field]);
+          btn.classList.toggle("on", v === cur);
+        });
+      });
+      $("tog-blind").classList.toggle("on", state.blind);
+      $("tog-blind").setAttribute("aria-pressed", String(state.blind));
+      $("tog-sound").classList.toggle("on", state.sound);
+      $("tog-sound").setAttribute("aria-pressed", String(state.sound));
+      document.body.classList.toggle("mode6", state.buttons === 6);
+
+      $("diff-label").textContent = seq ? "START LENGTH" : "WINDOW";
+      const diffs = $("diff-seg").querySelectorAll("button");
+      const labels = seq
+        ? ["3 STEPS", "4 STEPS", "6 STEPS"]
+        : WINDOWS.map((ms) => ms + "ms");
+      diffs.forEach((btn, i) => {
+        const show = seq ? i < SEQ_START.length : true;
+        btn.hidden = !show;
+        if (show) btn.textContent = labels[i];
+      });
+      $("dur-group").hidden = state.type !== "timed";
+      $("setup-note").textContent = state.type === "dual"
+        ? "Yellow = press that side button (the number on the mouse). Purple = left-click that cell."
+        : state.type === "audio"
+          ? "A voice calls the button number. Press that side button — the grid will not light up as a cue."
+          : "Side buttons must already be remapped. Match those keys in the grid — you will press them with your thumb, not the number row.";
+      paintBinds();
+      paintBests();
+    }
+
+    function windowMs() { return WINDOWS[state.diff]; }
+
+    function configLabel() {
+      const bits = [
+        state.type.toUpperCase(),
+        state.buttons + "-BTN"
+      ];
+      if (state.type === "sequence") bits.push("LEN " + SEQ_START[Math.min(state.diff, SEQ_START.length - 1)]);
+      else bits.push(windowMs() + "ms");
+      if (state.type === "timed") bits.push(state.duration + "s");
+      if (state.blind) bits.push("BLIND");
+      return bits.join("  ·  ");
+    }
+
+    function paintBests() {
+      const rec = state.scores[scoreKey()];
+      const box = $("bests");
+      if (!rec) {
+        box.innerHTML = "<h2>BEST · " + configLabel() + "</h2><p class='empty'>No record yet</p>";
+        return;
+      }
+      const primary = state.type === "timed"
+        ? "<strong>" + rec.score + "</strong> score"
+        : state.type === "sequence"
+          ? "<strong>" + rec.completed + "</strong> chains"
+          : "<strong>" + rec.avgMs + "ms</strong> avg";
+      box.innerHTML =
+        "<h2>BEST · " + configLabel() + "</h2>" +
+        "<p class='row'>" + primary +
+        " · " + rec.hits + " hits · " + rec.acc +
+        " · streak " + rec.bestStreak + "</p>";
+    }
+
+    function show(screen) {
+      state.screen = screen;
+      $("view-setup").classList.toggle("show", screen === "setup");
+      $("view-play").classList.toggle("show", screen === "play");
+      $("view-summary").classList.toggle("show", screen === "summary");
+      document.body.classList.toggle("playing", screen === "play");
+      $("btn-pause").classList.toggle("hide", screen !== "play");
+      if (screen !== "setup") state.capturing = null;
+    }
+
+    function ensureAudio() {
+      if (!state.sound) return;
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return;
+      if (!audioCtx) audioCtx = new AC();
+      if (audioCtx.state === "suspended") audioCtx.resume();
+    }
+
+    function beep(freq, dur, type) {
+      if (!state.sound || !audioCtx) return;
+      const t = audioCtx.currentTime;
+      const o = audioCtx.createOscillator();
+      const g = audioCtx.createGain();
+      o.type = type || "square";
+      o.frequency.value = freq;
+      g.gain.setValueAtTime(0.07, t);
+      g.gain.exponentialRampToValueAtTime(0.001, t + dur);
+      o.connect(g);
+      g.connect(audioCtx.destination);
+      o.start(t);
+      o.stop(t + dur);
+    }
+
+    function pickVoice() {
+      if (!window.speechSynthesis) return null;
+      const voices = speechSynthesis.getVoices();
+      return voices.find((v) => v.lang.startsWith("en") && v.localService)
+        || voices.find((v) => v.lang.startsWith("en"))
+        || voices[0]
+        || null;
+    }
+
+    function refreshVoice() {
+      speechVoice = pickVoice();
+    }
+
+    function cancelSpeech() {
+      clearTimeout(speechTimer);
+      speechTimer = 0;
+      try {
+        if (window.speechSynthesis && (speechSynthesis.speaking || speechSynthesis.pending)) {
+          speechSynthesis.cancel();
+        }
+      } catch (e) { /* ignore */ }
+    }
+
+    function speakNumber(n) {
+      return new Promise((resolve) => {
+        const id = state.runId;
+        let settled = false;
+        const finish = (ok) => {
+          if (settled) return;
+          settled = true;
+          clearTimeout(speechTimer);
+          speechTimer = 0;
+          resolve(!!ok && state.runId === id);
+        };
+        if (!window.speechSynthesis) {
+          finish(false);
+          return;
+        }
+        cancelSpeech();
+        speechTimer = setTimeout(() => {
+          if (state.runId !== id) {
+            finish(false);
+            return;
+          }
+          const u = new SpeechSynthesisUtterance(NUMBER_WORDS[n] || String(n));
+          u.rate = 1.25;
+          u.pitch = 1;
+          u.volume = 1;
+          u.lang = "en-US";
+          if (!speechVoice) refreshVoice();
+          if (speechVoice) u.voice = speechVoice;
+          u.onstart = () => finish(true);
+          u.onend = () => finish(true);
+          u.onerror = () => finish(true);
+          speechSynthesis.speak(u);
+          speechTimer = setTimeout(() => finish(true), 1800);
+        }, 50);
+      });
+    }
+
+    function cellEl(n) {
+      return document.querySelector("#game-grid .cell[data-n=\"" + n + "\"]");
+    }
+
+    function clearLights() {
+      document.querySelectorAll("#game-grid .cell").forEach((c) => { c.className = "cell"; });
+    }
+
+    function flash(n, cls) {
+      const el = cellEl(n);
+      if (!el) return;
+      el.className = "cell";
+      void el.offsetWidth;
+      el.classList.add(cls);
+    }
+
+    function delay(ms) {
+      const id = state.runId;
+      return new Promise((resolve) => {
+        setTimeout(() => resolve(state.runId === id), ms);
+      });
+    }
+
+    function bumpRun() {
+      state.runId++;
+      clearTimeout(state.timer);
+      if (state.raf) cancelAnimationFrame(state.raf);
+      state.timer = 0;
+      state.raf = 0;
+      state.live = null;
+      state.phase = "idle";
+      cancelSpeech();
+      clearLights();
+    }
+
+    function resetStats() {
+      state.hits = 0;
+      state.misses = 0;
+      state.times = [];
+      state.streak = 0;
+      state.bestStreak = 0;
+      state.score = 0;
+      state.completed = 0;
+      state.seqWins = 0;
+      state.seqLen = SEQ_START[Math.min(state.diff, SEQ_START.length - 1)];
+      state.sequence = [];
+      state.seqI = 0;
+      state.lastTarget = 0;
+      state.action = "key";
+      state.lastAction = "";
+      state.newBest = false;
+    }
+
+    function totals() { return state.hits + state.misses; }
+
+    function accuracy() {
+      const t = totals();
+      return t ? Math.round((100 * state.hits) / t) + "%" : "—";
+    }
+
+    function avgMs() {
+      if (!state.times.length) return null;
+      const sum = state.times.reduce((a, b) => a + b, 0);
+      return Math.round(sum / state.times.length);
+    }
+
+    function avgLabel() {
+      const a = avgMs();
+      return a == null ? "—" : a + "ms";
+    }
+
+    function paintHud() {
+      $("h-hits").textContent = state.hits;
+      $("h-miss").textContent = state.misses;
+      $("h-acc").textContent = accuracy();
+      $("h-avg").textContent = avgLabel();
+      $("h-streak").textContent = state.streak;
+      $("h-best").textContent = state.bestStreak;
+      $("h-score").textContent = state.score;
+    }
+
+    function setStatus(text, kind) {
+      const el = $("status");
+      el.textContent = text;
+      el.className = "status" + (kind ? " " + kind : "");
+    }
+
+    function recordHit(rt) {
+      state.hits++;
+      state.streak++;
+      if (state.streak > state.bestStreak) state.bestStreak = state.streak;
+      if (rt >= 0 && rt < 5000) state.times.push(Math.round(rt));
+      if (state.type === "timed") {
+        state.score += 1 + Math.floor(state.streak / 5);
+      }
+      beep(880, 0.055);
+      paintHud();
+    }
+
+    function recordMiss() {
+      state.misses++;
+      state.streak = 0;
+      beep(170, 0.1, "sawtooth");
+      paintHud();
+    }
+
+    function pickTarget() {
+      const n = state.buttons;
+      if (n <= 1) return 1;
+      let t = 1 + Math.floor(Math.random() * n);
+      if (t === state.lastTarget) t = 1 + (t % n);
+      state.lastTarget = t;
+      return t;
+    }
+
+    function armWindow(t) {
+      state.liveAt = now();
+      state.phase = "live";
+      clearTimeout(state.timer);
+      state.timer = setTimeout(() => {
+        if (state.runId === 0) return;
+        if (state.phase !== "live" || state.live !== t) return;
+        flash(t, "miss");
+        state.live = null;
+        recordMiss();
+        nextReaction();
+      }, windowMs());
+    }
+
+    async function spawnReaction() {
+      if (state.screen !== "play") return;
+      if (state.type === "timed" && now() >= state.timedEnd) {
+        endRun();
+        return;
+      }
+      clearLights();
+      const t = pickTarget();
+      if (state.type === "dual") {
+        let act = Math.random() < 0.5 ? "click" : "key";
+        if (act === state.lastAction) act = act === "click" ? "key" : "click";
+        state.action = act;
+        state.lastAction = act;
+      } else {
+        state.action = "key";
+      }
+      state.live = t;
+      if (state.type === "audio") {
+        state.phase = "cueing";
+        state.liveAt = 0;
+        setStatus("LISTEN", "watch");
+        const ok = await speakNumber(t);
+        if (!ok) return;
+        if (state.screen !== "play" || state.live !== t || state.phase !== "cueing") return;
+        setStatus("GO", "go");
+        armWindow(t);
+        return;
+      }
+      if (state.action === "click") {
+        flash(t, "click-live");
+        setStatus("CLICK", "watch");
+      } else {
+        flash(t, "live");
+        setStatus(state.type === "dual" ? "SIDE" : "GO", "go");
+      }
+      armWindow(t);
+    }
+
+    async function nextReaction() {
+      state.phase = "between";
+      state.live = null;
+      cancelSpeech();
+      const ok = await delay(FEEDBACK_MS);
+      if (!ok) return;
+      spawnReaction();
+    }
+
+    function randomSeq(len) {
+      const out = [];
+      for (let i = 0; i < len; i++) out.push(pickTarget());
+      return out;
+    }
+
+    async function startSequence() {
+      if (state.screen !== "play") return;
+      clearLights();
+      state.sequence = randomSeq(state.seqLen);
+      state.seqI = 0;
+      state.phase = "preview";
+      setStatus("WATCH", "watch");
+      for (let i = 0; i < state.sequence.length; i++) {
+        if (state.phase !== "preview") return;
+        const n = state.sequence[i];
+        flash(n, "seq");
+        beep(520 + i * 18, 0.07);
+        const a = await delay(SEQ_ON);
+        if (!a) return;
+        const el = cellEl(n);
+        if (el) el.className = "cell";
+        const b = await delay(SEQ_GAP);
+        if (!b) return;
+      }
+      if (state.phase !== "preview") return;
+      state.phase = "input";
+      state.liveAt = now();
+      setStatus("YOUR TURN", "go");
+      beep(740, 0.09);
+    }
+
+    async function sequenceWin() {
+      state.completed++;
+      state.seqWins++;
+      setStatus("CLEAR", "go");
+      if (state.seqWins >= 3) {
+        state.seqWins = 0;
+        if (state.seqLen < 8) state.seqLen++;
+      }
+      state.phase = "between";
+      const ok = await delay(220);
+      if (!ok) return;
+      startSequence();
+    }
+
+    async function sequenceFail() {
+      state.seqWins = 0;
+      setStatus("FAIL", "fail");
+      state.phase = "between";
+      const ok = await delay(280);
+      if (!ok) return;
+      startSequence();
+    }
+
+    function resolveLive(n, input) {
+      if (state.phase !== "live" || state.live == null) return;
+      const target = state.live;
+      const want = state.type === "dual" ? state.action : "key";
+      const rt = now() - state.liveAt;
+      clearTimeout(state.timer);
+      state.live = null;
+      clearLights();
+      if (n === target && input === want) {
+        flash(n, "hit");
+        recordHit(rt);
+      } else {
+        flash(n, "miss");
+        recordMiss();
+      }
+      nextReaction();
+    }
+
+    function handlePress(n) {
+      if (state.screen !== "play") return;
+      if (state.type === "sequence") {
+        if (state.phase !== "input") return;
+        const expected = state.sequence[state.seqI];
+        const rt = now() - state.liveAt;
+        if (n === expected) {
+          flash(n, "hit");
+          recordHit(rt);
+          state.seqI++;
+          state.liveAt = now();
+          if (state.seqI >= state.sequence.length) sequenceWin();
+        } else {
+          flash(n, "miss");
+          recordMiss();
+          sequenceFail();
+        }
+        return;
+      }
+      resolveLive(n, "key");
+    }
+
+    function handleClick(n) {
+      if (state.screen !== "play") return;
+      if (state.type !== "dual") return;
+      resolveLive(n, "click");
+    }
+
+    function clockLabel(ms) {
+      const sec = Math.max(0, Math.ceil(ms / 1000));
+      return Math.floor(sec / 60) + ":" + String(sec % 60).padStart(2, "0");
+    }
+
+    function tickClock() {
+      const id = state.runId;
+      const step = () => {
+        if (state.runId !== id || state.screen !== "play") return;
+        const left = Math.max(0, state.timedEnd - now());
+        $("h-time").textContent = clockLabel(left);
+        if (left <= 0) {
+          endRun();
+          return;
+        }
+        state.raf = requestAnimationFrame(step);
+      };
+      state.raf = requestAnimationFrame(step);
+    }
+
+    function startRun() {
+      if (missingBinds()) {
+        $("setup-err").textContent = "Set every active keybind first.";
+        return;
+      }
+      if (state.type === "audio" && !window.speechSynthesis) {
+        $("setup-err").textContent = "Audio mode needs speech synthesis in this browser.";
+        return;
+      }
+      $("setup-err").textContent = "";
+      state.capturing = null;
+      ensureAudio();
+      if (state.type === "audio") refreshVoice();
+      bumpRun();
+      resetStats();
+      document.body.dataset.type = state.type;
+      document.body.classList.toggle("blind", state.blind);
+      document.body.classList.toggle("mode6", state.buttons === 6);
+      $("run-chip").textContent = configLabel();
+      $("play-hint").textContent = state.type === "audio"
+        ? "Listen for the number · Esc pause · F2 restart"
+        : "Esc pause · F2 restart";
+      show("play");
+      paintHud();
+      $("h-time").textContent = clockLabel(state.duration * 1000);
+      if (state.type === "timed") {
+        state.timedEnd = now() + state.duration * 1000;
+        tickClock();
+      }
+      if (state.type === "sequence") startSequence();
+      else spawnReaction();
+    }
+
+    function snapshot() {
+      return {
+        score: state.score,
+        hits: state.hits,
+        misses: state.misses,
+        acc: accuracy(),
+        avgMs: avgMs(),
+        bestStreak: state.bestStreak,
+        completed: state.completed
+      };
+    }
+
+    function isBetter(curr, prev) {
+      if (state.type === "timed") {
+        if (curr.score <= 0) return false;
+        return !prev || curr.score > prev.score;
+      }
+      if (state.type === "sequence") {
+        if (curr.completed <= 0) return false;
+        if (!prev) return true;
+        return curr.completed > prev.completed ||
+          (curr.completed === prev.completed && curr.bestStreak > prev.bestStreak);
+      }
+      if (curr.hits < 10 || curr.avgMs == null) return false;
+      if (!prev || prev.avgMs == null) return true;
+      return curr.avgMs < prev.avgMs || (curr.avgMs === prev.avgMs && curr.hits > prev.hits);
+    }
+
+    function maybeSave() {
+      const curr = snapshot();
+      const key = scoreKey();
+      const prev = state.scores[key];
+      if (!isBetter(curr, prev)) return false;
+      state.scores[key] = curr;
+      saveScores();
+      return true;
+    }
+
+    function endRun() {
+      if (state.screen !== "play") return;
+      bumpRun();
+      state.newBest = maybeSave();
+      $("s-score").textContent = state.score;
+      $("s-hits").textContent = state.hits;
+      $("s-acc").textContent = accuracy();
+      $("s-avg").textContent = avgLabel();
+      $("s-streak").textContent = state.bestStreak;
+      $("sum-best").classList.toggle("show", state.newBest);
+      show("summary");
+      $("btn-again").focus();
+    }
+
+    function backToSetup() {
+      bumpRun();
+      show("setup");
+      paintSetup();
+    }
+
+    function onKey(e) {
+      if (e.repeat) return;
+
+      if (state.screen === "setup" && state.capturing) {
+        if (e.key === "Escape") {
+          e.preventDefault();
+          state.capturing = null;
+          paintBinds();
+          return;
+        }
+        if (isModifier(e.key)) return;
+        e.preventDefault();
+        assignBind(state.capturing, e.key);
+        return;
+      }
+
+      if (e.key === "Escape") {
+        e.preventDefault();
+        if (state.screen === "play") endRun();
+        else if (state.screen === "summary") backToSetup();
+        else if (state.capturing) { state.capturing = null; paintBinds(); }
+        return;
+      }
+
+      if (e.key === "F2") {
+        e.preventDefault();
+        if (state.screen === "play" || state.screen === "summary") startRun();
+        return;
+      }
+
+      if (e.key === "Enter" || e.key === " ") {
+        if (e.target && e.target.closest("button")) return;
+        if (state.screen === "summary") {
+          e.preventDefault();
+          startRun();
+          return;
+        }
+        if (state.screen === "setup" && e.key === "Enter") {
+          e.preventDefault();
+          startRun();
+          return;
+        }
+      }
+
+      if (state.screen !== "play") return;
+
+      const n = activeButtonForKey(e.key);
+      if (!n) return;
+      e.preventDefault();
+      handlePress(n);
+    }
+
+    function bindUi() {
+      document.querySelectorAll(".seg").forEach((seg) => {
+        seg.addEventListener("click", (e) => {
+          const btn = e.target.closest("button");
+          if (!btn) return;
+          const field = seg.dataset.field;
+          let v = btn.dataset.v;
+          if (field === "buttons" || field === "diff" || field === "duration") v = Number(v);
+          state[field] = v;
+          if (field === "type" && v === "sequence" && state.diff >= SEQ_START.length) {
+            state.diff = SEQ_START.length - 1;
+          }
+          $("setup-err").textContent = "";
+          paintSetup();
+        });
+      });
+      $("tog-blind").addEventListener("click", () => {
+        state.blind = !state.blind;
+        paintSetup();
+      });
+      $("tog-sound").addEventListener("click", () => {
+        state.sound = !state.sound;
+        if (state.sound) ensureAudio();
+        paintSetup();
+      });
+      $("btn-start").addEventListener("click", startRun);
+      $("btn-pause").addEventListener("click", endRun);
+      $("btn-again").addEventListener("click", startRun);
+      $("btn-setup").addEventListener("click", backToSetup);
+      $("game-grid").addEventListener("pointerdown", (e) => {
+        if (e.button !== 0) return;
+        const cell = e.target.closest("#game-grid .cell");
+        if (!cell) return;
+        e.preventDefault();
+        handleClick(Number(cell.dataset.n));
+      });
+      window.addEventListener("keydown", onKey);
+    }
+
+    loadBinds();
+    loadScores();
+    buildGrids();
+    bindUi();
+    paintSetup();
+    if (window.speechSynthesis) {
+      refreshVoice();
+      speechSynthesis.addEventListener("voiceschanged", refreshVoice);
+    }
+  </script>
+</body>
+</html>

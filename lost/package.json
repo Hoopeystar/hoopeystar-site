@@ -1,0 +1,8 @@
+{
+  "name": "lost-lands-lock-in",
+  "private": true,
+  "description": "Lost Lands 2026 lineup lock-in with online list storage",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

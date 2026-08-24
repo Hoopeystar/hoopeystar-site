@@ -1,0 +1,2422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#1a0b2e" />
+  <meta name="description" content="Lost Lands 2026 lineup lock-in. Mark Must Sees and Would Likes, share a blind link, and find your crossover." />
+  <title>LOCKED LANDS · Lost Lands 2026</title>
+  <link rel="icon" href="hoopeystarsquare.png" />
+  <link rel="apple-touch-icon" href="hoopeystarsquare.png" />
+  <!-- First load pulls fonts; after that the app is fully self-contained (picks live in localStorage + the URL hash). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Bebas+Neue&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ============================================================
+       LOCKED LANDS — forced dark theme. No light-mode overrides.
+       Palette: void black, Hoopeystar purple, toxic green, bone, blood orange.
+       Purple is chrome/branding. Must See stays toxic; Would Like stays blood.
+       ============================================================ */
+    :root {
+      color-scheme: dark;
+      --void: #050605;
+      --char: #0b0d0b;
+      --slate: #121512;
+      --card: #171c16;
+      --card-2: #1e241c;
+      --line: #313b2d;
+      --line-hot: #4a5c3a;
+      --purple: #8D00FF;
+      --purple-hot: #c4b5fd;
+      --purple-deep: #6d28d9;
+      --purple-dim: rgba(139, 92, 246, 0.18);
+      --toxic: #c6ff1a;
+      --toxic-2: #9adf00;
+      --toxic-dim: rgba(198, 255, 26, 0.14);
+      --bone: #f3eee3;
+      --bone-dim: #c9c0ae;
+      --blood: #ff3b12;
+      --blood-2: #ff6a32;
+      --blood-dim: rgba(255, 59, 18, 0.16);
+      --moss: #8f9788;
+      --ok: #7dffb3;
+      --day-wed: #2dd4bf;
+      --day-thu: #38bdf8;
+      --day-fri: #facc15;
+      --day-sat: #a78bfa;
+      --day-sun: #fb7185;
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+      --radius: 16px;
+      --tap: 48px;
+      --font-display: "Bebas Neue", "Impact", "Haettenschweiler", "Arial Black", sans-serif;
+      --font-head: "Oswald", "Franklin Gothic Medium", "Arial Narrow", sans-serif;
+      --font-body: "Barlow", "Segoe UI", system-ui, sans-serif;
+      --safe-b: env(safe-area-inset-bottom, 0px);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    html { background: var(--void); }
+    body {
+      font-family: var(--font-body);
+      background: var(--void);
+      color: var(--bone);
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    button, input, select, textarea { font: inherit; color: inherit; }
+    button { cursor: pointer; }
+    img { max-width: 100%; }
+
+    /* Fossil grain + jungle vignette */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(1200px 700px at 50% -10%, rgba(139, 92, 246, 0.16), transparent 55%),
+        radial-gradient(900px 500px at 110% 110%, rgba(255, 59, 18, 0.10), transparent 50%),
+        radial-gradient(700px 400px at -10% 80%, rgba(198, 255, 26, 0.04), transparent 45%),
+        repeating-linear-gradient(135deg, rgba(255,255,255,0.015) 0 2px, transparent 2px 7px);
+      opacity: 1;
+    }
+
+    /* Low-opacity dinosaur silhouettes — decorative only */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.055;
+      background-repeat: no-repeat;
+      background-image:
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 280 160'><path fill='%23c6ff1a' d='M10 140c20-8 32-28 40-48 8-10 22-18 38-22 18-6 28-22 48-28 14-4 32-2 40 8l-8 10c-8 2-14 8-16 16 18 2 38 8 54 4 8 8-6 16-18 20-10 14-8 28 6 40-18 4-32-8-38-20-18 6-32 8-50 6-10 12-28 20-48 22-20 2-38-2-48-8z'/></svg>"),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 140'><path fill='%23f3eee3' d='M20 110c8-18 28-22 46-18 6-16 22-28 42-30 12 0 18-12 34-16 10-2 22 2 24 10-8 4-10 10-8 16 16-2 30 6 28 16-12 6-22 4-30 0-8 14-24 24-44 28-16 4-28-2-36-8-12 8-28 12-42 10-8-2-16-8-14-18z'/></svg>"),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80'><path fill='%23ff3b12' d='M8 50c30-22 54-28 78-22 20-18 48-28 78-18-10 10-8 16 2 22-24 4-40 0-54-8-16 12-40 18-70 16-14 0-26-4-34-10z'/></svg>"),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 160'><path fill='%23c6ff1a' d='M30 130c12-20 14-40 10-58 22-8 40-4 54 10 18-16 40-22 64-14-4 14-16 18-28 16 2 18-8 36-24 48-18 12-40 16-58 10-10 8-22 10-32 6 4-10 8-18 14-18z'/></svg>");
+      background-position: -4% 12%, 108% 78%, 80% 6%, 8% 92%;
+      background-size: 420px, 340px, 280px, 260px;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      width: min(1180px, calc(100% - 24px));
+      margin: 0 auto;
+      padding: 16px 0 calc(120px + var(--safe-b));
+    }
+
+    /* ---------- Header ---------- */
+    .hero {
+      position: relative;
+      padding: 22px 18px 18px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background:
+        linear-gradient(180deg, rgba(139, 92, 246, 0.14), transparent 48%),
+        var(--slate);
+      box-shadow: var(--shadow), inset 0 0 0 1px rgba(139, 92, 246, 0.18);
+      overflow: visible;
+    }
+    .brand {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .logo {
+      width: 64px;
+      height: 64px;
+      flex: 0 0 auto;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.45), 0 0 28px rgba(139, 92, 246, 0.4);
+    }
+    .brand-text { min-width: 0; flex: 1; }
+    @media (min-width: 720px) {
+      .logo { width: 88px; height: 88px; border-radius: 20px; }
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -20px;
+      top: -30px;
+      width: 180px;
+      height: 180px;
+      opacity: 0.09;
+      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><path fill='%23c6ff1a' d='M20 160l30-20 12-40 40-20 30-30 40 4-12 20-20 8 40 14-10 16-36 10-8 30 24 20-20 8-30-24-40 10-20 20z'/></svg>") center/contain no-repeat;
+      pointer-events: none;
+    }
+    .kicker {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      align-items: center;
+      font-family: var(--font-head);
+      letter-spacing: 0.28em;
+      font-size: 0.72rem;
+      color: var(--purple-hot);
+      text-transform: uppercase;
+    }
+    .kicker .dot { color: var(--purple); }
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.7rem, 12vw, 6.4rem);
+      line-height: 0.82;
+      margin: 8px 0 4px;
+      letter-spacing: 0.04em;
+      color: var(--bone);
+      text-shadow: 0 0 28px rgba(139, 92, 246, 0.28);
+    }
+    .subhead {
+      font-family: var(--font-head);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--purple);
+      font-size: 0.92rem;
+      margin: 0 0 10px;
+    }
+    .lede {
+      margin: 10px 0 0;
+      max-width: 62ch;
+      color: var(--bone-dim);
+      font-size: 0.98rem;
+    }
+    .brand-text h1 { margin-top: 4px; }
+    @media (max-width: 640px) {
+      .hero { padding: 16px 14px 14px; }
+      .hero .lede { display: none; }
+    }
+
+    .hero-row {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    @media (min-width: 720px) {
+      .hero-row { grid-template-columns: 1fr auto; align-items: end; }
+    }
+
+    .name-field label {
+      display: block;
+      font-family: var(--font-head);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--moss);
+      margin-bottom: 6px;
+    }
+    .name-field input {
+      width: 100%;
+      min-height: var(--tap);
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--void);
+      color: var(--bone);
+      outline: none;
+    }
+    .name-field input:focus {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 3px var(--purple-dim);
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .pill {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--char);
+      font-family: var(--font-head);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+    .pill strong { font-size: 1.05rem; letter-spacing: 0; }
+    .pill.must { border-color: rgba(198,255,26,0.45); color: var(--toxic); }
+    .pill.like { border-color: rgba(255,59,18,0.45); color: var(--blood-2); }
+    .pill.xover { border-color: rgba(139, 92, 246, 0.55); color: var(--purple-hot); }
+
+    /* ---------- Banners / alerts ---------- */
+    .banner, .alert {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: var(--char);
+    }
+    .banner.blind {
+      border-color: rgba(139, 92, 246, 0.55);
+      box-shadow: 0 0 24px rgba(139, 92, 246, 0.16);
+    }
+    .banner h2, .alert h2, .section-title {
+      font-family: var(--font-display);
+      letter-spacing: 0.06em;
+      font-size: 1.6rem;
+      margin: 0 0 6px;
+      line-height: 1;
+    }
+    .banner p, .alert p { margin: 0 0 10px; color: var(--bone-dim); }
+    .alert.crit { border-color: rgba(255,59,18,0.55); background: var(--blood-dim); }
+    .alert.warn { border-color: rgba(255,122,26,0.45); }
+    .conflict-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--bone);
+    }
+    .conflict-list li { margin: 4px 0; }
+
+    /* ---------- Toolbar ---------- */
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 8;
+      margin: 14px 0 12px;
+      padding: 10px 10px 8px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(11,13,11,0.92);
+      backdrop-filter: blur(12px);
+    }
+    .search {
+      width: 100%;
+      min-height: var(--tap);
+      padding: 10px 14px 10px 42px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--void) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='none' stroke='%238f9788' stroke-width='2'><circle cx='9' cy='9' r='6'/><path d='M14 14l4 4'/></svg>") 14px 50%/18px no-repeat;
+      outline: none;
+    }
+    .search:focus {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 3px var(--purple-dim);
+    }
+    .chips, .days, .views {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 8px 2px 4px;
+      scrollbar-width: none;
+    }
+    .chips::-webkit-scrollbar, .days::-webkit-scrollbar { display: none; }
+    .chip, .view-btn {
+      flex: 0 0 auto;
+      min-height: 42px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--slate);
+      color: var(--bone);
+      font-family: var(--font-head);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+    .chip:hover, .view-btn:hover, .btn:hover {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.35), 0 0 18px rgba(139, 92, 246, 0.18);
+    }
+    .pri-btn:hover, .card:hover {
+      border-color: var(--purple-hot);
+      box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.28), 0 0 18px rgba(139, 92, 246, 0.12);
+    }
+    .chip[aria-pressed="true"], .view-btn[aria-pressed="true"] {
+      background: var(--purple);
+      color: #f7f2ff;
+      border-color: var(--purple);
+      font-weight: 700;
+    }
+    .chip[data-day="Wed"] { color: var(--day-wed); border-color: rgba(45, 212, 191, 0.55); }
+    .chip[data-day="Thu"] { color: var(--day-thu); border-color: rgba(56, 189, 248, 0.55); }
+    .chip[data-day="Fri"] { color: var(--day-fri); border-color: rgba(250, 204, 21, 0.55); }
+    .chip[data-day="Sat"] { color: var(--day-sat); border-color: rgba(167, 139, 250, 0.55); }
+    .chip[data-day="Sun"] { color: var(--day-sun); border-color: rgba(251, 113, 133, 0.55); }
+    .chip[data-day="Wed"][aria-pressed="true"] { background: var(--day-wed); color: #042f2e; border-color: var(--day-wed); }
+    .chip[data-day="Thu"][aria-pressed="true"] { background: var(--day-thu); color: #082f49; border-color: var(--day-thu); }
+    .chip[data-day="Fri"][aria-pressed="true"] { background: var(--day-fri); color: #422006; border-color: var(--day-fri); }
+    .chip[data-day="Sat"][aria-pressed="true"] { background: var(--day-sat); color: #1e1b4b; border-color: var(--day-sat); }
+    .chip[data-day="Sun"][aria-pressed="true"] { background: var(--day-sun); color: #4c0519; border-color: var(--day-sun); }
+    .chip:disabled, .view-btn:disabled {
+      opacity: 0.38;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+    .tool-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      padding: 4px 2px 6px;
+    }
+    .select {
+      min-height: 42px;
+      padding: 0 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--slate);
+      min-width: 160px;
+    }
+    .hidden { display: none !important; }
+
+    /* ---------- Cards ---------- */
+    .list { display: grid; gap: 7px; grid-template-columns: 1fr 1fr; }
+    @media (min-width: 640px) { .list { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 900px) { .list { grid-template-columns: repeat(4, 1fr); } }
+    @media (min-width: 1180px) { .list.az { grid-template-columns: repeat(5, 1fr); } }
+    .list.hour { grid-template-columns: 1fr; }
+    @media (min-width: 720px) { .list.hour { grid-template-columns: 1fr 1fr; } }
+
+    .day-block { margin: 8px 0 22px; }
+    .day-block h3 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      letter-spacing: 0.08em;
+      margin: 12px 2px 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      align-items: baseline;
+    }
+    .day-block h3 span {
+      font-family: var(--font-head);
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      color: inherit;
+      text-transform: uppercase;
+      opacity: 0.75;
+    }
+    .day-block.day-Wed h3 { color: var(--day-wed); }
+    .day-block.day-Thu h3 { color: var(--day-thu); }
+    .day-block.day-Fri h3 { color: var(--day-fri); }
+    .day-block.day-Sat h3 { color: var(--day-sat); }
+    .day-block.day-Sun h3 { color: var(--day-sun); }
+
+    .card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 8px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, var(--card-2), var(--card));
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 5px;
+      border-radius: 12px 0 0 12px;
+      background: var(--day, var(--line));
+      z-index: 1;
+    }
+    .card.day-Wed, .cmp-row.day-Wed { --day: var(--day-wed); }
+    .card.day-Thu, .cmp-row.day-Thu { --day: var(--day-thu); }
+    .card.day-Fri, .cmp-row.day-Fri { --day: var(--day-fri); }
+    .card.day-Sat, .cmp-row.day-Sat { --day: var(--day-sat); }
+    .card.day-Sun, .cmp-row.day-Sun { --day: var(--day-sun); }
+    .card.day-Wed { background: linear-gradient(180deg, rgba(45, 212, 191, 0.10), var(--card)); }
+    .card.day-Thu { background: linear-gradient(180deg, rgba(56, 189, 248, 0.10), var(--card)); }
+    .card.day-Fri { background: linear-gradient(180deg, rgba(250, 204, 21, 0.10), var(--card)); }
+    .card.day-Sat { background: linear-gradient(180deg, rgba(167, 139, 250, 0.12), var(--card)); }
+    .card.day-Sun { background: linear-gradient(180deg, rgba(251, 113, 133, 0.10), var(--card)); }
+    .card.is-must {
+      border-color: rgba(198,255,26,0.55);
+      box-shadow: 0 0 0 1px rgba(198,255,26,0.2), 0 0 22px rgba(198,255,26,0.08);
+    }
+    .card.is-like {
+      border-color: rgba(255,59,18,0.5);
+      box-shadow: 0 0 0 1px rgba(255,106,50,0.18), 0 0 22px rgba(255,59,18,0.08);
+    }
+    .card.is-xover {
+      outline: 1px dashed rgba(243,238,227,0.35);
+      outline-offset: 2px;
+    }
+    .card-top {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      align-items: center;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+    .artist-name {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin: 0;
+      line-height: 1.2;
+      flex: 1 1 100%;
+      min-width: 0;
+      overflow-wrap: anywhere;
+      text-align: center;
+    }
+    .tag {
+      flex: 0 0 auto;
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--moss);
+    }
+    .tag.early { color: var(--toxic); border-color: rgba(198,255,26,0.3); }
+    .tag.conflict {
+      color: #2b0904;
+      background: var(--blood);
+      border-color: var(--blood);
+      font-weight: 800;
+    }
+    .tag.conflict.soft { background: var(--blood-2); }
+    .pri-row { display: grid; grid-template-columns: 1fr 1fr 32px; gap: 5px; }
+    .pri-btn {
+      min-height: 36px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--void);
+      font-family: var(--font-head);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.68rem;
+    }
+    .note-btn {
+      min-height: 36px;
+      width: 32px;
+      padding: 0;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--void);
+      color: var(--moss);
+      font-size: 0.95rem;
+      line-height: 1;
+    }
+    .note-btn[data-has="1"] { color: var(--purple-hot); border-color: rgba(139, 92, 246, 0.45); }
+    .pri-btn[data-pri="must"][aria-pressed="true"] {
+      background: var(--toxic);
+      color: #121406;
+      border-color: var(--toxic);
+      font-weight: 700;
+    }
+    .pri-btn[data-pri="like"][aria-pressed="true"] {
+      background: var(--blood);
+      color: var(--bone);
+      border-color: var(--blood);
+      font-weight: 700;
+    }
+    .note {
+      width: 100%;
+      min-height: 36px;
+      padding: 6px 8px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,0.28);
+      color: var(--bone);
+      resize: none;
+      outline: none;
+      font-size: 0.82rem;
+    }
+    .note:focus { border-color: var(--bone-dim); }
+
+    .empty {
+      padding: 28px 16px;
+      text-align: center;
+      color: var(--moss);
+      border: 1px dashed var(--line);
+      border-radius: 16px;
+    }
+
+    /* ---------- Compare ---------- */
+    .compare { margin: 16px 0 8px; }
+    .people-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin: 0 0 12px;
+    }
+    .person-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .person-chip .chip { margin: 0; }
+    .person-x {
+      min-height: 42px;
+      width: 36px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--slate);
+      color: var(--moss);
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+    .cmp-list { display: grid; gap: 8px; }
+    .cmp-row {
+      position: relative;
+      padding: 10px 10px 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--card);
+    }
+    .cmp-row::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 5px;
+      border-radius: 12px 0 0 12px;
+      background: var(--day, var(--line));
+    }
+    .cmp-row.shared {
+      border-color: rgba(139, 92, 246, 0.55);
+      box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.18);
+    }
+    .cmp-row.everyone {
+      border-color: rgba(198, 255, 26, 0.5);
+    }
+    .cmp-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+    .cmp-head .artist-name { font-size: 0.92rem; }
+    .cmp-who { display: flex; flex-wrap: wrap; gap: 6px; }
+    .who-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 32px;
+      padding: 0 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font-family: var(--font-head);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .who-pill.must { background: var(--toxic); color: #121406; border-color: var(--toxic); }
+    .who-pill.like { background: var(--blood); color: var(--bone); border-color: var(--blood); }
+    .xover-grid, .sides {
+      display: grid;
+      gap: 12px;
+    }
+    @media (min-width: 860px) {
+      .sides { grid-template-columns: 1fr 1fr; }
+    }
+    .panel {
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: var(--slate);
+    }
+    .panel.mm { border-color: rgba(139, 92, 246, 0.55); }
+    .panel.ml { border-color: rgba(255,106,50,0.5); }
+    .panel.ll { border-color: rgba(243,238,227,0.35); }
+    .panel h3 {
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      letter-spacing: 0.06em;
+      margin: 0 0 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .panel h3 span {
+      font-family: var(--font-head);
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      color: var(--toxic);
+    }
+    .panel .hint { color: var(--moss); margin: 0 0 10px; font-size: 0.9rem; }
+    .x-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 10px 0;
+      border-top: 1px solid var(--line);
+      font-family: var(--font-head);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .x-item small {
+      color: var(--moss);
+      font-family: var(--font-body);
+      text-transform: none;
+      letter-spacing: 0;
+    }
+    .who { font-size: 0.78rem; color: var(--bone-dim); }
+
+    /* ---------- Bottom dock ---------- */
+    .dock {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      z-index: 12;
+      display: grid;
+      gap: 8px;
+      padding: 10px 12px calc(10px + var(--safe-b));
+      background: rgba(5,6,5,0.94);
+      border-top: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+    }
+    .dock.pick-mode { grid-template-columns: 1.5fr 1fr; }
+    .dock.compare-mode { grid-template-columns: repeat(3, 1fr); }
+    .dock.admin-mode { grid-template-columns: 1fr 1fr; }
+    .btn {
+      min-height: var(--tap);
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--card-2);
+      font-family: var(--font-head);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+    }
+    .btn.primary {
+      background: var(--purple);
+      color: #f7f2ff;
+      border-color: var(--purple);
+      font-weight: 700;
+    }
+    .btn.danger { border-color: rgba(255,59,18,0.5); color: var(--blood-2); }
+    .btn:focus-visible, .chip:focus-visible, .pri-btn:focus-visible, .view-btn:focus-visible, .search:focus-visible {
+      outline: 2px solid var(--purple);
+      outline-offset: 2px;
+    }
+
+    /* ---------- Modals / toast / print ---------- */
+    .modal-bg {
+      position: fixed; inset: 0; z-index: 20;
+      background: rgba(0,0,0,0.72);
+      display: grid; place-items: center;
+      padding: 18px;
+    }
+    .modal {
+      width: min(520px, 100%);
+      background: var(--slate);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: var(--shadow), 0 0 40px rgba(198,255,26,0.08);
+    }
+    .modal h2 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      margin: 0 0 8px;
+      letter-spacing: 0.05em;
+    }
+    .modal p { color: var(--bone-dim); }
+    .modal-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .share-url {
+      width: 100%;
+      min-height: 44px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: var(--void);
+    }
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: calc(84px + var(--safe-b));
+      transform: translateX(-50%);
+      z-index: 30;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--toxic);
+      color: #101404;
+      font-family: var(--font-head);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      box-shadow: var(--shadow);
+    }
+
+    .print-view {
+      padding: 8px 4px 40px;
+    }
+    .print-view h2 {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      margin: 18px 0 8px;
+      letter-spacing: 0.06em;
+    }
+    .print-col { break-inside: avoid; }
+    .print-item { padding: 6px 0; border-bottom: 1px solid var(--line); }
+
+    .howto {
+      margin-top: 12px;
+      color: var(--moss);
+      font-size: 0.92rem;
+    }
+    .howto summary {
+      cursor: pointer;
+      font-family: var(--font-head);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--bone-dim);
+    }
+    .howto ol { margin: 8px 0 0; padding-left: 18px; color: var(--bone-dim); }
+
+    body.screen-compare .views { display: none; }
+    body.screen-compare .name-field { display: none; }
+    body.screen-compare .skip-compare { display: none; }
+
+    .who-bar {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .who-bar .you {
+      font-family: var(--font-head);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      color: var(--purple-hot);
+    }
+    .who-bar .you strong { color: var(--bone); }
+    .chip.you-chip[aria-pressed="true"] {
+      box-shadow: 0 0 0 2px var(--purple);
+    }
+    .lock-note {
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--moss);
+    }
+    .admin-panel {
+      margin-bottom: 16px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 59, 18, 0.45);
+      background: var(--blood-dim);
+    }
+    .admin-panel h2 {
+      font-family: var(--font-display);
+      letter-spacing: 0.06em;
+      font-size: 1.7rem;
+      margin: 0 0 6px;
+    }
+    .admin-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-top: 1px solid var(--line);
+      font-family: var(--font-head);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .admin-row .meta { color: var(--moss); font-size: 0.78rem; }
+
+    .skip-compare {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      width: 100%;
+      min-height: 54px;
+      margin-top: 14px;
+      padding: 10px 16px;
+      border-radius: 14px;
+      border: 2px solid var(--purple);
+      background: rgba(139, 92, 246, 0.16);
+      color: var(--purple-hot);
+      font-family: var(--font-head);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-size: 0.86rem;
+      text-align: left;
+      box-shadow: 0 0 22px rgba(139, 92, 246, 0.22);
+    }
+    .skip-compare:hover {
+      background: var(--purple);
+      color: #f7f2ff;
+      border-color: var(--purple);
+    }
+    .skip-compare .arrow {
+      font-size: 1.45rem;
+      line-height: 1;
+      flex: 0 0 auto;
+    }
+    .skip-compare small {
+      display: block;
+      margin-top: 3px;
+      letter-spacing: 0.06em;
+      font-size: 0.7rem;
+      opacity: 0.85;
+      text-transform: none;
+      font-family: var(--font-body);
+    }
+
+    .hour-slot {
+      font-family: var(--font-head);
+      color: var(--toxic);
+      letter-spacing: 0.12em;
+      font-size: 0.8rem;
+      margin: 16px 2px 8px;
+      text-transform: uppercase;
+    }
+
+    .login-screen {
+      display: none;
+      position: relative;
+      z-index: 5;
+      width: min(440px, calc(100% - 24px));
+      margin: 28px auto 40px;
+      padding: 22px 18px 24px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(139, 92, 246, 0.16), transparent 48%),
+        var(--slate);
+      box-shadow: var(--shadow), inset 0 0 0 1px rgba(139, 92, 246, 0.18);
+    }
+    body.screen-login .login-screen { display: block; }
+    body.screen-login .wrap,
+    body.screen-login .dock { display: none; }
+    .login-screen .brand { margin-bottom: 8px; }
+    .login-screen h1 { font-size: clamp(2.6rem, 14vw, 4.4rem); }
+    .login-screen .lede { margin: 8px 0 18px; }
+    .login-fields { display: grid; gap: 12px; }
+    .pin-input {
+      letter-spacing: 0.4em;
+      font-size: 1.4rem;
+      text-align: center;
+      font-family: var(--font-head);
+    }
+    .login-msg {
+      min-height: 1.3em;
+      margin: 8px 0 0;
+      color: var(--blood-2);
+      font-size: 0.92rem;
+    }
+    .login-msg.ok { color: var(--toxic); }
+    #btnLogin {
+      width: 100%;
+      margin-top: 8px;
+      min-height: 54px;
+      font-size: 1rem;
+    }
+
+    @media print {
+      body { background: #fff !important; color: #111 !important; }
+      body::before, body::after, .toolbar, .dock, .hero, .banner, .modal-bg, .toast, .no-print, .login-screen { display: none !important; }
+      .wrap { width: 100%; padding: 0; display: block !important; }
+      .print-view, .compare, .panel, .card { background: #fff !important; color: #111 !important; border-color: #ccc !important; box-shadow: none !important; }
+      .print-view { display: block !important; }
+    }
+  </style>
+</head>
+<body class="screen-login">
+  <section class="login-screen" id="loginScreen" aria-label="Log in">
+    <div class="brand">
+      <img class="logo" src="hoopeystarsquare.png" alt="Hoopeystar" width="88" height="88" />
+      <div class="brand-text">
+        <div class="kicker">Locked Lands <span class="dot">●</span> Legend Valley <span class="dot">●</span> Sep 16–20 2026</div>
+        <h1>LOST LANDS</h1>
+        <p class="subhead">2026 Lineup Lock-In</p>
+      </div>
+    </div>
+    <p class="lede">Enter a unique username and create a pin. If you already have a list, enter the same name and4-digit PIN to keep editing it.</p>
+    <form class="login-fields" id="loginForm">
+      <div class="name-field">
+        <label for="loginUser">Username</label>
+        <input id="loginUser" maxlength="20" autocomplete="username" placeholder="e.g. DinoDave" required />
+      </div>
+      <div class="name-field">
+        <label for="loginPin">4-digit PIN</label>
+        <input id="loginPin" class="pin-input" maxlength="4" inputmode="numeric" pattern="[0-9]{4}" autocomplete="current-password" placeholder="••••" required />
+      </div>
+      <p class="login-msg" id="loginMsg" role="status"></p>
+      <button type="submit" class="btn primary" id="btnLogin">Enter</button>
+    </form>
+  </section>
+  <div class="wrap">
+    <header class="hero">
+      <div class="brand">
+        <img class="logo" src="hoopeystarsquare.png" alt="Hoopeystar" width="88" height="88" />
+        <div class="brand-text">
+          <div class="kicker">Locked Lands <span class="dot">●</span> Legend Valley <span class="dot">●</span> Sep 16–20 2026</div>
+          <h1>LOST LANDS</h1>
+          <p class="subhead">2026 Lineup Lock-In</p>
+        </div>
+      </div>
+      <p class="lede">Mark Must / Like, then Submit. Share the compare link so friends can log in as themselves and add their lists — they cannot edit yours.</p>
+      <div class="who-bar" id="whoBar"></div>
+      <div class="hero-row">
+        <div class="stats" id="stats"></div>
+      </div>
+      <button type="button" class="skip-compare" id="btnSkipCompare">
+        <span>
+          <span id="skipLabel">Skip to compare selections</span>
+          <small id="skipHint">See everyone’s lists without submitting yet</small>
+        </span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </button>
+      <details class="howto">
+        <summary>How it works</summary>
+        <ol>
+          <li>Log in with a username and a 4-digit PIN. A new username creates your list.</li>
+          <li>If that username already exists, the PIN must match or you cannot open it.</li>
+          <li>Share the compare link. Friends open it, log in as themselves, and only edit their own list.</li>
+          <li>On Compare, toggle people on to see who marked Must vs Like. Lists from a link stay locked unless it’s yours.</li>
+        </ol>
+      </details>
+    </header>
+
+    <div id="modeBanner"></div>
+    <div id="conflictBanner"></div>
+    <div id="compareRoot" class="compare hidden"></div>
+
+    <div class="toolbar no-print">
+      <input class="search" id="search" type="search" placeholder="Search artists…" enterkeyhint="search" />
+      <div class="chips" id="priChips" role="tablist" aria-label="Priority filters"></div>
+      <div class="days" id="dayChips" role="tablist" aria-label="Day filters"></div>
+      <div class="tool-row">
+        <select class="select hidden" id="stageFilter" aria-label="Stage filter"></select>
+        <div class="views" id="viewToggle"></div>
+      </div>
+    </div>
+
+    <main id="listRoot"></main>
+    <section id="printRoot" class="print-view hidden"></section>
+    <p class="lede" style="margin:28px 8px 0;text-align:center;font-size:0.82rem">Fan-made lock-in tool — not affiliated with Excision or Lost Lands. Lineup from the official 2026 daily poster. Stages and clock times are TBA; when they drop, fill in <code>stage</code>, <code>start</code>, and <code>end</code> on each artist in this file.</p>
+  </div>
+
+  <nav class="dock pick-mode no-print" aria-label="List actions">
+    <button class="btn primary" id="btnPrimary">Submit</button>
+    <button class="btn hidden" id="btnScreen">Picks</button>
+    <button class="btn hidden" id="btnJson">Add</button>
+    <button class="btn danger" id="btnClear">Clear</button>
+  </nav>
+
+  <div id="modalRoot"></div>
+  <div id="toast" class="toast hidden" role="status"></div>
+
+  <script>
+  /* =========================================================================
+     LOCKED LANDS — Lost Lands 2026 lineup lock-in
+     -------------------------------------------------------------------------
+     HOW TO UPDATE ARTISTS
+       Add/edit entries in ARTISTS via A(id, name, day, extra).
+       Days: "Wed" | "Thu" | "Fri" | "Sat" | "Sun"
+       Keep `id` stable — share links encode ids, not display names.
+
+     HOW TO ADD SET TIMES LATER
+       Pass extra fields on any artist:
+         A("illenium", "ILLENIUM", "Sat", {
+           stage: "The Prehistoric",
+           start: "21:30",   // 24-hour festival local time (ET)
+           end:   "23:00"
+         })
+       Once ANY artist has a start time, the "By hour" view unlocks.
+       Once ANY artist has a stage, the stage filter unlocks.
+       Conflict detection runs only when both start and end exist.
+
+     Sharing is 100% client-side (URL hash + localStorage). Works from a
+     static file / GitHub Pages / file:// after the first font load.
+     ========================================================================= */
+
+  (function () {
+    "use strict";
+
+    const DAYS = {
+      Wed: { key: "Wed", label: "Wednesday", date: "Sep 16", early: true },
+      Thu: { key: "Thu", label: "Thursday", date: "Sep 17", early: true },
+      Fri: { key: "Fri", label: "Friday",   date: "Sep 18", early: false },
+      Sat: { key: "Sat", label: "Saturday", date: "Sep 19", early: false },
+      Sun: { key: "Sun", label: "Sunday",   date: "Sep 20", early: false }
+    };
+    const DAY_ORDER = ["Wed", "Thu", "Fri", "Sat", "Sun"];
+
+    /** Compact artist factory. Extra may include { stage, start, end }.
+        Example once set times drop:
+          stage: "The Prehistoric", start: "21:30", end: "23:00"
+        Times are 24-hour festival local time (Eastern). Past-midnight ends are allowed.
+    */
+    function A(id, name, day, extra) {
+      return Object.assign({ id: id, name: name, day: day, stage: null, start: null, end: null }, extra || {});
+    }
+
+    // Official Lost Lands 2026 daily lineup (poster, August 2026).
+    // Special sets keep the billed name (B2Bs, sunset, throwback, detox).
+    const ARTISTS = [
+      // ----- Wednesday (Early Entry) -----
+      A("barely-alive", "Barely Alive", "Wed"),
+      A("calcium-b2b-mad-dubz", "Calcium B2B Mad Dubz", "Wed"),
+      A("caspa", "Caspa", "Wed"),
+      A("chassi", "Chassi", "Wed"),
+      A("distinct-motive", "Distinct Motive", "Wed"),
+      A("emorfik-b2b-usaybflow", "Emorfik B2B Usaybflow", "Wed"),
+      A("gardella", "Gardella", "Wed"),
+      A("hairitage", "Hairitage", "Wed"),
+      A("hershe", "Hershe", "Wed"),
+      A("hydraulix", "Hydraulix", "Wed"),
+      A("izzy-vadim", "Izzy Vadim", "Wed"),
+      A("jaenga", "Jaenga", "Wed"),
+      A("mile32", "Mile32", "Wed"),
+      A("mport", "Mport", "Wed"),
+      A("muerte", "Muerte", "Wed"),
+      A("nikita-the-wicked", "Nikita, The Wicked", "Wed"),
+      A("riot-ten", "Riot Ten", "Wed"),
+      A("smoakland", "Smoakland", "Wed"),
+
+      // ----- Thursday (Early Entry) -----
+      A("alienpark", "AlienPark", "Thu"),
+      A("deadcrow", "Deadcrow", "Thu"),
+      A("dirt-monkey", "Dirt Monkey", "Thu"),
+      A("funtcase", "FuntCase", "Thu"),
+      A("label-takeover", "Label Takeover", "Thu"),
+      A("machaki", "Machaki", "Thu"),
+      A("mega-preparty", "MEGA B2B2B2B Pre-Party", "Thu"),
+      A("mindset", "Mindset", "Thu"),
+      A("phrva", "PHRVA", "Thu"),
+      A("rsun", "rSUN", "Thu"),
+      A("rzrkt", "RZRKT", "Thu"),
+      A("super-future", "Super Future", "Thu"),
+      A("zen-selekta", "Zen Selekta", "Thu"),
+
+      // ----- Friday -----
+      A("dollar-j", "$J", "Fri"),
+      A("austeria", "Austeria", "Fri"),
+      A("badklaat", "Badklaat", "Fri"),
+      A("basstripper", "Basstripper", "Fri"),
+      A("bear-grillz", "Bear Grillz", "Fri"),
+      A("benda", "Benda", "Fri"),
+      A("borgore", "Borgore", "Fri"),
+      A("canabliss", "Canabliss", "Fri"),
+      A("casey-club", "Casey Club", "Fri"),
+      A("crizzly", "Crizzly", "Fri"),
+      A("dion-timmer", "Dion Timmer", "Fri"),
+      A("dirtysnatcha", "DirtySnatcha", "Fri"),
+      A("doctor-p", "Doctor P", "Fri"),
+      A("dodge-fuski", "Dodge & Fuski", "Fri"),
+      A("dr-ushuu", "Dr. Ushuu", "Fri"),
+      A("drinkurwater", "Drinkurwater", "Fri"),
+      A("dubscribe", "Dubscribe", "Fri"),
+      A("excision-2hr", "Excision (2 Hour Set)", "Fri"),
+      A("future-exit", "Future Exit", "Fri"),
+      A("hol", "HOL!", "Fri"),
+      A("infekt-b2b-samplifire", "Infekt B2B Samplifire", "Fri"),
+      A("ivy-lab", "Ivy Lab", "Fri"),
+      A("izadi", "Izadi", "Fri"),
+      A("jantsen", "Jantsen", "Fri"),
+      A("jkyl-hyde", "Jkyl & Hyde", "Fri"),
+      A("kliptic", "Kliptic", "Fri"),
+      A("klo", "KLO", "Fri"),
+      A("lazrus", "Lazrus", "Fri"),
+      A("levity", "Levity", "Fri"),
+      A("liquid-stranger", "Liquid Stranger", "Fri"),
+      A("lumasi", "Lumasi", "Fri"),
+      A("neumonic", "Neumonic", "Fri"),
+      A("nghtmre", "NGHTMRE", "Fri"),
+      A("nimda", "Nimda", "Fri"),
+      A("oliverse", "Oliverse", "Fri"),
+      A("paper-skies", "Paper Skies", "Fri"),
+      A("pegboard-nerds", "Pegboard Nerds", "Fri"),
+      A("poni", "Poni", "Fri"),
+      A("probcause", "ProbCause", "Fri"),
+      A("ravenscoon", "Ravenscoon", "Fri"),
+      A("reaper", "Reaper", "Fri"),
+      A("richard-finger", "Richard Finger", "Fri"),
+      A("riot", "Riot", "Fri"),
+      A("seth-david", "Seth David", "Fri"),
+      A("shlump", "Shlump", "Fri"),
+      A("sigma", "Sigma", "Fri"),
+      A("sippy", "SIPPY", "Fri"),
+      A("subsonic", "Subsonic", "Fri"),
+      A("sullivan-king-b2b-ray-volpe", "Sullivan King B2B Ray Volpe", "Fri"),
+      A("the-resistance", "The Resistance", "Fri"),
+      A("twopercent", "Twopercent", "Fri"),
+      A("tynan", "TYNAN", "Fri"),
+      A("vampa", "Vampa", "Fri"),
+      A("vktm", "VKTM", "Fri"),
+      A("the-widdler", "The Widdler", "Fri"),
+      A("wiley", "Wiley", "Fri"),
+      A("wooli-sunset", "Wooli (Sunset Set)", "Fri"),
+      A("xotix", "Xotix", "Fri"),
+      A("yookie", "YOOKiE", "Fri"),
+      A("zero", "Zero", "Fri"),
+
+      // ----- Saturday -----
+      A("2dy4", "2DY4", "Sat"),
+      A("aeon-mode-b2b-blossom", "ÆON:MODE B2B Blossom", "Sat"),
+      A("all-the-reason", "All The Reason", "Sat"),
+      A("au5", "Au5", "Sat"),
+      A("audiofreq", "Audiofreq", "Sat"),
+      A("bella-renee", "Bella Renee", "Sat"),
+      A("big-florida", "Big Florida", "Sat"),
+      A("bou", "Bou", "Sat"),
+      A("brainrack", "Brainrack", "Sat"),
+      A("capochino", "Capochino", "Sat"),
+      A("chozen", "Chozen", "Sat"),
+      A("craze-b2b-dieselboy", "Craze B2B Dieselboy", "Sat"),
+      A("crumb-pit", "Crumb Pit", "Sat"),
+      A("cyclops", "Cyclops", "Sat"),
+      A("darksiderz-b2b-madgrrl", "Darksiderz B2B Madgrrl", "Sat"),
+      A("daxta-mc", "Daxta MC", "Sat"),
+      A("delta-heavy", "Delta Heavy", "Sat"),
+      A("dirtyphonics", "Dirtyphonics", "Sat"),
+      A("dr-fresch", "Dr. Fresch", "Sat"),
+      A("effin", "Effin", "Sat"),
+      A("flosstradamus", "Flosstradamus", "Sat"),
+      A("flux-pavilion", "Flux Pavilion", "Sat"),
+      A("ganja-white-night", "Ganja White Night", "Sat"),
+      A("ghengar", "Ghengar", "Sat"),
+      A("gladde-paling", "Gladde Paling", "Sat"),
+      A("green-matter", "Green Matter", "Sat"),
+      A("hedex", "Hedex", "Sat"),
+      A("heyz", "Heyz", "Sat"),
+      A("hvdes", "HVDES", "Sat"),
+      A("illenium", "ILLENIUM", "Sat"),
+      A("imanu", "IMANU", "Sat"),
+      A("ivory", "Ivory", "Sat"),
+      A("jessica-audiffred", "Jessica Audiffred", "Sat"),
+      A("josh-teed", "Josh Teed", "Sat"),
+      A("kai-wachi", "Kai Wachi", "Sat"),
+      A("layz", "LAYZ", "Sat"),
+      A("leotrix", "Leotrix", "Sat"),
+      A("lil-texas", "Lil Texas", "Sat"),
+      A("lowcation", "Lowcation", "Sat"),
+      A("mefjus", "Mefjus", "Sat"),
+      A("mozey", "Mozey", "Sat"),
+      A("myrias", "Myrias", "Sat"),
+      A("mythm", "Mythm", "Sat"),
+      A("neotek", "Neotek", "Sat"),
+      A("noetika", "Noetika", "Sat"),
+      A("phaseone", "PhaseOne", "Sat"),
+      A("prosecute", "Prosecute", "Sat"),
+      A("saint-miller", "Saint Miller", "Sat"),
+      A("seven-lions-sunset", "Seven Lions (Sunset Set)", "Sat"),
+      A("slander", "SLANDER", "Sat"),
+      A("space-wizard", "Space Wizard", "Sat"),
+      A("stoned-level", "Stoned LeveL", "Sat"),
+      A("subtronics-b2b-level-up", "Subtronics B2B LEVEL UP", "Sat"),
+      A("tisoki", "Tisoki", "Sat"),
+      A("tokyo-machine", "Tokyo Machine", "Sat"),
+      A("truth", "Truth", "Sat"),
+      A("whales", "Whales", "Sat"),
+      A("whethan", "Whethan", "Sat"),
+      A("wraz", "Wraz", "Sat"),
+      A("zingara", "Zingara", "Sat"),
+      A("zomboy", "Zomboy", "Sat"),
+
+      // ----- Sunday -----
+      A("adventure-club-throwback", "Adventure Club (Throwback Set)", "Sun"),
+      A("arlo", "Arlo", "Sun"),
+      A("armnhmr", "ARMNHMR", "Sun"),
+      A("atliens", "ATLiens", "Sun"),
+      A("avello", "Avello", "Sun"),
+      A("boogie-t", "Boogie T", "Sun"),
+      A("champagne-drip", "Champagne Drip", "Sun"),
+      A("codd-dubz", "Codd Dubz", "Sun"),
+      A("crankdat-b2b-alleycvt", "Crankdat B2B ALLEYCVT", "Sun"),
+      A("crystal-skies", "Crystal Skies", "Sun"),
+      A("distant-matter", "Distant Matter", "Sun"),
+      A("dream-takers", "Dream Takers", "Sun"),
+      A("eptic-b2b-lyny", "Eptic B2B LYNY", "Sun"),
+      A("excision-detox", "Excision (Detox Set)", "Sun"),
+      A("excision-b2b-space-laces", "Excision B2B Space Laces", "Sun"),
+      A("finnuh", "Finnuh", "Sun"),
+      A("ghastly", "Ghastly", "Sun"),
+      A("grabbitz", "Grabbitz", "Sun"),
+      A("haliene", "HALIENE", "Sun"),
+      A("hostage-situation", "Hostage Situation", "Sun"),
+      A("hurtbox", "Hurtbox", "Sun"),
+      A("killmatter", "Killmatter", "Sun"),
+      A("know-good", "Know Good", "Sun"),
+      A("kompany", "Kompany", "Sun"),
+      A("krewella", "Krewella", "Sun"),
+      A("luci", "Luci", "Sun"),
+      A("mad-dubz", "Mad Dubz", "Sun"),
+      A("modal-nodes", "Modal Nodes", "Sun"),
+      A("og-nixin", "OG Nixin", "Sun"),
+      A("onara", "Onara", "Sun"),
+      A("passport", "Passport", "Sun"),
+      A("pretty-sweet", "Pretty Sweet", "Sun"),
+      A("remk", "REMK", "Sun"),
+      A("roi", "ROI*", "Sun"),
+      A("ryns", "Ryns", "Sun"),
+      A("sisto", "Sisto", "Sun"),
+      A("skilah", "Skilah", "Sun"),
+      A("sodown", "SoDown", "Sun"),
+      A("sportmode", "Sportmode", "Sun"),
+      A("sqishi", "SQISHI", "Sun"),
+      A("stumpi", "Stumpi", "Sun"),
+      A("taiki-nulight", "Taiki Nulight", "Sun"),
+      A("trivecta", "Trivecta", "Sun"),
+      A("usaybflow", "Usaybflow", "Sun"),
+      A("virtual-riot", "Virtual Riot", "Sun"),
+      A("warlord", "Warlord", "Sun"),
+      A("wax-motif", "Wax Motif", "Sun"),
+      A("william-black", "William Black", "Sun"),
+      A("wonkywilla", "WonkyWilla", "Sun"),
+      A("yetep", "Yetep", "Sun"),
+      A("yvm3", "YVM3", "Sun"),
+      A("zoey808", "Zoey808", "Sun")
+    ];
+
+    const BY_ID = {};
+    ARTISTS.forEach(function (a) { BY_ID[a.id] = a; });
+
+    const HAS_TIMES = ARTISTS.some(function (a) { return !!(a.start && a.end); });
+    const HAS_STAGES = ARTISTS.some(function (a) { return !!a.stage; });
+    const STAGES = Array.from(new Set(ARTISTS.map(function (a) { return a.stage; }).filter(Boolean))).sort();
+
+    const LS = {
+      name: "ll26-name",
+      picks: "ll26-picks",
+      notes: "ll26-notes",
+      people: "ll26-people",
+      on: "ll26-on",
+      screen: "ll26-screen",
+      me: "ll26-me",
+      session: "ll26-session",
+      pin: "ll26-pin"
+    };
+
+    const state = {
+      name: localStorage.getItem(LS.name) || "",
+      picks: loadJSON(LS.picks, {}),
+      notes: loadJSON(LS.notes, {}),
+      people: loadJSON(LS.people, []), // [{ id, name, pin, picks, notes, owned }]
+      on: loadJSON(LS.on, {}),
+      meId: localStorage.getItem(LS.me) || "",
+      session: localStorage.getItem(LS.session) || "",
+      screen: "login",
+      query: "",
+      priFilter: "all",
+      dayFilter: "all",
+      stageFilter: "all",
+      view: "az",
+      printMode: false,
+      admin: false,
+      pin: localStorage.getItem("ll26-pin") || ""
+    };
+
+    const API_URL = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
+      ? "/api"
+      : "api.php";
+
+    const ADMIN_USER = "hoopeystar";
+    const ADMIN_PIN = "1432";
+    function isAdminUser(user) { return pid(user) === ADMIN_USER; }
+
+    function api(action, body) {
+      return fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.assign({ action: action }, body || {}))
+      }).then(function (r) {
+        return r.json().catch(function () {
+          return { ok: false, error: "Bad response from server" };
+        });
+      }).catch(function () {
+        return { ok: false, error: "Could not reach the list server. From this folder run: node server.js" };
+      });
+    }
+    function applyPeople(list) {
+      const prev = state.on || {};
+      state.people = (list || []).map(function (p) {
+        const id = p.id || ("p-" + pid(p.name));
+        return {
+          id: id,
+          name: p.name,
+          picks: p.picks || {},
+          notes: p.notes || {},
+          owned: !state.admin && pid(p.name) === pid(state.session)
+        };
+      });
+      const nextOn = {};
+      state.people.forEach(function (p) {
+        nextOn[p.id] = prev[p.id] !== false;
+      });
+      state.on = nextOn;
+      const mine = me();
+      if (mine) state.meId = mine.id;
+      saveRoster();
+    }
+    let saveTimer = 0;
+    function queueSave() {
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(function () { saveOnline(); }, 700);
+    }
+    function saveOnline() {
+      if (state.admin || !state.session || !state.pin) return Promise.resolve();
+      return api("save", {
+        username: state.session,
+        pin: state.pin,
+        picks: state.picks,
+        notes: state.notes
+      }).then(function (res) {
+        if (res.ok && res.people) applyPeople(res.people);
+        else if (res && res.error) toast(res.error);
+        return res;
+      });
+    }
+    function loadLists() {
+      return api("lists").then(function (res) {
+        if (res.ok && res.people) applyPeople(res.people);
+        return res;
+      });
+    }
+
+    /* ---------- storage / encoding ---------- */
+    function loadJSON(key, fallback) {
+      try {
+        const raw = localStorage.getItem(key);
+        return raw ? JSON.parse(raw) : fallback;
+      } catch (e) { return fallback; }
+    }
+    function savePicks() { localStorage.setItem(LS.picks, JSON.stringify(state.picks)); }
+    function saveNotes() { localStorage.setItem(LS.notes, JSON.stringify(state.notes)); }
+    function saveName() { localStorage.setItem(LS.name, state.name); }
+    function saveRoster() {
+      localStorage.setItem(LS.people, JSON.stringify(state.people));
+      localStorage.setItem(LS.on, JSON.stringify(state.on));
+    }
+    function saveScreen() { localStorage.setItem(LS.screen, state.screen); }
+    function saveMeId() { localStorage.setItem(LS.me, state.meId || ""); }
+    function pid(name) { return String(name || "").trim().toLowerCase(); }
+    function newId() {
+      return "p" + Math.random().toString(36).slice(2, 10) + Math.random().toString(36).slice(2, 6);
+    }
+    function personById(id) {
+      return state.people.find(function (p) { return p.id === id; }) || null;
+    }
+    function me() { return personById(state.meId); }
+    function ownedPeople() {
+      return state.people.filter(function (p) { return p.owned; });
+    }
+    function findOwnedByName(user) {
+      const key = pid(user);
+      return state.people.find(function (p) { return p.owned && pid(p.name) === key; }) || null;
+    }
+    function findImportedByName(user) {
+      const key = pid(user);
+      return state.people.find(function (p) { return !p.owned && pid(p.name) === key; }) || null;
+    }
+
+    function toB64(str) {
+      return btoa(unescape(encodeURIComponent(str)))
+        .replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
+    }
+    function fromB64(str) {
+      str = String(str).replace(/-/g, "+").replace(/_/g, "/");
+      while (str.length % 4) str += "=";
+      return decodeURIComponent(escape(atob(str)));
+    }
+    function pickArrays(picks) {
+      const m = [], l = [];
+      Object.keys(picks).forEach(function (id) {
+        if (!BY_ID[id]) return;
+        if (picks[id] === "must") m.push(id);
+        else if (picks[id] === "like") l.push(id);
+      });
+      m.sort(); l.sort();
+      return { m: m, l: l };
+    }
+    function indexPicks(mustIds, likeIds) {
+      const out = {};
+      (mustIds || []).forEach(function (id) { if (BY_ID[id]) out[id] = "must"; });
+      (likeIds || []).forEach(function (id) { if (BY_ID[id] && !out[id]) out[id] = "like"; });
+      return out;
+    }
+    function encodeHash(payload) {
+      return "#ll26." + toB64(JSON.stringify(payload));
+    }
+    function parseHash() {
+      const h = location.hash || "";
+      if (h.indexOf("#ll26.") !== 0) return null;
+      try {
+        const data = JSON.parse(fromB64(h.slice(6)));
+        if (!data || data.v < 1 || data.v > 3) return null;
+        return data;
+      } catch (e) { return null; }
+    }
+    function migratePeople() {
+      state.people = (state.people || []).map(function (p) {
+        const row = {
+          id: p.id || newId(),
+          name: p.name || "Someone",
+          pin: p.pin || null,
+          picks: p.picks || {},
+          notes: p.notes || {},
+          owned: p.owned === true || (!p.id && p.owned !== false)
+        };
+        if (String(row.id).indexOf("imp-") === 0) row.owned = false;
+        return row;
+      });
+      const nextOn = {};
+      state.people.forEach(function (p) {
+        if (state.on[p.id] === false || state.on[pid(p.name)] === false) nextOn[p.id] = false;
+        else nextOn[p.id] = true;
+      });
+      state.on = nextOn;
+      saveRoster();
+    }
+    function startSession(p) {
+      if (!p || !p.owned) return false;
+      state.meId = p.id;
+      state.session = pid(p.name);
+      state.name = p.name;
+      state.picks = p.picks;
+      state.notes = p.notes;
+      state.on[p.id] = true;
+      localStorage.setItem(LS.session, state.session);
+      if (state.pin) localStorage.setItem(LS.pin, state.pin);
+      saveMeId();
+      saveName();
+      savePicks();
+      saveNotes();
+      saveRoster();
+      return true;
+    }
+    function logout() {
+      if (!state.admin && state.session && state.pin) saveOnline();
+      state.admin = false;
+      state.meId = "";
+      state.session = "";
+      state.name = "";
+      state.pin = "";
+      state.picks = {};
+      state.notes = {};
+      localStorage.removeItem(LS.session);
+      localStorage.removeItem(LS.pin);
+      saveMeId();
+      saveName();
+      savePicks();
+      saveNotes();
+      goScreen("login");
+    }
+    function startAdmin() {
+      state.admin = true;
+      state.meId = "";
+      state.session = ADMIN_USER;
+      state.name = "HOOPEYSTAR";
+      state.pin = ADMIN_PIN;
+      state.picks = {};
+      state.notes = {};
+      localStorage.setItem(LS.session, ADMIN_USER);
+      localStorage.setItem(LS.pin, ADMIN_PIN);
+      saveMeId();
+      saveName();
+    }
+    function selectedPeople() {
+      return state.people.filter(function (p) { return !!state.on[p.id]; });
+    }
+    function rosterPayload() {
+      return {
+        v: 3,
+        t: "g",
+        p: state.people.map(function (person) {
+          const a = pickArrays(person.picks);
+          return { id: person.id, n: person.name, m: a.m, l: a.l };
+        })
+      };
+    }
+    function peopleFromShare(data) {
+      const out = [];
+      if (!data) return out;
+      function push(id, name, m, l) {
+        if (!name) return;
+        out.push({
+          id: id || ("imp-" + pid(name)),
+          name: name,
+          picks: indexPicks(m, l),
+          notes: {},
+          owned: false
+        });
+      }
+      if ((data.v === 2 || data.v === 3) && data.t === "g" && data.p) {
+        data.p.forEach(function (row) {
+          if (row && row.n) push(row.id, row.n, row.m, row.l);
+        });
+      } else if (data.t === "h" && data.n) {
+        push(null, data.n, data.m, data.l);
+      } else if (data.t === "c") {
+        if (data.a) push(null, data.a, data.am, data.al);
+        if (data.b) push(null, data.b, data.bm, data.bl);
+      }
+      return out;
+    }
+    function importPerson(row) {
+      if (!row || !row.name) return false;
+      const id = row.id || ("imp-" + pid(row.name));
+      if (id === state.meId) return false;
+      const existing = personById(id);
+      if (existing && existing.owned) return false;
+      if (existing) {
+        existing.name = row.name;
+        existing.picks = row.picks || {};
+        existing.notes = row.notes || {};
+        existing.owned = false;
+        state.on[id] = true;
+        return false;
+      }
+      state.people.push({
+        id: id,
+        name: row.name,
+        picks: row.picks || {},
+        notes: row.notes || {},
+        owned: false
+      });
+      state.on[id] = true;
+      return true;
+    }
+    function mergeRoster(list) {
+      let n = 0;
+      if (!list || !list.length) return 0;
+      list.forEach(function (row) {
+        if (importPerson(row)) n++;
+      });
+      saveRoster();
+      return n;
+    }
+    function writeHash() {
+      if (!state.people.length) return;
+      try { history.replaceState(null, "", encodeHash(rosterPayload())); } catch (e) {}
+    }
+
+    /* ---------- helpers ---------- */
+    function esc(s) {
+      return String(s).replace(/[&<>"']/g, function (c) {
+        return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c];
+      });
+    }
+    function namesEq(a, b) {
+      return String(a || "").trim().toLowerCase() === String(b || "").trim().toLowerCase();
+    }
+    function countPri(picks, pri) {
+      let n = 0;
+      Object.keys(picks).forEach(function (id) { if (picks[id] === pri && BY_ID[id]) n++; });
+      return n;
+    }
+    function fmtTime(hhmm) {
+      if (!hhmm) return "";
+      const parts = hhmm.split(":");
+      let h = parseInt(parts[0], 10);
+      const m = parts[1];
+      const ap = h >= 12 ? "PM" : "AM";
+      h = h % 12; if (h === 0) h = 12;
+      return h + ":" + m + " " + ap;
+    }
+    function toMins(hhmm, asEnd, startHH) {
+      const p = String(hhmm).split(":");
+      let mins = (+p[0]) * 60 + (+p[1] || 0);
+      if (asEnd && startHH) {
+        const s = toMins(startHH, false);
+        if (mins <= s) mins += 24 * 60; // past midnight
+      }
+      return mins;
+    }
+    function overlaps(a, b) {
+      if (!a || !b || a.id === b.id) return false;
+      if (!a.start || !a.end || !b.start || !b.end) return false;
+      if (a.day !== b.day) return false;
+      const a0 = toMins(a.start), a1 = toMins(a.end, true, a.start);
+      const b0 = toMins(b.start), b1 = toMins(b.end, true, b.start);
+      return a0 < b1 && b0 < a1;
+    }
+    function toast(msg) {
+      const el = document.getElementById("toast");
+      el.textContent = msg;
+      el.classList.remove("hidden");
+      clearTimeout(toast._t);
+      toast._t = setTimeout(function () { el.classList.add("hidden"); }, 2200);
+    }
+
+    function comboLabel(pri) {
+      return pri === "must" ? "Must" : "Like";
+    }
+    function compareRows() {
+      const crew = selectedPeople();
+      const ids = {};
+      crew.forEach(function (p) {
+        Object.keys(p.picks || {}).forEach(function (id) {
+          if (BY_ID[id] && p.picks[id]) ids[id] = true;
+        });
+      });
+      const rows = Object.keys(ids).map(function (id) {
+        const marks = crew.map(function (p) {
+          return { name: p.name, pri: p.picks[id] || "" };
+        }).filter(function (m) { return !!m.pri; });
+        return {
+          artist: BY_ID[id],
+          marks: marks,
+          hit: marks.length,
+          musts: marks.filter(function (m) { return m.pri === "must"; }).length
+        };
+      });
+      rows.sort(function (a, b) {
+        if (b.hit !== a.hit) return b.hit - a.hit;
+        if (b.musts !== a.musts) return b.musts - a.musts;
+        return a.artist.name.localeCompare(b.artist.name, "en", { sensitivity: "base" });
+      });
+      return rows;
+    }
+
+    /* Weighted conflicts. Score: Must×Must = 3, Must×Like = 2, Like×Like = 1 */
+    function comboScore(p1, p2) {
+      if (p1 === "must" && p2 === "must") return 3;
+      if (p1 === "must" || p2 === "must") return 2;
+      return 1;
+    }
+    function personalConflicts() {
+      if (!HAS_TIMES) return [];
+      const rows = [];
+      const ids = Object.keys(state.picks).filter(function (id) { return state.picks[id] && BY_ID[id]; });
+      for (let i = 0; i < ids.length; i++) {
+        for (let j = i + 1; j < ids.length; j++) {
+          const a = BY_ID[ids[i]], b = BY_ID[ids[j]];
+          if (!overlaps(a, b)) continue;
+          const s = comboScore(state.picks[a.id], state.picks[b.id]);
+          if (s < 2) continue; // only flag Must-involved overlaps
+          rows.push({ a: a, b: b, score: s, pa: state.picks[a.id], pb: state.picks[b.id] });
+        }
+      }
+      rows.sort(function (x, y) { return y.score - x.score; });
+      return rows;
+    }
+    /* ---------- render ---------- */
+    function render() {
+      const y = window.scrollY;
+      if (state.admin && state.screen === "pick") state.screen = "compare";
+      document.body.classList.toggle("screen-login", state.screen === "login");
+      document.body.classList.toggle("screen-compare", state.screen === "compare");
+      if (state.screen === "login") {
+        window.scrollTo(0, 0);
+        return;
+      }
+      renderWhoBar();
+      renderStats();
+      renderBanner();
+      renderConflicts();
+      renderToolbar();
+      renderDock();
+      if (state.printMode) {
+        document.getElementById("listRoot").classList.add("hidden");
+        document.getElementById("compareRoot").classList.add("hidden");
+        renderPrint();
+      } else if (state.screen === "compare") {
+        document.getElementById("printRoot").classList.add("hidden");
+        document.getElementById("listRoot").classList.add("hidden");
+        renderCompare();
+      } else {
+        document.getElementById("printRoot").classList.add("hidden");
+        document.getElementById("compareRoot").classList.add("hidden");
+        document.getElementById("listRoot").classList.remove("hidden");
+        renderList();
+      }
+      window.scrollTo(0, y);
+    }
+
+    function renderStats() {
+      const crew = selectedPeople();
+      let shared = 0;
+      if (crew.length >= 2) {
+        compareRows().forEach(function (r) { if (r.hit >= 2) shared++; });
+      }
+      document.getElementById("stats").innerHTML =
+        '<div class="pill must"><strong>' + countPri(state.picks, "must") + "</strong> Must See</div>" +
+        '<div class="pill like"><strong>' + countPri(state.picks, "like") + "</strong> Would Like</div>" +
+        '<div class="pill xover"><strong>' + state.people.length + "</strong> People</div>" +
+        (crew.length >= 2 ? '<div class="pill xover"><strong>' + shared + "</strong> Shared</div>" : "");
+    }
+
+    function renderWhoBar() {
+      const el = document.getElementById("whoBar");
+      if (!el) return;
+      if (state.admin) {
+        el.innerHTML =
+          '<span class="you">Logged in as <strong>HOOPEYSTAR</strong> · admin</span>' +
+          '<button type="button" class="btn" id="btnLogout" style="min-height:40px;padding:0 12px">Log out</button>';
+        document.getElementById("btnLogout").onclick = logout;
+        return;
+      }
+      const mine = me();
+      if (!mine) { el.innerHTML = ""; return; }
+      el.innerHTML =
+        '<span class="you">Logged in as <strong>' + esc(mine.name) + "</strong></span>" +
+        '<button type="button" class="btn" id="btnLogout" style="min-height:40px;padding:0 12px">Log out</button>';
+      document.getElementById("btnLogout").onclick = logout;
+    }
+
+    function renderBanner() {
+      const el = document.getElementById("modeBanner");
+      if (state.screen !== "compare") { el.innerHTML = ""; return; }
+      if (state.admin) {
+        el.innerHTML =
+          '<div class="banner">' +
+            "<h2>Admin</h2>" +
+            "<p>You can delete any list below. Regular users can only edit the list they signed in with.</p>" +
+          "</div>";
+        return;
+      }
+      const mine = me();
+      el.innerHTML =
+        '<div class="banner">' +
+          "<h2>Compare</h2>" +
+          "<p>Toggle people on to compare. You can only edit <strong>" +
+          esc((mine && mine.name) || "your list") +
+          "</strong>. Everyone else is locked.</p>" +
+        "</div>";
+    }
+
+    function renderConflicts() {
+      const el = document.getElementById("conflictBanner");
+      if (!HAS_TIMES || state.screen !== "pick") { el.innerHTML = ""; return; }
+      const mine = personalConflicts();
+      if (!mine.length) { el.innerHTML = ""; return; }
+      let html = '<div class="alert crit"><h2>Schedule collisions</h2><p>Overlapping Must Sees rank highest. Must×Like is flagged next.</p><ul class="conflict-list">';
+      mine.forEach(function (c) {
+        html += "<li><strong>" + esc(c.a.name) + "</strong> (" + comboLabel(c.pa) + ") overlaps <strong>" + esc(c.b.name) + "</strong> (" + comboLabel(c.pb) + ")</li>";
+      });
+      html += "</ul></div>";
+      el.innerHTML = html;
+    }
+
+    function renderCompare() {
+      const root = document.getElementById("compareRoot");
+      root.classList.remove("hidden");
+      if (!state.people.length) {
+        root.innerHTML = state.admin
+          ? '<div class="empty">No lists to manage yet.</div>'
+          : '<div class="empty">No lists yet. Log in, pick artists, and hit Submit.</div>';
+        return;
+      }
+      const crew = selectedPeople();
+      let peopleHtml = "";
+      if (state.admin) {
+        peopleHtml += '<div class="admin-panel"><h2>All lists</h2>';
+        state.people.forEach(function (p) {
+          peopleHtml +=
+            '<div class="admin-row">' +
+              "<span>" + esc(p.name) + ' <span class="meta">' + countPri(p.picks, "must") + " must · " + countPri(p.picks, "like") + " like" + (p.owned ? "" : " · from a link") + "</span></span>" +
+              '<button type="button" class="btn danger" data-admin-delete="' + esc(p.id) + '" style="min-height:40px;padding:0 12px">Delete</button>' +
+            "</div>";
+        });
+        peopleHtml += '<button type="button" class="btn danger" id="btnDeleteAll" style="margin-top:10px">Delete all lists</button></div>';
+      }
+      peopleHtml += '<div class="people-row">';
+      state.people.forEach(function (p) {
+        const on = !!state.on[p.id];
+        const you = !state.admin && p.id === state.meId;
+        const locked = !p.owned;
+        const canDelete = state.admin || !you;
+        peopleHtml +=
+          '<span class="person-chip">' +
+            '<button class="chip' + (you ? " you-chip" : "") + '" type="button" data-toggle-person="' + esc(p.id) + '" aria-pressed="' + on + '">' +
+              esc(p.name) +
+              (you ? " · you" : locked ? " · from a link" : "") +
+              " · " + countPri(p.picks, "must") + "/" + countPri(p.picks, "like") +
+            "</button>" +
+            (canDelete ? '<button class="person-x" type="button" data-remove-person="' + esc(p.id) + '" aria-label="Remove ' + esc(p.name) + '">×</button>' : "") +
+          "</span>";
+      });
+      peopleHtml += "</div>";
+
+      if (!crew.length) {
+        root.innerHTML = peopleHtml + '<div class="empty">Toggle at least one person on to see their picks.</div>';
+        return;
+      }
+
+      const q = state.query.trim().toLowerCase();
+      let rows = compareRows().filter(function (r) {
+        if (state.dayFilter !== "all" && r.artist.day !== state.dayFilter) return false;
+        if (q && r.artist.name.toLowerCase().indexOf(q) === -1) return false;
+        if (state.priFilter === "shared" && r.hit < 2) return false;
+        if (state.priFilter === "everyone" && r.hit < crew.length) return false;
+        if (state.priFilter === "must") {
+          if (!r.marks.some(function (m) { return m.pri === "must"; })) return false;
+        }
+        if (state.priFilter === "like") {
+          if (!r.marks.some(function (m) { return m.pri === "like"; })) return false;
+        }
+        return true;
+      });
+
+      let list = rows.map(function (r) {
+        const everyone = crew.length >= 2 && r.hit === crew.length;
+        const shared = r.hit >= 2;
+        const pills = r.marks.map(function (m) {
+          return '<span class="who-pill ' + m.pri + '">' + esc(m.name) + " · " + comboLabel(m.pri) + "</span>";
+        }).join("");
+        return '<article class="cmp-row day-' + r.artist.day + (everyone ? " everyone" : shared ? " shared" : "") + '">' +
+          '<div class="cmp-head"><p class="artist-name">' + esc(r.artist.name) + "</p></div>" +
+          '<div class="cmp-who">' + pills + "</div>" +
+        "</article>";
+      }).join("");
+      if (!list) list = '<div class="empty">No artists match those filters for the people you toggled on.</div>';
+
+      root.innerHTML = peopleHtml + '<div class="cmp-list">' + list + "</div>";
+      const delAll = document.getElementById("btnDeleteAll");
+      if (delAll) delAll.onclick = deleteAllLists;
+    }
+
+    function renderDock() {
+      const dock = document.querySelector(".dock");
+      const p = document.getElementById("btnPrimary");
+      const s = document.getElementById("btnScreen");
+      const j = document.getElementById("btnJson");
+      const c = document.getElementById("btnClear");
+      const n = state.people.length;
+      const skipHint = document.getElementById("skipHint");
+      if (n) {
+        skipHint.textContent = n + " list" + (n === 1 ? "" : "s") + " ready to compare";
+      } else {
+        skipHint.textContent = "See everyone’s lists without submitting yet";
+      }
+      if (state.screen === "compare") {
+        dock.classList.remove("pick-mode");
+        dock.classList.add("compare-mode");
+        dock.classList.toggle("admin-mode", !!state.admin);
+        p.textContent = "Share";
+        s.textContent = "Picks";
+        if (state.admin) s.classList.add("hidden");
+        else s.classList.remove("hidden");
+        j.classList.add("hidden");
+        c.textContent = "Print";
+        c.classList.remove("danger");
+      } else {
+        dock.classList.add("pick-mode");
+        dock.classList.remove("compare-mode");
+        p.textContent = "Submit";
+        s.classList.add("hidden");
+        j.classList.add("hidden");
+        c.textContent = "Clear";
+        c.classList.add("danger");
+      }
+    }
+
+    function renderToolbar() {
+      const pri = state.screen === "compare"
+        ? [["all", "All picks"], ["shared", "Shared"], ["everyone", "Everyone"], ["must", "Must"], ["like", "Like"]]
+        : [["all", "All"], ["must", "Must only"], ["like", "Like only"]];
+      if (["shared", "everyone"].indexOf(state.priFilter) >= 0 && state.screen === "pick") state.priFilter = "all";
+      document.getElementById("priChips").innerHTML = pri.map(function (p) {
+        return '<button class="chip" data-pri="' + p[0] + '" aria-pressed="' + (state.priFilter === p[0]) + '">' + p[1] + "</button>";
+      }).join("");
+
+      document.getElementById("dayChips").innerHTML =
+        '<button class="chip" data-day="all" aria-pressed="' + (state.dayFilter === "all") + '">All days</button>' +
+        DAY_ORDER.map(function (d) {
+          return '<button class="chip" data-day="' + d + '" aria-pressed="' + (state.dayFilter === d) + '">' + DAYS[d].label + "</button>";
+        }).join("");
+
+      const stageSel = document.getElementById("stageFilter");
+      if (HAS_STAGES) {
+        stageSel.classList.remove("hidden");
+        stageSel.innerHTML = '<option value="all">All stages</option>' +
+          STAGES.map(function (s) { return '<option value="' + esc(s) + '"' + (state.stageFilter === s ? " selected" : "") + ">" + esc(s) + "</option>"; }).join("");
+      } else {
+        stageSel.classList.add("hidden");
+      }
+
+      const views = [["az", "A–Z"], ["day", "By day"]];
+      if (HAS_TIMES) views.push(["hour", "By hour"]);
+      if (!HAS_TIMES && state.view === "hour") state.view = "day";
+      document.getElementById("viewToggle").innerHTML = views.map(function (v) {
+        return '<button class="view-btn" data-view="' + v[0] + '" aria-pressed="' + (state.view === v[0]) + '">' + v[1] + "</button>";
+      }).join("");
+    }
+
+    function artistMatches(a) {
+      const q = state.query.trim().toLowerCase();
+      if (q && a.name.toLowerCase().indexOf(q) === -1 && a.id.indexOf(q) === -1) return false;
+      if (state.dayFilter !== "all" && a.day !== state.dayFilter) return false;
+      if (HAS_STAGES && state.stageFilter !== "all" && a.stage !== state.stageFilter) return false;
+      const pri = state.picks[a.id] || "";
+      if (state.priFilter === "must" && pri !== "must") return false;
+      if (state.priFilter === "like" && pri !== "like") return false;
+      return true;
+    }
+
+    function conflictTagsFor(id) {
+      if (!HAS_TIMES) return "";
+      const mine = personalConflicts().filter(function (c) { return c.a.id === id || c.b.id === id; });
+      if (!mine.length) return "";
+      const hot = mine.some(function (c) { return c.score >= 3; });
+      return '<span class="tag conflict' + (hot ? "" : " soft") + '">' + (hot ? "Must clash" : "Must×Like clash") + "</span>";
+    }
+
+    function cardHTML(a) {
+      const pri = state.picks[a.id] || "";
+      const note = state.notes[a.id] || "";
+      const time = (a.start && a.end) ? (fmtTime(a.start) + "–" + fmtTime(a.end)) : "";
+      return '<article class="card day-' + a.day + (pri === "must" ? " is-must" : pri === "like" ? " is-like" : "") + '" data-id="' + a.id + '">' +
+        '<div class="card-top">' +
+          '<p class="artist-name">' + esc(a.name) + "</p>" +
+          (a.stage ? '<span class="tag">' + esc(a.stage) + "</span>" : "") +
+          (time ? '<span class="tag">' + time + "</span>" : "") +
+          conflictTagsFor(a.id) +
+        "</div>" +
+        '<div class="pri-row">' +
+          '<button class="pri-btn" data-id="' + a.id + '" data-pri="must" aria-pressed="' + (pri === "must") + '" aria-label="Must See">Must</button>' +
+          '<button class="pri-btn" data-id="' + a.id + '" data-pri="like" aria-pressed="' + (pri === "like") + '" aria-label="Would Like">Like</button>' +
+          '<button class="note-btn" type="button" data-note-toggle="' + a.id + '" aria-label="Note"' + (note ? ' data-has="1"' : "") + ">✎</button>" +
+        "</div>" +
+        '<textarea class="note' + (note ? "" : " hidden") + '" data-note="' + a.id + '" maxlength="80" rows="1" placeholder="Note">' + esc(note) + "</textarea>" +
+      "</article>";
+    }
+
+    function renderList() {
+      const root = document.getElementById("listRoot");
+      const matched = ARTISTS.filter(artistMatches);
+      if (!matched.length) {
+        root.innerHTML = '<div class="empty">No artists match those filters.</div>';
+        return;
+      }
+      if (state.view === "day") {
+        root.innerHTML = DAY_ORDER.map(function (day) {
+          const group = matched.filter(function (a) { return a.day === day; })
+            .sort(function (a, b) { return a.name.localeCompare(b.name, "en", { sensitivity: "base" }); });
+          if (!group.length) return "";
+          const d = DAYS[day];
+          return '<section class="day-block day-' + day + '"><h3>' + d.label + " <span>" + d.date + (d.early ? " · Early Entry" : "") + "</span></h3>" +
+            '<div class="list">' + group.map(cardHTML).join("") + "</div></section>";
+        }).join("");
+        return;
+      }
+      if (state.view === "hour" && HAS_TIMES) {
+        const timed = matched.filter(function (a) { return a.start; })
+          .sort(function (a, b) {
+            const dd = DAY_ORDER.indexOf(a.day) - DAY_ORDER.indexOf(b.day);
+            if (dd) return dd;
+            return toMins(a.start) - toMins(b.start);
+          });
+        const untimed = matched.filter(function (a) { return !a.start; });
+        let html = "";
+        let lastKey = "";
+        timed.forEach(function (a) {
+          const key = a.day + "|" + a.start;
+          if (key !== lastKey) {
+            html += '<div class="hour-slot">' + DAYS[a.day].label + " · " + fmtTime(a.start) + (a.stage ? " · " + esc(a.stage) : "") + "</div>";
+            lastKey = key;
+          }
+          html += cardHTML(a);
+        });
+        if (untimed.length) {
+          html += '<div class="hour-slot">No set time yet</div>' + untimed.map(cardHTML).join("");
+        }
+        root.innerHTML = '<div class="list hour">' + html + "</div>";
+        return;
+      }
+      const az = matched.slice().sort(function (a, b) { return a.name.localeCompare(b.name, "en", { sensitivity: "base" }); });
+      root.innerHTML = '<div class="list az">' + az.map(cardHTML).join("") + "</div>";
+    }
+
+    function renderPrint() {
+      const root = document.getElementById("printRoot");
+      root.classList.remove("hidden");
+      let html = '<p class="no-print"><button class="btn" id="btnPrintGo">Send to printer</button> <button class="btn" id="btnPrintBack">Back</button></p>';
+      const crew = selectedPeople();
+      if (crew.length) {
+        html += "<h2>Lost Lands 2026 · Compare</h2>";
+        compareRows().forEach(function (r) {
+          const who = r.marks.map(function (m) { return esc(m.name) + " " + comboLabel(m.pri); }).join(" · ");
+          const when = r.artist.day ? " · " + DAYS[r.artist.day].label : "";
+          html += '<div class="print-item"><strong>' + esc(r.artist.name) + "</strong>" + when + " — " + who + "</div>";
+        });
+      } else {
+        html += "<h2>Lost Lands 2026 · " + esc(state.name || "My list") + "</h2>";
+        html += printCol("Must See", ARTISTS.filter(function (a) { return state.picks[a.id] === "must"; }));
+        html += printCol("Would Like", ARTISTS.filter(function (a) { return state.picks[a.id] === "like"; }));
+      }
+      root.innerHTML = html;
+      document.getElementById("btnPrintGo").onclick = function () { window.print(); };
+      document.getElementById("btnPrintBack").onclick = function () { state.printMode = false; render(); };
+    }
+    function printCol(title, arr) {
+      const sorted = arr.slice().sort(function (a, b) { return a.name.localeCompare(b.name, "en", { sensitivity: "base" }); });
+      return '<div class="print-col"><h3 class="section-title">' + title + " · " + sorted.length + "</h3>" +
+        sorted.map(function (a) {
+          const note = state.notes[a.id] ? " — " + esc(state.notes[a.id]) : "";
+          const when = a.day ? " · " + DAYS[a.day].label + (a.start ? " " + fmtTime(a.start) : "") : "";
+          return '<div class="print-item"><strong>' + esc(a.name) + "</strong>" + when + note + "</div>";
+        }).join("") + "</div>";
+    }
+
+    /* ---------- actions ---------- */
+    function togglePick(id, pri) {
+      if (state.picks[id] === pri) delete state.picks[id];
+      else state.picks[id] = pri;
+      savePicks();
+      if (me() && me().owned) { me().picks = state.picks; saveRoster(); }
+      queueSave();
+      render();
+    }
+    function setNote(id, val) {
+      const v = val.slice(0, 80);
+      if (v) state.notes[id] = v; else delete state.notes[id];
+      saveNotes();
+      if (me() && me().owned) { me().notes = state.notes; saveRoster(); }
+      queueSave();
+    }
+    function needName() {
+      return !!(me() && me().owned);
+    }
+    function shareUrlFor(payload) {
+      return location.href.split("#")[0] + encodeHash(payload);
+    }
+    function copyText(text) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { toast("Link copied"); }).catch(fallback);
+      } else fallback();
+      function fallback() {
+        const ta = document.createElement("textarea");
+        ta.value = text; document.body.appendChild(ta); ta.select();
+        try { document.execCommand("copy"); toast("Link copied"); } catch (e) { toast("Copy failed — select the URL"); }
+        ta.remove();
+      }
+    }
+    function goScreen(name) {
+      state.screen = name;
+      saveScreen();
+      if (name === "compare") {
+        loadLists().then(function () { render(); });
+      }
+      render();
+      window.scrollTo(0, 0);
+    }
+    function submitList() {
+      if (state.admin) { goScreen("compare"); return; }
+      if (!state.session || !state.pin) { goScreen("login"); return; }
+      const p = pickArrays(state.picks);
+      if (!p.m.length && !p.l.length) { toast("Pick at least one artist"); return; }
+      saveOnline().then(function (res) {
+        if (res && res.ok === false) { toast(res.error || "Save failed"); return; }
+        toast("Saved " + (state.name || "your list") + " online");
+        goScreen("compare");
+      });
+    }
+    function tryLogin(user, pin) {
+      user = String(user || "").trim();
+      pin = String(pin || "").replace(/\D/g, "");
+      if (!user) return Promise.resolve("Enter a username");
+      if (pin.length !== 4) return Promise.resolve("PIN must be 4 digits");
+      return api("login", { username: user, pin: pin }).then(function (res) {
+        if (!res.ok) return res.error || "Login failed";
+        state.pin = pin;
+        localStorage.setItem(LS.pin, pin);
+        if (res.admin) {
+          startAdmin();
+          applyPeople(res.people || []);
+          return "";
+        }
+        state.admin = false;
+        state.session = pid(user);
+        localStorage.setItem(LS.session, state.session);
+        applyPeople(res.people || []);
+        const u = res.user || {};
+        state.meId = u.id || "";
+        state.name = u.name || user;
+        state.picks = u.picks || {};
+        state.notes = u.notes || {};
+        saveMeId();
+        saveName();
+        savePicks();
+        saveNotes();
+        return "";
+      });
+    }
+    function shareRoster() {
+      const url = location.href.split("#")[0];
+      showModal(
+        "Share this page",
+        "<p>Lists are saved online. Send this link — friends log in with their own username and PIN, and everyone’s picks show up on Compare.</p>" +
+        '<input class="share-url" id="shareUrl" readonly />',
+        [
+          { label: "Copy link", primary: true, fn: function () { copyText(url); } },
+          { label: "Close", fn: closeModal }
+        ]
+      );
+      const inp = document.getElementById("shareUrl");
+      inp.value = url;
+      inp.onclick = function () { inp.select(); };
+    }
+    function togglePerson(id) {
+      state.on[id] = !state.on[id];
+      saveRoster();
+      render();
+    }
+    function removePerson(id, skipConfirm) {
+      const p = personById(id);
+      if (!p) return;
+      if (!state.admin && p.id === state.meId) { toast("You can't remove the list you're editing"); return; }
+      function wipe() {
+        const finish = function () {
+          closeModal();
+          render();
+          toast("Deleted " + p.name);
+        };
+        if (state.admin && state.pin) {
+          api("delete", { username: "HOOPEYSTAR", pin: ADMIN_PIN, id: id }).then(function (res) {
+            if (res.ok && res.people) applyPeople(res.people);
+            else if (!res.ok) toast(res.error || "Delete failed");
+            finish();
+          });
+          return;
+        }
+        state.people = state.people.filter(function (x) { return x.id !== id; });
+        delete state.on[id];
+        saveRoster();
+        finish();
+      }
+      if (skipConfirm) { wipe(); return; }
+      showModal(
+        "Delete " + p.name + "?",
+        "<p>This removes <strong>" + esc(p.name) + "</strong>’s list from Compare. It cannot be undone.</p>",
+        [
+          { label: "Delete", danger: true, fn: wipe },
+          { label: "Cancel", fn: closeModal }
+        ]
+      );
+    }
+    function deleteAllLists() {
+      if (!state.admin) return;
+      showModal(
+        "Delete all lists?",
+        "<p>This removes every list from Compare. It cannot be undone.</p>",
+        [
+          { label: "Delete all", danger: true, fn: function () {
+            api("deleteAll", { username: "HOOPEYSTAR", pin: ADMIN_PIN }).then(function (res) {
+              if (res.ok && res.people) applyPeople(res.people);
+              else if (res.ok) { state.people = []; state.on = {}; saveRoster(); }
+              else toast(res.error || "Delete failed");
+              closeModal();
+              render();
+              toast("All lists deleted");
+            });
+          } },
+          { label: "Cancel", fn: closeModal }
+        ]
+      );
+    }
+    function clearList() {
+      showModal(
+        "Clear your list?",
+        "<p>This clears Must Sees, Would Likes, and notes for <strong>" + esc(state.name || "you") + "</strong> only. Everyone else’s lists stay put.</p>",
+        [
+          { label: "Clear my list", danger: true, fn: function () {
+            state.picks = {}; state.notes = {};
+            if (me() && me().owned) {
+              me().picks = state.picks;
+              me().notes = state.notes;
+            }
+            savePicks(); saveNotes(); saveRoster();
+            closeModal(); render(); toast("Your list cleared");
+          } },
+          { label: "Cancel", fn: closeModal }
+        ]
+      );
+    }
+    function downloadJSON() {
+      const p = pickArrays(state.picks);
+      const data = {
+        festival: "Lost Lands 2026",
+        tool: "LOCKED LANDS",
+        exportedAt: new Date().toISOString(),
+        name: state.name || "",
+        must: p.m.map(function (id) { return { id: id, name: BY_ID[id].name }; }),
+        like: p.l.map(function (id) { return { id: id, name: BY_ID[id].name }; }),
+        notes: state.notes,
+        picks: state.picks,
+        people: state.people
+      };
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "lost-lands-2026-" + (state.name || "list").replace(/\s+/g, "-").toLowerCase() + ".json";
+      a.click();
+      URL.revokeObjectURL(a.href);
+      toast("JSON downloaded");
+    }
+    function onPrimary() {
+      if (state.screen === "compare") shareRoster();
+      else submitList();
+    }
+    function onScreen() {
+      if (state.admin) { goScreen("compare"); return; }
+      if (state.screen === "compare") goScreen("pick");
+      else goScreen("compare");
+    }
+    function onJsonOrAdd() {}
+    function onClearOrPrint() {
+      if (state.screen === "compare") {
+        state.printMode = true; render(); window.scrollTo(0, 0);
+      } else clearList();
+    }
+
+    function showModal(title, body, actions) {
+      const root = document.getElementById("modalRoot");
+      root.innerHTML = '<div class="modal-bg" id="modalBg"><div class="modal" role="dialog" aria-modal="true"><h2>' + title + "</h2>" + body + '<div class="modal-actions" id="modalActs"></div></div></div>';
+      const act = document.getElementById("modalActs");
+      actions.forEach(function (x) {
+        const b = document.createElement("button");
+        b.className = "btn" + (x.primary ? " primary" : "") + (x.danger ? " danger" : "");
+        b.textContent = x.label;
+        b.onclick = x.fn;
+        act.appendChild(b);
+      });
+      document.getElementById("modalBg").addEventListener("click", function (e) {
+        if (e.target.id === "modalBg") closeModal();
+      });
+    }
+    function closeModal() { document.getElementById("modalRoot").innerHTML = ""; }
+
+    /* ---------- events ---------- */
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const msg = document.getElementById("loginMsg");
+      const btn = document.getElementById("btnLogin");
+      btn.disabled = true;
+      tryLogin(document.getElementById("loginUser").value, document.getElementById("loginPin").value).then(function (err) {
+        btn.disabled = false;
+        if (err) {
+          msg.textContent = err;
+          msg.classList.remove("ok");
+          return;
+        }
+        msg.textContent = "";
+        document.getElementById("loginPin").value = "";
+        goScreen(state.admin ? "compare" : "pick");
+      });
+    });
+    document.getElementById("loginPin").addEventListener("input", function (e) {
+      e.target.value = e.target.value.replace(/\D/g, "").slice(0, 4);
+    });
+    document.getElementById("search").addEventListener("input", function (e) {
+      state.query = e.target.value;
+      if (state.screen === "compare") renderCompare();
+      else renderList();
+    });
+    document.getElementById("priChips").addEventListener("click", function (e) {
+      const b = e.target.closest("[data-pri]"); if (!b || b.disabled) return;
+      state.priFilter = b.getAttribute("data-pri"); render();
+    });
+    document.getElementById("dayChips").addEventListener("click", function (e) {
+      const b = e.target.closest("[data-day]"); if (!b) return;
+      state.dayFilter = b.getAttribute("data-day"); render();
+    });
+    document.getElementById("viewToggle").addEventListener("click", function (e) {
+      const b = e.target.closest("[data-view]"); if (!b) return;
+      state.view = b.getAttribute("data-view"); render();
+    });
+    document.getElementById("stageFilter").addEventListener("change", function (e) {
+      state.stageFilter = e.target.value; render();
+    });
+    document.getElementById("listRoot").addEventListener("click", function (e) {
+      const noteBtn = e.target.closest("[data-note-toggle]");
+      if (noteBtn) {
+        const card = noteBtn.closest(".card");
+        const ta = card && card.querySelector(".note");
+        if (!ta) return;
+        ta.classList.toggle("hidden");
+        if (!ta.classList.contains("hidden")) ta.focus();
+        return;
+      }
+      const b = e.target.closest("[data-pri]"); if (!b) return;
+      togglePick(b.getAttribute("data-id"), b.getAttribute("data-pri"));
+    });
+    document.getElementById("listRoot").addEventListener("input", function (e) {
+      const t = e.target.closest("[data-note]"); if (!t) return;
+      setNote(t.getAttribute("data-note"), t.value);
+    });
+    document.getElementById("compareRoot").addEventListener("click", function (e) {
+      const tog = e.target.closest("[data-toggle-person]");
+      if (tog) { togglePerson(tog.getAttribute("data-toggle-person")); return; }
+      const adm = e.target.closest("[data-admin-delete]");
+      if (adm) { removePerson(adm.getAttribute("data-admin-delete")); return; }
+      const rm = e.target.closest("[data-remove-person]");
+      if (rm) { removePerson(rm.getAttribute("data-remove-person")); }
+    });
+    document.getElementById("btnPrimary").addEventListener("click", onPrimary);
+    document.getElementById("btnScreen").addEventListener("click", onScreen);
+    document.getElementById("btnSkipCompare").addEventListener("click", function () { goScreen("compare"); });
+    document.getElementById("btnJson").addEventListener("click", onJsonOrAdd);
+    document.getElementById("btnClear").addEventListener("click", onClearOrPrint);
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeModal();
+    });
+    window.addEventListener("hashchange", bootShare);
+
+    function bootShare() {
+      migratePeople();
+      const sessionName = localStorage.getItem(LS.session) || "";
+      const pin = localStorage.getItem(LS.pin) || "";
+      loadLists().then(function (lists) {
+        if (!lists.ok) toast(lists.error || "Online lists unavailable");
+        if (isAdminUser(sessionName) && pin === ADMIN_PIN) {
+          startAdmin();
+          return api("login", { username: "HOOPEYSTAR", pin: ADMIN_PIN }).then(function (res) {
+            if (res.ok && res.people) applyPeople(res.people);
+            state.screen = "compare";
+            saveScreen();
+            render();
+          });
+        }
+        if (sessionName && pin) {
+          return api("login", { username: sessionName, pin: pin }).then(function (res) {
+            if (!res.ok) {
+              state.screen = "login";
+              saveScreen();
+              render();
+              return;
+            }
+            state.pin = pin;
+            state.admin = false;
+            state.session = sessionName;
+            applyPeople(res.people || []);
+            const u = res.user || {};
+            state.meId = u.id || "";
+            state.name = u.name || sessionName;
+            state.picks = u.picks || {};
+            state.notes = u.notes || {};
+            saveName(); savePicks(); saveNotes(); saveMeId();
+            state.screen = localStorage.getItem(LS.screen) === "compare" ? "compare" : "pick";
+            saveScreen();
+            render();
+          });
+        }
+        state.screen = "login";
+        saveScreen();
+        render();
+      });
+    }
+
+    /* Unique-id sanity check in console for editors updating the list */
+    (function assertUnique() {
+      const seen = {};
+      ARTISTS.forEach(function (a) {
+        if (seen[a.id]) console.warn("Duplicate artist id:", a.id);
+        seen[a.id] = true;
+      });
+    })();
+
+    bootShare();
+  })();
+  </script>
+</body>
+</html>
