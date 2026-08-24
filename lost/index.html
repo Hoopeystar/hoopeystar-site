@@ -621,6 +621,9 @@
     .cmp-row.everyone {
       border-color: rgba(198, 255, 26, 0.5);
     }
+    .cmp-row.is-conflict {
+      border-color: rgba(255, 59, 18, 0.55);
+    }
     .cmp-head {
       display: flex;
       margin: 0;
@@ -649,6 +652,7 @@
     }
     .who-pill.must { background: var(--toxic); color: #121406; border-color: var(--toxic); }
     .who-pill.like { background: var(--like); color: #041018; border-color: var(--like); }
+    .who-pill.split { background: var(--blood-dim); color: var(--blood-2); border-color: rgba(255,59,18,0.45); }
     .xover-grid, .sides {
       display: grid;
       gap: 12px;
@@ -851,6 +855,181 @@
     }
     .admin-row .meta { color: var(--moss); font-size: 0.78rem; }
 
+    .sched-days {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 0 0 10px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .sched-hint {
+      margin: -2px 0 10px;
+      font-size: 0.78rem;
+      color: var(--moss);
+    }
+    .sched-preview {
+      margin: 0 0 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(250, 204, 21, 0.4);
+      background: rgba(250, 204, 21, 0.1);
+      color: #fde68a;
+      font-size: 0.85rem;
+    }
+    .sched-scroll {
+      overflow: auto;
+      height: max-content;
+      max-height: calc(100dvh - 250px);
+      border: 1px solid #2f2f2f;
+      border-radius: 12px;
+      background: #1c1c1c;
+      -webkit-overflow-scrolling: touch;
+    }
+    .sched-board { display: flex; min-width: min-content; width: 100%; }
+    .sched-gutter {
+      width: 56px;
+      flex: 0 0 56px;
+      position: sticky;
+      left: 0;
+      z-index: 5;
+      background: #1c1c1c;
+    }
+    .sched-col {
+      min-width: 112px;
+      flex: 1 0 112px;
+      border-left: 3px solid #1c1c1c;
+      display: flex;
+      flex-direction: column;
+    }
+    .sched-head {
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6px 5px;
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1.15;
+      position: sticky;
+      top: 0;
+      z-index: 3;
+      color: #111;
+      flex: 0 0 52px;
+    }
+    .sched-gutter .sched-head {
+      background: #1c1c1c;
+      color: transparent;
+      z-index: 6;
+    }
+    .sched-track { position: relative; background: #262626; }
+    .sched-gutter .sched-track { background: #1c1c1c; }
+    .sched-hour {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .sched-hour-label {
+      position: absolute;
+      left: 0;
+      width: 56px;
+      padding-top: 6px;
+      font-family: var(--font-head);
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #d4d4d4;
+      text-align: center;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .sched-block {
+      position: absolute;
+      left: 4px;
+      right: 4px;
+      border-radius: 10px;
+      padding: 6px 5px 4px;
+      overflow: hidden;
+      text-align: center;
+      border: 1px solid rgba(0,0,0,0.18);
+      box-sizing: border-box;
+      z-index: 2;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .sched-block.dim { opacity: 0.32; }
+    .sched-block.is-must { box-shadow: inset 0 0 0 2px #121406, 0 0 0 2px var(--toxic); opacity: 1; }
+    .sched-block.is-like { box-shadow: inset 0 0 0 2px #041018, 0 0 0 2px var(--like); opacity: 1; }
+    .sched-block.is-conflict { box-shadow: inset 0 0 0 2px #2b0904, 0 0 0 2px var(--blood), 0 0 10px rgba(255,59,18,0.45); opacity: 1; }
+    .sched-block-name {
+      display: block;
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 0.7rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      line-height: 1.12;
+      word-break: break-word;
+    }
+    .sched-block-time {
+      display: block;
+      margin-top: 2px;
+      font-size: 0.58rem;
+      letter-spacing: 0.02em;
+      opacity: 0.88;
+    }
+    .sched-block-friends {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2px;
+      justify-content: center;
+      margin-top: 3px;
+    }
+    .sched-friend {
+      display: inline-block;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding: 0 5px;
+      border-radius: 999px;
+      font-family: var(--font-head);
+      font-size: 0.52rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      line-height: 1.45;
+      background: rgba(0,0,0,0.22);
+    }
+    .sched-friend.must { background: #121406; color: var(--toxic); }
+    .sched-friend.like { background: #041018; color: var(--like); }
+    .sched-friend.split { background: #2b0904; color: #ffb4a2; }
+    @media (max-width: 640px) {
+      .sched-scroll { max-height: calc(100dvh - 200px); }
+      .sched-col { min-width: 104px; flex-basis: 104px; }
+    }
+    body.view-hour .hero,
+    body.view-hour .skip-compare,
+    body.view-hour .toolbar .days,
+    body.view-hour .foot-note { display: none; }
+    body.view-hour:not(.view-mine) #conflictBanner { display: none; }
+    body.view-mine #conflictBanner { display: block; }
+    body.view-hour .wrap { padding-top: 8px; }
+    body.view-hour .sched-scroll {
+      max-height: calc(100dvh - 230px - var(--safe-b));
+    }
+    @media (max-width: 640px) {
+      body.view-hour .sched-scroll {
+        max-height: calc(100dvh - 320px - var(--safe-b));
+      }
+    }
+
     .skip-compare {
       display: flex;
       align-items: center;
@@ -1043,7 +1222,7 @@
            start: "21:30",   // 24-hour festival local time (ET)
            end:   "23:00"
          })
-       Once ANY artist has a start time, the "By hour" view unlocks.
+       Once ANY artist has a start time, the Schedule grid unlocks.
        Once ANY artist has a stage, the stage filter unlocks.
        Conflict detection runs only when both start and end exist.
 
@@ -1062,6 +1241,25 @@
       Sun: { key: "Sun", label: "Sunday",   date: "Sep 20", early: false }
     };
     const DAY_ORDER = ["Wed", "Thu", "Fri", "Sat", "Sun"];
+    const STAGE_ORDER = [
+      "Prehistoric", "The Prehistoric", "Prehistoric Stage",
+      "Wompy Woods",
+      "The Crater", "Crater",
+      "Forest Stage", "Forest",
+      "Subsidia Stage", "Subsidia",
+      "Raptor Alley", "Raptor Valley",
+      "Grove Stage", "Grove"
+    ];
+    const STAGE_PALETTE = [
+      { bg: "#f9a8d4", fg: "#4a0430" },
+      { bg: "#7dd3fc", fg: "#082f49" },
+      { bg: "#86efac", fg: "#052e16" },
+      { bg: "#fdba74", fg: "#431407" },
+      { bg: "#fde047", fg: "#422006" },
+      { bg: "#93c5fd", fg: "#1e3a8a" },
+      { bg: "#fca5a5", fg: "#450a0a" }
+    ];
+    const PX_PER_HOUR = 72;
 
     /** Compact artist factory. Extra may include { stage, start, end }.
         Example once set times drop:
@@ -1290,6 +1488,42 @@
       A("zoey808", "Zoey808", "Sun")
     ];
 
+    const PREVIEW_TIMES = (location.hostname === "localhost" || location.hostname === "127.0.0.1") &&
+      /(?:^|[?&])previewTimes=1(?:&|$)/.test(location.search);
+    function applyPreviewTimes() {
+      var names = ["Prehistoric Stage", "Wompy Woods", "The Crater", "Forest Stage", "Subsidia Stage", "Raptor Alley", "Grove Stage"];
+      var startAt = [13 * 60, 14 * 60, 15 * 60, 16 * 60, 16 * 60, 24 * 60, 24 * 60];
+      var earlyStart = [16 * 60, 17 * 60, 17 * 60, 18 * 60, 18 * 60];
+      var endCap = 28 * 60;
+      function pad2(n) { return (n < 10 ? "0" : "") + n; }
+      function hhmm(mins) {
+        var m = ((mins % 1440) + 1440) % 1440;
+        return pad2(Math.floor(m / 60)) + ":" + pad2(m % 60);
+      }
+      DAY_ORDER.forEach(function (day) {
+        var acts = ARTISTS.filter(function (a) { return a.day === day; });
+        var nStages = (day === "Wed" || day === "Thu") ? 5 : 7;
+        var stages = names.slice(0, nStages);
+        var next = ((day === "Wed" || day === "Thu") ? earlyStart : startAt).slice(0, nStages);
+        var si = 0;
+        acts.forEach(function (a) {
+          var tries = 0;
+          while (tries < nStages && next[si] + 60 > endCap) {
+            si = (si + 1) % nStages;
+            tries++;
+          }
+          var dur = /2hr|2 hour/i.test(a.id + " " + a.name) ? 120 : 60;
+          if (next[si] + dur > endCap) dur = Math.max(endCap - next[si], 60);
+          a.stage = stages[si];
+          a.start = hhmm(next[si]);
+          a.end = hhmm(next[si] + dur);
+          next[si] += dur;
+          si = (si + 1) % nStages;
+        });
+      });
+    }
+    if (PREVIEW_TIMES) applyPreviewTimes();
+
     const BY_ID = {};
     ARTISTS.forEach(function (a) { BY_ID[a.id] = a; });
 
@@ -1322,7 +1556,8 @@
       priFilter: "all",
       dayFilter: "all",
       stageFilter: "all",
-      view: "az",
+      schedDay: "",
+      view: PREVIEW_TIMES ? "hour" : "az",
       printMode: false,
       admin: false,
       pin: localStorage.getItem("ll26-pin") || ""
@@ -1648,12 +1883,21 @@
       }
       return mins;
     }
+    function festMins(hhmm, asEnd, startHH) {
+      var mins = toMins(hhmm);
+      if (mins < 8 * 60) mins += 24 * 60;
+      if (asEnd && startHH) {
+        var s = festMins(startHH);
+        if (mins <= s) mins += 24 * 60;
+      }
+      return mins;
+    }
     function overlaps(a, b) {
       if (!a || !b || a.id === b.id) return false;
       if (!a.start || !a.end || !b.start || !b.end) return false;
       if (a.day !== b.day) return false;
-      const a0 = toMins(a.start), a1 = toMins(a.end, true, a.start);
-      const b0 = toMins(b.start), b1 = toMins(b.end, true, b.start);
+      const a0 = festMins(a.start), a1 = festMins(a.end, true, a.start);
+      const b0 = festMins(b.start), b1 = festMins(b.end, true, b.start);
       return a0 < b1 && b0 < a1;
     }
     function toast(msg) {
@@ -1666,6 +1910,49 @@
 
     function comboLabel(pri) {
       return pri === "must" ? "Must" : "Want";
+    }
+    function otherPeople() {
+      return state.people.filter(function (p) { return p.id && p.id !== state.meId; });
+    }
+    function friendMarks(id) {
+      return otherPeople().map(function (p) {
+        return { name: p.name, pri: (p.picks || {})[id] || "" };
+      }).filter(function (m) { return !!m.pri; });
+    }
+    function friendSplits(artist) {
+      if (!HAS_TIMES || !artist || !artist.start || !artist.end) return [];
+      const seen = {};
+      const out = [];
+      otherPeople().forEach(function (p) {
+        Object.keys(p.picks || {}).forEach(function (id) {
+          if (seen[p.id] || id === artist.id || !p.picks[id] || !BY_ID[id]) return;
+          if (!overlaps(artist, BY_ID[id])) return;
+          seen[p.id] = true;
+          out.push({ name: p.name, pri: p.picks[id], artist: BY_ID[id] });
+        });
+      });
+      return out;
+    }
+    function friendNoteHTML(id, tiny) {
+      const withThem = friendMarks(id);
+      const splits = friendSplits(BY_ID[id]);
+      if (!withThem.length && !splits.length) return "";
+      if (tiny) {
+        const bits = withThem.map(function (m) {
+          return '<span class="sched-friend ' + m.pri + '">' + esc(m.name) + "</span>";
+        });
+        splits.forEach(function (s) {
+          bits.push('<span class="sched-friend split">' + esc(s.name) + " @ " + esc(s.artist.name) + "</span>");
+        });
+        return '<span class="sched-block-friends">' + bits.join("") + "</span>";
+      }
+      const pills = withThem.map(function (m) {
+        return '<span class="who-pill ' + m.pri + '">' + esc(m.name) + " · " + comboLabel(m.pri) + "</span>";
+      }).join("");
+      const splitPills = splits.map(function (s) {
+        return '<span class="who-pill split">' + esc(s.name) + " @ " + esc(s.artist.name) + "</span>";
+      }).join("");
+      return '<div class="cmp-who">' + pills + splitPills + "</div>";
     }
     function compareRows() {
       const crew = selectedPeople();
@@ -1741,9 +2028,15 @@
     function render() {
       conflictCache = null;
       const y = window.scrollY;
+      const schedEl = document.querySelector(".sched-scroll");
+      const sameSched = schedEl && (state.view === "hour" || state.view === "mine") && schedEl.getAttribute("data-day") === state.schedDay;
+      const schedLeft = sameSched ? schedEl.scrollLeft : 0;
+      const schedTop = sameSched ? schedEl.scrollTop : 0;
       if (state.admin && state.screen === "pick") state.screen = "compare";
       document.body.classList.toggle("screen-login", state.screen === "login");
       document.body.classList.toggle("screen-compare", state.screen === "compare");
+      document.body.classList.toggle("view-hour", state.screen === "pick" && HAS_TIMES && (state.view === "hour" || state.view === "mine"));
+      document.body.classList.toggle("view-mine", state.screen === "pick" && state.view === "mine");
       if (state.screen === "login") {
         window.scrollTo(0, 0);
         return;
@@ -1769,6 +2062,11 @@
         renderList();
       }
       window.scrollTo(0, y);
+      const schedNow = document.querySelector(".sched-scroll");
+      if (schedNow) {
+        schedNow.scrollLeft = schedLeft;
+        schedNow.scrollTop = schedTop;
+      }
     }
 
     function renderStats() {
@@ -1983,8 +2281,9 @@
         stageSel.classList.add("hidden");
       }
 
-      const views = [["az", "A–Z"], ["day", "By day"]];
-      if (HAS_TIMES) views.push(["hour", "By hour"]);
+      const views = [["az", "A-Z"], ["day", "By day"]];
+      if (HAS_TIMES) views.push(["hour", "Schedule"]);
+      views.push(["mine", "Mine"]);
       if (!HAS_TIMES && state.view === "hour") state.view = "day";
       document.getElementById("viewToggle").innerHTML = views.map(function (v) {
         return '<button class="view-btn" data-view="' + v[0] + '" aria-pressed="' + (state.view === v[0]) + '">' + v[1] + "</button>";
@@ -2032,8 +2331,195 @@
       "</article>";
     }
 
+    function hourLabel(hourNum) {
+      var hr = ((hourNum % 24) + 24) % 24;
+      var ap = hr >= 12 ? "PM" : "AM";
+      var d = hr % 12;
+      if (d === 0) d = 12;
+      return d + " " + ap;
+    }
+    function sortStages(names) {
+      return names.slice().sort(function (a, b) {
+        var ia = STAGE_ORDER.indexOf(a);
+        var ib = STAGE_ORDER.indexOf(b);
+        if (ia < 0) ia = 1000;
+        if (ib < 0) ib = 1000;
+        if (ia !== ib) return ia - ib;
+        return a.localeCompare(b);
+      });
+    }
+    function stagePalette(stage, fallback) {
+      var sl = String(stage || "").toLowerCase();
+      var i = -1;
+      if (sl.indexOf("prehistor") >= 0) i = 0;
+      else if (sl.indexOf("wompy") >= 0) i = 1;
+      else if (sl.indexOf("crater") >= 0) i = 2;
+      else if (sl.indexOf("forest") >= 0) i = 3;
+      else if (sl.indexOf("subsidia") >= 0) i = 4;
+      else if (sl.indexOf("raptor") >= 0) i = 5;
+      else if (sl.indexOf("grove") >= 0) i = 6;
+      if (i < 0) i = fallback || 0;
+      return STAGE_PALETTE[i % STAGE_PALETTE.length];
+    }
+    function renderSchedule(root, opts) {
+      var mine = !!(opts && opts.mine);
+      var q = state.query.trim().toLowerCase();
+      var daysWithTimes = DAY_ORDER.filter(function (d) {
+        return ARTISTS.some(function (a) {
+          if (a.day !== d || !a.start || !a.end) return false;
+          if (mine && !state.picks[a.id]) return false;
+          return true;
+        });
+      });
+      if (state.dayFilter !== "all") {
+        daysWithTimes = daysWithTimes.filter(function (d) { return d === state.dayFilter; });
+      }
+      if (!daysWithTimes.length) {
+        root.innerHTML = mine
+          ? '<div class="empty">No Must/Want sets with times for these filters.</div>'
+          : '<div class="empty">No set times for the current filters.</div>';
+        return;
+      }
+      if (daysWithTimes.indexOf(state.schedDay) < 0) {
+        if (state.dayFilter !== "all" && daysWithTimes.indexOf(state.dayFilter) >= 0) state.schedDay = state.dayFilter;
+        else if (daysWithTimes.indexOf("Fri") >= 0) state.schedDay = "Fri";
+        else state.schedDay = daysWithTimes[0];
+      }
+      var dayActs = ARTISTS.filter(function (a) {
+        if (a.day !== state.schedDay || !a.start || !a.end) return false;
+        if (mine && !state.picks[a.id]) return false;
+        if (q && a.name.toLowerCase().indexOf(q) === -1 && a.id.indexOf(q) === -1) return false;
+        if (HAS_STAGES && state.stageFilter !== "all" && a.stage !== state.stageFilter) return false;
+        if (mine) {
+          var pri0 = state.picks[a.id] || "";
+          if (state.priFilter === "must" && pri0 !== "must") return false;
+          if (state.priFilter === "like" && pri0 !== "like") return false;
+          if (state.priFilter === "conflict" && !conflictIdSet()[a.id]) return false;
+        }
+        return true;
+      });
+      if (!dayActs.length) {
+        root.innerHTML = mine
+          ? '<div class="empty">No Must/Want sets on this day for these filters.</div>'
+          : '<div class="empty">No set times for the current filters.</div>';
+        return;
+      }
+      var stages = sortStages(Array.from(new Set(dayActs.map(function (a) { return a.stage || "TBA"; }))));
+      var minM = Infinity, maxM = -Infinity;
+      dayActs.forEach(function (a) {
+        var s = festMins(a.start);
+        var e = festMins(a.end, true, a.start);
+        if (s < minM) minM = s;
+        if (e > maxM) maxM = e;
+      });
+      var startHour = Math.floor(minM / 60);
+      var endHour = Math.ceil(maxM / 60);
+      if (endHour <= startHour) endHour = startHour + 1;
+      var totalPx = (endHour - startHour) * PX_PER_HOUR;
+      var startM = startHour * 60;
+      var clash = conflictIdSet();
+      var dimIf = state.priFilter === "must" || state.priFilter === "like" || state.priFilter === "conflict";
+      var dayTabs = '<div class="sched-days">' + daysWithTimes.map(function (d) {
+        return '<button type="button" class="chip" data-day="' + d + '" data-sched-day="' + d + '" aria-pressed="' + (state.schedDay === d) + '">' + DAYS[d].label + "</button>";
+      }).join("") + "</div>";
+      var hours = "";
+      var hourLines = "";
+      for (var h = startHour; h <= endHour; h++) {
+        var top = (h - startHour) * PX_PER_HOUR;
+        hours += '<div class="sched-hour" style="top:' + top + 'px"></div>';
+        hourLines += '<div class="sched-hour" style="top:' + top + 'px"></div>';
+        if (h < endHour) hours += '<div class="sched-hour-label" style="top:' + top + 'px">' + hourLabel(h) + "</div>";
+      }
+      var gutter = '<div class="sched-gutter"><div class="sched-head">&nbsp;</div><div class="sched-track" style="height:' + totalPx + 'px">' + hours + "</div></div>";
+      var cols = stages.map(function (stage, si) {
+        var pal = stagePalette(stage, si);
+        var blocks = dayActs.filter(function (a) { return (a.stage || "TBA") === stage; }).map(function (a) {
+          var s = festMins(a.start) - startM;
+          var e = festMins(a.end, true, a.start) - startM;
+          if (e <= s) e = s + 30;
+          var top = (s / 60) * PX_PER_HOUR;
+          var notes = mine ? friendNoteHTML(a.id, true) : "";
+          var ht = Math.max(((e - s) / 60) * PX_PER_HOUR - 3, notes ? 42 : 28);
+          var pri = state.picks[a.id] || "";
+          var cls = "sched-block";
+          if (pri === "must") cls += " is-must";
+          else if (pri === "like") cls += " is-like";
+          if (clash[a.id]) cls += " is-conflict";
+          if (!mine && dimIf) {
+            var keep = (state.priFilter === "must" && pri === "must") ||
+              (state.priFilter === "like" && pri === "like") ||
+              (state.priFilter === "conflict" && clash[a.id]);
+            if (!keep) cls += " dim";
+          }
+          return '<div class="' + cls + '" data-sched-id="' + a.id + '" style="top:' + top + "px;height:" + ht + "px;background:" + pal.bg + ";color:" + pal.fg + '">' +
+            '<span class="sched-block-name">' + esc(a.name) + "</span>" +
+            '<span class="sched-block-time">' + esc(fmtTime(a.start) + " - " + fmtTime(a.end)) + "</span>" +
+            notes +
+          "</div>";
+        }).join("");
+        return '<div class="sched-col"><div class="sched-head" style="background:' + pal.bg + ";color:" + pal.fg + '">' + esc(stage) +
+          '</div><div class="sched-track" style="height:' + totalPx + 'px">' + hourLines + blocks + "</div></div>";
+      }).join("");
+      var preview = PREVIEW_TIMES ? '<div class="sched-preview">Preview layout only. These times and stages are not official 2026 set times.</div>' : "";
+      var hint = mine
+        ? '<p class="sched-hint">Your Must and Want sets. Names on a block are friends going too. Red names are a friend at a different overlapping set.</p>'
+        : '<p class="sched-hint">Tap a set to cycle Must / Want. Green ring is Must, blue is Want, red is an overlap.</p>';
+      root.innerHTML = preview + dayTabs + hint + '<div class="sched-scroll" data-day="' + state.schedDay + '"><div class="sched-board">' + gutter + cols + "</div></div>";
+    }
+
+    function mineRowHTML(a) {
+      const pri = state.picks[a.id] || "";
+      const time = (a.start && a.end) ? (fmtTime(a.start) + "-" + fmtTime(a.end)) : "";
+      const clash = HAS_TIMES && conflictIdSet()[a.id];
+      const friends = friendNoteHTML(a.id, false);
+      return '<article class="cmp-row day-' + a.day + (pri === "must" ? " is-must" : " is-like") + (clash ? " is-conflict" : "") + '">' +
+        '<div class="cmp-head">' +
+          '<p class="artist-name">' + esc(a.name) + "</p>" +
+          '<span class="tag">' + comboLabel(pri) + "</span>" +
+          (a.stage ? '<span class="tag">' + esc(a.stage) + "</span>" : "") +
+          (time ? '<span class="tag">' + time + "</span>" : "") +
+          conflictTagsFor(a.id) +
+        "</div>" +
+        friends +
+      "</article>";
+    }
+
+    function renderMine(root) {
+      const picked = ARTISTS.filter(function (a) {
+        if (!state.picks[a.id]) return false;
+        return artistMatches(a);
+      });
+      if (!picked.length) {
+        root.innerHTML = '<div class="empty">Mark Must or Want on the lineup, then your schedule shows up here. Friend names appear when someone else picked the same DJ.</div>';
+        return;
+      }
+      if (HAS_TIMES && picked.some(function (a) { return a.start && a.end; })) {
+        renderSchedule(root, { mine: true });
+        return;
+      }
+      root.innerHTML = DAY_ORDER.map(function (day) {
+        const group = picked.filter(function (a) { return a.day === day; })
+          .sort(function (a, b) {
+            if (a.start && b.start && a.start !== b.start) return festMins(a.start) - festMins(b.start);
+            return a.name.localeCompare(b.name, "en", { sensitivity: "base" });
+          });
+        if (!group.length) return "";
+        const d = DAYS[day];
+        return '<section class="day-block day-' + day + '"><h3>' + d.label + " <span>" + d.date + (d.early ? " · Early Entry" : "") + "</span></h3>" +
+          '<div class="cmp-list">' + group.map(mineRowHTML).join("") + "</div></section>";
+      }).join("");
+    }
+
     function renderList() {
       const root = document.getElementById("listRoot");
+      if (state.view === "mine") {
+        renderMine(root);
+        return;
+      }
+      if (state.view === "hour" && HAS_TIMES) {
+        renderSchedule(root);
+        return;
+      }
       const matched = ARTISTS.filter(artistMatches);
       if (!matched.length) {
         root.innerHTML = '<div class="empty">No artists match those filters.</div>';
@@ -2048,30 +2534,6 @@
           return '<section class="day-block day-' + day + '"><h3>' + d.label + " <span>" + d.date + (d.early ? " · Early Entry" : "") + "</span></h3>" +
             '<div class="list">' + group.map(cardHTML).join("") + "</div></section>";
         }).join("");
-        return;
-      }
-      if (state.view === "hour" && HAS_TIMES) {
-        const timed = matched.filter(function (a) { return a.start; })
-          .sort(function (a, b) {
-            const dd = DAY_ORDER.indexOf(a.day) - DAY_ORDER.indexOf(b.day);
-            if (dd) return dd;
-            return toMins(a.start) - toMins(b.start);
-          });
-        const untimed = matched.filter(function (a) { return !a.start; });
-        let html = "";
-        let lastKey = "";
-        timed.forEach(function (a) {
-          const key = a.day + "|" + a.start;
-          if (key !== lastKey) {
-            html += '<div class="hour-slot">' + DAYS[a.day].label + " · " + fmtTime(a.start) + (a.stage ? " · " + esc(a.stage) : "") + "</div>";
-            lastKey = key;
-          }
-          html += cardHTML(a);
-        });
-        if (untimed.length) {
-          html += '<div class="hour-slot">No set time yet</div>' + untimed.map(cardHTML).join("");
-        }
-        root.innerHTML = '<div class="list hour">' + html + "</div>";
         return;
       }
       const az = matched.slice().sort(function (a, b) { return a.name.localeCompare(b.name, "en", { sensitivity: "base" }); });
@@ -2110,12 +2572,23 @@
     }
 
     /* ---------- actions ---------- */
-    function togglePick(id, pri) {
-      if (state.picks[id] === pri) delete state.picks[id];
-      else state.picks[id] = pri;
+    function persistPicks() {
       savePicks();
       if (me() && me().owned) { me().picks = state.picks; saveRoster(); }
       queueSave();
+    }
+    function togglePick(id, pri) {
+      if (state.picks[id] === pri) delete state.picks[id];
+      else state.picks[id] = pri;
+      persistPicks();
+      render();
+    }
+    function cycleSchedPick(id) {
+      const cur = state.picks[id] || "";
+      if (cur === "must") state.picks[id] = "like";
+      else if (cur === "like") delete state.picks[id];
+      else state.picks[id] = "must";
+      persistPicks();
       render();
     }
     function setNote(id, val) {
@@ -2369,16 +2842,30 @@
     });
     document.getElementById("dayChips").addEventListener("click", function (e) {
       const b = e.target.closest("[data-day]"); if (!b) return;
-      state.dayFilter = b.getAttribute("data-day"); render();
+      state.dayFilter = b.getAttribute("data-day");
+      if (state.dayFilter !== "all") state.schedDay = state.dayFilter;
+      render();
     });
     document.getElementById("viewToggle").addEventListener("click", function (e) {
       const b = e.target.closest("[data-view]"); if (!b) return;
       state.view = b.getAttribute("data-view"); render();
+      if (state.view === "hour" || (state.view === "mine" && HAS_TIMES)) window.scrollTo(0, 0);
     });
     document.getElementById("stageFilter").addEventListener("change", function (e) {
       state.stageFilter = e.target.value; render();
     });
     document.getElementById("listRoot").addEventListener("click", function (e) {
+      const dayBtn = e.target.closest("[data-sched-day]");
+      if (dayBtn) {
+        state.schedDay = dayBtn.getAttribute("data-sched-day");
+        renderList();
+        return;
+      }
+      const block = e.target.closest("[data-sched-id]");
+      if (block) {
+        cycleSchedPick(block.getAttribute("data-sched-id"));
+        return;
+      }
       const noteBtn = e.target.closest("[data-note-toggle]");
       if (noteBtn) {
         const card = noteBtn.closest(".card");
@@ -2413,6 +2900,27 @@
     });
     window.addEventListener("hashchange", bootShare);
 
+    function seedPreviewFriends() {
+      if (!PREVIEW_TIMES) return;
+      var dave = {}, sam = {};
+      var two = ARTISTS.filter(function (a) { return a.day === "Fri" && a.start === "14:00"; });
+      var three = ARTISTS.filter(function (a) { return a.day === "Fri" && a.start === "15:00"; });
+      if (two[0]) dave[two[0].id] = "must";
+      if (three[0]) dave[three[0].id] = "like";
+      if (two[1]) sam[two[1].id] = "like";
+      if (!Object.keys(dave).length) return;
+      var have = {};
+      state.people.forEach(function (p) { have[p.id] = true; });
+      if (!have["preview-dave"]) {
+        state.people.push({ id: "preview-dave", name: "Dave", picks: dave, notes: {}, owned: false });
+      }
+      if (!have["preview-sam"] && Object.keys(sam).length) {
+        state.people.push({ id: "preview-sam", name: "Sam", picks: sam, notes: {}, owned: false });
+      }
+      state.on["preview-dave"] = true;
+      state.on["preview-sam"] = true;
+    }
+
     function bootShare() {
       migratePeople();
       const sessionName = localStorage.getItem(LS.session) || "";
@@ -2427,6 +2935,14 @@
             saveScreen();
             render();
           });
+        }
+        if (PREVIEW_TIMES && !sessionName) {
+          state.screen = "pick";
+          state.name = "Preview";
+          state.view = "hour";
+          seedPreviewFriends();
+          render();
+          return;
         }
         if (sessionName && pin) {
           return api("login", { username: sessionName, pin: pin }).then(function (res) {
