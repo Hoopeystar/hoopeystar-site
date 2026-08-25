@@ -1035,11 +1035,22 @@ body{
 }
 
 /* each slide image */
+.carousel-track > a{
+  width:100%;
+  flex:0 0 100%;
+  display:block;
+  min-width:0;
+}
+
 .carousel-track img{
   width:100%;
   flex:0 0 100%;
   display:block;
   height:auto;
+}
+
+.carousel-track > a img{
+  flex:none;
 }
 
 /* --- Optional: overlay caption inside the viewport --- */
@@ -1257,7 +1268,10 @@ textarea:focus-visible {
 .project-card:hover .project-carousel img { transform: none; }
 .project-carousel, .project-carousel .carousel-viewport, .project-carousel .carousel-track { width: 100%; height: 100%; }
 .project-carousel .carousel-viewport { border: 0; border-radius: 0; }
+.project-carousel .carousel-track > a,
 .project-carousel .carousel-track img { height: 100%; }
+.project-media-link,
+.project-media .carousel-track > a { display: block; width: 100%; height: 100%; color: inherit; text-decoration: none; }
 .project-carousel .carousel-btn { top: 50%; border-radius: 50%; }
 .project-carousel .carousel-btn.prev { left: 1rem; }
 .project-carousel .carousel-btn.next { right: 1rem; }

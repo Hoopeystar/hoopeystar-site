@@ -94,16 +94,28 @@
     // Swipe support
     if (viewport) {
       let startX = null;
+      let swiped = false;
 
       viewport.addEventListener('pointerdown', (e) => {
         startX = e.clientX;
+        swiped = false;
       });
 
       viewport.addEventListener('pointerup', (e) => {
         if (startX === null) return;
         const dx = e.clientX - startX;
-        if (Math.abs(dx) > 40) goTo(index + (dx < 0 ? 1 : -1));
+        if (Math.abs(dx) > 40) {
+          goTo(index + (dx < 0 ? 1 : -1));
+          swiped = true;
+        }
         startX = null;
+      });
+
+      viewport.addEventListener('click', (e) => {
+        if (!swiped) return;
+        e.preventDefault();
+        e.stopPropagation();
+        swiped = false;
       });
     }
 
