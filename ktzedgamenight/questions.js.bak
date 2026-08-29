@@ -9,7 +9,7 @@
 window.KTZED_QUESTIONS = [
   {
     "id": 1,
-    "_note": "Recategorization completed. Questions are sorted into the planned categories below.",
+    "_note": "TODO: Eventually sort all questions into the planned categories below.",
     "_planned_categories": [
       "Bodycams and Police",
       "True Crime",
@@ -379,7 +379,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 27,
-    "category": "True Crime",
+    "category": "Technology",
     "question": "What technology was used to finally identify the Golden State Killer after decades on the run?",
     "type": "mc",
     "options": [
@@ -589,7 +589,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 42,
-    "category": "True Crime",
+    "category": "Food & Drink",
     "question": "Investigators cracked the Grim Sleeper cold case in Los Angeles after obtaining Lonnie Franklin Jr.'s DNA through what unconventional method?",
     "type": "mc",
     "options": [
@@ -671,7 +671,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 48,
-    "category": "Pop Culture",
+    "category": "Bodycams and Police",
     "question": "Which platform made 'Live PD' — a real-time police ride-along show — famous before it was cancelled?",
     "type": "mc",
     "options": [
@@ -699,7 +699,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 50,
-    "category": "True Crime",
+    "category": "Bodycams and Police",
     "question": "True or False: The HBO documentary 'The Jinx' led to Robert Durst's arrest.",
     "type": "tf",
     "options": [
@@ -711,7 +711,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 51,
-    "category": "True Crime",
+    "category": "Pop Culture",
     "question": "Which true crime case inspired the podcast 'Dr. Death'?",
     "type": "mc",
     "options": [
@@ -823,7 +823,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 59,
-    "category": "General Knowledge",
+    "category": "Science",
     "question": "A group of flamingos is called what?",
     "type": "mc",
     "options": [
@@ -893,7 +893,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 64,
-    "category": "History",
+    "category": "General Knowledge",
     "question": "The Black Death of the 14th century killed an estimated what percentage of Europe's population?",
     "type": "mc",
     "options": [
@@ -991,7 +991,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 71,
-    "category": "General Knowledge",
+    "category": "Science",
     "question": "What is alektorophobia?",
     "type": "mc",
     "options": [
@@ -1187,7 +1187,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 85,
-    "category": "General Knowledge",
+    "category": "Geography",
     "question": "The Capybara's name is derived from the Guaraní language. What does it mean?",
     "type": "mc",
     "options": [
@@ -1201,7 +1201,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 86,
-    "category": "Science",
+    "category": "Food & Drink",
     "question": "Butterflies taste their food through this organ.",
     "type": "mc",
     "options": [
@@ -1215,7 +1215,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 87,
-    "category": "Science",
+    "category": "History",
     "question": "What are cheetahs that have mutated patterning that creates blotches instead of spots called?",
     "type": "mc",
     "options": [
@@ -1271,7 +1271,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 91,
-    "category": "Science",
+    "category": "True Crime",
     "question": "Surprisingly, the number one killer among animals with about 2–3 million human fatalities a year is a tiny insect. Which is it?",
     "type": "mc",
     "options": [
@@ -1299,7 +1299,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 93,
-    "category": "General Knowledge",
+    "category": "Science",
     "question": "What is a group of hyenas called?",
     "type": "mc",
     "options": [
@@ -1355,7 +1355,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 97,
-    "category": "Science",
+    "category": "True Crime",
     "question": "What creature is considered the most venomous on the planet?",
     "type": "mc",
     "options": [
@@ -1383,7 +1383,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 99,
-    "category": "General Knowledge",
+    "category": "Science",
     "question": "What is a group of jellyfish called?",
     "type": "mc",
     "options": [
@@ -1411,7 +1411,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 101,
-    "category": "Science",
+    "category": "Food & Drink",
     "question": "Approximately how many nights in a row without finding blood will cause a vampire bat to die?",
     "type": "mc",
     "options": [
@@ -1481,7 +1481,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 106,
-    "category": "Science",
+    "category": "Food & Drink",
     "question": "Hummingbirds are the only birds on the planet able to do what?",
     "type": "mc",
     "options": [
@@ -1663,7 +1663,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 119,
-    "category": "General Knowledge",
+    "category": "Science",
     "question": "What status does the bat have in Chinese folklore and tradition?",
     "type": "mc",
     "options": [
@@ -1691,7 +1691,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 121,
-    "category": "General Knowledge",
+    "category": "True Crime",
     "question": "What term is mainly used in literature to refer to a group of crows?",
     "type": "mc",
     "options": [
@@ -1747,7 +1747,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 125,
-    "category": "Science",
+    "category": "Geography",
     "question": "How do dolphins generally sleep in the wild?",
     "type": "mc",
     "options": [
@@ -1760,7 +1760,7 @@ window.KTZED_QUESTIONS = [
     "fun_fact": null
   },
   {
-    "category": "General Knowledge",
+    "category": "Politics",
     "question": "What is the collective noun for a group of owls?",
     "options": [
       "A descent",
@@ -1830,7 +1830,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "What happens to a goldfish kept in the dark?",
     "options": [
       "It turns white",
@@ -1858,7 +1858,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "Which group of mammals lays eggs?",
     "options": [
       "Rodentia",
@@ -1872,7 +1872,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "What is the key difference between New World monkeys and Old World monkeys?",
     "options": [
       "Old World monkeys lack sitting pads",
@@ -1914,7 +1914,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "General Knowledge",
+    "category": "Music",
     "question": "What is a group of bears called?",
     "options": [
       "a family",
@@ -1956,7 +1956,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "History",
+    "category": "General Knowledge",
     "question": "How much did the United States pay Russia for Alaska?",
     "options": [
       "$72 million",
@@ -1984,7 +1984,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Technology",
+    "category": "General Knowledge",
     "question": "Who first documented the idea of a helicopter?",
     "options": [
       "Sikorsky",
@@ -1998,7 +1998,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Technology",
+    "category": "General Knowledge",
     "question": "What was the first product to have a barcode?",
     "options": [
       "Scotts Tissue",
@@ -2026,7 +2026,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Technology",
+    "category": "General Knowledge",
     "question": "What device was invented in the early 1910s by American race-car driver Ray Harroun?",
     "options": [
       "The internal combustion engine",
@@ -2040,7 +2040,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Pop Culture",
+    "category": "General Knowledge",
     "question": "The name Nintendo roughly translates to what phrase in Japanese?",
     "options": [
       "Toshiba",
@@ -2054,7 +2054,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Pop Culture",
+    "category": "General Knowledge",
     "question": "The word 'nerd' first appeared in a book by what famous author?",
     "options": [
       "Lewis Carroll",
@@ -2068,7 +2068,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Technology",
+    "category": "Science",
     "question": "Norwegian inventor Johan Vaaler received a German patent in 1899 for inventing what common office item?",
     "options": [
       "The dry cell battery",
@@ -2096,7 +2096,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "Approximately how long does it take for light from the Sun to reach Earth?",
     "options": [
       "About 37 minutes",
@@ -2124,7 +2124,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Geography",
+    "category": "General Knowledge",
     "question": "What is the largest active volcano on Earth?",
     "options": [
       "Mount Rainier",
@@ -2152,7 +2152,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Music",
+    "category": "General Knowledge",
     "question": "Who invented the armonica, a musical instrument made of spinning tuned glass bowls?",
     "options": [
       "Sir Edward Elgar",
@@ -2180,7 +2180,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Technology",
+    "category": "General Knowledge",
     "question": "What was the great pencil innovation of 1858?",
     "options": [
       "Sears-Roebuck began selling pencils",
@@ -2194,7 +2194,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "In 1867, Alfred Nobel's first blasting cap used what primary explosive to detonate dynamite?",
     "options": [
       "Lead azide",
@@ -2208,7 +2208,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Technology",
+    "category": "General Knowledge",
     "question": "What does Moore's Law state about integrated circuits?",
     "options": [
       "Progress will slow in the near future",
@@ -2250,7 +2250,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "How long does it take for moonlight to reach the Earth?",
     "options": [
       "About 8 minutes",
@@ -2264,7 +2264,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Technology",
+    "category": "True Crime",
     "question": "Who invented the concept of an ATM in the late 1930s and persuaded Citicorp to give it a trial?",
     "options": [
       "James Goodfellow",
@@ -2278,7 +2278,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "On which body in the Solar System is a day longer than a year?",
     "options": [
       "At the North and South Poles",
@@ -2292,7 +2292,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Technology",
+    "category": "General Knowledge",
     "question": "Who invented the parking meter?",
     "options": [
       "Garrett Morgan",
@@ -2334,7 +2334,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "Who was the first person to discover that you can tell the age of a tree by counting its rings?",
     "options": [
       "Aristotle",
@@ -2348,7 +2348,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Technology",
+    "category": "General Knowledge",
     "question": "Who invented the shopping cart?",
     "options": [
       "Philo Farnsworth",
@@ -2362,7 +2362,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Pop Culture",
+    "category": "Science",
     "question": "What did French engineer Louis Réard invent in 1946?",
     "options": [
       "The first complete fossil of a triceratops",
@@ -2376,7 +2376,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Technology",
+    "category": "General Knowledge",
     "question": "When was the first fountain pen invented?",
     "options": [
       "1902",
@@ -2390,7 +2390,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Technology",
+    "category": "Alcohol",
     "question": "What is Scottish Sir James Dewar famous for?",
     "options": [
       "Writing the screenplay to The 39 Steps",
@@ -2404,7 +2404,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Technology",
+    "category": "General Knowledge",
     "question": "What was invented by Levi Spear Parmly?",
     "options": [
       "The jet engine",
@@ -2418,7 +2418,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Technology",
+    "category": "General Knowledge",
     "question": "When was the first stick antiperspirant patented?",
     "options": [
       "1942",
@@ -2432,7 +2432,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Technology",
+    "category": "Politics",
     "question": "Alexander Graham Bell is known for the telephone. What other device did he invent, first used after the assassination of President Garfield?",
     "options": [
       "The phonograph",
@@ -2446,7 +2446,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Technology",
+    "category": "General Knowledge",
     "question": "What simple but transformative invention was patented in 1874 by farmer Joseph Glidden?",
     "options": [
       "The scanning disk",
@@ -2474,7 +2474,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "History",
+    "category": "General Knowledge",
     "question": "Who was the first person to use the term 'atomic bomb'?",
     "options": [
       "Robert Oppenheimer",
@@ -2502,7 +2502,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Technology",
+    "category": "General Knowledge",
     "question": "What did Erik Rotheim invent in 1926?",
     "options": [
       "Saccharin",
@@ -2516,7 +2516,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Food & Drink",
+    "category": "General Knowledge",
     "question": "When did Walter Diemer accidentally invent bubble gum?",
     "options": [
       "1955",
@@ -2530,7 +2530,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Technology",
+    "category": "Firearms",
     "question": "What did Jethro Tull invent in 1701?",
     "options": [
       "The combine machine",
@@ -2572,7 +2572,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "What anatomical term defines the midline groove between the upper lip and the nose?",
     "options": [
       "Tachyon",
@@ -2628,7 +2628,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Politics",
+    "category": "General Knowledge",
     "question": "What term is derived from a Latin word meaning 'rods bundled around an axe'?",
     "options": [
       "Despot",
@@ -2712,7 +2712,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "What is zymurgy?",
     "options": [
       "Zonary",
@@ -2768,7 +2768,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "What term refers to the science of kissing?",
     "options": [
       "Palilogy",
@@ -2964,7 +2964,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "History",
+    "category": "Geography",
     "question": "Which of these is an eponym meaning 'a traitor to his country'?",
     "options": [
       "A McCarthy",
@@ -2978,7 +2978,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "History",
+    "category": "Alcohol",
     "question": "A simple but powerful bomb made from a gas-filled bottle was named after a Soviet politician. What is it called?",
     "options": [
       "A Khrushchev cocktail",
@@ -2992,7 +2992,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "History",
+    "category": "True Crime",
     "question": "The word 'boycott' comes from 19th century Ireland. What was Charles Boycott?",
     "options": [
       "A tax collector",
@@ -3006,7 +3006,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "History",
+    "category": "General Knowledge",
     "question": "The word 'nicotine' derives from the name of a French Ambassador to Portugal. What did he introduce to France?",
     "options": [
       "Leotard",
@@ -3048,7 +3048,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "What is the psychological term for the tip-of-the-tongue phenomenon, knowing a word but being unable to recall it?",
     "options": [
       "Anomia",
@@ -3076,7 +3076,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "History",
+    "category": "Alcohol",
     "question": "The word 'berserk,' referring to Norse warriors, means what in Old Norse?",
     "options": [
       "Warriors' Wrath",
@@ -3118,7 +3118,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "General Knowledge",
+    "category": "Alcohol",
     "question": "The color name 'sangria' comes from the Spanish word 'sangre.' What does it mean?",
     "options": [
       "Wine",
@@ -3132,7 +3132,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "General Knowledge",
+    "category": "Geography",
     "question": "What does the name 'Koh-i-Noor' mean in Persian?",
     "options": [
       "Eye of the sea",
@@ -3216,7 +3216,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Technology",
+    "category": "General Knowledge",
     "question": "The phrase 'the real McCoy' refers to a man who invented what?",
     "options": [
       "The train throttle",
@@ -3314,7 +3314,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Politics",
+    "category": "General Knowledge",
     "question": "What did William Harrison, Zachary Taylor, Franklin Roosevelt and Warren Harding all have in common?",
     "options": [
       "They were all democrats",
@@ -3440,7 +3440,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "History",
+    "category": "General Knowledge",
     "question": "What is the last name of the six brothers Carlo, Bindo, Alfieri, Ettore, Mario and Ernesto, all of whom were in the automobile business?",
     "options": [
       "Lamborghini",
@@ -3496,7 +3496,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "History",
+    "category": "General Knowledge",
     "question": "John Howard Lawson, Dalton Trumbo and eight others made speeches denouncing McCarthyism. By what group name were they known?",
     "options": [
       "The ten spies of the CIA",
@@ -3552,7 +3552,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "True Crime",
+    "category": "General Knowledge",
     "question": "On what day in history did a massacre of mob members outside a Chicago warehouse become famous for ghostly screams being heard at night?",
     "options": [
       "Christmas Day",
@@ -3566,7 +3566,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "History",
+    "category": "General Knowledge",
     "question": "When the first Apollo astronauts landed on the moon, what memento did they leave behind?",
     "options": [
       "A UN flag",
@@ -3580,7 +3580,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "History",
+    "category": "Alcohol",
     "question": "On January 15, 1919, 21 Bostonians drowned, but not in water. What did they drown in?",
     "options": [
       "They had influenza",
@@ -3608,7 +3608,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Politics",
+    "category": "General Knowledge",
     "question": "In which year did the USA have three different Presidents?",
     "options": [
       "1864",
@@ -3622,7 +3622,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "History",
+    "category": "General Knowledge",
     "question": "Why was there a mutiny on the Russian battleship Potemkin?",
     "options": [
       "The sailors favored the Communists",
@@ -3636,7 +3636,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "History",
+    "category": "Bodycams and Police",
     "question": "When anti-war protesters descended on the 1968 Democratic National Convention, which mayor deployed 12,000 police against them?",
     "options": [
       "Jerry Brown",
@@ -3664,7 +3664,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "True Crime",
+    "category": "Politics",
     "question": "Gangster Al Capone was known as Scarface. What was his other nickname?",
     "options": [
       "Loverboy",
@@ -3720,7 +3720,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Geography",
+    "category": "General Knowledge",
     "question": "What was Thailand called before it was renamed Thailand?",
     "options": [
       "Singapore",
@@ -3734,7 +3734,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "History",
+    "category": "General Knowledge",
     "question": "What led to the capture of master Soviet spy Rudolph Abel by the FBI?",
     "options": [
       "Another spy confessed",
@@ -3748,7 +3748,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "History",
+    "category": "General Knowledge",
     "question": "US pilot Francis Gary Powers, shot down over the Soviet Union, was eventually traded for which Soviet spy?",
     "options": [
       "Paul Konerko",
@@ -3762,7 +3762,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Geography",
+    "category": "Politics",
     "question": "On the Canadian $2 bill, what flag flies over the Parliament building?",
     "options": [
       "British Flag",
@@ -3818,7 +3818,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "History",
+    "category": "General Knowledge",
     "question": "What was Christine Jorgensen most famous for?",
     "options": [
       "Voice-over acting",
@@ -3832,7 +3832,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Technology",
+    "category": "General Knowledge",
     "question": "In 1879, how did Procter & Gamble accidentally create a new brand of soap?",
     "options": [
       "A soap maker tried to make shampoo",
@@ -3888,7 +3888,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "What was the name of the man who had hiccups for nearly 69 years?",
     "options": [
       "Carl Rexfort",
@@ -3916,7 +3916,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "History",
+    "category": "General Knowledge",
     "question": "What was MKULTRA?",
     "options": [
       "The code name for Germany's invasion of Poland",
@@ -3958,7 +3958,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "History",
+    "category": "General Knowledge",
     "question": "Clark Gable served in the Army Air Corps in WWII. Who signed his discharge papers?",
     "options": [
       "Hap Arnold",
@@ -3972,7 +3972,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Technology",
+    "category": "Geography",
     "question": "What was the first credit card?",
     "options": [
       "Kresge's Green Card",
@@ -4056,7 +4056,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "History",
+    "category": "General Knowledge",
     "question": "D-Day was June 6, 1944. What was the password used by the Allied Forces that day?",
     "options": [
       "Overlord",
@@ -4098,7 +4098,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Music",
+    "category": "General Knowledge",
     "question": "What was Freddie Mercury's real name?",
     "options": [
       "Frederick Von Messner",
@@ -4112,7 +4112,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Sports",
+    "category": "General Knowledge",
     "question": "In 2005, Danny Way became the first person to do what at the Great Wall of China?",
     "options": [
       "Eject from an SST",
@@ -4126,7 +4126,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Pop Culture",
+    "category": "General Knowledge",
     "question": "What company is generally regarded as the largest toy distributor in the world?",
     "options": [
       "Mattel",
@@ -4140,7 +4140,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Music",
+    "category": "General Knowledge",
     "question": "Which was the first jazz single to sell one million copies?",
     "options": [
       "Laura",
@@ -4154,7 +4154,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Pop Culture",
+    "category": "History",
     "question": "What was the original name of the Broadway musical West Side Story?",
     "options": [
       "War and Love",
@@ -4252,7 +4252,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Music",
+    "category": "General Knowledge",
     "question": "What was Sting's real name?",
     "options": [
       "Bono's",
@@ -4280,7 +4280,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Music",
+    "category": "Sports",
     "question": "Which Hall of Fame is located in Cleveland, Ohio?",
     "options": [
       "Hockey",
@@ -4336,7 +4336,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Food & Drink",
+    "category": "Music",
     "question": "Where did the word 'Melba' come from, as in Melba toast and Peach Melba?",
     "options": [
       "The wife of the owner of Cunard Cruise Line",
@@ -4350,7 +4350,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Sports",
+    "category": "General Knowledge",
     "question": "How old was Bobby Fischer when he won the US chess championship in 1958?",
     "options": [
       "12",
@@ -4364,7 +4364,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Food & Drink",
+    "category": "General Knowledge",
     "question": "The Mars family named one of their most successful products after their horse. What was the horse's name?",
     "options": [
       "Bounty",
@@ -4392,7 +4392,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Pop Culture",
+    "category": "General Knowledge",
     "question": "According to a popular 1960s slogan, where would you 'meet the nicest people'?",
     "options": [
       "At the AMC theaters",
@@ -4448,7 +4448,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Technology",
+    "category": "General Knowledge",
     "question": "In what year did Samuel Morse come up with Morse Code?",
     "options": [
       "1848",
@@ -4476,7 +4476,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Food & Drink",
+    "category": "General Knowledge",
     "question": "In Yatesville, Georgia, there is an annual festival called the Chitlin Hoedown. What exactly are chitlins?",
     "options": [
       "Bull testicles",
@@ -4490,7 +4490,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Food & Drink",
+    "category": "General Knowledge",
     "question": "Approximately how much whole milk does it take to make one gallon of ice cream?",
     "options": [
       "10 pounds",
@@ -4518,7 +4518,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Music",
+    "category": "General Knowledge",
     "question": "Which one of the following is often referred to as 'The Godfather of Hip Hop'?",
     "options": [
       "Grandmaster Funk",
@@ -4532,7 +4532,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Music",
+    "category": "Technology",
     "question": "What Beatles single was the first released on their new Apple label?",
     "options": [
       "Let It Be",
@@ -4560,7 +4560,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "History",
+    "category": "Geography",
     "question": "Who was the Zulu chieftain who transformed a small clan into a nation in 1816?",
     "options": [
       "Dingiswayo",
@@ -4574,7 +4574,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Pop Culture",
+    "category": "General Knowledge",
     "question": "Matt Groening, creator of The Simpsons, grew up on a street named what?",
     "options": [
       "Main Street",
@@ -4588,7 +4588,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "What is the strongest muscle in the body relative to its size?",
     "options": [
       "Deltoids",
@@ -4616,7 +4616,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Pop Culture",
+    "category": "General Knowledge",
     "question": "Who was on the cover of the first issue of People magazine?",
     "options": [
       "Elvis Presley",
@@ -4658,7 +4658,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Sports",
+    "category": "General Knowledge",
     "question": "This great boxer, known as the 'Galveston Giant,' was the world heavyweight champion from 1908-1915. Who was he?",
     "options": [
       "Jim Jeffries",
@@ -4700,7 +4700,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Pop Culture",
+    "category": "General Knowledge",
     "question": "In 2006, which Broadway show became the longest-running in history?",
     "options": [
       "The Fantasticks",
@@ -4714,7 +4714,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Pop Culture",
+    "category": "General Knowledge",
     "question": "William Moulton Marston invented the polygraph. What fictional character did he also create?",
     "options": [
       "The Thematic Apperception Test",
@@ -4742,7 +4742,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Pop Culture",
+    "category": "General Knowledge",
     "question": "The first painting to sell for more than $100 million was by which artist?",
     "options": [
       "Degas",
@@ -4756,7 +4756,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Music",
+    "category": "General Knowledge",
     "question": "'Born to Run' by Springsteen was written as a love letter to a girl named what?",
     "options": [
       "The Letter",
@@ -4784,7 +4784,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Geography",
+    "category": "General Knowledge",
     "question": "What is the deepest spot in the world's oceans?",
     "options": [
       "Kuril-Kamchatka Trench",
@@ -4798,7 +4798,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Science",
+    "category": "Geography",
     "question": "What is the fastest ocean animal?",
     "options": [
       "Swordfish",
@@ -4812,7 +4812,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "Who performed the first space walk on March 18, 1965?",
     "options": [
       "Glenn",
@@ -4826,7 +4826,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Music",
+    "category": "General Knowledge",
     "question": "Who sang on the first million-selling record?",
     "options": [
       "Thomas Alva Edison",
@@ -4840,7 +4840,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "General Knowledge",
+    "category": "True Crime",
     "question": "Who wrote 'The Murders in the Rue Morgue,' considered the first detective story?",
     "options": [
       "Charles Lennox",
@@ -4882,7 +4882,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Technology",
+    "category": "General Knowledge",
     "question": "Which African American invented the traffic light?",
     "options": [
       "Otis Boykin",
@@ -4896,7 +4896,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "History",
+    "category": "General Knowledge",
     "question": "Who was the first person to reach both the North and South Poles?",
     "options": [
       "Robert Falcon Scott",
@@ -4966,7 +4966,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "True Crime",
+    "category": "Science",
     "question": "Which serial murderer was nicknamed 'The Vampire of Sacramento' for drinking the blood of victims?",
     "options": [
       "Joseph Paul Franklin",
@@ -5008,7 +5008,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "History",
+    "category": "General Knowledge",
     "question": "George Washington, Thomas Jefferson and John Adams were all avid players of which game?",
     "options": [
       "Hide and seek",
@@ -5022,7 +5022,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "Approximately how fast can a sneeze travel?",
     "options": [
       "500 miles an hour",
@@ -5036,7 +5036,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "What does an average single fetus acquire at the age of three months?",
     "options": [
       "Hair",
@@ -5120,7 +5120,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Science",
+    "category": "Food & Drink",
     "question": "How many teeth do slugs have?",
     "options": [
       "2,000",
@@ -5162,7 +5162,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Music",
+    "category": "General Knowledge",
     "question": "What was the first rock group to play at New York's Carnegie Hall?",
     "options": [
       "America",
@@ -5176,7 +5176,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Music",
+    "category": "General Knowledge",
     "question": "Who was the first woman to have a gold record?",
     "options": [
       "Teresa Brewer",
@@ -5218,7 +5218,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "On December 3, 1967, South African surgeon Christiaan Barnard performed what medical first?",
     "options": [
       "The first brain operation",
@@ -5246,7 +5246,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Music",
+    "category": "General Knowledge",
     "question": "What Shakespearean comedy inspired Cole Porter's musical 'Kiss Me, Kate'?",
     "options": [
       "Measure for Measure",
@@ -5260,7 +5260,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Music",
+    "category": "Geography",
     "question": "KISS used a modified logo in one country to avoid their SS-style lightning bolts looking like Nazi insignia. Which country?",
     "options": [
       "Australia",
@@ -5288,7 +5288,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Technology",
+    "category": "General Knowledge",
     "question": "What was the first message spelled out in a neon sign?",
     "options": [
       "Eat at Joe's",
@@ -5302,7 +5302,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Pop Culture",
+    "category": "Music",
     "question": "The Muppet band Dr. Teeth and the Electric Mayhem included Sgt. Floyd Pepper, Janice, Zoot, Animal and Lips. Who was the keyboardist?",
     "options": [
       "Sgt. Floyd Pepper",
@@ -5358,7 +5358,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Pop Culture",
+    "category": "General Knowledge",
     "question": "What day is commonly called 'Black Friday' in the United States?",
     "options": [
       "The Friday after Easter",
@@ -5555,7 +5555,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 397,
-    "category": "History",
+    "category": "Geography",
     "question": "Which explorer was the first to reach the South Pole?",
     "type": "mc",
     "options": [
@@ -5639,7 +5639,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 403,
-    "category": "History",
+    "category": "Geography",
     "question": "The European Economic Community was formed on March 25, 1957. What is the founding act called?",
     "type": "mc",
     "options": [
@@ -5653,7 +5653,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 404,
-    "category": "Politics",
+    "category": "Geography",
     "question": "Which US President was born in South Carolina but represented Tennessee when he became president?",
     "type": "mc",
     "options": [
@@ -5737,7 +5737,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 410,
-    "category": "History",
+    "category": "Geography",
     "question": "What historic event occurred at the North Pole on August 3, 1958?",
     "type": "mc",
     "options": [
@@ -5751,7 +5751,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 411,
-    "category": "Science",
+    "category": "Geography",
     "question": "Few animals inhabit the North Pole. Which of these animals can never be found there?",
     "type": "mc",
     "options": [
@@ -5793,7 +5793,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 414,
-    "category": "Sports",
+    "category": "Geography",
     "question": "What is the official state sport of Maryland?",
     "type": "mc",
     "options": [
@@ -5947,7 +5947,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 425,
-    "category": "History",
+    "category": "Geography",
     "question": "Phoenicia was an ancient civilization that spread maritime trade across the Mediterranean. Where did the Phoenicians originate?",
     "type": "mc",
     "options": [
@@ -5961,7 +5961,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 426,
-    "category": "History",
+    "category": "Geography",
     "question": "Glenwood Springs, Colorado, was known for its hot springs and sanitarium. Which famous outlaw and gunslinger died of tuberculosis there?",
     "type": "mc",
     "options": [
@@ -6506,7 +6506,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "True Crime",
+    "category": "History",
     "question": "In November 1978, cult leader Jim Jones induced over 900 followers to drink cyanide-laced punch in Jonestown, Guyana. What was the name of his cult?",
     "options": [
       "The Church of the Final Journey",
@@ -6758,7 +6758,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "History",
+    "category": "Geography",
     "question": "Toussaint Louverture, a freed slave, led which uprising that established the world's first Black republic?",
     "options": [
       "Rebellion of Martinique",
@@ -6870,7 +6870,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Technology",
+    "category": "History",
     "question": "What device was invented in 1879 by James Ritty, the owner of a tavern in Dayton, Ohio?",
     "options": [
       "The electric chair",
@@ -6898,7 +6898,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Technology",
+    "category": "History",
     "question": "Sony developed Betamax, which lost the 1970s home video format war. Which company developed the rival VHS format that won?",
     "options": [
       "Panasonic",
@@ -6912,7 +6912,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Technology",
+    "category": "History",
     "question": "In 1956, Bette Nesmith Graham invented 'Mistake Out' as a correction fluid. What did it eventually become known as?",
     "options": [
       "Post-it Notes",
@@ -6926,7 +6926,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Science",
+    "category": "History",
     "question": "In 1991, Pfizer developed a drug called Sildenafil to treat angina. It was a failure for that purpose. What did it accidentally lead to?",
     "options": [
       "The development of Oxycontin",
@@ -6940,7 +6940,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Science",
+    "category": "History",
     "question": "What did Benjamin Franklin prove in 1752 by flying a kite in a storm?",
     "options": [
       "That static electricity and lightning are unrelated phenomena",
@@ -6954,7 +6954,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Science",
+    "category": "History",
     "question": "What does LASER stand for?",
     "options": [
       "Long amplitude static electric rays",
@@ -6968,7 +6968,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Technology",
+    "category": "History",
     "question": "Who actually made the first commercially practical light bulb, beating Edison to the patent in the UK?",
     "options": [
       "N. Tesla",
@@ -6982,7 +6982,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "True Crime",
+    "category": "History",
     "question": "The assassination of Bulgarian dissident Georgi Markov in 1978 became notorious for the unusual method of delivery. How was he poisoned with ricin?",
     "options": [
       "Taking ricin by mistake",
@@ -7010,7 +7010,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Science",
+    "category": "History",
     "question": "Apollo 13 was supposed to be the third moon landing. What accident forced the mission to be aborted?",
     "options": [
       "A meteoroid impact",
@@ -7024,7 +7024,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Science",
+    "category": "History",
     "question": "What was the name of the spacecraft that carried Yuri Gagarin, the first human in space, in 1961?",
     "options": [
       "Vostok 6",
@@ -7094,7 +7094,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "History",
+    "category": "Sports",
     "question": "What triggered the 1969 six-day war between El Salvador and Honduras, also called the Football War?",
     "options": [
       "Import tariffs on Honduran goods",
@@ -7136,7 +7136,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Pop Culture",
+    "category": "History",
     "question": "What year did the first Disneyland open in California?",
     "options": [
       "1949",
@@ -7150,7 +7150,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "Sports",
+    "category": "History",
     "question": "In 1954, Roger Bannister became the first person in history to do what?",
     "options": [
       "Win Nobel Prizes in three different categories",
@@ -7529,7 +7529,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 538,
-    "category": "Movies",
+    "category": "Pop Culture",
     "question": "In Pretty Woman, who played the wealthy businessman Edward Lewis opposite Julia Roberts?",
     "type": "mc",
     "options": [
@@ -7543,7 +7543,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 539,
-    "category": "Music",
+    "category": "Pop Culture",
     "question": "What was the stage name of John Simon Ritchie-Beverly, bassist of the Sex Pistols?",
     "type": "mc",
     "options": [
@@ -7557,7 +7557,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 540,
-    "category": "Music",
+    "category": "Pop Culture",
     "question": "This Nirvana frontman wrote Come as You Are, Lithium, and Heart-Shaped Box.",
     "type": "mc",
     "options": [
@@ -7613,7 +7613,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 544,
-    "category": "Movies",
+    "category": "Pop Culture",
     "question": "Who played Dr. Frank N. Furter in The Rocky Horror Picture Show?",
     "type": "mc",
     "options": [
@@ -7655,7 +7655,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 547,
-    "category": "Pop Culture",
+    "category": "Movies",
     "question": "Which Friends cast member graduated from Vassar College with a degree in Biology before becoming an actress?",
     "type": "mc",
     "options": [
@@ -7739,7 +7739,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 553,
-    "category": "Music",
+    "category": "Pop Culture",
     "question": "What famous rock frontman, born Steven Tallarico in New York in 1948, is known for his trademark scarves?",
     "type": "mc",
     "options": [
@@ -7753,7 +7753,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 554,
-    "category": "Pop Culture",
+    "category": "Movies",
     "question": "What actor won a Golden Globe for his role as Michael Scott in the U.S. version of The Office?",
     "type": "mc",
     "options": [
@@ -7795,7 +7795,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 557,
-    "category": "Pop Culture",
+    "category": "Movies",
     "question": "Tommy Lee from Mötley Crüe was married to which actress before Pamela Anderson?",
     "type": "mc",
     "options": [
@@ -7851,7 +7851,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 561,
-    "category": "Pop Culture",
+    "category": "Sports",
     "question": "What male pop star did Russian tennis player Anna Kournikova start dating in 2001?",
     "type": "mc",
     "options": [
@@ -7893,7 +7893,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 564,
-    "category": "Music",
+    "category": "Bodycams and Police",
     "question": "What rock band did Mark Knopfler co-found with his brother David in 1977?",
     "type": "mc",
     "options": [
@@ -7921,7 +7921,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 566,
-    "category": "Music",
+    "category": "Movies",
     "question": "Which actor became famous as a member of 1990s hip-hop group Marky Mark and the Funky Bunch?",
     "type": "mc",
     "options": [
@@ -8131,7 +8131,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 581,
-    "category": "Movies",
+    "category": "Pop Culture",
     "question": "France also turned this short title into 'The Young People Who Traverse Dimensions While Wearing Sunglasses'.",
     "type": "mc",
     "options": [
@@ -8145,7 +8145,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 582,
-    "category": "Movies",
+    "category": "Science",
     "question": "Another entry from France should be familiar: it's called 'Very Bad Trip'.",
     "type": "mc",
     "options": [
@@ -8159,7 +8159,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 583,
-    "category": "Movies",
+    "category": "General Knowledge",
     "question": "Argentina used a little ingenuity to change this title to 'Vaseline'.",
     "type": "mc",
     "options": [
@@ -8173,7 +8173,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 584,
-    "category": "Movies",
+    "category": "Food & Drink",
     "question": "Denmark came up with 'The Boy Who Drowned in Chocolate Sauce'. What is the real title?",
     "type": "mc",
     "options": [
@@ -8299,7 +8299,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 593,
-    "category": "Movies",
+    "category": "Firearms",
     "question": "What movie title was translated in Israel as 'The Gun Died Laughing'?",
     "type": "mc",
     "options": [
@@ -8439,7 +8439,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 603,
-    "category": "Music",
+    "category": "Technology",
     "question": "What famous band founded the Apple Records label in 1968?",
     "type": "mc",
     "options": [
@@ -8523,7 +8523,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 609,
-    "category": "Music",
+    "category": "History",
     "question": "Elton John's 'Candle in the Wind' was originally written in 1973 to honor which celebrity?",
     "type": "mc",
     "options": [
@@ -8537,7 +8537,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 610,
-    "category": "Music",
+    "category": "Geography",
     "question": "Amy Winehouse's 'Tears Dry on Their Own' samples the backing music from this 1967 Marvin Gaye and Tammi Terrell smash hit.",
     "type": "mc",
     "options": [
@@ -8621,7 +8621,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 616,
-    "category": "History",
+    "category": "General Knowledge",
     "question": "What word supposedly originated from the name of a soldier ridiculed for his excessive devotion to Napoleon?",
     "type": "mc",
     "options": [
@@ -8635,7 +8635,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 617,
-    "category": "Food & Drink",
+    "category": "General Knowledge",
     "question": "What snack was named after a British Earl so keen on gambling he refused to leave the table even to eat?",
     "type": "mc",
     "options": [
@@ -8663,7 +8663,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 619,
-    "category": "Science",
+    "category": "Technology",
     "question": "What is the medical term for the Adam's Apple?",
     "type": "mc",
     "options": [
@@ -8677,7 +8677,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 620,
-    "category": "General Knowledge",
+    "category": "Alcohol",
     "question": "What does the word 'maverick' derive from, and who was the original maverick?",
     "type": "mc",
     "options": [
@@ -8691,7 +8691,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 621,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "Approximately how long does it take sunlight to reach the Earth?",
     "type": "mc",
     "options": [
@@ -8761,7 +8761,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 626,
-    "category": "True Crime",
+    "category": "Technology",
     "question": "What technology was used to finally identify the Golden State Killer after decades on the run?",
     "type": "mc",
     "options": [
@@ -8887,7 +8887,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 635,
-    "category": "True Crime",
+    "category": "Food & Drink",
     "question": "Investigators cracked the Grim Sleeper cold case after obtaining Lonnie Franklin Jr.'s DNA through what unconventional method?",
     "type": "mc",
     "options": [
@@ -8985,7 +8985,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 642,
-    "category": "Science",
+    "category": "History",
     "question": "Which Solar System body's revolution around the Sun takes 248 years?",
     "type": "mc",
     "options": [
@@ -8999,7 +8999,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 643,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "The Lunar seas are actually plains of two kinds of rock. What rock is also a main component of Mars's surface?",
     "type": "mc",
     "options": [
@@ -9013,7 +9013,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 644,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "This moon of Jupiter is the most volcanic object in the solar system, its volcanoes erupt sulfur compounds and it orbits inside Jupiter's magnetic field.",
     "type": "mc",
     "options": [
@@ -9027,7 +9027,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 645,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "Hypergiants, the largest stars known to scientists, have a mass up to how many times that of our Sun?",
     "type": "mc",
     "options": [
@@ -9041,7 +9041,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 646,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "Distances in space are so enormous that scientists invented new units. How long is one light year in miles?",
     "type": "mc",
     "options": [
@@ -9055,7 +9055,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 647,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "What makes Saturn's moon Titan unique among all moons in the Solar System?",
     "type": "mc",
     "options": [
@@ -9069,7 +9069,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 648,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "Which is the largest moon in the entire Solar System, bigger than both Pluto and Mercury?",
     "type": "mc",
     "options": [
@@ -9083,7 +9083,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 649,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "The crew of which Apollo mission spent the longest time on the lunar surface?",
     "type": "mc",
     "options": [
@@ -9097,7 +9097,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 650,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "Who was the first person to orbit the Earth?",
     "type": "mc",
     "options": [
@@ -9111,7 +9111,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 651,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "What is the name of the dog that became the first Earthling to enter orbit?",
     "type": "mc",
     "options": [
@@ -9125,7 +9125,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 652,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "What was the name of the first monkey sent into outer space?",
     "type": "mc",
     "options": [
@@ -9139,7 +9139,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 653,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "When was the Hubble Space Telescope put into orbit by the Space Shuttle?",
     "type": "mc",
     "options": [
@@ -9153,7 +9153,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 654,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "In 1938, Edward Kasner wrote a 1 followed by 100 zeros and showed it to his baby nephew. What did the kid say, and what did it become?",
     "type": "mc",
     "options": [
@@ -9195,7 +9195,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 657,
-    "category": "Pop Culture",
+    "category": "General Knowledge",
     "question": "Which of Santa's reindeer's names means 'lightning' in German?",
     "type": "mc",
     "options": [
@@ -9223,7 +9223,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 659,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "How often does Halley's Comet appear?",
     "type": "mc",
     "options": [
@@ -9237,7 +9237,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 660,
-    "category": "History",
+    "category": "General Knowledge",
     "question": "Which natural disaster claimed the most lives during the second millennium?",
     "type": "mc",
     "options": [
@@ -9251,7 +9251,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 661,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "Which of these animals makes the loudest noise?",
     "type": "mc",
     "options": [
@@ -9265,7 +9265,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 662,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "Roy C. Sullivan survived how many lightning strikes during his lifetime?",
     "type": "mc",
     "options": [
@@ -9279,7 +9279,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 663,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "About how many lightning bolts strike the Earth each second?",
     "type": "mc",
     "options": [
@@ -9293,7 +9293,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 664,
-    "category": "Science",
+    "category": "History",
     "question": "This construction in the United States is struck by lightning around 500 times a year.",
     "type": "mc",
     "options": [
@@ -9307,7 +9307,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 665,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "Which of these is the hottest?",
     "type": "mc",
     "options": [
@@ -9321,7 +9321,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 666,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "A lightning bolt can produce what voltage?",
     "type": "mc",
     "options": [
@@ -9363,7 +9363,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 669,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "Extract from the Periwinkle plant is one of the world's most powerful drugs, used to fight what?",
     "type": "mc",
     "options": [
@@ -9377,7 +9377,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 670,
-    "category": "Science",
+    "category": "True Crime",
     "question": "What does the scientific name of the King Cobra, 'Ophiophagus', mean?",
     "type": "mc",
     "options": [
@@ -9391,7 +9391,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 671,
-    "category": "History",
+    "category": "General Knowledge",
     "question": "The Bodhi tree in India is of great importance to Buddhists. Why?",
     "type": "mc",
     "options": [
@@ -9405,7 +9405,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 672,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "Methuselah, a Great Basin Bristlecone tree in California, holds what distinction?",
     "type": "mc",
     "options": [
@@ -9419,7 +9419,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 673,
-    "category": "Geography",
+    "category": "Politics",
     "question": "In Athens, Georgia, there is a White Oak tree with a more unusual legal status than any other tree on Earth. What is it?",
     "type": "mc",
     "options": [
@@ -9433,7 +9433,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 674,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "An adult salivates how much per day, on average?",
     "type": "mc",
     "options": [
@@ -9447,7 +9447,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 675,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "How long are the intestines of an average adult, combined?",
     "type": "mc",
     "options": [
@@ -9475,7 +9475,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 677,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "How many bones does the adult human body contain?",
     "type": "mc",
     "options": [
@@ -9489,7 +9489,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 678,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "About how much of an adult human's body is water?",
     "type": "mc",
     "options": [
@@ -9503,7 +9503,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 679,
-    "category": "Music",
+    "category": "Movies",
     "question": "The most complete Australopithecus skeleton ever found was dubbed 'Lucy'. She was named after what?",
     "type": "mc",
     "options": [
@@ -9531,7 +9531,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 681,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "It is said that twins develop their own language. What is it called?",
     "type": "mc",
     "options": [
@@ -9559,7 +9559,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 683,
-    "category": "Technology",
+    "category": "General Knowledge",
     "question": "The first email message was sent in what year?",
     "type": "mc",
     "options": [
@@ -9573,7 +9573,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 684,
-    "category": "Technology",
+    "category": "General Knowledge",
     "question": "Who wrote HTTP, the language in which browsers and web servers communicate?",
     "type": "mc",
     "options": [
@@ -9657,7 +9657,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 690,
-    "category": "Food & Drink",
+    "category": "General Knowledge",
     "question": "The Scoville scale measures the hotness of what?",
     "type": "mc",
     "options": [
@@ -9671,7 +9671,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 691,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "What scale measures sexual orientation from 0 (exclusively heterosexual) to 6 (exclusively homosexual)?",
     "type": "mc",
     "options": [
@@ -9685,7 +9685,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 692,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "This monastic scientist pioneered the study of genetics through experiments with pea plants. Who was he?",
     "type": "mc",
     "options": [
@@ -9713,7 +9713,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 694,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "Which famous fossil was eventually proved to be a hoax?",
     "type": "mc",
     "options": [
@@ -9727,7 +9727,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 695,
-    "category": "Politics",
+    "category": "Alcohol",
     "question": "Who was the first US President to publish a mathematical proof?",
     "type": "mc",
     "options": [
@@ -9755,7 +9755,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 697,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "Many credit this book by Rachel Carson with launching the modern environmentalist movement. What was it called?",
     "type": "mc",
     "options": [
@@ -9783,7 +9783,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 699,
-    "category": "Food & Drink",
+    "category": "General Knowledge",
     "question": "Jell-O, the popular gelatin dessert, is made in part from what?",
     "type": "mc",
     "options": [
@@ -9825,7 +9825,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 702,
-    "category": "History",
+    "category": "General Knowledge",
     "question": "Members of which profession used to be called 'leechers' because of the methods they used to treat patients?",
     "type": "mc",
     "options": [
@@ -9839,7 +9839,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 703,
-    "category": "Pop Culture",
+    "category": "History",
     "question": "Which fictional character famously had T-Negative blood type?",
     "type": "mc",
     "options": [
@@ -9853,7 +9853,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 704,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "What is the main cause for most pandemics in history?",
     "type": "mc",
     "options": [
@@ -9867,7 +9867,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 705,
-    "category": "History",
+    "category": "General Knowledge",
     "question": "This terrible disease killed approximately 5% of the world's population in 1918-1919. What was it?",
     "type": "mc",
     "options": [
@@ -9881,7 +9881,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 706,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "What is considered the most rare disease in the world?",
     "type": "mc",
     "options": [
@@ -9895,7 +9895,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 707,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "The longest coma in recorded history lasted approximately how long?",
     "type": "mc",
     "options": [
@@ -9909,7 +9909,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 708,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "Modern cars pollute much less than cars from the 1960s. Today, it takes how many modern cars to produce the same pollution as one car from the 60s?",
     "type": "mc",
     "options": [
@@ -10133,7 +10133,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 724,
-    "category": "History",
+    "category": "General Knowledge",
     "question": "The Norse explorer Leif Erikson reached North America around 1000 AD, roughly 500 years before Columbus. But which European is credited as the first to reach American soil?",
     "type": "mc",
     "options": [
@@ -10147,7 +10147,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 725,
-    "category": "History",
+    "category": "General Knowledge",
     "question": "Who was the first explorer to reach both the North and South Poles?",
     "type": "mc",
     "options": [
@@ -10189,7 +10189,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 728,
-    "category": "Technology",
+    "category": "General Knowledge",
     "question": "Who built the first four-wheeled gasoline-powered automobile?",
     "type": "mc",
     "options": [
@@ -10203,7 +10203,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 729,
-    "category": "Technology",
+    "category": "General Knowledge",
     "question": "Who made the first transatlantic radio transmission?",
     "type": "mc",
     "options": [
@@ -10217,7 +10217,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 730,
-    "category": "Pop Culture",
+    "category": "General Knowledge",
     "question": "Tetris, one of the best-selling video games in history, was designed by whom?",
     "type": "mc",
     "options": [
@@ -10273,7 +10273,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 734,
-    "category": "Food & Drink",
+    "category": "General Knowledge",
     "question": "What product was invented at Jacobs Pharmacy in Atlanta in 1886?",
     "type": "mc",
     "options": [
@@ -10315,7 +10315,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 737,
-    "category": "History",
+    "category": "General Knowledge",
     "question": "What year was Constantinople officially renamed Istanbul?",
     "type": "mc",
     "options": [
@@ -10329,7 +10329,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 738,
-    "category": "History",
+    "category": "General Knowledge",
     "question": "The English word 'Easter' is derived from which of the following?",
     "type": "mc",
     "options": [
@@ -10399,7 +10399,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 743,
-    "category": "History",
+    "category": "General Knowledge",
     "question": "Who was the first person to sign the U.S. Declaration of Independence?",
     "type": "mc",
     "options": [
@@ -10413,7 +10413,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 744,
-    "category": "Science",
+    "category": "General Knowledge",
     "question": "Who was the first American to walk on the moon?",
     "type": "mc",
     "options": [
@@ -10441,7 +10441,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 746,
-    "category": "Technology",
+    "category": "General Knowledge",
     "question": "Which American building was the world's first to have air conditioning installed for comfort?",
     "type": "mc",
     "options": [
@@ -10469,7 +10469,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 748,
-    "category": "History",
+    "category": "General Knowledge",
     "question": "Who had the dubious honor of being Alcatraz's very first inmate?",
     "type": "mc",
     "options": [
@@ -10483,7 +10483,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 749,
-    "category": "History",
+    "category": "General Knowledge",
     "question": "The world's first scheduled commercial airline flight occurred in Florida in what year?",
     "type": "mc",
     "options": [
@@ -10497,7 +10497,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 750,
-    "category": "History",
+    "category": "General Knowledge",
     "question": "When did the First Bank of the United States receive its federal charter?",
     "type": "mc",
     "options": [
@@ -10539,7 +10539,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 753,
-    "category": "History",
+    "category": "General Knowledge",
     "question": "The first book printed on a printing press was produced in what year?",
     "type": "mc",
     "options": [
@@ -10553,7 +10553,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 754,
-    "category": "Technology",
+    "category": "General Knowledge",
     "question": "Which Far East company name can be translated as 'three stars'?",
     "type": "mc",
     "options": [
@@ -10567,7 +10567,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 755,
-    "category": "Technology",
+    "category": "General Knowledge",
     "question": "What does the company name '3M' stand for?",
     "type": "mc",
     "options": [
@@ -10581,7 +10581,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 756,
-    "category": "Pop Culture",
+    "category": "General Knowledge",
     "question": "Which brand used the advertising slogan 'Think small'?",
     "type": "mc",
     "options": [
@@ -10595,7 +10595,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 757,
-    "category": "Pop Culture",
+    "category": "General Knowledge",
     "question": "The slogan 'We try harder' belonged to which company?",
     "type": "mc",
     "options": [
@@ -10623,7 +10623,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 759,
-    "category": "History",
+    "category": "General Knowledge",
     "question": "Which Babylonian ruler established one of the first written codes of law in recorded history?",
     "type": "mc",
     "options": [
@@ -10637,7 +10637,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 760,
-    "category": "Geography",
+    "category": "General Knowledge",
     "question": "What does the Greek word 'Mesopotamia' mean?",
     "type": "mc",
     "options": [
@@ -10665,7 +10665,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 762,
-    "category": "History",
+    "category": "General Knowledge",
     "question": "The African-American fighter pilots who excelled in WWII aerial combat were known by what nickname?",
     "type": "mc",
     "options": [
@@ -10679,7 +10679,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 763,
-    "category": "Pop Culture",
+    "category": "General Knowledge",
     "question": "Which dictator's name became a punchline on Saturday Night Live's first season in 1975?",
     "type": "mc",
     "options": [
@@ -10693,7 +10693,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 764,
-    "category": "History",
+    "category": "General Knowledge",
     "question": "In 1930, this Yale graduate became the first American to win the Nobel Prize in Literature.",
     "type": "mc",
     "options": [
@@ -10707,7 +10707,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 765,
-    "category": "History",
+    "category": "General Knowledge",
     "question": "The word 'Easter' in English comes from the name of a pagan goddess. What was she the goddess of?",
     "type": "mc",
     "options": [
@@ -10721,7 +10721,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 766,
-    "category": "Pop Culture",
+    "category": "General Knowledge",
     "question": "Festivus, the secular holiday celebrated on December 23, was invented in real life by whom?",
     "type": "mc",
     "options": [
@@ -10777,7 +10777,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 770,
-    "category": "Sports",
+    "category": "General Knowledge",
     "question": "Who became the youngest golfer in history to win the Masters, in April 1997?",
     "type": "mc",
     "options": [
@@ -10791,7 +10791,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 771,
-    "category": "Music",
+    "category": "General Knowledge",
     "question": "Who was on the cover of the first issue of Rolling Stone magazine?",
     "type": "mc",
     "options": [
