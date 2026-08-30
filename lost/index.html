@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#1a0b2e" />
   <meta name="description" content="Lost Lands 2026 lineup lock-in. Mark Must Sees and Wants, then compare lists with friends." />
   <title>LOCKED LANDS · Lost Lands 2026</title>
-  <meta name="ll-build" content="2026-08-24-mine" />
+  <meta name="ll-build" content="2026-08-30-filters" />
   <link rel="icon" href="hoopeystarsquare.png" />
   <link rel="apple-touch-icon" href="hoopeystarsquare.png" />
   <!-- First load pulls fonts; after that the app is fully self-contained (picks live in localStorage + the URL hash). -->
@@ -18,7 +18,7 @@
     /* ============================================================
        LOCKED LANDS: forced dark theme. No light-mode overrides.
        Palette: void black, Hoopeystar purple, toxic green, bone, blood orange.
-       Purple is chrome/branding. Must See stays toxic; Would Like stays blood.
+       Purple is chrome/branding. Must See stays toxic green; Want stays blue.
        ============================================================ */
     :root {
       color-scheme: dark;
@@ -296,6 +296,18 @@
       outline: 2px solid var(--blood);
       outline-offset: 1px;
       box-shadow: 0 0 18px rgba(255, 59, 18, 0.28);
+    }
+    .chip[data-pri="must"] { color: var(--toxic); border-color: rgba(198,255,26,0.5); }
+    .chip[data-pri="must"][aria-pressed="true"] {
+      background: var(--toxic);
+      color: #121406;
+      border-color: var(--toxic);
+    }
+    .chip[data-pri="like"] { color: var(--like-2); border-color: rgba(59, 158, 255, 0.55); }
+    .chip[data-pri="like"][aria-pressed="true"] {
+      background: var(--like);
+      color: #041018;
+      border-color: var(--like);
     }
     .chip[data-pri="conflict"] { color: var(--blood-2); border-color: rgba(255,59,18,0.5); }
     .chip[data-pri="conflict"][aria-pressed="true"] {
@@ -622,8 +634,11 @@
     .cmp-row.everyone {
       border-color: rgba(198, 255, 26, 0.5);
     }
+    .cmp-row.is-must { border-color: rgba(198, 255, 26, 0.55); }
+    .cmp-row.is-like { border-color: rgba(59, 158, 255, 0.55); }
     .cmp-row.is-conflict {
-      border-color: rgba(255, 59, 18, 0.55);
+      outline: 2px solid var(--blood);
+      outline-offset: 0;
     }
     .cmp-head {
       display: flex;
@@ -966,9 +981,26 @@
       -webkit-tap-highlight-color: transparent;
     }
     .sched-block.dim { opacity: 0.32; }
-    .sched-block.is-must { box-shadow: inset 0 0 0 2px #121406, 0 0 0 2px var(--toxic); opacity: 1; }
-    .sched-block.is-like { box-shadow: inset 0 0 0 2px #041018, 0 0 0 2px var(--like); opacity: 1; }
-    .sched-block.is-conflict { box-shadow: inset 0 0 0 2px #2b0904, 0 0 0 2px var(--blood), 0 0 10px rgba(255,59,18,0.45); opacity: 1; }
+    .sched-block.is-must {
+      background: var(--toxic);
+      color: #121406;
+      box-shadow: inset 0 0 0 2px #121406, 0 0 0 2px var(--toxic);
+      opacity: 1;
+    }
+    .sched-block.is-like {
+      background: var(--like);
+      color: #041018;
+      box-shadow: inset 0 0 0 2px #041018, 0 0 0 2px var(--like);
+      opacity: 1;
+    }
+    .sched-block.is-conflict {
+      outline: 2px solid var(--blood);
+      outline-offset: 1px;
+    }
+    .sched-block.is-must.is-conflict,
+    .sched-block.is-like.is-conflict {
+      box-shadow: 0 0 10px rgba(255, 59, 18, 0.45);
+    }
     .sched-block-name {
       display: block;
       font-family: var(--font-head);
@@ -2367,23 +2399,24 @@
       if (i < 0) i = fallback || 0;
       return STAGE_PALETTE[i % STAGE_PALETTE.length];
     }
+    function scheduleEmptyMsg(mine) {
+      if (state.priFilter === "conflict") return "No overlaps for the current filters.";
+      if (mine || state.priFilter === "must" || state.priFilter === "like") {
+        return "No Must/Want sets with times for these filters.";
+      }
+      return "No set times for the current filters.";
+    }
     function renderSchedule(root, opts) {
       var mine = !!(opts && opts.mine);
-      var q = state.query.trim().toLowerCase();
       var daysWithTimes = DAY_ORDER.filter(function (d) {
         return ARTISTS.some(function (a) {
           if (a.day !== d || !a.start || !a.end) return false;
           if (mine && !state.picks[a.id]) return false;
-          return true;
+          return artistMatches(a);
         });
       });
-      if (state.dayFilter !== "all") {
-        daysWithTimes = daysWithTimes.filter(function (d) { return d === state.dayFilter; });
-      }
       if (!daysWithTimes.length) {
-        root.innerHTML = mine
-          ? '<div class="empty">No Must/Want sets with times for these filters.</div>'
-          : '<div class="empty">No set times for the current filters.</div>';
+        root.innerHTML = '<div class="empty">' + scheduleEmptyMsg(mine) + "</div>";
         return;
       }
       if (daysWithTimes.indexOf(state.schedDay) < 0) {
@@ -2394,20 +2427,10 @@
       var dayActs = ARTISTS.filter(function (a) {
         if (a.day !== state.schedDay || !a.start || !a.end) return false;
         if (mine && !state.picks[a.id]) return false;
-        if (q && a.name.toLowerCase().indexOf(q) === -1 && a.id.indexOf(q) === -1) return false;
-        if (HAS_STAGES && state.stageFilter !== "all" && a.stage !== state.stageFilter) return false;
-        if (mine) {
-          var pri0 = state.picks[a.id] || "";
-          if (state.priFilter === "must" && pri0 !== "must") return false;
-          if (state.priFilter === "like" && pri0 !== "like") return false;
-          if (state.priFilter === "conflict" && !conflictIdSet()[a.id]) return false;
-        }
-        return true;
+        return artistMatches(a);
       });
       if (!dayActs.length) {
-        root.innerHTML = mine
-          ? '<div class="empty">No Must/Want sets on this day for these filters.</div>'
-          : '<div class="empty">No set times for the current filters.</div>';
+        root.innerHTML = '<div class="empty">' + scheduleEmptyMsg(mine) + "</div>";
         return;
       }
       var stages = sortStages(Array.from(new Set(dayActs.map(function (a) { return a.stage || "TBA"; }))));
@@ -2424,7 +2447,6 @@
       var totalPx = (endHour - startHour) * PX_PER_HOUR;
       var startM = startHour * 60;
       var clash = conflictIdSet();
-      var dimIf = state.priFilter === "must" || state.priFilter === "like" || state.priFilter === "conflict";
       var dayTabs = '<div class="sched-days">' + daysWithTimes.map(function (d) {
         return '<button type="button" class="chip" data-day="' + d + '" data-sched-day="' + d + '" aria-pressed="' + (state.schedDay === d) + '">' + DAYS[d].label + "</button>";
       }).join("") + "</div>";
@@ -2451,13 +2473,11 @@
           if (pri === "must") cls += " is-must";
           else if (pri === "like") cls += " is-like";
           if (clash[a.id]) cls += " is-conflict";
-          if (!mine && dimIf) {
-            var keep = (state.priFilter === "must" && pri === "must") ||
-              (state.priFilter === "like" && pri === "like") ||
-              (state.priFilter === "conflict" && clash[a.id]);
-            if (!keep) cls += " dim";
+          var blockStyle = "top:" + top + "px;height:" + ht + "px";
+          if (pri !== "must" && pri !== "like") {
+            blockStyle += ";background:" + pal.bg + ";color:" + pal.fg;
           }
-          return '<div class="' + cls + '" data-sched-id="' + a.id + '" style="top:' + top + "px;height:" + ht + "px;background:" + pal.bg + ";color:" + pal.fg + '">' +
+          return '<div class="' + cls + '" data-sched-id="' + a.id + '" style="' + blockStyle + '">' +
             '<span class="sched-block-name">' + esc(a.name) + "</span>" +
             '<span class="sched-block-time">' + esc(fmtTime(a.start) + " - " + fmtTime(a.end)) + "</span>" +
             notes +
@@ -2468,8 +2488,8 @@
       }).join("");
       var preview = PREVIEW_TIMES ? '<div class="sched-preview">Preview layout only. These times and stages are not official 2026 set times.</div>' : "";
       var hint = mine
-        ? '<p class="sched-hint">Your Must and Want sets. Names on a block are friends going too. Red names are a friend at a different overlapping set.</p>'
-        : '<p class="sched-hint">Tap a set to cycle Must / Want. Green ring is Must, blue is Want, red is an overlap.</p>';
+        ? '<p class="sched-hint">Your Must and Want sets. Green is Must, blue is Want, red outline is an overlap. Names on a block are friends going too.</p>'
+        : '<p class="sched-hint">Tap a set to cycle Must / Want. Green is Must, blue is Want, red outline is an overlap.</p>';
       root.innerHTML = preview + dayTabs + hint + '<div class="sched-scroll" data-day="' + state.schedDay + '"><div class="sched-board">' + gutter + cols + "</div></div>";
     }
 
