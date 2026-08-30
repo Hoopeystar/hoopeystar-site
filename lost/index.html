@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#1a0b2e" />
   <meta name="description" content="Lost Lands 2026 lineup lock-in. Mark Must Sees and Wants, then compare lists with friends." />
   <title>LOCKED LANDS · Lost Lands 2026</title>
-  <meta name="ll-build" content="2026-08-30-filters" />
+  <meta name="ll-build" content="2026-08-30-preview" />
   <link rel="icon" href="hoopeystarsquare.png" />
   <link rel="apple-touch-icon" href="hoopeystarsquare.png" />
   <!-- First load pulls fonts; after that the app is fully self-contained (picks live in localStorage + the URL hash). -->
@@ -1226,7 +1226,7 @@
 
     <main id="listRoot"></main>
     <section id="printRoot" class="print-view hidden"></section>
-    <p class="foot-note">Fan-made lock-in tool, not affiliated with Excision or Lost Lands. Lineup from the official 2026 daily poster. Stages and clock times are TBA; when they drop, fill in <code>stage</code>, <code>start</code>, and <code>end</code> on each artist in this file.</p>
+    <p class="foot-note">Fan-made lock-in tool, not affiliated with Excision or Lost Lands.</p>
   </div>
 
   <nav class="dock pick-mode no-print" aria-label="List actions">
@@ -1679,10 +1679,14 @@
     function saveNotes() { localStorage.setItem(LS.notes, JSON.stringify(state.notes)); }
     function saveName() { localStorage.setItem(LS.name, state.name); }
     function saveRoster() {
+      if (PREVIEW_TIMES) return;
       localStorage.setItem(LS.people, JSON.stringify(state.people));
       localStorage.setItem(LS.on, JSON.stringify(state.on));
     }
-    function saveScreen() { localStorage.setItem(LS.screen, state.screen); }
+    function saveScreen() {
+      if (PREVIEW_TIMES) return;
+      localStorage.setItem(LS.screen, state.screen);
+    }
     function saveMeId() { localStorage.setItem(LS.me, state.meId || ""); }
     function pid(name) { return String(name || "").trim().toLowerCase(); }
     function newId() {
@@ -2644,7 +2648,7 @@
     function goScreen(name) {
       state.screen = name;
       saveScreen();
-      if (name === "compare") {
+      if (name === "compare" && !PREVIEW_TIMES) {
         loadLists().then(function () { render(); });
       }
       render();
@@ -2949,6 +2953,17 @@
 
     function bootShare() {
       migratePeople();
+      if (PREVIEW_TIMES) {
+        state.admin = false;
+        state.screen = "pick";
+        state.view = "hour";
+        if (!state.name) state.name = "Preview";
+        state.people = [];
+        state.on = {};
+        seedPreviewFriends();
+        render();
+        return;
+      }
       const sessionName = localStorage.getItem(LS.session) || "";
       const pin = localStorage.getItem(LS.pin) || "";
       loadLists().then(function (lists) {
@@ -2962,15 +2977,6 @@
             render();
           });
         }
-        if (PREVIEW_TIMES && !sessionName && (location.hostname === "localhost" || location.hostname === "127.0.0.1")) {
-          state.screen = "pick";
-          state.name = "Preview";
-          state.view = "hour";
-          seedPreviewFriends();
-          render();
-          return;
-        }
-        if (PREVIEW_TIMES) seedPreviewFriends();
         if (sessionName && pin) {
           return api("login", { username: sessionName, pin: pin }).then(function (res) {
             if (!res.ok) {
