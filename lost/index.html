@@ -1226,6 +1226,8 @@
        Once ANY artist has a start time, the Schedule grid unlocks.
        Once ANY artist has a stage, the stage filter unlocks.
        Conflict detection runs only when both start and end exist.
+       Back-to-back sets (8:00–9:00 then 9:00–10:00) do not count as overlaps;
+       the displayed times stay inclusive, but clash math ends each set 1 minute early.
 
      Sharing is 100% client-side (URL hash + localStorage). Works from a
      static file / GitHub Pages / file:// after the first font load.
@@ -1896,9 +1898,13 @@
       if (!a || !b || a.id === b.id) return false;
       if (!a.start || !a.end || !b.start || !b.end) return false;
       if (a.day !== b.day) return false;
-      const a0 = festMins(a.start), a1 = festMins(a.end, true, a.start);
-      const b0 = festMins(b.start), b1 = festMins(b.end, true, b.start);
-      return a0 < b1 && b0 < a1;
+      // Labels stay inclusive (8:00–9:00 next to 9:00–10:00). Conflict math
+      // ends each set a minute early so a shared changeover is not a clash.
+      const a0 = festMins(a.start);
+      const a1 = festMins(a.end, true, a.start) - 1;
+      const b0 = festMins(b.start);
+      const b1 = festMins(b.end, true, b.start) - 1;
+      return a0 <= b1 && b0 <= a1;
     }
     function toast(msg) {
       const el = document.getElementById("toast");
