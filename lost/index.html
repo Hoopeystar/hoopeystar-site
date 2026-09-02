@@ -1103,6 +1103,15 @@
       font-family: var(--font-body);
     }
 
+    .compare-top-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .compare-top-actions.admin-only { grid-template-columns: 1fr; }
+    .compare-top-actions .btn { width: 100%; }
+
     .hour-slot {
       font-family: var(--font-head);
       color: var(--toxic);
@@ -1208,6 +1217,10 @@
         </span>
         <span class="arrow" aria-hidden="true">→</span>
       </button>
+      <div class="compare-top-actions no-print hidden" id="compareTopActions">
+        <button type="button" class="btn" id="btnTopEdit">Edit picks</button>
+        <button type="button" class="btn" id="btnTopPrint">Print</button>
+      </div>
     </header>
 
     <div id="modeBanner"></div>
@@ -2268,6 +2281,8 @@
       const c = document.getElementById("btnClear");
       const n = state.people.length;
       const skipHint = document.getElementById("skipHint");
+      const top = document.getElementById("compareTopActions");
+      const topEdit = document.getElementById("btnTopEdit");
       if (n) {
         skipHint.textContent = n + " list" + (n === 1 ? "" : "s") + " ready to compare";
       } else {
@@ -2284,6 +2299,10 @@
         j.classList.add("hidden");
         c.textContent = "Print";
         c.classList.remove("danger");
+        top.classList.remove("hidden");
+        top.classList.toggle("admin-only", !!state.admin);
+        if (state.admin) topEdit.classList.add("hidden");
+        else topEdit.classList.remove("hidden");
       } else {
         dock.classList.add("pick-mode");
         dock.classList.remove("compare-mode");
@@ -2294,6 +2313,9 @@
         j.classList.add("hidden");
         c.textContent = "Clear";
         c.classList.add("danger");
+        top.classList.add("hidden");
+        top.classList.remove("admin-only");
+        topEdit.classList.remove("hidden");
       }
     }
 
@@ -2923,6 +2945,8 @@
     document.getElementById("btnPrimary").addEventListener("click", onPrimary);
     document.getElementById("btnScreen").addEventListener("click", onScreen);
     document.getElementById("btnSkipCompare").addEventListener("click", function () { goScreen("compare"); });
+    document.getElementById("btnTopEdit").addEventListener("click", onScreen);
+    document.getElementById("btnTopPrint").addEventListener("click", onClearOrPrint);
     document.getElementById("btnJson").addEventListener("click", onJsonOrAdd);
     document.getElementById("btnClear").addEventListener("click", onClearOrPrint);
     document.addEventListener("keydown", function (e) {
