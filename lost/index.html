@@ -133,6 +133,20 @@
       gap: 14px;
       align-items: flex-start;
     }
+    .hero .brand.is-link {
+      cursor: pointer;
+      border-radius: 12px;
+    }
+    .hero .brand.is-link:hover .logo {
+      box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.7), 0 0 28px rgba(139, 92, 246, 0.55);
+    }
+    .hero .brand.is-link:hover h1 {
+      color: var(--purple-hot);
+    }
+    .hero .brand.is-link:focus-visible {
+      outline: 2px solid var(--purple);
+      outline-offset: 4px;
+    }
     .logo {
       width: 64px;
       height: 64px;
@@ -1229,7 +1243,7 @@
   </section>
   <div class="wrap">
     <header class="hero">
-      <div class="brand">
+      <div class="brand" id="brandHome">
         <img class="logo" src="hoopeystarsquare.png" alt="Hoopeystar" width="88" height="88" />
         <div class="brand-text">
           <div class="kicker">Locked Lands <span class="dot">●</span> Legend Valley <span class="dot">●</span> Sep 16–20 2026</div>
@@ -2318,6 +2332,18 @@
       const skipHint = document.getElementById("skipHint");
       const top = document.getElementById("compareTopActions");
       const topEdit = document.getElementById("btnTopEdit");
+      const brand = document.getElementById("brandHome");
+      const brandLink = state.screen === "compare" && !state.admin;
+      brand.classList.toggle("is-link", brandLink);
+      if (brandLink) {
+        brand.setAttribute("role", "button");
+        brand.setAttribute("tabindex", "0");
+        brand.setAttribute("aria-label", "Back to picks");
+      } else {
+        brand.removeAttribute("role");
+        brand.removeAttribute("tabindex");
+        brand.removeAttribute("aria-label");
+      }
       if (n) {
         skipHint.textContent = n + " list" + (n === 1 ? "" : "s") + " ready to compare";
       } else {
@@ -2980,6 +3006,16 @@
     document.getElementById("btnSkipCompare").addEventListener("click", function () { goScreen("compare"); });
     document.getElementById("btnTopEdit").addEventListener("click", onScreen);
     document.getElementById("btnTopPrint").addEventListener("click", onClearOrPrint);
+    document.getElementById("brandHome").addEventListener("click", function () {
+      if (state.screen === "compare" && !state.admin) goScreen("pick");
+    });
+    document.getElementById("brandHome").addEventListener("keydown", function (e) {
+      if (state.screen !== "compare" || state.admin) return;
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        goScreen("pick");
+      }
+    });
     document.getElementById("btnJson").addEventListener("click", onJsonOrAdd);
     document.getElementById("btnClear").addEventListener("click", onClearOrPrint);
     document.addEventListener("keydown", function (e) {
