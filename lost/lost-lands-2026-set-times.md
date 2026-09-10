@@ -1,11 +1,12 @@
 # Lost Lands 2026 Set Times
-Times in EDT. From festival app (Wed Sep 16 – Sun Sep 20).
+Times in EDT. Source: official app list view (screenshots as source of truth).
 
 ---
 
 ## Wednesday — Sep 16 (Early Arrival)
 
 ### The Crater
+- Fresh Meat: Negativespace — 13:00–14:00
 - Mile32 — 14:00–15:00
 - Chassi — 15:00–16:00
 - Izzy Vadim — 16:00–17:00
@@ -16,6 +17,7 @@ Times in EDT. From festival app (Wed Sep 16 – Sun Sep 20).
 - Barely Alive — 21:00–22:00
 
 ### The Grove Stage
+- Fresh Meat: Hevnfall — 13:00–14:00
 - Mport — 14:00–15:00
 - Gardella — 15:00–15:50
 - Hydraulix — 15:50–16:40
@@ -120,7 +122,7 @@ Times in EDT. From festival app (Wed Sep 16 – Sun Sep 20).
 - Neumonic — 03:00–04:00
 
 ### Raptor Alley
-- FuntCase B2B Doctor P — 00:00–01:00
+- FuntCase B2B Doctor P (DNB Set) — 00:00–01:00
 - Sigma — 01:00–02:00
 - Subsonic — 02:00–03:00
 - Basstripper — 03:00–04:00
@@ -216,6 +218,7 @@ Times in EDT. From festival app (Wed Sep 16 – Sun Sep 20).
 - ATLiens (Sunset Set) — 19:30–20:30
 - Crankdat B2B Alleycvt — 20:30–21:30
 - Excision B2B Space Laces — 21:40–22:47
+- Closing Ceremony — 22:47–23:00
 
 ### Wompy Woods
 - Dream Takers — 15:00–16:00
@@ -223,7 +226,7 @@ Times in EDT. From festival app (Wed Sep 16 – Sun Sep 20).
 - Know Good — 17:00–18:00
 - Eptic B2B Lyny — 18:00–19:00
 - Excision (Detox Set) — 19:00–19:50
-- Adventure Club (Throwback) — 19:50–20:50
+- Adventure Club (Throwback Set) — 19:50–20:50
 - Virtual Riot — 20:50–21:45
 - Boogie T — 21:45–23:00
 - ARMNHMR — 23:15–00:10
@@ -252,7 +255,7 @@ Times in EDT. From festival app (Wed Sep 16 – Sun Sep 20).
 - Passport — 22:00–23:00
 - Wax Motif — 23:00–00:00
 - Stumpi — 00:00–01:00
-- Black Tiger Sex Machine — 01:00–02:00
+- Black Tiger Sex Machine (Unmasked) — 01:00–02:00
 - Ghastly — 02:00–03:00
 
 ### Subsidia Stage
@@ -277,6 +280,7 @@ Times in EDT. From festival app (Wed Sep 16 – Sun Sep 20).
 ---
 
 Notes:
-- Sat/Sun updated from the slower recording.
+- List-view screenshots treated as source of truth.
+- Sunday late night confirmed: Crystal Skies, Yetep, Ghastly, Onara, XP Takeover.
 - Secret Takeovers run overnight on The Crater.
 - Confirm last-minute changes in the official Lost Lands app.
