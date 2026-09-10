@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#1a0b2e" />
   <meta name="description" content="Lost Lands 2026 lineup lock-in. Mark Must Sees and Wants, then compare lists with friends." />
   <title>LOCKED LANDS · Lost Lands 2026</title>
-  <meta name="ll-build" content="2026-09-09-set-times-2" />
+  <meta name="ll-build" content="2026-09-09-compare-btn" />
   <link rel="icon" href="hoopeystarsquare.png" />
   <link rel="apple-touch-icon" href="hoopeystarsquare.png" />
   <!-- First load pulls fonts; after that the app is fully self-contained (picks live in localStorage + the URL hash). -->
@@ -946,17 +946,27 @@
       line-height: 1.15;
       position: sticky;
       top: 0;
-      z-index: 3;
+      z-index: 4;
       color: #111;
       flex: 0 0 52px;
+      border-bottom: 4px solid #1c1c1c;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.35);
     }
     .sched-gutter .sched-head {
       background: #1c1c1c;
       color: transparent;
       z-index: 6;
+      box-shadow: none;
     }
-    .sched-track { position: relative; background: #262626; }
-    .sched-gutter .sched-track { background: #1c1c1c; }
+    .sched-track {
+      position: relative;
+      background: #262626;
+      overflow: hidden;
+    }
+    .sched-gutter .sched-track {
+      background: #1c1c1c;
+      overflow: visible;
+    }
     .sched-hour {
       position: absolute;
       left: 0;
@@ -982,62 +992,73 @@
     }
     .sched-block {
       position: absolute;
-      left: 4px;
-      right: 4px;
+      left: 5px;
+      right: 5px;
       border-radius: 10px;
-      padding: 6px 5px 4px;
+      padding: 3px 3px 2px;
       overflow: hidden;
       text-align: center;
-      border: 1px solid rgba(0,0,0,0.18);
+      border: 1px solid rgba(0,0,0,0.22);
       box-sizing: border-box;
       z-index: 2;
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
+      outline: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: stretch;
     }
     .sched-block.dim { opacity: 0.32; }
     .sched-block.is-must {
       background: var(--toxic);
       color: #121406;
-      box-shadow: inset 0 0 0 2px #121406, 0 0 0 2px var(--toxic);
+      border-color: #121406;
+      box-shadow: inset 0 0 0 2px #121406;
       opacity: 1;
     }
     .sched-block.is-like {
       background: var(--like);
       color: #041018;
-      box-shadow: inset 0 0 0 2px #041018, 0 0 0 2px var(--like);
+      border-color: #041018;
+      box-shadow: inset 0 0 0 2px #041018;
       opacity: 1;
     }
     .sched-block.is-conflict {
-      outline: 2px solid var(--blood);
-      outline-offset: 1px;
+      border: 2px solid var(--blood);
+      box-shadow: inset 0 0 0 1px rgba(255, 59, 18, 0.7);
     }
     .sched-block.is-must.is-conflict,
     .sched-block.is-like.is-conflict {
-      box-shadow: 0 0 10px rgba(255, 59, 18, 0.45);
+      border-color: var(--blood);
+      box-shadow: inset 0 0 0 2px var(--blood);
     }
     .sched-block-name {
       display: block;
       font-family: var(--font-head);
       font-weight: 800;
-      font-size: 0.7rem;
-      letter-spacing: 0.03em;
+      font-size: 0.86rem;
+      letter-spacing: 0.02em;
       text-transform: uppercase;
-      line-height: 1.12;
+      line-height: 1.05;
       word-break: break-word;
+      overflow-wrap: anywhere;
     }
     .sched-block-time {
       display: block;
-      margin-top: 2px;
-      font-size: 0.58rem;
-      letter-spacing: 0.02em;
-      opacity: 0.88;
+      margin-top: auto;
+      font-size: 0.7rem;
+      letter-spacing: 0.01em;
+      line-height: 1.1;
+      opacity: 0.9;
     }
     .sched-block-friends {
       display: flex;
       flex-wrap: wrap;
       gap: 2px;
       justify-content: center;
-      margin-top: 3px;
+      margin-top: 2px;
+      flex: 0 0 auto;
     }
     .sched-friend {
       display: inline-block;
@@ -1062,18 +1083,23 @@
       .sched-col { min-width: 104px; flex-basis: 104px; }
     }
     body.view-hour .hero,
-    body.view-hour .skip-compare,
     body.view-hour .toolbar .days,
     body.view-hour .foot-note { display: none; }
     body.view-hour:not(.view-mine) #conflictBanner { display: none; }
     body.view-mine #conflictBanner { display: block; }
     body.view-hour .wrap { padding-top: 8px; }
+    body.view-hour .skip-compare {
+      min-height: 46px;
+      margin: 0 0 10px;
+      padding: 8px 14px;
+    }
+    body.view-hour .skip-compare small { display: none; }
     body.view-hour .sched-scroll {
-      max-height: calc(100dvh - 230px - var(--safe-b));
+      max-height: calc(100dvh - 280px - var(--safe-b));
     }
     @media (max-width: 640px) {
       body.view-hour .sched-scroll {
-        max-height: calc(100dvh - 320px - var(--safe-b));
+        max-height: calc(100dvh - 370px - var(--safe-b));
       }
     }
 
@@ -1256,13 +1282,6 @@
       <div class="hero-row">
         <div class="stats" id="stats"></div>
       </div>
-      <button type="button" class="skip-compare" id="btnSkipCompare">
-        <span>
-          <span id="skipLabel">Skip to compare selections</span>
-          <small id="skipHint">See everyone’s lists without submitting yet</small>
-        </span>
-        <span class="arrow" aria-hidden="true">→</span>
-      </button>
       <div class="compare-top-actions no-print hidden" id="compareTopActions">
         <button type="button" class="compare-top-link back" id="btnTopEdit">
           <span class="arrow" aria-hidden="true">←</span>
@@ -1271,6 +1290,13 @@
         <button type="button" class="compare-top-link" id="btnTopPrint">Print</button>
       </div>
     </header>
+    <button type="button" class="skip-compare no-print" id="btnSkipCompare">
+      <span>
+        <span id="skipLabel">Skip to compare selections</span>
+        <small id="skipHint">See everyone’s lists without submitting yet</small>
+      </span>
+      <span class="arrow" aria-hidden="true">→</span>
+    </button>
 
     <div id="modeBanner"></div>
     <div id="conflictBanner"></div>
@@ -1369,6 +1395,9 @@
       { bg: "#fca5a5", fg: "#450a0a" }
     ];
     const PX_PER_HOUR = 72;
+    const SCHED_PAD_TOP = 10;
+    const SCHED_PAD_BOTTOM = 10;
+    const SCHED_BLOCK_GAP = 6;
 
     /** Compact artist factory. Extra may include { stage, start, end }.
         Example once set times drop:
@@ -2555,7 +2584,7 @@
       var startHour = Math.floor(minM / 60);
       var endHour = Math.ceil(maxM / 60);
       if (endHour <= startHour) endHour = startHour + 1;
-      var totalPx = (endHour - startHour) * PX_PER_HOUR;
+      var totalPx = (endHour - startHour) * PX_PER_HOUR + SCHED_PAD_TOP + SCHED_PAD_BOTTOM;
       var startM = startHour * 60;
       var clash = conflictIdSet();
       var dayTabs = '<div class="sched-days">' + daysWithTimes.map(function (d) {
@@ -2564,7 +2593,7 @@
       var hours = "";
       var hourLines = "";
       for (var h = startHour; h <= endHour; h++) {
-        var top = (h - startHour) * PX_PER_HOUR;
+        var top = (h - startHour) * PX_PER_HOUR + SCHED_PAD_TOP;
         hours += '<div class="sched-hour" style="top:' + top + 'px"></div>';
         hourLines += '<div class="sched-hour" style="top:' + top + 'px"></div>';
         if (h < endHour) hours += '<div class="sched-hour-label" style="top:' + top + 'px">' + hourLabel(h) + "</div>";
@@ -2576,9 +2605,9 @@
           var s = festMins(a.start) - startM;
           var e = festMins(a.end, true, a.start) - startM;
           if (e <= s) e = s + 30;
-          var top = (s / 60) * PX_PER_HOUR;
+          var top = (s / 60) * PX_PER_HOUR + SCHED_PAD_TOP + SCHED_BLOCK_GAP / 2;
           var notes = mine ? friendNoteHTML(a.id, true) : "";
-          var ht = Math.max(((e - s) / 60) * PX_PER_HOUR - 3, notes ? 42 : 28);
+          var ht = Math.max(((e - s) / 60) * PX_PER_HOUR - SCHED_BLOCK_GAP, notes ? 42 : 28);
           var pri = state.picks[a.id] || "";
           var cls = "sched-block";
           if (pri === "must") cls += " is-must";
