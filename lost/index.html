@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#1a0b2e" />
   <meta name="description" content="Lost Lands 2026 lineup lock-in. Mark Must Sees and Wants, then compare lists with friends." />
   <title>LOCKED LANDS · Lost Lands 2026</title>
-  <meta name="ll-build" content="2026-08-30-preview" />
+  <meta name="ll-build" content="2026-09-09-set-times" />
   <link rel="icon" href="hoopeystarsquare.png" />
   <link rel="apple-touch-icon" href="hoopeystarsquare.png" />
   <!-- First load pulls fonts; after that the app is fully self-contained (picks live in localStorage + the URL hash). -->
@@ -1317,7 +1317,7 @@
            start: "21:30",   // 24-hour festival local time (ET)
            end:   "23:00"
          })
-       Once ANY artist has a start time, the Schedule grid unlocks.
+       Once ANY artist has a start time, the Schedule grid becomes the default view.
        Once ANY artist has a stage, the stage filter unlocks.
        Conflict detection runs only when both start and end exist.
        Back-to-back sets (8:00–9:00 then 9:00–10:00) do not count as overlaps;
@@ -1339,14 +1339,26 @@
     };
     const DAY_ORDER = ["Wed", "Thu", "Fri", "Sat", "Sun"];
     const STAGE_ORDER = [
-      "Prehistoric", "The Prehistoric", "Prehistoric Stage",
+      "Prehistoric Stage", "The Prehistoric", "Prehistoric",
       "Wompy Woods",
       "The Crater", "Crater",
-      "Forest Stage", "Forest",
+      "Forest Stage", "The Forest", "Forest",
       "Subsidia Stage", "Subsidia",
       "Raptor Alley", "Raptor Valley",
-      "Grove Stage", "Grove"
+      "Grove Stage", "The Grove", "Grove"
     ];
+    function canonicalStage(stage) {
+      var sl = String(stage || "").toLowerCase();
+      if (!sl) return null;
+      if (sl.indexOf("prehistor") >= 0) return "Prehistoric Stage";
+      if (sl.indexOf("wompy") >= 0) return "Wompy Woods";
+      if (sl.indexOf("crater") >= 0) return "The Crater";
+      if (sl.indexOf("forest") >= 0) return "Forest Stage";
+      if (sl.indexOf("subsidia") >= 0) return "Subsidia Stage";
+      if (sl.indexOf("raptor") >= 0) return "Raptor Alley";
+      if (sl.indexOf("grove") >= 0) return "Grove Stage";
+      return stage;
+    }
     const STAGE_PALETTE = [
       { bg: "#f9a8d4", fg: "#4a0430" },
       { bg: "#7dd3fc", fg: "#082f49" },
@@ -1619,13 +1631,14 @@
       });
     }
     if (PREVIEW_TIMES) applyPreviewTimes();
+    ARTISTS.forEach(function (a) { a.stage = canonicalStage(a.stage); });
 
     const BY_ID = {};
     ARTISTS.forEach(function (a) { BY_ID[a.id] = a; });
 
     const HAS_TIMES = ARTISTS.some(function (a) { return !!(a.start && a.end); });
     const HAS_STAGES = ARTISTS.some(function (a) { return !!a.stage; });
-    const STAGES = Array.from(new Set(ARTISTS.map(function (a) { return a.stage; }).filter(Boolean))).sort();
+    const STAGES = sortStages(Array.from(new Set(ARTISTS.map(function (a) { return a.stage; }).filter(Boolean))));
 
     const LS = {
       name: "ll26-name",
@@ -1653,7 +1666,7 @@
       dayFilter: "all",
       stageFilter: "all",
       schedDay: "",
-      view: PREVIEW_TIMES ? "hour" : "az",
+      view: HAS_TIMES ? "hour" : "az",
       printMode: false,
       admin: false,
       pin: localStorage.getItem("ll26-pin") || ""
