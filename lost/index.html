@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#1a0b2e" />
   <meta name="description" content="Lost Lands 2026 lineup lock-in. Mark Must Sees and Wants, then compare lists with friends." />
   <title>LOCKED LANDS · Lost Lands 2026</title>
-  <meta name="ll-build" content="2026-09-09-compare-btn" />
+  <meta name="ll-build" content="2026-09-09-sched-select" />
   <link rel="icon" href="hoopeystarsquare.png" />
   <link rel="apple-touch-icon" href="hoopeystarsquare.png" />
   <!-- First load pulls fonts; after that the app is fully self-contained (picks live in localStorage + the URL hash). -->
@@ -1006,32 +1006,22 @@
       outline: none;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: center;
       align-items: stretch;
     }
     .sched-block.dim { opacity: 0.32; }
     .sched-block.is-must {
-      background: var(--toxic);
-      color: #121406;
-      border-color: #121406;
-      box-shadow: inset 0 0 0 2px #121406;
-      opacity: 1;
+      border: 3px solid var(--toxic);
     }
     .sched-block.is-like {
-      background: var(--like);
-      color: #041018;
-      border-color: #041018;
-      box-shadow: inset 0 0 0 2px #041018;
-      opacity: 1;
+      border: 3px solid var(--like);
     }
     .sched-block.is-conflict {
-      border: 2px solid var(--blood);
-      box-shadow: inset 0 0 0 1px rgba(255, 59, 18, 0.7);
+      border: 3px solid var(--blood);
     }
     .sched-block.is-must.is-conflict,
     .sched-block.is-like.is-conflict {
       border-color: var(--blood);
-      box-shadow: inset 0 0 0 2px var(--blood);
     }
     .sched-block-name {
       display: block;
@@ -1046,7 +1036,7 @@
     }
     .sched-block-time {
       display: block;
-      margin-top: auto;
+      margin-top: 2px;
       font-size: 0.7rem;
       letter-spacing: 0.01em;
       line-height: 1.1;
@@ -2613,10 +2603,7 @@
           if (pri === "must") cls += " is-must";
           else if (pri === "like") cls += " is-like";
           if (clash[a.id]) cls += " is-conflict";
-          var blockStyle = "top:" + top + "px;height:" + ht + "px";
-          if (pri !== "must" && pri !== "like") {
-            blockStyle += ";background:" + pal.bg + ";color:" + pal.fg;
-          }
+          var blockStyle = "top:" + top + "px;height:" + ht + "px;background:" + pal.bg + ";color:" + pal.fg;
           return '<div class="' + cls + '" data-sched-id="' + a.id + '" style="' + blockStyle + '">' +
             '<span class="sched-block-name">' + esc(a.name) + "</span>" +
             '<span class="sched-block-time">' + esc(fmtTime(a.start) + " - " + fmtTime(a.end)) + "</span>" +
