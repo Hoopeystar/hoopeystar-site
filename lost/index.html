@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#1a0b2e" />
   <meta name="description" content="Lost Lands 2026 lineup lock-in. Mark Must Sees and Wants, then compare lists with friends." />
   <title>LOCKED LANDS · Lost Lands 2026</title>
-  <meta name="ll-build" content="2026-09-09-sched-matches" />
+  <meta name="ll-build" content="2026-09-09-sched-frame" />
   <link rel="icon" href="hoopeystarsquare.png" />
   <link rel="apple-touch-icon" href="hoopeystarsquare.png" />
   <!-- First load pulls fonts; after that the app is fully self-contained (picks live in localStorage + the URL hash). -->
@@ -915,7 +915,12 @@
       background: #1c1c1c;
       -webkit-overflow-scrolling: touch;
     }
-    .sched-board { display: flex; min-width: min-content; width: 100%; }
+    .sched-board {
+      display: flex;
+      min-width: min-content;
+      width: 100%;
+      --sched-cols: 6;
+    }
     .sched-gutter {
       width: 56px;
       flex: 0 0 56px;
@@ -926,7 +931,8 @@
     }
     .sched-col {
       min-width: 112px;
-      flex: 1 0 112px;
+      flex: 0 0 calc((100% - 56px) / var(--sched-cols));
+      width: calc((100% - 56px) / var(--sched-cols));
       border-left: 3px solid #1c1c1c;
       display: flex;
       flex-direction: column;
@@ -1073,7 +1079,7 @@
     .sched-friend.split { background: #2b0904; color: #ffb4a2; }
     @media (max-width: 640px) {
       .sched-scroll { max-height: calc(100dvh - 200px); }
-      .sched-col { min-width: 104px; flex-basis: 104px; }
+      .sched-col { min-width: 104px; }
     }
     body.view-hour .hero,
     body.view-hour .toolbar .days,
@@ -2112,6 +2118,32 @@
       }
       return mins;
     }
+    function festivalSchedFrame() {
+      if (festivalSchedFrame._c) return festivalSchedFrame._c;
+      var minM = Infinity, maxM = -Infinity, maxCols = 1;
+      var byDay = {};
+      ARTISTS.forEach(function (a) {
+        if (a.day && a.stage) {
+          if (!byDay[a.day]) byDay[a.day] = {};
+          byDay[a.day][a.stage] = true;
+        }
+        if (!a.start || !a.end) return;
+        var s = festMins(a.start);
+        var e = festMins(a.end, true, a.start);
+        if (s < minM) minM = s;
+        if (e > maxM) maxM = e;
+      });
+      Object.keys(byDay).forEach(function (d) {
+        var n = Object.keys(byDay[d]).length;
+        if (n > maxCols) maxCols = n;
+      });
+      var startHour = Math.floor(minM / 60);
+      var endHour = Math.ceil(maxM / 60);
+      if (!isFinite(startHour)) { startHour = 13; endHour = 14; }
+      if (endHour <= startHour) endHour = startHour + 1;
+      festivalSchedFrame._c = { startHour: startHour, endHour: endHour, maxCols: Math.max(maxCols, 1) };
+      return festivalSchedFrame._c;
+    }
     function overlaps(a, b) {
       if (!a || !b || a.id === b.id) return false;
       if (!a.start || !a.end || !b.start || !b.end) return false;
@@ -2640,16 +2672,9 @@
         return;
       }
       var stages = sortStages(Array.from(new Set(dayActs.map(function (a) { return a.stage || "TBA"; }))));
-      var minM = Infinity, maxM = -Infinity;
-      dayActs.forEach(function (a) {
-        var s = festMins(a.start);
-        var e = festMins(a.end, true, a.start);
-        if (s < minM) minM = s;
-        if (e > maxM) maxM = e;
-      });
-      var startHour = Math.floor(minM / 60);
-      var endHour = Math.ceil(maxM / 60);
-      if (endHour <= startHour) endHour = startHour + 1;
+      var frame = festivalSchedFrame();
+      var startHour = frame.startHour;
+      var endHour = frame.endHour;
       var totalPx = (endHour - startHour) * PX_PER_HOUR + SCHED_PAD_TOP + SCHED_PAD_BOTTOM;
       var startM = startHour * 60;
       var clash = conflictIdSet();
@@ -2695,7 +2720,7 @@
       var hint = mine
         ? '<p class="sched-hint">Your Must and Want sets. Names on a block are friends going to the same set.</p>'
         : '<p class="sched-hint">Tap a set to cycle Must / Want. Faded is unselected, medium is Want, brightest is Must. Red border is an overlap. Names on a block are friends going to the same set.</p>';
-      root.innerHTML = preview + dayTabs + hint + '<div class="sched-scroll" data-day="' + state.schedDay + '"><div class="sched-board">' + gutter + cols + "</div></div>";
+      root.innerHTML = preview + dayTabs + hint + '<div class="sched-scroll" data-day="' + state.schedDay + '"><div class="sched-board" style="--sched-cols:' + frame.maxCols + '">' + gutter + cols + "</div></div>";
     }
 
     function mineRowHTML(a) {
