@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#1a0b2e" />
   <meta name="description" content="Lost Lands 2026 lineup lock-in. Mark Must Sees and Wants, then compare lists with friends." />
   <title>LOCKED LANDS · Lost Lands 2026</title>
-  <meta name="ll-build" content="2026-09-09-sched-frame" />
+  <meta name="ll-build" content="2026-09-09-sched-hero" />
   <link rel="icon" href="hoopeystarsquare.png" />
   <link rel="apple-touch-icon" href="hoopeystarsquare.png" />
   <!-- First load pulls fonts; after that the app is fully self-contained (picks live in localStorage + the URL hash). -->
@@ -1081,24 +1081,15 @@
       .sched-scroll { max-height: calc(100dvh - 200px); }
       .sched-col { min-width: 104px; }
     }
-    body.view-hour .hero,
-    body.view-hour .toolbar .days,
-    body.view-hour .foot-note { display: none; }
+    body.view-hour .toolbar .days { display: none; }
     body.view-hour:not(.view-mine) #conflictBanner { display: none; }
     body.view-mine #conflictBanner { display: block; }
-    body.view-hour .wrap { padding-top: 8px; }
-    body.view-hour .skip-compare {
-      min-height: 46px;
-      margin: 0 0 10px;
-      padding: 8px 14px;
-    }
-    body.view-hour .skip-compare small { display: none; }
     body.view-hour .sched-scroll {
-      max-height: calc(100dvh - 280px - var(--safe-b));
+      max-height: calc(100dvh - 420px - var(--safe-b));
     }
     @media (max-width: 640px) {
       body.view-hour .sched-scroll {
-        max-height: calc(100dvh - 370px - var(--safe-b));
+        max-height: calc(100dvh - 520px - var(--safe-b));
       }
     }
 
