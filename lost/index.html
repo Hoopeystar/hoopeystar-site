@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#1a0b2e" />
   <meta name="description" content="Lost Lands 2026 lineup lock-in. Mark Must Sees and Wants, then compare lists with friends." />
   <title>LOCKED LANDS · Lost Lands 2026</title>
-  <meta name="ll-build" content="2026-09-09-mine-sched" />
+  <meta name="ll-build" content="2026-09-09-sched-matches" />
   <link rel="icon" href="hoopeystarsquare.png" />
   <link rel="apple-touch-icon" href="hoopeystarsquare.png" />
   <!-- First load pulls fonts; after that the app is fully self-contained (picks live in localStorage + the URL hash). -->
@@ -2672,7 +2672,7 @@
           var e = festMins(a.end, true, a.start) - startM;
           if (e <= s) e = s + 30;
           var top = (s / 60) * PX_PER_HOUR + SCHED_PAD_TOP + SCHED_BLOCK_GAP / 2;
-          var notes = mine ? friendNoteHTML(a.id, true, true) : "";
+          var notes = friendNoteHTML(a.id, true, true);
           var ht = Math.max(((e - s) / 60) * PX_PER_HOUR - SCHED_BLOCK_GAP, notes ? 42 : 28);
           var pri = state.picks[a.id] || "";
           var cls = "sched-block";
@@ -2694,7 +2694,7 @@
       var preview = PREVIEW_TIMES ? '<div class="sched-preview">Preview layout only. These times and stages are not official 2026 set times.</div>' : "";
       var hint = mine
         ? '<p class="sched-hint">Your Must and Want sets. Names on a block are friends going to the same set.</p>'
-        : '<p class="sched-hint">Tap a set to cycle Must / Want. Faded is unselected, medium is Want, brightest is Must. Red border is an overlap.</p>';
+        : '<p class="sched-hint">Tap a set to cycle Must / Want. Faded is unselected, medium is Want, brightest is Must. Red border is an overlap. Names on a block are friends going to the same set.</p>';
       root.innerHTML = preview + dayTabs + hint + '<div class="sched-scroll" data-day="' + state.schedDay + '"><div class="sched-board">' + gutter + cols + "</div></div>";
     }
 
