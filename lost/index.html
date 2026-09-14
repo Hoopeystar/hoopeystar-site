@@ -1083,14 +1083,14 @@
       left: 2px;
       right: 2px;
       border-radius: 5px;
-      padding: 1px 2px 1px;
+      padding: 3px 2px 2px;
       overflow: hidden;
       text-align: center;
       box-sizing: border-box;
       z-index: 2;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: stretch;
       container-type: size;
       border: 1px solid rgba(255,255,255,0.08);
@@ -1109,23 +1109,44 @@
       font-size: clamp(6.5px, min(22cqh, 16cqw), 11px);
       letter-spacing: 0.01em;
       text-transform: uppercase;
-      line-height: 1.05;
+      line-height: 1.15;
       overflow-wrap: break-word;
       word-break: break-word;
       hyphens: auto;
       -webkit-hyphens: auto;
+      flex: 1 1 auto;
+      min-height: 1.15em;
+      overflow: hidden;
     }
     .print-block-time {
       display: none;
       margin-top: 1px;
       font-size: clamp(8px, min(22cqh, 22cqw), 14px);
       letter-spacing: 0;
-      line-height: 1.05;
+      line-height: 1.15;
       opacity: 0.95;
       font-weight: 700;
+      flex: 0 0 auto;
+    }
+    .print-block .sched-block-friends {
+      display: none;
+      flex-wrap: wrap;
+      gap: 1px;
+      justify-content: center;
+      margin-top: auto;
+      padding-top: 1px;
+      flex: 0 0 auto;
+    }
+    .print-block .sched-friend {
+      font-size: clamp(5.5px, min(14cqh, 16cqw), 9px);
+      line-height: 1.35;
+      padding: 0 3px;
     }
     @container (min-height: 16px) {
       .print-block-time { display: block; }
+    }
+    @container (min-height: 28px) {
+      .print-block .sched-block-friends { display: flex; }
     }
 
     @media (min-width: 520px) {
@@ -1137,7 +1158,7 @@
       .print-block-time { font-size: clamp(9px, min(24cqh, 18cqw), 15px); }
       .print-who { font-size: 1.45rem; }
       .print-day-label { font-size: 1.25rem; }
-      .print-block { border-radius: 8px; padding: 2px 3px 1px; left: 3px; right: 3px; }
+      .print-block { border-radius: 8px; padding: 4px 3px 3px; left: 3px; right: 3px; }
       .print-block.is-conflict { border-width: 3px; }
     }
     @media (min-width: 860px) {
@@ -1323,7 +1344,7 @@
       left: 5px;
       right: 5px;
       border-radius: 10px;
-      padding: 3px 3px 2px;
+      padding: 6px 4px 5px;
       overflow: hidden;
       text-align: center;
       border: 1px solid rgba(255,255,255,0.08);
@@ -1334,7 +1355,7 @@
       outline: none;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: stretch;
     }
     .sched-block.dim { opacity: 0.32; }
@@ -1355,30 +1376,40 @@
       border-color: var(--blood);
     }
     .sched-block-name {
-      display: block;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
       font-family: var(--font-head);
       font-weight: 800;
       font-size: 0.86rem;
       letter-spacing: 0.02em;
       text-transform: uppercase;
-      line-height: 1.05;
+      line-height: 1.2;
       word-break: break-word;
       overflow-wrap: anywhere;
+      flex: 0 1 auto;
+      min-height: 1.2em;
+      overflow: hidden;
     }
     .sched-block-time {
       display: block;
       margin-top: 2px;
-      font-size: 0.8rem;
+      font-size: 0.72rem;
       letter-spacing: 0.01em;
-      line-height: 1.1;
+      line-height: 1.2;
       opacity: 0.9;
+      flex: 0 0 auto;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .sched-block-friends {
       display: flex;
       flex-wrap: wrap;
       gap: 2px;
       justify-content: center;
-      margin-top: 2px;
+      margin-top: auto;
+      padding-top: 3px;
       flex: 0 0 auto;
     }
     .sched-friend {
@@ -3010,7 +3041,7 @@
           if (e <= s) e = s + 30;
           var top = (s / 60) * PX_PER_HOUR + SCHED_PAD_TOP + SCHED_BLOCK_GAP / 2;
           var notes = friendNoteHTML(a.id, true, true);
-          var ht = Math.max(((e - s) / 60) * PX_PER_HOUR - SCHED_BLOCK_GAP, notes ? 42 : 28);
+          var ht = Math.max(((e - s) / 60) * PX_PER_HOUR - SCHED_BLOCK_GAP, notes ? 62 : 32);
           var pri = state.picks[a.id] || "";
           var cls = "sched-block";
           if (pri === "must") cls += " is-must";
@@ -3021,7 +3052,7 @@
           var blockStyle = "top:" + top + "px;height:" + ht + "px;background:" + fill.bg + ";color:" + fill.fg;
           return '<div class="' + cls + '" data-sched-id="' + a.id + '" style="' + blockStyle + '">' +
             '<span class="sched-block-name">' + esc(a.name) + "</span>" +
-            '<span class="sched-block-time">' + esc(fmtTime(a.start) + " - " + fmtTime(a.end)) + "</span>" +
+            '<span class="sched-block-time">' + esc(fmtPrintRange(a.start, a.end)) + "</span>" +
             notes +
           "</div>";
         }).join("");
@@ -3193,9 +3224,11 @@
           var cls = "print-block" + (pri === "must" ? " is-must" : pri === "like" ? " is-like" : " is-off");
           if (clash[a.id]) cls += " is-conflict";
           var fill = stageFill(pal, pri);
+          var notes = friendNoteHTML(a.id, true, true);
           return '<div class="' + cls + '" style="top:calc(' + top + "% + 1px);height:calc(" + ht + "% - 2px);background:" + fill.bg + ";color:" + fill.fg + '">' +
             '<span class="print-block-name">' + esc(a.name) + "</span>" +
             '<span class="print-block-time">' + esc(fmtPrintRange(a.start, a.end)) + "</span>" +
+            notes +
           "</div>";
         }).join("");
         return '<div class="print-track">' + marks + blocks + "</div>";
