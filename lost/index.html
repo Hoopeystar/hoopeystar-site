@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#1a0b2e" />
   <meta name="description" content="Lost Lands 2026 lineup lock-in. Mark Must Sees and Wants, then compare lists with friends." />
   <title>LOCKED LANDS · Lost Lands 2026</title>
-  <meta name="ll-build" content="2026-09-09-sched-hero" />
+  <meta name="ll-build" content="2026-09-14-print-sheet" />
   <link rel="icon" href="hoopeystarsquare.png" />
   <link rel="apple-touch-icon" href="hoopeystarsquare.png" />
   <!-- First load pulls fonts; after that the app is fully self-contained (picks live in localStorage + the URL hash). -->
@@ -746,7 +746,7 @@
       border-top: 1px solid var(--line);
       backdrop-filter: blur(16px);
     }
-    .dock.pick-mode { grid-template-columns: 1.5fr 1fr; }
+    .dock.pick-mode { grid-template-columns: 1.35fr 0.9fr 0.9fr; }
     .dock.compare-mode { grid-template-columns: 1fr 1fr; }
     .dock.admin-mode { grid-template-columns: 1fr; }
     .btn {
@@ -794,6 +794,10 @@
     }
     .modal p { color: var(--bone-dim); }
     .modal-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    @media (max-width: 520px) {
+      .modal-actions { flex-direction: column; }
+      .modal-actions .btn { width: 100%; }
+    }
     .share-url {
       width: 100%;
       min-height: 44px;
@@ -818,17 +822,322 @@
       box-shadow: var(--shadow);
     }
 
+    /* ---------- Print / screenshot sheet ---------- */
+    body.print-mode {
+      overflow: hidden;
+      height: 100dvh;
+    }
+    body.print-mode .wrap,
+    body.print-mode .dock,
+    body.print-mode .login-screen { display: none !important; }
+    body.print-mode::after { display: none; }
+
     .print-view {
-      padding: 8px 4px 40px;
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      background: var(--void);
+      padding: max(6px, env(safe-area-inset-top, 0px)) max(8px, env(safe-area-inset-right, 0px)) max(6px, env(safe-area-inset-bottom, 0px)) max(8px, env(safe-area-inset-left, 0px));
+      overscroll-behavior: none;
     }
-    .print-view h2 {
-      font-family: var(--font-display);
-      font-size: 2.4rem;
-      margin: 18px 0 8px;
+    body.print-mode .print-view { display: flex !important; }
+    .print-view:not(.hidden) { display: flex; }
+
+    .print-chrome {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 0 6px;
+      min-height: 36px;
+    }
+    .print-chrome .btn {
+      min-height: 34px;
+      padding: 0 10px;
+      font-size: 0.62rem;
+      flex: 0 0 auto;
+    }
+    .print-scopes {
+      display: flex;
+      gap: 5px;
+      flex: 1;
+      min-width: 0;
+    }
+    .print-days {
+      display: flex;
+      gap: 5px;
+      flex: 0 0 auto;
+      min-width: 0;
+      padding: 0 0 6px;
+      overflow: visible;
+    }
+    .print-scopes .chip, .print-days .chip {
+      flex: 1 1 0;
+      min-width: 0;
+      min-height: 34px;
+      padding: 0 6px;
+      font-size: 0.64rem;
       letter-spacing: 0.06em;
+      justify-content: center;
     }
-    .print-col { break-inside: avoid; }
-    .print-item { padding: 6px 0; border-bottom: 1px solid var(--line); }
+    .print-days .chip { min-height: 30px; font-size: 0.6rem; }
+    .chip[data-print-page="early"] { color: var(--day-wed); border-color: rgba(45, 212, 191, 0.55); }
+    .chip[data-print-page="early"][aria-pressed="true"] {
+      background: linear-gradient(90deg, var(--day-wed), var(--day-thu));
+      color: #042f2e;
+      border-color: var(--day-thu);
+    }
+
+    .print-sheet {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background:
+        linear-gradient(180deg, rgba(139, 92, 246, 0.10), transparent 28%),
+        var(--char);
+      padding: 6px 6px 5px;
+      overflow: hidden;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    .print-sheet[data-page="early"] { border-color: rgba(45, 212, 191, 0.38); }
+    .print-sheet[data-page="Fri"] { border-color: rgba(250, 204, 21, 0.38); }
+    .print-sheet[data-page="Sat"] { border-color: rgba(167, 139, 250, 0.38); }
+    .print-sheet[data-page="Sun"] { border-color: rgba(251, 113, 133, 0.38); }
+
+    .print-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 2px 5px;
+      flex: 0 0 auto;
+      min-width: 0;
+    }
+    .print-logo {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      object-fit: cover;
+      flex: 0 0 auto;
+      box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.45);
+    }
+    .print-titles { min-width: 0; flex: 1; }
+    .print-kicker {
+      font-family: var(--font-head);
+      font-size: 0.58rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--purple-hot);
+      line-height: 1.1;
+    }
+    .print-who {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      letter-spacing: 0.04em;
+      line-height: 0.92;
+      margin: 1px 0 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .print-legend {
+      display: flex;
+      gap: 5px;
+      flex: 0 0 auto;
+    }
+    .print-leg {
+      font-family: var(--font-head);
+      font-size: 0.55rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+    }
+    .print-leg.must { color: #121406; background: var(--toxic); border-color: var(--toxic); }
+    .print-leg.like { color: #041018; background: var(--like); border-color: var(--like); }
+
+    .print-boards {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .print-board {
+      flex: 1 1 0;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .print-board.is-empty { flex: 0 0 auto; }
+    .print-day-label {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      letter-spacing: 0.06em;
+      line-height: 1;
+      padding: 0 2px 3px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex: 0 0 auto;
+    }
+    .print-day-label span {
+      font-family: var(--font-head);
+      font-size: 0.58rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.72;
+    }
+    .print-board.day-Wed .print-day-label { color: var(--day-wed); }
+    .print-board.day-Thu .print-day-label { color: var(--day-thu); }
+    .print-board.day-Fri .print-day-label { color: var(--day-fri); }
+    .print-board.day-Sat .print-day-label { color: var(--day-sat); }
+    .print-board.day-Sun .print-day-label { color: var(--day-sun); }
+    .print-empty {
+      padding: 10px 8px;
+      text-align: center;
+      color: var(--moss);
+      font-size: 0.78rem;
+      border: 1px dashed var(--line);
+      border-radius: 10px;
+    }
+
+    .print-grid {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #141814;
+      --print-gutter: 22px;
+    }
+    .print-col-heads, .print-body {
+      display: grid;
+      grid-template-columns: var(--print-gutter) repeat(var(--cols), minmax(0, 1fr));
+    }
+    .print-col-heads { flex: 0 0 auto; }
+    .print-col-head {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 18px;
+      padding: 2px 1px;
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 0.52rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      line-height: 1.05;
+      color: #111;
+    }
+    .print-gutter-head { background: #141814; }
+    .print-stage-full { display: none; }
+    .print-body {
+      flex: 1;
+      min-height: 0;
+      grid-template-rows: minmax(0, 1fr);
+    }
+    .print-gutter, .print-track {
+      position: relative;
+      min-height: 0;
+      overflow: hidden;
+    }
+    .print-gutter { background: #141814; }
+    .print-track {
+      background: #1c221a;
+      border-left: 1px solid #0c0e0c;
+    }
+    .print-hour {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .print-hour.print-hour-end { top: auto; bottom: 0; }
+    .print-hour-label {
+      position: absolute;
+      left: 0;
+      width: var(--print-gutter);
+      font-family: var(--font-head);
+      font-size: 0.52rem;
+      letter-spacing: 0.02em;
+      text-transform: lowercase;
+      color: #c9c0ae;
+      text-align: center;
+      line-height: 1;
+      pointer-events: none;
+      z-index: 2;
+      transform: translateY(1px);
+    }
+    .print-block {
+      position: absolute;
+      left: 1px;
+      right: 1px;
+      border-radius: 3px;
+      padding: 1px 2px 0;
+      overflow: hidden;
+      text-align: center;
+      box-sizing: border-box;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: stretch;
+      container-type: size;
+      border: 1px solid rgba(0,0,0,0.2);
+    }
+    .print-block.is-off { border-color: rgba(255,255,255,0.1); }
+    .print-block.is-conflict { border: 2px solid var(--blood); }
+    .print-block-name {
+      display: block;
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 7.5px;
+      font-size: clamp(6.5px, min(26cqh, 16cqw), 12px);
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      line-height: 1.05;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+    }
+
+    @media (min-width: 520px) {
+      .print-stage-short { display: none; }
+      .print-stage-full { display: inline; }
+      .print-grid { --print-gutter: 34px; }
+      .print-col-head { min-height: 22px; font-size: 0.68rem; }
+      .print-hour-label { font-size: 0.64rem; }
+      .print-who { font-size: 1.45rem; }
+      .print-day-label { font-size: 1.25rem; }
+      .print-block { border-radius: 5px; padding: 2px 3px 1px; left: 2px; right: 2px; }
+    }
+    @media (min-width: 860px) {
+      .print-view { padding: 10px 16px 12px; align-items: center; }
+      .print-chrome, .print-sheet { max-width: 1100px; width: 100%; }
+      .print-scopes { flex: 0 0 auto; width: 240px; }
+      .print-sheet { margin: 0 auto; padding: 10px; }
+      .print-logo { width: 36px; height: 36px; border-radius: 9px; }
+      .print-block-name { font-size: clamp(8px, min(28cqh, 12cqw), 15px); }
+    }
+    @media (max-height: 520px) {
+      .print-legend { display: none; }
+      .print-kicker { display: none; }
+      .print-day-label { font-size: 0.9rem; padding-bottom: 1px; }
+      .print-col-head { min-height: 16px; }
+    }
 
     body.screen-compare .views { display: none; }
     body.screen-compare .name-field { display: none; }
@@ -1225,11 +1534,17 @@
     }
 
     @media print {
-      body { background: #fff !important; color: #111 !important; }
-      body::before, body::after, .toolbar, .dock, .hero, .banner, .modal-bg, .toast, .no-print, .login-screen { display: none !important; }
-      .wrap { width: 100%; padding: 0; display: block !important; }
-      .print-view, .compare, .panel, .card { background: #fff !important; color: #111 !important; border-color: #ccc !important; box-shadow: none !important; }
-      .print-view { display: block !important; }
+      body::before, body::after, .toolbar, .dock, .hero, .banner, .modal-bg, .toast, .no-print, .login-screen, .print-chrome { display: none !important; }
+      .wrap { display: none !important; }
+      .print-view {
+        display: flex !important;
+        position: static;
+        height: auto;
+        min-height: 100vh;
+        padding: 0;
+        background: #050605 !important;
+      }
+      .print-sheet { border-radius: 0; }
     }
   </style>
 </head>
@@ -1303,12 +1618,14 @@
     </div>
 
     <main id="listRoot"></main>
-    <section id="printRoot" class="print-view hidden"></section>
     <p class="foot-note">Fan-made lock-in tool, not affiliated with Excision or Lost Lands.</p>
   </div>
 
+  <section id="printRoot" class="print-view hidden" aria-label="Print schedule"></section>
+
   <nav class="dock pick-mode no-print" aria-label="List actions">
     <button class="btn primary" id="btnPrimary">Submit</button>
+    <button class="btn hidden" id="btnPrint">Print</button>
     <button class="btn hidden" id="btnScreen">Edit picks</button>
     <button class="btn hidden" id="btnJson">Add</button>
     <button class="btn danger" id="btnClear">Clear</button>
@@ -1767,6 +2084,8 @@
       schedDay: "",
       view: HAS_TIMES ? "hour" : "az",
       printMode: false,
+      printScope: "full",
+      printPage: "Fri",
       admin: false,
       pin: localStorage.getItem("ll26-pin") || ""
     };
@@ -2277,8 +2596,9 @@
       if (state.admin && state.screen === "pick") state.screen = "compare";
       document.body.classList.toggle("screen-login", state.screen === "login");
       document.body.classList.toggle("screen-compare", state.screen === "compare");
-      document.body.classList.toggle("view-hour", state.screen === "pick" && HAS_TIMES && (state.view === "hour" || state.view === "mine"));
-      document.body.classList.toggle("view-mine", state.screen === "pick" && state.view === "mine");
+      document.body.classList.toggle("view-hour", state.screen === "pick" && HAS_TIMES && (state.view === "hour" || state.view === "mine") && !state.printMode);
+      document.body.classList.toggle("view-mine", state.screen === "pick" && state.view === "mine" && !state.printMode);
+      document.body.classList.toggle("print-mode", !!state.printMode);
       if (state.screen === "login") {
         window.scrollTo(0, 0);
         return;
@@ -2466,6 +2786,7 @@
       const s = document.getElementById("btnScreen");
       const j = document.getElementById("btnJson");
       const c = document.getElementById("btnClear");
+      const printBtn = document.getElementById("btnPrint");
       const n = state.people.length;
       const skipHint = document.getElementById("skipHint");
       const top = document.getElementById("compareTopActions");
@@ -2487,6 +2808,7 @@
       } else {
         skipHint.textContent = "See everyone’s lists without submitting yet";
       }
+      printBtn.classList.remove("hidden");
       if (state.screen === "compare") {
         dock.classList.remove("pick-mode");
         dock.classList.add("compare-mode");
@@ -2496,8 +2818,7 @@
         if (state.admin) s.classList.add("hidden");
         else s.classList.remove("hidden");
         j.classList.add("hidden");
-        c.textContent = "Print";
-        c.classList.remove("danger");
+        c.classList.add("hidden");
         top.classList.remove("hidden");
         if (state.admin) topEdit.classList.add("hidden");
         else topEdit.classList.remove("hidden");
@@ -2511,6 +2832,7 @@
         j.classList.add("hidden");
         c.textContent = "Clear";
         c.classList.add("danger");
+        c.classList.remove("hidden");
         top.classList.add("hidden");
         topEdit.classList.remove("hidden");
       }
@@ -2775,35 +3097,174 @@
       root.innerHTML = '<div class="list az">' + az.map(cardHTML).join("") + "</div>";
     }
 
+    function hourLabelShort(hourNum) {
+      var hr = ((hourNum % 24) + 24) % 24;
+      var d = hr % 12;
+      if (d === 0) d = 12;
+      return d + (hr >= 12 ? "p" : "a");
+    }
+    function printStagePair(stage) {
+      var full = "TBA", short = "TBA";
+      var sl = String(stage || "").toLowerCase();
+      if (sl.indexOf("prehistor") >= 0) { full = "Prehistoric"; short = "Pre"; }
+      else if (sl.indexOf("wompy") >= 0) { full = "Wompy"; short = "Wompy"; }
+      else if (sl.indexOf("crater") >= 0) { full = "Crater"; short = "Crater"; }
+      else if (sl.indexOf("forest") >= 0) { full = "Forest"; short = "Forest"; }
+      else if (sl.indexOf("subsidia") >= 0) { full = "Subsidia"; short = "Sub"; }
+      else if (sl.indexOf("raptor") >= 0) { full = "Raptor"; short = "Raptor"; }
+      else if (sl.indexOf("grove") >= 0) { full = "Grove"; short = "Grove"; }
+      else if (stage) { full = stage; short = stage; }
+      return '<span class="print-stage-full">' + esc(full) + '</span><span class="print-stage-short">' + esc(short) + "</span>";
+    }
+    function printActsForDays(days, picksOnly) {
+      return ARTISTS.filter(function (a) {
+        if (days.indexOf(a.day) < 0 || !a.start || !a.end) return false;
+        if (picksOnly && !state.picks[a.id]) return false;
+        return true;
+      });
+    }
+    function printFrame(acts) {
+      var minM = Infinity, maxM = -Infinity;
+      acts.forEach(function (a) {
+        var s = festMins(a.start);
+        var e = festMins(a.end, true, a.start);
+        if (s < minM) minM = s;
+        if (e > maxM) maxM = e;
+      });
+      if (!isFinite(minM)) { minM = 13 * 60; maxM = 23 * 60; }
+      var startHour = Math.floor(minM / 60);
+      var endHour = Math.ceil(maxM / 60);
+      if (endHour <= startHour) endHour = startHour + 1;
+      return { startHour: startHour, endHour: endHour, startM: startHour * 60, span: (endHour - startHour) * 60 };
+    }
+    function printHourMarks(frame, withLabels) {
+      var html = "";
+      for (var h = frame.startHour; h <= frame.endHour; h++) {
+        var pct = ((h * 60 - frame.startM) / frame.span) * 100;
+        if (h === frame.endHour) {
+          html += '<div class="print-hour print-hour-end"></div>';
+        } else {
+          html += '<div class="print-hour" style="top:' + pct + '%"></div>';
+          if (withLabels) {
+            html += '<div class="print-hour-label" style="top:' + pct + '%">' + esc(hourLabelShort(h)) + "</div>";
+          }
+        }
+      }
+      return html;
+    }
+    function printBoardHTML(day, picksOnly) {
+      var d = DAYS[day];
+      var acts = printActsForDays([day], picksOnly);
+      var sub = d.date + (d.early ? " · Early" : "");
+      if (!acts.length) {
+        return '<div class="print-board is-empty day-' + day + '">' +
+          '<div class="print-day-label">' + esc(d.label) + "<span>" + esc(sub) + "</span></div>" +
+          '<div class="print-empty">' + (picksOnly ? "No picks this day" : "No sets") + "</div>" +
+        "</div>";
+      }
+      var stages = sortStages(Array.from(new Set(acts.map(function (a) { return a.stage || "TBA"; }))));
+      var frame = printFrame(acts);
+      var clash = conflictIdSet();
+      var heads = '<div class="print-gutter-head"></div>' + stages.map(function (stage, si) {
+        var pal = stagePalette(stage, si);
+        return '<div class="print-col-head" style="background:' + pal.bg + ";color:" + pal.fg + '">' + printStagePair(stage) + "</div>";
+      }).join("");
+      var gutter = '<div class="print-gutter">' + printHourMarks(frame, true) + "</div>";
+      var cols = stages.map(function (stage, si) {
+        var pal = stagePalette(stage, si);
+        var marks = printHourMarks(frame, false);
+        var blocks = acts.filter(function (a) { return (a.stage || "TBA") === stage; }).map(function (a) {
+          var s = festMins(a.start) - frame.startM;
+          var e = festMins(a.end, true, a.start) - frame.startM;
+          if (e <= s) e = s + 30;
+          var top = (s / frame.span) * 100;
+          var ht = ((e - s) / frame.span) * 100;
+          var pri = state.picks[a.id] || "";
+          var cls = "print-block" + (pri === "must" ? " is-must" : pri === "like" ? " is-like" : " is-off");
+          if (clash[a.id]) cls += " is-conflict";
+          var fill = pri === "must"
+            ? { bg: "#c6ff1a", fg: "#121406" }
+            : pri === "like"
+              ? { bg: "#3b9eff", fg: "#041018" }
+              : stageTones(pal).off;
+          return '<div class="' + cls + '" style="top:calc(' + top + "% + 1px);height:calc(" + ht + "% - 2px);background:" + fill.bg + ";color:" + fill.fg + '">' +
+            '<span class="print-block-name">' + esc(a.name) + "</span>" +
+          "</div>";
+        }).join("");
+        return '<div class="print-track">' + marks + blocks + "</div>";
+      }).join("");
+      return '<div class="print-board day-' + day + '">' +
+        '<div class="print-day-label">' + esc(d.label) + "<span>" + esc(sub) + "</span></div>" +
+        '<div class="print-grid" style="--cols:' + stages.length + '">' +
+          '<div class="print-col-heads">' + heads + "</div>" +
+          '<div class="print-body">' + gutter + cols + "</div>" +
+        "</div>" +
+      "</div>";
+    }
+    function printPageBoards(page, picksOnly) {
+      if (page === "early") return printBoardHTML("Wed", picksOnly) + printBoardHTML("Thu", picksOnly);
+      return printBoardHTML(page, picksOnly);
+    }
     function renderPrint() {
       const root = document.getElementById("printRoot");
       root.classList.remove("hidden");
-      let html = '<p class="no-print"><button class="btn" id="btnPrintGo">Send to printer</button> <button class="btn" id="btnPrintBack">Back</button></p>';
-      const crew = selectedPeople();
-      if (crew.length) {
-        html += "<h2>Lost Lands 2026 · Compare</h2>";
-        compareRows().forEach(function (r) {
-          const who = r.marks.map(function (m) { return esc(m.name) + " " + comboLabel(m.pri); }).join(" · ");
-          const when = r.artist.day ? " · " + DAYS[r.artist.day].label : "";
-          html += '<div class="print-item"><strong>' + esc(r.artist.name) + "</strong>" + when + ": " + who + "</div>";
-        });
-      } else {
-        html += "<h2>Lost Lands 2026 · " + esc(state.name || "My list") + "</h2>";
-        html += printCol("Must See", ARTISTS.filter(function (a) { return state.picks[a.id] === "must"; }));
-        html += printCol("Want", ARTISTS.filter(function (a) { return state.picks[a.id] === "like"; }));
-      }
+      const picksOnly = state.printScope === "picks";
+      const page = state.printPage || "Fri";
+      const mine = me();
+      const who = (mine && mine.name) || state.name || "My list";
+      const pages = [
+        ["early", "Wed/Thu"],
+        ["Fri", "Fri"],
+        ["Sat", "Sat"],
+        ["Sun", "Sun"]
+      ];
+      const html =
+        '<div class="print-chrome">' +
+          '<button type="button" class="btn" id="btnPrintBack">Back</button>' +
+          '<div class="print-scopes">' +
+            '<button type="button" class="chip" data-print-scope="full" aria-pressed="' + (!picksOnly) + '">Full</button>' +
+            '<button type="button" class="chip" data-print-scope="picks" aria-pressed="' + picksOnly + '">Picks</button>' +
+          "</div>" +
+        "</div>" +
+        '<div class="print-sheet" data-page="' + page + '">' +
+          '<div class="print-head">' +
+            '<img class="print-logo" src="hoopeystarsquare.png" alt="" width="28" height="28" />' +
+            '<div class="print-titles">' +
+              '<div class="print-kicker">Locked Lands 2026</div>' +
+              '<div class="print-who">' + esc(who) + " · " + (picksOnly ? "Your picks" : "Full schedule") + "</div>" +
+            "</div>" +
+            '<div class="print-legend"><span class="print-leg must">Must</span><span class="print-leg like">Want</span></div>' +
+          "</div>" +
+          '<div class="print-days">' + pages.map(function (p) {
+            return '<button type="button" class="chip" data-print-page="' + p[0] + '" data-day="' + (p[0] === "early" ? "Wed" : p[0]) + '" aria-pressed="' + (page === p[0]) + '">' + p[1] + "</button>";
+          }).join("") + "</div>" +
+          '<div class="print-boards">' + printPageBoards(page, picksOnly) + "</div>" +
+        "</div>";
       root.innerHTML = html;
-      document.getElementById("btnPrintGo").onclick = function () { window.print(); };
-      document.getElementById("btnPrintBack").onclick = function () { state.printMode = false; render(); };
     }
-    function printCol(title, arr) {
-      const sorted = arr.slice().sort(function (a, b) { return a.name.localeCompare(b.name, "en", { sensitivity: "base" }); });
-      return '<div class="print-col"><h3 class="section-title">' + title + " · " + sorted.length + "</h3>" +
-        sorted.map(function (a) {
-          const note = state.notes[a.id] ? ": " + esc(state.notes[a.id]) : "";
-          const when = a.day ? " · " + DAYS[a.day].label + (a.start ? " " + fmtTime(a.start) : "") : "";
-          return '<div class="print-item"><strong>' + esc(a.name) + "</strong>" + when + note + "</div>";
-        }).join("") + "</div>";
+    function openPrint(scope) {
+      state.printMode = true;
+      if (scope === "full" || scope === "picks") state.printScope = scope;
+      else {
+        state.printScope = (countPri(state.picks, "must") + countPri(state.picks, "like") > 0) ? "picks" : "full";
+      }
+      var d = state.schedDay || state.dayFilter;
+      if (d === "Wed" || d === "Thu") state.printPage = "early";
+      else if (d === "Fri" || d === "Sat" || d === "Sun") state.printPage = d;
+      else state.printPage = "Fri";
+      render();
+      window.scrollTo(0, 0);
+    }
+    function onPrint() {
+      showModal(
+        "Print schedule",
+        "<p>One page per day (Wed/Thu share a page). Screenshot what’s on screen — nothing is sent to a printer.</p>",
+        [
+          { label: "Full schedule", primary: true, fn: function () { closeModal(); openPrint("full"); } },
+          { label: "Just your picks", fn: function () { closeModal(); openPrint("picks"); } },
+          { label: "Cancel", fn: closeModal }
+        ]
+      );
     }
 
     /* ---------- actions ---------- */
@@ -3023,9 +3484,8 @@
     }
     function onJsonOrAdd() {}
     function onClearOrPrint() {
-      if (state.screen === "compare") {
-        state.printMode = true; render(); window.scrollTo(0, 0);
-      } else clearList();
+      if (state.screen === "compare") onPrint();
+      else clearList();
     }
 
     function showModal(title, body, actions) {
@@ -3127,9 +3587,28 @@
     });
     document.getElementById("btnPrimary").addEventListener("click", onPrimary);
     document.getElementById("btnScreen").addEventListener("click", onScreen);
+    document.getElementById("btnPrint").addEventListener("click", onPrint);
     document.getElementById("btnSkipCompare").addEventListener("click", function () { goScreen("compare"); });
     document.getElementById("btnTopEdit").addEventListener("click", onScreen);
-    document.getElementById("btnTopPrint").addEventListener("click", onClearOrPrint);
+    document.getElementById("btnTopPrint").addEventListener("click", onPrint);
+    document.getElementById("printRoot").addEventListener("click", function (e) {
+      if (e.target.closest("#btnPrintBack")) {
+        state.printMode = false;
+        render();
+        return;
+      }
+      const scope = e.target.closest("[data-print-scope]");
+      if (scope) {
+        state.printScope = scope.getAttribute("data-print-scope");
+        renderPrint();
+        return;
+      }
+      const page = e.target.closest("[data-print-page]");
+      if (page) {
+        state.printPage = page.getAttribute("data-print-page");
+        renderPrint();
+      }
+    });
     document.getElementById("brandHome").addEventListener("click", function () {
       if (state.screen === "compare" && !state.admin) goScreen("pick");
     });
@@ -3143,7 +3622,13 @@
     document.getElementById("btnJson").addEventListener("click", onJsonOrAdd);
     document.getElementById("btnClear").addEventListener("click", onClearOrPrint);
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") closeModal();
+      if (e.key !== "Escape") return;
+      if (state.printMode) {
+        state.printMode = false;
+        render();
+        return;
+      }
+      closeModal();
     });
     window.addEventListener("hashchange", bootShare);
 
