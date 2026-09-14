@@ -1231,55 +1231,52 @@
       font-size: 0.85rem;
     }
     .sched-scroll {
-      flex: 1;
-      min-height: 0;
-      overflow: hidden;
+      overflow-x: auto;
+      overflow-y: visible;
+      height: auto;
       border: 1px solid #2f2f2f;
       border-radius: 12px;
       background: #1c1c1c;
+      -webkit-overflow-scrolling: touch;
     }
     .sched-board {
       display: flex;
+      min-width: min-content;
       width: 100%;
-      height: 100%;
-      min-width: 0;
       --sched-cols: 6;
     }
     .sched-gutter {
-      width: 40px;
-      flex: 0 0 40px;
+      width: 56px;
+      flex: 0 0 56px;
+      position: sticky;
+      left: 0;
       z-index: 5;
       background: #1c1c1c;
-      display: flex;
-      flex-direction: column;
-      min-height: 0;
     }
     .sched-col {
-      min-width: 0;
-      flex: 1 1 0;
-      width: auto;
+      min-width: 112px;
+      flex: 0 0 calc((100% - 56px) / var(--sched-cols));
+      width: calc((100% - 56px) / var(--sched-cols));
       border-left: 3px solid #1c1c1c;
       display: flex;
       flex-direction: column;
-      min-height: 0;
     }
     .sched-head {
-      height: 34px;
+      height: 52px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 3px 3px;
+      padding: 6px 5px;
       font-family: var(--font-head);
       font-weight: 800;
-      font-size: 0.58rem;
+      font-size: 0.72rem;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      line-height: 1.1;
-      z-index: 4;
+      line-height: 1.15;
       color: #111;
-      flex: 0 0 34px;
-      border-bottom: 3px solid #1c1c1c;
+      flex: 0 0 52px;
+      border-bottom: 4px solid #1c1c1c;
     }
     .sched-gutter .sched-head {
       background: #1c1c1c;
@@ -1291,12 +1288,10 @@
       position: relative;
       background: #262626;
       overflow: hidden;
-      flex: 1;
-      min-height: 0;
     }
     .sched-gutter .sched-track {
       background: #1c1c1c;
-      overflow: hidden;
+      overflow: visible;
     }
     .sched-hour {
       position: absolute;
@@ -1307,28 +1302,26 @@
       pointer-events: none;
       z-index: 1;
     }
-    .sched-hour.sched-hour-end { top: auto; bottom: 0; }
     .sched-hour-label {
       position: absolute;
       left: 0;
-      width: 100%;
+      width: 56px;
+      padding-top: 6px;
       font-family: var(--font-head);
-      font-size: 0.52rem;
-      letter-spacing: 0.03em;
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
       color: #d4d4d4;
       text-align: center;
       pointer-events: none;
       z-index: 2;
-      line-height: 1;
-      transform: translateY(1px);
     }
     .sched-block {
       position: absolute;
-      left: 2px;
-      right: 2px;
-      border-radius: 6px;
-      padding: 1px 2px 1px;
+      left: 5px;
+      right: 5px;
+      border-radius: 10px;
+      padding: 3px 3px 2px;
       overflow: hidden;
       text-align: center;
       border: 1px solid rgba(255,255,255,0.08);
@@ -1341,7 +1334,6 @@
       flex-direction: column;
       justify-content: center;
       align-items: stretch;
-      container-type: size;
     }
     .sched-block.dim { opacity: 0.32; }
     .sched-block.is-off {
@@ -1364,24 +1356,20 @@
       display: block;
       font-family: var(--font-head);
       font-weight: 800;
-      font-size: 7.5px;
-      font-size: clamp(6.5px, min(22cqh, 16cqw), 13px);
+      font-size: 0.86rem;
       letter-spacing: 0.02em;
       text-transform: uppercase;
       line-height: 1.05;
       word-break: break-word;
-      overflow-wrap: break-word;
+      overflow-wrap: anywhere;
     }
     .sched-block-time {
-      display: none;
-      margin-top: 1px;
-      font-size: clamp(5.5px, min(14cqh, 13cqw), 10px);
+      display: block;
+      margin-top: 2px;
+      font-size: 0.8rem;
       letter-spacing: 0.01em;
-      line-height: 1.05;
+      line-height: 1.1;
       opacity: 0.9;
-    }
-    @container (min-height: 16px) {
-      .sched-block-time { display: block; }
     }
     .sched-block-friends {
       display: flex;
@@ -1409,112 +1397,12 @@
     .sched-friend.must { background: #121406; color: var(--toxic); }
     .sched-friend.like { background: #041018; color: var(--like); }
     .sched-friend.split { background: #2b0904; color: #ffb4a2; }
-    @media (min-width: 720px) {
-      .sched-gutter { width: 48px; flex-basis: 48px; }
-      .sched-head { height: 40px; flex-basis: 40px; font-size: 0.7rem; }
-      .sched-hour-label { font-size: 0.62rem; }
-      .sched-block { left: 4px; right: 4px; border-radius: 8px; padding: 2px 3px; }
+    @media (max-width: 640px) {
+      .sched-col { min-width: 104px; }
     }
-    html:has(body.view-hour) { height: 100%; overflow: hidden; }
-    body.view-hour {
-      height: 100dvh;
-      overflow: hidden;
-    }
-    body.view-hour .wrap {
-      display: flex;
-      flex-direction: column;
-      height: 100dvh;
-      max-height: 100dvh;
-      padding: 8px 0 calc(72px + var(--safe-b));
-      overflow: hidden;
-      width: min(1180px, calc(100% - 16px));
-    }
-    body.view-hour .hero {
-      flex: 0 0 auto;
-      padding: 10px 12px 10px;
-    }
-    body.view-hour .hero::after { display: none; }
-    body.view-hour .hero .lede { display: none; }
-    body.view-hour .hero-row { margin-top: 8px; }
-    body.view-hour .logo { width: 48px; height: 48px; border-radius: 12px; }
-    body.view-hour h1 { font-size: clamp(1.7rem, 5vw, 2.6rem); margin: 2px 0 0; }
-    body.view-hour .subhead { font-size: 0.78rem; margin: 0 0 2px; }
-    body.view-hour .foot-note { display: none; }
-    body.view-hour .toolbar {
-      flex: 0 0 auto;
-      margin: 8px 0 6px;
-      padding: 8px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 6px 8px;
-      align-items: center;
-    }
-    body.view-hour .toolbar .search { grid-column: 1 / -1; min-height: 40px; }
-    body.view-hour .toolbar .chips { grid-column: 1; padding: 0; min-width: 0; }
     body.view-hour .toolbar .days { display: none; }
-    body.view-hour .toolbar .tool-row { grid-column: 2; padding: 0; }
-    body.view-hour #stageFilter { display: none; }
-    body.view-hour .skip-compare {
-      flex: 0 0 auto;
-      min-height: 40px;
-      margin-top: 8px;
-      padding: 6px 12px;
-      font-size: 0.72rem;
-    }
-    body.view-hour .skip-compare small { display: none; }
-    body.view-hour .sched-days {
-      overflow: visible;
-      gap: 5px;
-    }
-    body.view-hour .sched-days .chip {
-      flex: 1 1 0;
-      min-width: 0;
-      padding: 0 4px;
-      font-size: 0.62rem;
-      min-height: 32px;
-    }
-    .sched-day-short { display: none; }
-    body.view-hour #listRoot {
-      flex: 1 1 auto;
-      min-height: 0;
-      display: flex;
-      flex-direction: column;
-    }
-    body.view-hour .sched-days { flex: 0 0 auto; padding: 0 0 6px; }
-    body.view-hour .sched-hint {
-      flex: 0 0 auto;
-      margin: 0 0 6px;
-      font-size: 0.68rem;
-    }
     body.view-hour:not(.view-mine) #conflictBanner { display: none; }
     body.view-mine #conflictBanner { display: block; }
-    @media (max-width: 640px) {
-      body.view-hour .skip-compare { display: none; }
-      body.view-hour .kicker { display: none; }
-      body.view-hour .subhead { display: none; }
-      body.view-hour .sched-hint { display: none; }
-      body.view-hour .hero { padding: 8px 10px; }
-      body.view-hour .brand { gap: 8px; align-items: center; }
-      body.view-hour .logo { width: 36px; height: 36px; border-radius: 10px; }
-      body.view-hour h1 { font-size: 1.35rem; margin: 0; }
-      body.view-hour .hero-row { margin-top: 6px; }
-      body.view-hour .pill { min-height: 28px; font-size: 0.68rem; padding: 0 8px; }
-      body.view-hour .chip, body.view-hour .view-btn {
-        min-height: 34px;
-        font-size: 0.66rem;
-        padding: 0 10px;
-      }
-      body.view-hour .search { min-height: 36px; }
-      body.view-hour .sched-day-full { display: none; }
-      body.view-hour .sched-day-short { display: inline; }
-      body.view-hour .who-bar .you { font-size: 0.68rem; }
-      body.view-hour .toolbar { grid-template-columns: 1fr; }
-      body.view-hour .toolbar .chips,
-      body.view-hour .toolbar .tool-row { grid-column: 1; }
-    }
-    @container (max-height: 36px) {
-      .sched-block-friends { display: none; }
-    }
 
     .skip-compare {
       display: flex;
@@ -3095,35 +2983,32 @@
       }
       var stages = sortStages(Array.from(new Set(dayActs.map(function (a) { return a.stage || "TBA"; }))));
       var frame = printFrame(dayActs);
+      var startHour = frame.startHour;
+      var endHour = frame.endHour;
+      var totalPx = (endHour - startHour) * PX_PER_HOUR + SCHED_PAD_TOP + SCHED_PAD_BOTTOM;
+      var startM = frame.startM;
       var clash = conflictIdSet();
       var dayTabs = '<div class="sched-days">' + daysWithTimes.map(function (d) {
-        return '<button type="button" class="chip" data-day="' + d + '" data-sched-day="' + d + '" aria-pressed="' + (state.schedDay === d) + '">' +
-          '<span class="sched-day-full">' + DAYS[d].label + "</span>" +
-          '<span class="sched-day-short">' + d + "</span></button>";
+        return '<button type="button" class="chip" data-day="' + d + '" data-sched-day="' + d + '" aria-pressed="' + (state.schedDay === d) + '">' + DAYS[d].label + "</button>";
       }).join("") + "</div>";
       var hours = "";
       var hourLines = "";
-      for (var h = frame.startHour; h <= frame.endHour; h++) {
-        var pct = ((h * 60 - frame.startM) / frame.span) * 100;
-        if (h === frame.endHour) {
-          hours += '<div class="sched-hour sched-hour-end"></div>';
-          hourLines += '<div class="sched-hour sched-hour-end"></div>';
-        } else {
-          hours += '<div class="sched-hour" style="top:' + pct + '%"></div>';
-          hourLines += '<div class="sched-hour" style="top:' + pct + '%"></div>';
-          hours += '<div class="sched-hour-label" style="top:' + pct + '%">' + hourLabel(h) + "</div>";
-        }
+      for (var h = startHour; h <= endHour; h++) {
+        var top = (h - startHour) * PX_PER_HOUR + SCHED_PAD_TOP;
+        hours += '<div class="sched-hour" style="top:' + top + 'px"></div>';
+        hourLines += '<div class="sched-hour" style="top:' + top + 'px"></div>';
+        if (h < endHour) hours += '<div class="sched-hour-label" style="top:' + top + 'px">' + hourLabel(h) + "</div>";
       }
-      var gutter = '<div class="sched-gutter"><div class="sched-head">&nbsp;</div><div class="sched-track">' + hours + "</div></div>";
+      var gutter = '<div class="sched-gutter"><div class="sched-head">&nbsp;</div><div class="sched-track" style="height:' + totalPx + 'px">' + hours + "</div></div>";
       var cols = stages.map(function (stage, si) {
         var pal = stagePalette(stage, si);
         var blocks = dayActs.filter(function (a) { return (a.stage || "TBA") === stage; }).map(function (a) {
-          var s = festMins(a.start) - frame.startM;
-          var e = festMins(a.end, true, a.start) - frame.startM;
+          var s = festMins(a.start) - startM;
+          var e = festMins(a.end, true, a.start) - startM;
           if (e <= s) e = s + 30;
-          var top = (s / frame.span) * 100;
-          var ht = ((e - s) / frame.span) * 100;
+          var top = (s / 60) * PX_PER_HOUR + SCHED_PAD_TOP + SCHED_BLOCK_GAP / 2;
           var notes = friendNoteHTML(a.id, true, true);
+          var ht = Math.max(((e - s) / 60) * PX_PER_HOUR - SCHED_BLOCK_GAP, notes ? 42 : 28);
           var pri = state.picks[a.id] || "";
           var cls = "sched-block";
           if (pri === "must") cls += " is-must";
@@ -3131,15 +3016,15 @@
           else cls += " is-off";
           if (clash[a.id]) cls += " is-conflict";
           var fill = stageFill(pal, pri);
-          var blockStyle = "top:calc(" + top + "% + 1px);height:calc(" + ht + "% - 2px);background:" + fill.bg + ";color:" + fill.fg;
+          var blockStyle = "top:" + top + "px;height:" + ht + "px;background:" + fill.bg + ";color:" + fill.fg;
           return '<div class="' + cls + '" data-sched-id="' + a.id + '" style="' + blockStyle + '">' +
             '<span class="sched-block-name">' + esc(a.name) + "</span>" +
-            '<span class="sched-block-time">' + esc(fmtPrintRange(a.start, a.end)) + "</span>" +
+            '<span class="sched-block-time">' + esc(fmtTime(a.start) + " - " + fmtTime(a.end)) + "</span>" +
             notes +
           "</div>";
         }).join("");
-        return '<div class="sched-col"><div class="sched-head" style="background:' + pal.bg + ";color:" + pal.fg + '">' + printStagePair(stage) +
-          '</div><div class="sched-track">' + hourLines + blocks + "</div></div>";
+        return '<div class="sched-col"><div class="sched-head" style="background:' + pal.bg + ";color:" + pal.fg + '">' + esc(stage) +
+          '</div><div class="sched-track" style="height:' + totalPx + 'px">' + hourLines + blocks + "</div></div>";
       }).join("");
       var preview = PREVIEW_TIMES ? '<div class="sched-preview">Preview layout only. These times and stages are not official 2026 set times.</div>' : "";
       var hint = mine
