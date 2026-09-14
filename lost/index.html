@@ -1014,7 +1014,7 @@
       border-radius: 8px;
       overflow: hidden;
       background: #1c1c1c;
-      --print-gutter: 30px;
+      --print-gutter: 38px;
     }
     .print-col-heads, .print-body {
       display: grid;
@@ -1068,7 +1068,7 @@
       left: 0;
       width: var(--print-gutter);
       font-family: var(--font-head);
-      font-size: 0.5rem;
+      font-size: 0.68rem;
       letter-spacing: 0.03em;
       text-transform: uppercase;
       color: #d4d4d4;
@@ -1118,13 +1118,13 @@
     .print-block-time {
       display: none;
       margin-top: 1px;
-      font-size: clamp(5.5px, min(14cqh, 13cqw), 9px);
+      font-size: clamp(8px, min(22cqh, 22cqw), 14px);
       letter-spacing: 0;
       line-height: 1.05;
-      opacity: 0.9;
-      font-weight: 600;
+      opacity: 0.95;
+      font-weight: 700;
     }
-    @container (min-height: 20px) {
+    @container (min-height: 16px) {
       .print-block-time { display: block; }
     }
 
@@ -1133,7 +1133,8 @@
       .print-stage-full { display: inline; }
       .print-grid { --print-gutter: 40px; }
       .print-col-head { min-height: 22px; font-size: 0.68rem; }
-      .print-hour-label { font-size: 0.62rem; }
+      .print-hour-label { font-size: 0.78rem; }
+      .print-block-time { font-size: clamp(9px, min(24cqh, 18cqw), 15px); }
       .print-who { font-size: 1.45rem; }
       .print-day-label { font-size: 1.25rem; }
       .print-block { border-radius: 8px; padding: 2px 3px 1px; left: 3px; right: 3px; }
@@ -1146,6 +1147,7 @@
       .print-sheet { margin: 0 auto; padding: 10px; }
       .print-logo { width: 36px; height: 36px; border-radius: 9px; }
       .print-block-name { font-size: clamp(8px, min(28cqh, 12cqw), 15px); }
+      .print-block-time { font-size: clamp(10px, min(22cqh, 14cqw), 16px); }
     }
     @media (max-height: 520px) {
       .print-legend { display: none; }
