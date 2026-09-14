@@ -947,20 +947,18 @@
     }
     .print-legend {
       display: flex;
-      gap: 5px;
+      gap: 4px;
       flex: 0 0 auto;
     }
     .print-leg {
       font-family: var(--font-head);
-      font-size: 0.55rem;
-      letter-spacing: 0.08em;
+      font-size: 0.52rem;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       padding: 3px 7px;
       border-radius: 999px;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(0,0,0,0.18);
     }
-    .print-leg.must { color: #121406; background: var(--toxic); border-color: var(--toxic); }
-    .print-leg.like { color: #041018; background: var(--like); border-color: var(--like); }
 
     .print-boards {
       flex: 1;
@@ -1015,8 +1013,8 @@
       flex-direction: column;
       border-radius: 8px;
       overflow: hidden;
-      background: #141814;
-      --print-gutter: 22px;
+      background: #1c1c1c;
+      --print-gutter: 30px;
     }
     .print-col-heads, .print-body {
       display: grid;
@@ -1038,7 +1036,7 @@
       line-height: 1.05;
       color: #111;
     }
-    .print-gutter-head { background: #141814; }
+    .print-gutter-head { background: #1c1c1c; }
     .print-stage-full { display: none; }
     .print-body {
       flex: 1;
@@ -1050,17 +1048,17 @@
       min-height: 0;
       overflow: hidden;
     }
-    .print-gutter { background: #141814; }
+    .print-gutter { background: #1c1c1c; }
     .print-track {
-      background: #1c221a;
-      border-left: 1px solid #0c0e0c;
+      background: #262626;
+      border-left: 3px solid #1c1c1c;
     }
     .print-hour {
       position: absolute;
       left: 0;
       right: 0;
       height: 1px;
-      background: rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.1);
       pointer-events: none;
       z-index: 1;
     }
@@ -1070,10 +1068,10 @@
       left: 0;
       width: var(--print-gutter);
       font-family: var(--font-head);
-      font-size: 0.52rem;
-      letter-spacing: 0.02em;
-      text-transform: lowercase;
-      color: #c9c0ae;
+      font-size: 0.5rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: #d4d4d4;
       text-align: center;
       line-height: 1;
       pointer-events: none;
@@ -1082,10 +1080,10 @@
     }
     .print-block {
       position: absolute;
-      left: 1px;
-      right: 1px;
-      border-radius: 3px;
-      padding: 1px 2px 0;
+      left: 2px;
+      right: 2px;
+      border-radius: 5px;
+      padding: 1px 2px 1px;
       overflow: hidden;
       text-align: center;
       box-sizing: border-box;
@@ -1095,16 +1093,20 @@
       justify-content: center;
       align-items: stretch;
       container-type: size;
-      border: 1px solid rgba(0,0,0,0.2);
+      border: 1px solid rgba(255,255,255,0.08);
     }
-    .print-block.is-off { border-color: rgba(255,255,255,0.1); }
+    .print-block.is-off { border-color: rgba(255,255,255,0.14); }
+    .print-block.is-like { border-color: rgba(0,0,0,0.22); }
+    .print-block.is-must { border-color: rgba(0,0,0,0.18); }
     .print-block.is-conflict { border: 2px solid var(--blood); }
+    .print-block.is-must.is-conflict,
+    .print-block.is-like.is-conflict { border-color: var(--blood); }
     .print-block-name {
       display: block;
       font-family: var(--font-head);
       font-weight: 800;
       font-size: 7.5px;
-      font-size: clamp(6.5px, min(26cqh, 16cqw), 12px);
+      font-size: clamp(6.5px, min(22cqh, 16cqw), 11px);
       letter-spacing: 0.01em;
       text-transform: uppercase;
       line-height: 1.05;
@@ -1113,16 +1115,29 @@
       hyphens: auto;
       -webkit-hyphens: auto;
     }
+    .print-block-time {
+      display: none;
+      margin-top: 1px;
+      font-size: clamp(5.5px, min(14cqh, 13cqw), 9px);
+      letter-spacing: 0;
+      line-height: 1.05;
+      opacity: 0.9;
+      font-weight: 600;
+    }
+    @container (min-height: 20px) {
+      .print-block-time { display: block; }
+    }
 
     @media (min-width: 520px) {
       .print-stage-short { display: none; }
       .print-stage-full { display: inline; }
-      .print-grid { --print-gutter: 34px; }
+      .print-grid { --print-gutter: 40px; }
       .print-col-head { min-height: 22px; font-size: 0.68rem; }
-      .print-hour-label { font-size: 0.64rem; }
+      .print-hour-label { font-size: 0.62rem; }
       .print-who { font-size: 1.45rem; }
       .print-day-label { font-size: 1.25rem; }
-      .print-block { border-radius: 5px; padding: 2px 3px 1px; left: 2px; right: 2px; }
+      .print-block { border-radius: 8px; padding: 2px 3px 1px; left: 3px; right: 3px; }
+      .print-block.is-conflict { border-width: 3px; }
     }
     @media (min-width: 860px) {
       .print-view { padding: 10px 16px 12px; align-items: center; }
@@ -3097,11 +3112,17 @@
       root.innerHTML = '<div class="list az">' + az.map(cardHTML).join("") + "</div>";
     }
 
-    function hourLabelShort(hourNum) {
-      var hr = ((hourNum % 24) + 24) % 24;
-      var d = hr % 12;
-      if (d === 0) d = 12;
-      return d + (hr >= 12 ? "p" : "a");
+    function fmtPrintRange(start, end) {
+      function clock(hhmm) {
+        if (!hhmm) return "";
+        var p = String(hhmm).split(":");
+        var h = parseInt(p[0], 10);
+        var m = p[1] || "00";
+        h = h % 12;
+        if (h === 0) h = 12;
+        return h + ":" + m;
+      }
+      return clock(start) + "–" + clock(end);
     }
     function printStagePair(stage) {
       var full = "TBA", short = "TBA";
@@ -3146,7 +3167,7 @@
         } else {
           html += '<div class="print-hour" style="top:' + pct + '%"></div>';
           if (withLabels) {
-            html += '<div class="print-hour-label" style="top:' + pct + '%">' + esc(hourLabelShort(h)) + "</div>";
+            html += '<div class="print-hour-label" style="top:' + pct + '%">' + esc(hourLabel(h)) + "</div>";
           }
         }
       }
@@ -3182,13 +3203,10 @@
           var pri = state.picks[a.id] || "";
           var cls = "print-block" + (pri === "must" ? " is-must" : pri === "like" ? " is-like" : " is-off");
           if (clash[a.id]) cls += " is-conflict";
-          var fill = pri === "must"
-            ? { bg: "#c6ff1a", fg: "#121406" }
-            : pri === "like"
-              ? { bg: "#3b9eff", fg: "#041018" }
-              : stageTones(pal).off;
+          var fill = stageFill(pal, pri);
           return '<div class="' + cls + '" style="top:calc(' + top + "% + 1px);height:calc(" + ht + "% - 2px);background:" + fill.bg + ";color:" + fill.fg + '">' +
             '<span class="print-block-name">' + esc(a.name) + "</span>" +
+            '<span class="print-block-time">' + esc(fmtPrintRange(a.start, a.end)) + "</span>" +
           "</div>";
         }).join("");
         return '<div class="print-track">' + marks + blocks + "</div>";
@@ -3218,6 +3236,16 @@
         ["Sat", "Sat"],
         ["Sun", "Sun"]
       ];
+      const legPal = STAGE_PALETTE[1];
+      const legMust = stageFill(legPal, "must");
+      const legLike = stageFill(legPal, "like");
+      const legOff = stageFill(legPal, "");
+      const legend =
+        '<div class="print-legend">' +
+          '<span class="print-leg" style="background:' + legMust.bg + ";color:" + legMust.fg + '">Must</span>' +
+          '<span class="print-leg" style="background:' + legLike.bg + ";color:" + legLike.fg + '">Want</span>' +
+          (picksOnly ? "" : '<span class="print-leg" style="background:' + legOff.bg + ";color:" + legOff.fg + '">Off</span>') +
+        "</div>";
       const html =
         '<div class="print-chrome">' +
           '<button type="button" class="btn" id="btnPrintBack">Back</button>' +
@@ -3231,9 +3259,9 @@
             '<img class="print-logo" src="hoopeystarsquare.png" alt="" width="28" height="28" />' +
             '<div class="print-titles">' +
               '<div class="print-kicker">Locked Lands 2026</div>' +
-              '<div class="print-who">' + esc(who) + " · " + (picksOnly ? "Your picks" : "Full schedule") + "</div>" +
+              '<div class="print-who">' + esc(who) + "</div>" +
             "</div>" +
-            '<div class="print-legend"><span class="print-leg must">Must</span><span class="print-leg like">Want</span></div>' +
+            legend +
           "</div>" +
           '<div class="print-days">' + pages.map(function (p) {
             return '<button type="button" class="chip" data-print-page="' + p[0] + '" data-day="' + (p[0] === "early" ? "Wed" : p[0]) + '" aria-pressed="' + (page === p[0]) + '">' + p[1] + "</button>";
