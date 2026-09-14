@@ -1138,9 +1138,11 @@
       flex: 0 0 auto;
     }
     .print-block .sched-friend {
-      font-size: clamp(5.5px, min(14cqh, 16cqw), 9px);
-      line-height: 1.35;
-      padding: 0 3px;
+      font-size: clamp(6px, min(16cqh, 18cqw), 10px);
+      line-height: 1.3;
+      min-width: 1.15em;
+      padding: 0 2px;
+      text-align: center;
     }
     @container (min-height: 16px) {
       .print-block-time { display: block; }
@@ -2529,16 +2531,25 @@
       });
       return out;
     }
-    function friendNoteHTML(id, tiny, matchesOnly) {
+    function friendInitial(name) {
+      var s = String(name || "").trim();
+      var ch = s.charAt(0);
+      return ch ? ch.toUpperCase() : "?";
+    }
+    function friendNoteHTML(id, tiny, matchesOnly, initials) {
       const withThem = friendMarks(id);
       const splits = matchesOnly ? [] : friendSplits(BY_ID[id]);
       if (!withThem.length && !splits.length) return "";
       if (tiny) {
         const bits = withThem.map(function (m) {
-          return '<span class="sched-friend ' + m.pri + '">' + esc(m.name) + "</span>";
+          var label = initials ? friendInitial(m.name) : m.name;
+          var title = initials ? ' title="' + esc(m.name) + '"' : "";
+          return '<span class="sched-friend ' + m.pri + '"' + title + ">" + esc(label) + "</span>";
         });
         splits.forEach(function (s) {
-          bits.push('<span class="sched-friend split">' + esc(s.name) + " @ " + esc(s.artist.name) + "</span>");
+          var label = initials ? friendInitial(s.name) : (s.name + " @ " + s.artist.name);
+          var title = initials ? ' title="' + esc(s.name) + " @ " + esc(s.artist.name) + '"' : "";
+          bits.push('<span class="sched-friend split"' + title + ">" + esc(label) + "</span>");
         });
         return '<span class="sched-block-friends">' + bits.join("") + "</span>";
       }
@@ -3224,7 +3235,7 @@
           var cls = "print-block" + (pri === "must" ? " is-must" : pri === "like" ? " is-like" : " is-off");
           if (clash[a.id]) cls += " is-conflict";
           var fill = stageFill(pal, pri);
-          var notes = friendNoteHTML(a.id, true, true);
+          var notes = friendNoteHTML(a.id, true, true, true);
           return '<div class="' + cls + '" style="top:calc(' + top + "% + 1px);height:calc(" + ht + "% - 2px);background:" + fill.bg + ";color:" + fill.fg + '">' +
             '<span class="print-block-name">' + esc(a.name) + "</span>" +
             '<span class="print-block-time">' + esc(fmtPrintRange(a.start, a.end)) + "</span>" +
