@@ -3317,15 +3317,7 @@
       window.scrollTo(0, 0);
     }
     function onPrint() {
-      showModal(
-        "Print schedule",
-        "<p>One page per day (Wed/Thu share a page). Screenshot what’s on screen — nothing is sent to a printer.</p>",
-        [
-          { label: "Full schedule", primary: true, fn: function () { closeModal(); openPrint("full"); } },
-          { label: "Just your picks", fn: function () { closeModal(); openPrint("picks"); } },
-          { label: "Cancel", fn: closeModal }
-        ]
-      );
+      openPrint("full");
     }
 
     /* ---------- actions ---------- */
