@@ -29,6 +29,27 @@
         line-height: 1.25;
       }
 
+      /* KTZED logo word in Rubik Glitch (OFL, self-hosted; see assets/OFL.txt). */
+      @font-face {
+        font-family: 'Rubik Glitch';
+        src: url('/ktzedgamenight/assets/RubikGlitch-Regular.woff2') format('woff2');
+        font-display: swap;
+      }
+
+      .logo-cam .ktzed-word {
+        display: inline-block;
+        font-family: 'Rubik Glitch', 'Bebas Neue', sans-serif;
+        font-weight: 400;
+        letter-spacing: 0;
+        color: #7DC3CA;
+        -webkit-text-stroke: 0.15em #F9DA5A;
+        paint-order: stroke fill;
+        font-size: 1.12em;
+        text-shadow: none;
+        filter: drop-shadow(0 0.04em 0.08em rgba(0, 0, 0, 0.75));
+        margin-bottom: 0.08em;
+      }
+
       @keyframes answer-timer-pulse {
         from { opacity: 0.25; }
         to { opacity: 1; }
@@ -46,7 +67,30 @@
     <script type="module">
       // ?overlay=1 loads the new 1920x1080 stage overlay; everything else keeps the existing app bundle.
       const isOverlay = new URLSearchParams(location.search).get('overlay') === '1';
-      import(isOverlay ? '/ktzedgamenight/assets/overlay-8hZuD1vx.js' : '/ktzedgamenight/assets/index-CxcH4i8_.js');
+      import(isOverlay ? '/ktzedgamenight/assets/overlay-h_S1O5eT.js' : '/ktzedgamenight/assets/index-CxcH4i8_.js');
+    </script>
+    <script>
+      // Wrap the "KTZED" text of the home logo in a span so only that word gets the Rubik Glitch styling.
+      // The existing text node is moved, not replaced, so React keeps its reference.
+      (function () {
+        function wrapLogo() {
+          document.querySelectorAll('.logo-cam').forEach(function (el) {
+            if (el.querySelector('.ktzed-word')) return;
+            for (var i = 0; i < el.childNodes.length; i++) {
+              var n = el.childNodes[i];
+              if (n.nodeType === 3 && n.nodeValue.trim() === 'KTZED') {
+                var span = document.createElement('span');
+                span.className = 'ktzed-word';
+                el.insertBefore(span, n);
+                span.appendChild(n);
+                return;
+              }
+            }
+          });
+        }
+        new MutationObserver(wrapLogo).observe(document.documentElement, { childList: true, subtree: true });
+        document.addEventListener('DOMContentLoaded', wrapLogo);
+      })();
     </script>
     <script defer src="/ktzedgamenight/answer-progress.js"></script>
     <script defer src="/ktzedgamenight/overlay-score-delay.js"></script>
