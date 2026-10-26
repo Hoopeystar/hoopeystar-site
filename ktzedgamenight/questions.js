@@ -108,14 +108,14 @@ window.KTZED_QUESTIONS = [
   {
     "id": 7,
     "category": "Bodycams and Police",
-    "question": "True or False: Police are legally required to tell you why you are being arrested at the time of arrest.",
+    "question": "True or False: Police must read you your Miranda rights at the moment of arrest, even if they never question you.",
     "type": "tf",
     "options": [
       "TRUE",
       "FALSE"
     ],
     "answer": 1,
-    "fun_fact": null
+    "fun_fact": "Miranda warnings are only required before custodial interrogation. An arrest without questioning doesn't trigger them."
   },
   {
     "id": 8,
@@ -148,15 +148,15 @@ window.KTZED_QUESTIONS = [
   {
     "id": 10,
     "category": "Bodycams and Police",
-    "question": "Body cam footage is generally considered what type of evidence in court?",
+    "question": "Axon, the biggest body-camera maker, stores police footage on what cloud platform?",
     "type": "mc",
     "options": [
-      "Inadmissible hearsay",
-      "Character evidence",
-      "Direct evidence",
-      "Circumstantial evidence"
+      "BodyCloud",
+      "Evidence.com",
+      "CopVault",
+      "CaseShare"
     ],
-    "answer": 2,
+    "answer": 1,
     "fun_fact": null
   },
   {
@@ -246,21 +246,21 @@ window.KTZED_QUESTIONS = [
   {
     "id": 17,
     "category": "Bodycams and Police",
-    "question": "In 2016, the DOJ released a report finding that body cameras had what unexpected effect on officer behavior in some departments?",
+    "question": "Many body cameras have a 'buffering' or pre-event feature. What does it do?",
     "type": "mc",
     "options": [
-      "Officers filed significantly more use-of-force reports voluntarily",
-      "Officers became more hesitant to engage in proactive policing",
-      "Complaint rates increased because more misconduct was being caught",
-      "Officers began disabling microphones while leaving video running"
+      "Blurs bystanders' faces automatically",
+      "Saves the seconds before the officer pressed record",
+      "Livestreams the video to dispatch",
+      "Locks the footage so it can't be deleted"
     ],
     "answer": 1,
-    "fun_fact": null
+    "fun_fact": "Axon cameras, for example, keep a rolling 30-second buffer (video only by default), so the moments leading up to an incident get captured too."
   },
   {
     "id": 18,
     "category": "True Crime",
-    "question": "Which documentary series helped exonerate Steven Avery and sparked a national debate about wrongful convictions?",
+    "question": "Which Netflix documentary series examined Steven Avery's murder conviction and sparked a national debate about wrongful convictions?",
     "type": "mc",
     "options": [
       "The Jinx",
@@ -366,7 +366,7 @@ window.KTZED_QUESTIONS = [
   {
     "id": 26,
     "category": "True Crime",
-    "question": "Jeffrey Dahmer was convicted in 1992. How many murders was he convicted of?",
+    "question": "How many people did Jeffrey Dahmer murder between 1978 and 1991?",
     "type": "mc",
     "options": [
       "17",
@@ -375,7 +375,7 @@ window.KTZED_QUESTIONS = [
       "12"
     ],
     "answer": 0,
-    "fun_fact": null
+    "fun_fact": "He was convicted of 15 murders in Wisconsin and 1 in Ohio. He confessed to 17."
   },
   {
     "id": 27,
@@ -543,12 +543,12 @@ window.KTZED_QUESTIONS = [
       "A producer discovered threatening letters in his hotel room during production"
     ],
     "answer": 1,
-    "fun_fact": "Durst's bathroom murmur — widely reported as 'I killed them all, of course' — was caught on a live mic during a break in filming. He claimed it was him talking to himself and meant nothing."
+    "fun_fact": "The bathroom audio was later shown to have been edited together from separate parts of the recording. Durst was convicted of murdering Susan Berman in 2021 and died in 2022."
   },
   {
     "id": 39,
     "category": "True Crime",
-    "question": "Samuel Little is considered by the FBI to be the most prolific serial killer in U.S. history. How many murders did the FBI confirm he committed?",
+    "question": "Samuel Little is considered the most prolific serial killer in U.S. history. How many murders did he confess to?",
     "type": "mc",
     "options": [
       "60",
@@ -557,7 +557,7 @@ window.KTZED_QUESTIONS = [
       "45"
     ],
     "answer": 1,
-    "fun_fact": null
+    "fun_fact": "The FBI says all 93 confessions are credible. About 60 had been confirmed by the time he died in 2020."
   },
   {
     "id": 40,
@@ -566,12 +566,12 @@ window.KTZED_QUESTIONS = [
     "type": "mc",
     "options": [
       "A neighbor reported hearing the brothers laughing shortly after the shooting",
-      "Erik confessed to his therapist, who later broke confidentiality",
-      "Surveillance footage contradicted their alibi about being at the movies",
-      "Lyle was found with gunshot residue on his clothing three days later"
+      "Erik confessed to his therapist, and the therapist's girlfriend went to police",
+      "Surveillance footage contradicted their alibi",
+      "Lyle was found with gunshot residue three days later"
     ],
     "answer": 1,
-    "fun_fact": "Technically it was Erik's therapist's girlfriend who tipped off police after overhearing the confession — not the therapist himself."
+    "fun_fact": "Dr. Jerome Oziel's girlfriend, Judalon Smyth, told police about the recorded confession."
   },
   {
     "id": 41,
@@ -590,16 +590,16 @@ window.KTZED_QUESTIONS = [
   {
     "id": 42,
     "category": "True Crime",
-    "question": "Investigators cracked the Grim Sleeper cold case in Los Angeles after obtaining Lonnie Franklin Jr.'s DNA through what unconventional method?",
+    "question": "After a familial DNA search pointed to the Grim Sleeper's family, how did undercover police secretly collect Lonnie Franklin Jr.'s own DNA?",
     "type": "mc",
     "options": [
-      "A court-ordered familial DNA search of the state database",
-      "DNA recovered from a pizza crust he discarded at a restaurant",
-      "A traffic stop that required a mandatory cheek swab",
-      "DNA lifted from a letter he sent to the LAPD taunting investigators"
+      "From a coffee cup at his job",
+      "From a slice of pizza he left at a restaurant",
+      "From a cigarette he dropped at a bus stop",
+      "From a letter he mailed to the LAPD"
     ],
     "answer": 1,
-    "fun_fact": "Police got the DNA from a pizza slice Franklin left at a restaurant, then matched it through a familial search tied to his son's profile already in the state database."
+    "fun_fact": "An undercover officer posing as a busboy collected the leftover pizza. It matched DNA from the crime scenes."
   },
   {
     "id": 43,
@@ -639,7 +639,7 @@ window.KTZED_QUESTIONS = [
       "FALSE"
     ],
     "answer": 0,
-    "fun_fact": null
+    "fun_fact": "Paramount Network cancelled it in June 2020. The show was later revived on Fox Nation in 2021."
   },
   {
     "id": 46,
@@ -658,16 +658,16 @@ window.KTZED_QUESTIONS = [
   {
     "id": 47,
     "category": "Pop Culture",
-    "question": "How many years did Bobby Shmurda actually serve before his release?",
+    "question": "Bobby Shmurda was arrested in 2014. About how many years did he spend behind bars before his 2021 release?",
     "type": "mc",
     "options": [
       "3 years",
-      "5 years",
-      "7 years",
+      "6 years",
+      "8 years",
       "10 years"
     ],
     "answer": 1,
-    "fun_fact": null
+    "fun_fact": "He was sentenced to 7 years, got credit for time served, and was released on parole in February 2021."
   },
   {
     "id": 48,
@@ -796,7 +796,7 @@ window.KTZED_QUESTIONS = [
   {
     "id": 57,
     "category": "Politics",
-    "question": "Which president received a speeding ticket while in office — for riding his horse too fast?",
+    "question": "Which president was stopped by police in Washington for driving his horse and buggy too fast?",
     "type": "mc",
     "options": [
       "Theodore Roosevelt",
@@ -978,16 +978,16 @@ window.KTZED_QUESTIONS = [
   {
     "id": 70,
     "category": "Science",
-    "question": "What is the breed of animal created from the crossing of a female lion and a male tiger?",
+    "question": "What is the offspring of a male donkey and a female horse called?",
     "type": "mc",
     "options": [
-      "Ligon",
-      "Liger",
-      "Tigon",
-      "Leopon"
+      "Hinny",
+      "Zorse",
+      "Zonkey",
+      "Mule"
     ],
-    "answer": 2,
-    "fun_fact": null
+    "answer": 3,
+    "fun_fact": "A hinny is the reverse cross: a male horse and a female donkey."
   },
   {
     "id": 71,
@@ -1020,13 +1020,13 @@ window.KTZED_QUESTIONS = [
   {
     "id": 73,
     "category": "Science",
-    "question": "Chihuahuas are the only dogs to be born with what?",
+    "question": "An open soft spot on the skull is so common in Chihuahuas that the breed standard mentions it. What is it called?",
     "type": "mc",
     "options": [
-      "An extra leg tendon",
-      "Hairless inner ears",
-      "A soft spot on the skull",
-      "Two extra canine teeth"
+      "A carapace",
+      "A sagittal crest",
+      "A molera",
+      "An occiput"
     ],
     "answer": 2,
     "fun_fact": "This open fontanelle, called a molera, is actually written into the Chihuahua breed standard. It's the same feature as the soft spot on a human newborn's head, except in Chihuahuas it often never fully closes."
@@ -1305,7 +1305,7 @@ window.KTZED_QUESTIONS = [
     "options": [
       "Pack",
       "Posse",
-      "Giggle",
+      "Herd",
       "Clan"
     ],
     "answer": 3,
@@ -1513,7 +1513,7 @@ window.KTZED_QUESTIONS = [
     "question": "In May 2009 the Tasmanian devil was declared endangered because this disease had almost wiped out its population.",
     "type": "mc",
     "options": [
-      "AIDS",
+      "Chytrid fungus",
       "Facial cancer",
       "Kawasaki disease",
       "Rabies"
@@ -1580,16 +1580,16 @@ window.KTZED_QUESTIONS = [
   {
     "id": 113,
     "category": "Science",
-    "question": "What kind of noise are cockroaches known to produce when they feel threatened?",
+    "question": "How does the Madagascar hissing cockroach make its famous hiss?",
     "type": "mc",
     "options": [
-      "Hissing",
-      "Crackling",
-      "Whistling",
-      "All of these"
+      "By rubbing its legs together",
+      "By forcing air out through its breathing holes",
+      "By clicking its mandibles",
+      "By vibrating its wings"
     ],
-    "answer": 0,
-    "fun_fact": null
+    "answer": 1,
+    "fun_fact": "It pushes air out through its spiracles (breathing pores). It doesn't even have wings."
   },
   {
     "id": 114,
@@ -1678,16 +1678,16 @@ window.KTZED_QUESTIONS = [
   {
     "id": 120,
     "category": "Geography",
-    "question": "What city in the US state of Texas is home to the largest bat colony in North America during the summer?",
+    "question": "Which Texas city's Congress Avenue Bridge hosts the largest urban bat colony in North America each summer?",
     "type": "mc",
     "options": [
-      "Morton",
+      "Dallas",
       "Austin",
       "Houston",
-      "Pittsburg"
+      "El Paso"
     ],
     "answer": 1,
-    "fun_fact": null
+    "fun_fact": "Up to 1.5 million Mexican free-tailed bats live under the bridge. The nearby Bracken Cave colony is even larger."
   },
   {
     "id": 121,
@@ -1740,7 +1740,7 @@ window.KTZED_QUESTIONS = [
       "Only male mosquitoes",
       "Only female mosquitoes",
       "All mosquitoes on the planet",
-      "Only baby mosquitoes"
+      "Only mosquitoes in the tropics"
     ],
     "answer": 1,
     "fun_fact": null
@@ -1792,7 +1792,7 @@ window.KTZED_QUESTIONS = [
     "question": "What animal is responsible for the most human deaths in the world?",
     "options": [
       "Great White Shark",
-      "Pitbull",
+      "Snake",
       "Wasp",
       "Mosquito"
     ],
@@ -1803,15 +1803,15 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Science",
-    "question": "What is the largest land predator on Earth?",
+    "question": "Which bear is usually listed as the largest land carnivore on Earth?",
     "options": [
-      "Elephant",
-      "Giant anteater",
-      "Man",
-      "Kodiak bear"
+      "Grizzly bear",
+      "Polar bear",
+      "American black bear",
+      "Spectacled bear"
     ],
-    "answer": 3,
-    "fun_fact": "The Kodiak bear and polar bear are often listed interchangeably as the largest land predators, both can exceed 1,500 lbs. The Kodiak is the largest brown bear subspecies; the polar bear is the largest carnivorous land mammal by average weight.",
+    "answer": 1,
+    "fun_fact": "Kodiak brown bears come close. Big males of both species can top 1,300 pounds.",
     "id": 129,
     "type": "mc"
   },
@@ -1819,10 +1819,10 @@ window.KTZED_QUESTIONS = [
     "category": "General Knowledge",
     "question": "What is the collective noun for a group of ferrets?",
     "options": [
-      "bevy",
-      "charm",
-      "leash",
-      "fesnyng"
+      "A bevy",
+      "A charm",
+      "A leash",
+      "A business"
     ],
     "answer": 3,
     "fun_fact": null,
@@ -1833,7 +1833,7 @@ window.KTZED_QUESTIONS = [
     "category": "Science",
     "question": "What happens to a goldfish kept in the dark?",
     "options": [
-      "It turns white",
+      "It turns darker",
       "It goes blind",
       "It dies",
       "It turns a paler color"
@@ -1999,7 +1999,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Technology",
-    "question": "What was the first product to have a barcode?",
+    "question": "What was the first product ever scanned with a UPC barcode at a store checkout, in 1974?",
     "options": [
       "Scotts Tissue",
       "Pez candy",
@@ -2013,15 +2013,15 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Food & Drink",
-    "question": "Which is the only food that never spoils?",
+    "question": "Which country is the world's largest producer of coffee?",
     "options": [
-      "Potatoes",
-      "Pasta",
-      "Peanut butter",
-      "Honey"
+      "Colombia",
+      "Vietnam",
+      "Ethiopia",
+      "Brazil"
     ],
     "answer": 3,
-    "fun_fact": "Edible honey has been found in 3,000-year-old Egyptian tombs.",
+    "fun_fact": "Brazil grows roughly a third of the world's coffee. Vietnam is a distant second.",
     "id": 144,
     "type": "mc"
   },
@@ -2043,9 +2043,9 @@ window.KTZED_QUESTIONS = [
     "category": "Pop Culture",
     "question": "The name Nintendo roughly translates to what phrase in Japanese?",
     "options": [
-      "Toshiba",
-      "Subaru",
-      "Nokia",
+      "Play is our work",
+      "Joy for everyone",
+      "Cards of fortune",
       "Leave luck to heaven"
     ],
     "answer": 3,
@@ -2083,11 +2083,11 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Food & Drink",
-    "question": "What was the first food ever microwaved?",
+    "question": "What melted in engineer Percy Spencer's pocket near radar equipment, leading to the microwave oven?",
     "options": [
-      "Popcorn",
-      "Coffee",
-      "Frozen corn",
+      "A stick of gum",
+      "A crayon",
+      "A wax seal",
       "A candy bar"
     ],
     "answer": 3,
@@ -2214,7 +2214,7 @@ window.KTZED_QUESTIONS = [
       "Progress will slow in the near future",
       "Progress will continue at a steady rate",
       "Progress will sharply accelerate then halt",
-      "The rate of advance will double approximately every 18 months"
+      "The number of transistors on a chip doubles about every two years"
     ],
     "answer": 3,
     "fun_fact": null,
@@ -2242,7 +2242,7 @@ window.KTZED_QUESTIONS = [
       "John von Neumann",
       "Benjamin Banneker",
       "Blaise Pascal",
-      "Ada Lovelace (Lord Byron's daughter)"
+      "Ada Lovelace"
     ],
     "answer": 3,
     "fun_fact": "Ada Lovelace, daughter of poet Lord Byron, is credited with the first algorithm intended for a mechanical computing machine.",
@@ -2279,15 +2279,15 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Science",
-    "question": "On which body in the Solar System is a day longer than a year?",
+    "question": "On which planet is a single rotation (a 'day') longer than its year?",
     "options": [
-      "At the North and South Poles",
-      "On Mars",
-      "On Pluto",
-      "On Mercury"
+      "Mars",
+      "Jupiter",
+      "Pluto",
+      "Venus"
     ],
     "answer": 3,
-    "fun_fact": "Mercury rotates so slowly that it completes nearly two full orbits of the Sun before completing one rotation.",
+    "fun_fact": "Venus takes about 243 Earth days to spin once but only about 225 to orbit the Sun, and it spins backwards.",
     "id": 163,
     "type": "mc"
   },
@@ -2298,7 +2298,7 @@ window.KTZED_QUESTIONS = [
       "Garrett Morgan",
       "Charles Adler",
       "Leland Stanford",
-      "Carlton Magee"
+      "Carl Magee"
     ],
     "answer": 3,
     "fun_fact": null,
@@ -2365,9 +2365,9 @@ window.KTZED_QUESTIONS = [
     "category": "Pop Culture",
     "question": "What did French engineer Louis Réard invent in 1946?",
     "options": [
-      "The first complete fossil of a triceratops",
-      "The oversized catcher's mitt",
-      "The chemical test for prostate cancer",
+      "The aviator sunglasses",
+      "The Frisbee",
+      "The miniskirt",
       "The bikini"
     ],
     "answer": 3,
@@ -2377,12 +2377,12 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Technology",
-    "question": "When was the first fountain pen invented?",
+    "question": "Lewis Waterman patented his improved, leak-resistant fountain pen in what year?",
     "options": [
       "1902",
-      "1906",
-      "1887",
-      "1883"
+      "1866",
+      "1920",
+      "1884"
     ],
     "answer": 3,
     "fun_fact": null,
@@ -2419,7 +2419,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Technology",
-    "question": "When was the first stick antiperspirant patented?",
+    "question": "The first trademarked commercial deodorant, 'Mum,' was introduced in what year?",
     "options": [
       "1942",
       "1919",
@@ -2489,15 +2489,15 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "General Knowledge",
-    "question": "From which language does the word 'tattoo' derive?",
+    "question": "The word 'tattoo' entered English from Polynesia via whose voyages in the 1760s-70s?",
     "options": [
-      "Tongan",
-      "Maori",
-      "Marshallese",
-      "Tahitian"
+      "Ferdinand Magellan",
+      "Abel Tasman",
+      "Vasco da Gama",
+      "Captain James Cook"
     ],
     "answer": 3,
-    "fun_fact": null,
+    "fun_fact": "Cook recorded the Tahitian word 'tatau' in 1769.",
     "id": 178,
     "type": "mc"
   },
@@ -2575,9 +2575,9 @@ window.KTZED_QUESTIONS = [
     "category": "Science",
     "question": "What anatomical term defines the midline groove between the upper lip and the nose?",
     "options": [
-      "Tachyon",
-      "Edaphadium",
-      "Serein",
+      "Columella",
+      "Vermilion border",
+      "Nasolabial fold",
       "Philtrum"
     ],
     "answer": 3,
@@ -2591,7 +2591,7 @@ window.KTZED_QUESTIONS = [
     "options": [
       "A shooting star",
       "A comet",
-      "An eclipse",
+      "A meteor shower",
       "An alignment of 3 celestial bodies"
     ],
     "answer": 3,
@@ -2617,9 +2617,9 @@ window.KTZED_QUESTIONS = [
     "category": "History",
     "question": "What word refers to the ancient art of stabilizing arrows using feathers?",
     "options": [
-      "Feathereting",
-      "Cooperring",
-      "Chancelloring",
+      "Nocking",
+      "Bracing",
+      "Knapping",
       "Fletching"
     ],
     "answer": 3,
@@ -2645,9 +2645,9 @@ window.KTZED_QUESTIONS = [
     "category": "General Knowledge",
     "question": "The Greek word 'arete,' used in Homer's works, means what?",
     "options": [
-      "Terre firma",
-      "Cantus firmus",
-      "Hamartia",
+      "Fate",
+      "Hospitality to strangers",
+      "Pride",
       "Virtue, or being the best you can be"
     ],
     "answer": 3,
@@ -2674,8 +2674,8 @@ window.KTZED_QUESTIONS = [
     "question": "Dactyloscopy, the forensic technique of analyzing what, was perfected by anthropologist Juan Vucetich?",
     "options": [
       "The shape of the human head",
-      "Flightless birds",
-      "Land dinosaurs",
+      "Bite marks",
+      "Blood spatter patterns",
       "Fingerprints"
     ],
     "answer": 3,
@@ -2699,7 +2699,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "General Knowledge",
-    "question": "What is a palindrome? Give an example.",
+    "question": "Which of these is a palindrome?",
     "options": [
       "Perambulation",
       "Personalisation",
@@ -2715,9 +2715,9 @@ window.KTZED_QUESTIONS = [
     "category": "Science",
     "question": "What is zymurgy?",
     "options": [
-      "Zonary",
-      "Zigadenus",
-      "Zoolatry",
+      "The study of caves",
+      "The study of handwriting",
+      "The study of earthquakes",
       "The study of fermentation"
     ],
     "answer": 3,
@@ -2743,10 +2743,10 @@ window.KTZED_QUESTIONS = [
     "category": "General Knowledge",
     "question": "What is the Latin expression for 'actions speak louder than words'?",
     "options": [
-      "quid edere posseum",
-      "mei capelli sunt flagrantes",
-      "non rape me si placet",
-      "facta non verba"
+      "Carpe diem",
+      "Veni, vidi, vici",
+      "Alea iacta est",
+      "Facta, non verba"
     ],
     "answer": 3,
     "fun_fact": null,
@@ -2785,10 +2785,10 @@ window.KTZED_QUESTIONS = [
     "category": "Alcohol",
     "question": "What does the word 'labeorphilist' mean?",
     "options": [
-      "A lover of experimental science",
-      "An animal attracted to sweet smells",
-      "A flower that eats insects",
-      "A collector of beer bottles"
+      "A collector of wine corks",
+      "A collector of bottle caps",
+      "A collector of matchbooks",
+      "A collector of beer bottle labels"
     ],
     "answer": 3,
     "fun_fact": null,
@@ -2853,12 +2853,12 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "General Knowledge",
-    "question": "What is the difference between 'farther' and 'further'?",
+    "question": "In traditional usage, what's the difference between 'farther' and 'further'?",
     "options": [
-      "Farther represents a greater distance",
-      "There are no differences",
-      "Farther is used with a known direction",
-      "Farther means more far; further means more to the fore"
+      "Farther is American; further is British",
+      "Further is only a verb",
+      "There is no difference at all",
+      "Farther is for physical distance; further is for figurative degree"
     ],
     "answer": 3,
     "fun_fact": null,
@@ -2883,9 +2883,9 @@ window.KTZED_QUESTIONS = [
     "category": "General Knowledge",
     "question": "What does Gresham's Law state?",
     "options": [
-      "Stock prices lower when unemployment rises",
-      "Every 2% increase in supply lowers demand by 1%",
-      "The first hot dog is always better than the second",
+      "Supply creates its own demand",
+      "Prices rise as the money supply grows",
+      "Spending rises to meet income",
       "Bad money drives good money out of circulation"
     ],
     "answer": 3,
@@ -2898,7 +2898,7 @@ window.KTZED_QUESTIONS = [
     "question": "Which word means 'gloomy, dark, sadly dim'?",
     "options": [
       "insouciant",
-      "qutianous",
+      "garrulous",
       "prolix",
       "tenebrous"
     ],
@@ -2923,15 +2923,15 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Geography",
-    "question": "It is generally accepted that the name of the Canary Islands derives from a Latin term meaning what?",
+    "question": "Which island country is the world's largest archipelago by number of islands, with more than 17,000?",
     "options": [
-      "Island of the Canaries",
-      "Island of Beautiful Birds",
-      "Island of Sunshine",
-      "Island of the Dogs"
+      "Philippines",
+      "Japan",
+      "Indonesia",
+      "Greece"
     ],
-    "answer": 3,
-    "fun_fact": null,
+    "answer": 2,
+    "fun_fact": "Indonesia's 17,000-plus islands stretch about 3,000 miles. Only around 6,000 of them are inhabited.",
     "id": 209,
     "type": "mc"
   },
@@ -2998,10 +2998,10 @@ window.KTZED_QUESTIONS = [
       "A tax collector",
       "A prison warden",
       "A judge",
-      "A terrible landlord"
+      "A land agent who refused to lower rents"
     ],
     "answer": 3,
-    "fun_fact": "When Boycott refused to lower rents during a famine, his community ostracized him so completely that his name entered the language.",
+    "fun_fact": "In 1880, Captain Charles Boycott managed an Irish estate and tried to evict tenants who asked for lower rents. The whole community shunned him, and his name became a verb.",
     "id": 214,
     "type": "mc"
   },
@@ -3038,8 +3038,8 @@ window.KTZED_QUESTIONS = [
     "question": "What word can mean: the upper part of a shoe, an improvised musical accompaniment, and a seductive woman?",
     "options": [
       "tramp",
-      "truel",
-      "hypoxiol",
+      "welt",
+      "siren",
       "vamp"
     ],
     "answer": 3,
@@ -3065,9 +3065,9 @@ window.KTZED_QUESTIONS = [
     "category": "General Knowledge",
     "question": "The word 'schlep,' meaning to move something with great difficulty, comes from which language?",
     "options": [
-      "Kibbitz",
-      "Glitch",
-      "Maven",
+      "Hungarian",
+      "Russian",
+      "Dutch",
       "Yiddish"
     ],
     "answer": 3,
@@ -3161,7 +3161,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "General Knowledge",
-    "question": "Which quality does satirist Ambrose Bierce define as 'favoritism shown to relatives'?",
+    "question": "What word describes favoritism shown to relatives, especially in handing out jobs?",
     "options": [
       "Humanitarianism",
       "Socialism",
@@ -3188,7 +3188,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc"
   },
   {
-    "category": "History",
+    "category": "General Knowledge",
     "question": "What does the word 'diamond' literally mean?",
     "options": [
       "Magical",
@@ -3217,7 +3217,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Technology",
-    "question": "The phrase 'the real McCoy' refers to a man who invented what?",
+    "question": "Inventor Elijah McCoy, often linked to the phrase 'the real McCoy,' is best known for inventing what?",
     "options": [
       "The train throttle",
       "The sewing machine",
@@ -3225,21 +3225,21 @@ window.KTZED_QUESTIONS = [
       "The locomotive self-lubricator"
     ],
     "answer": 3,
-    "fun_fact": null,
+    "fun_fact": "The phrase may be older. 'The real MacKay,' from Scotland, is a rival origin story.",
     "id": 230,
     "type": "mc"
   },
   {
     "category": "Food & Drink",
-    "question": "King John Sobieski of Poland saved Vienna from Ottoman invaders. What food was invented in his honor?",
+    "question": "The bagel is first mentioned in records from 1610 in which Polish city?",
     "options": [
-      "The croissant",
-      "The pretzel",
-      "The pierogi",
-      "The bagel"
+      "Warsaw",
+      "Gdańsk",
+      "Vienna",
+      "Kraków"
     ],
     "answer": 3,
-    "fun_fact": null,
+    "fun_fact": "The popular story that bagels were invented to honor King Jan Sobieski's 1683 victory at Vienna is a myth.",
     "id": 231,
     "type": "mc"
   },
@@ -3273,7 +3273,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Politics",
-    "question": "What do Presidents John Quincy Adams, Rutherford B. Hayes, Benjamin Harrison and George W. Bush all have in common?",
+    "question": "What do Presidents Rutherford B. Hayes, Benjamin Harrison, George W. Bush and Donald Trump (2016) have in common?",
     "options": [
       "They were all re-elected",
       "They all served as senators",
@@ -3287,21 +3287,21 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Geography",
-    "question": "This city-state, also called Ragusa, was the first to recognize the independence of the newly formed United States. What is it today?",
+    "question": "The Republic of Ragusa, a wealthy maritime city-state on the Adriatic, is today which city?",
     "options": [
-      "Vatican",
-      "Monaco",
-      "Malta",
-      "Dubrovnik"
+      "Split",
+      "Dubrovnik",
+      "Kotor",
+      "Trieste"
     ],
-    "answer": 3,
+    "answer": 1,
     "fun_fact": null,
     "id": 235,
     "type": "mc"
   },
   {
     "category": "Politics",
-    "question": "Which US President could simultaneously write in Greek with one hand and Latin with the other?",
+    "question": "Which U.S. president was famously said to be able to write Latin with one hand and Greek with the other at the same time?",
     "options": [
       "Chester A. Arthur",
       "Jefferson",
@@ -3343,15 +3343,15 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Politics",
-    "question": "Which three consecutive US Presidents were all left-handed?",
+    "question": "Which of these presidents was left-handed?",
     "options": [
-      "Carter, Reagan, Bush Sr.",
-      "Bush Sr., Clinton, Obama",
-      "Ford, Carter, Reagan",
-      "Nixon, Ford, Carter"
+      "Richard Nixon",
+      "Lyndon Johnson",
+      "Jimmy Carter",
+      "Barack Obama"
     ],
-    "answer": 1,
-    "fun_fact": "George H.W. Bush, Bill Clinton, and Barack Obama were all left-handed, three in a row. Reagan, often listed in left-handed President lists, was actually right-handed (he had been trained to switch as a child).",
+    "answer": 3,
+    "fun_fact": "Obama, Clinton, George H.W. Bush and Ford were all lefties. Reagan is often listed too, though he wrote right-handed.",
     "id": 239,
     "type": "mc"
   },
@@ -3401,9 +3401,9 @@ window.KTZED_QUESTIONS = [
     "category": "Politics",
     "question": "US President Harding's administration was rocked by which oil scandal?",
     "options": [
-      "Livingston-Heathcote",
-      "Skull Island",
-      "Credit Mobilier",
+      "Whiskey Ring",
+      "Star Route",
+      "Crédit Mobilier",
       "Teapot Dome"
     ],
     "answer": 3,
@@ -3483,7 +3483,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Sports",
-    "question": "Which US President invented the baseball seventh-inning stretch?",
+    "question": "Which U.S. president began the tradition of throwing out the ceremonial first pitch on baseball's Opening Day in 1910?",
     "options": [
       "Hoover",
       "Wilson",
@@ -3491,17 +3491,17 @@ window.KTZED_QUESTIONS = [
       "Taft"
     ],
     "answer": 3,
-    "fun_fact": "President Taft stood up to stretch his legs at a 1910 game, and the crowd, thinking he was leaving, stood out of respect, and a tradition was born.",
+    "fun_fact": "Taft's first pitch at the Washington Senators' opener in April 1910 started a tradition nearly every president since has followed.",
     "id": 249,
     "type": "mc"
   },
   {
     "category": "History",
-    "question": "John Howard Lawson, Dalton Trumbo and eight others made speeches denouncing McCarthyism. By what group name were they known?",
+    "question": "In 1947, ten screenwriters and directors, including Dalton Trumbo, refused to answer Congress's questions about communism. What were they called?",
     "options": [
-      "The ten spies of the CIA",
-      "The ten players of Dr. Naismith",
-      "The ten judges at Nuremberg",
+      "The Chicago Seven",
+      "The Rat Pack",
+      "The Brat Pack",
       "The Hollywood Ten"
     ],
     "answer": 3,
@@ -3513,19 +3513,19 @@ window.KTZED_QUESTIONS = [
     "category": "Sports",
     "question": "Three of these statements are urban legends. Which is the TRUE statement?",
     "options": [
-      "Jackie Robinson was court-martialed for refusing to sit at the back of a military bus",
+      "Jackie Robinson never served in the military",
       "The lifespan of a tiger in captivity equals that in nature",
       "Abner Doubleday is credited in his own diaries for inventing baseball",
       "Jackie Robinson won the first Rookie of the Year Award in 1947"
     ],
     "answer": 3,
-    "fun_fact": null,
+    "fun_fact": "Robinson was an Army lieutenant during WWII, and was court-martialed (and acquitted) for refusing to move to the back of a military bus.",
     "id": 251,
     "type": "mc"
   },
   {
     "category": "History",
-    "question": "Which of these is false: FDR said 'Nothing is so much to be feared as fear'?",
+    "question": "Which of these statements is FALSE?",
     "options": [
       "O. Henry founded a paper called The Rolling Stone",
       "H.D. Thoreau said 'Nothing is so much to be feared as fear'",
@@ -3553,7 +3553,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "True Crime",
-    "question": "On what day in history did a massacre of mob members outside a Chicago warehouse become famous for ghostly screams being heard at night?",
+    "question": "The 1929 Chicago gangland massacre of seven men tied to Bugs Moran's gang happened on what holiday?",
     "options": [
       "Christmas Day",
       "Thanksgiving Day",
@@ -3561,18 +3561,18 @@ window.KTZED_QUESTIONS = [
       "Valentine's Day"
     ],
     "answer": 3,
-    "fun_fact": "The St. Valentine's Day Massacre of 1929, seven men were gunned down in a garage on Clark Street.",
+    "fun_fact": "Seven men were gunned down in a garage on North Clark Street. Al Capone was widely blamed, but no one was ever convicted.",
     "id": 254,
     "type": "mc"
   },
   {
     "category": "History",
-    "question": "When the first Apollo astronauts landed on the moon, what memento did they leave behind?",
+    "question": "What did the Apollo 11 astronauts leave on the Moon along with the U.S. flag?",
     "options": [
       "A UN flag",
       "A hologram of the world",
       "A US silver dollar",
-      "A 33-rpm record"
+      "A silicon disc with goodwill messages from world leaders"
     ],
     "answer": 3,
     "fun_fact": null,
@@ -3597,9 +3597,9 @@ window.KTZED_QUESTIONS = [
     "category": "History",
     "question": "Which battle represented the farthest westward advance of the Ottoman Empire into Central Europe?",
     "options": [
-      "The Conquest of Vlad, 1529",
-      "The Battle of Greece, 1529",
-      "The Battle of Belgrade, 1529",
+      "Battle of Mohács, 1526",
+      "Siege of Belgrade, 1521",
+      "Fall of Constantinople, 1453",
       "The Siege of Vienna, 1529"
     ],
     "answer": 3,
@@ -3617,7 +3617,7 @@ window.KTZED_QUESTIONS = [
       "1841"
     ],
     "answer": 3,
-    "fun_fact": "William Henry Harrison died after 31 days; John Tyler took over. James Buchanan's term also ended that year, but technically only two served in 1841. The correct answer is 1841.",
+    "fun_fact": "Martin Van Buren's term ended in March, William Henry Harrison died after 31 days, and John Tyler took over. It happened again in 1881 with Hayes, Garfield and Arthur.",
     "id": 258,
     "type": "mc"
   },
@@ -3679,15 +3679,15 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Sports",
-    "question": "Who was the first professional athlete in baseball history to hit a home run and score a touchdown in the same week?",
+    "question": "Who is the only athlete to play in both a Super Bowl and a World Series?",
     "options": [
       "Bo Jackson",
-      "Mel Hubbard",
-      "Deion Sanders",
-      "Jim Thorpe"
+      "Jim Thorpe",
+      "Brian Jordan",
+      "Deion Sanders"
     ],
     "answer": 3,
-    "fun_fact": null,
+    "fun_fact": "Sanders played in the 1992 World Series with Atlanta and won Super Bowls with the 49ers and the Cowboys.",
     "id": 263,
     "type": "mc"
   },
@@ -3695,10 +3695,10 @@ window.KTZED_QUESTIONS = [
     "category": "Food & Drink",
     "question": "Which company did Clarence Saunders found in 1916, considered the first self-service grocery store?",
     "options": [
-      "Kentucky Fried Chicken",
-      "Domino's Pizza",
-      "Burger King",
-      "The Piggly Wiggly"
+      "Kroger",
+      "Safeway",
+      "A&P",
+      "Piggly Wiggly"
     ],
     "answer": 3,
     "fun_fact": null,
@@ -3707,7 +3707,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Movies",
-    "question": "What did boxer Jack Johnson, Charlie Chaplin and actor Errol Flynn all have in common?",
+    "question": "What did boxer Jack Johnson, Charlie Chaplin and singer Chuck Berry all have in common?",
     "options": [
       "They all died in Paris",
       "They died of the same causes",
@@ -3715,7 +3715,7 @@ window.KTZED_QUESTIONS = [
       "They were all charged with the same crime"
     ],
     "answer": 3,
-    "fun_fact": "All three were charged with violations of the Mann Act, transporting women across state lines for 'immoral purposes.'",
+    "fun_fact": "All three were charged under the Mann Act, a 1910 law against transporting women across state lines 'for immoral purposes.' Chaplin was acquitted.",
     "id": 265,
     "type": "mc"
   },
@@ -3723,9 +3723,9 @@ window.KTZED_QUESTIONS = [
     "category": "Geography",
     "question": "What was Thailand called before it was renamed Thailand?",
     "options": [
-      "Singapore",
-      "Macau",
-      "Persia",
+      "Burma",
+      "Ceylon",
+      "Annam",
       "Siam"
     ],
     "answer": 3,
@@ -3742,8 +3742,8 @@ window.KTZED_QUESTIONS = [
       "He two-timed his mistress",
       "Someone picked up a nickel"
     ],
-    "answer": 3,
-    "fun_fact": "A hollow nickel used to pass microfilm was accidentally spent at a newsstand and fell into the wrong hands.",
+    "answer": 0,
+    "fun_fact": "A newsboy found a hollow nickel with microfilm in 1953, but the FBI couldn't crack the case until Abel's assistant, Reino Häyhänen, defected in 1957.",
     "id": 267,
     "type": "mc"
   },
@@ -3751,10 +3751,10 @@ window.KTZED_QUESTIONS = [
     "category": "History",
     "question": "US pilot Francis Gary Powers, shot down over the Soviet Union, was eventually traded for which Soviet spy?",
     "options": [
-      "Paul Konerko",
-      "David Ortiz",
-      "Jackie Robinson",
-      "Rudolph Abel"
+      "Klaus Fuchs",
+      "Kim Philby",
+      "Julius Rosenberg",
+      "Rudolf Abel"
     ],
     "answer": 3,
     "fun_fact": null,
@@ -3763,15 +3763,15 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Geography",
-    "question": "On the Canadian $2 bill, what flag flies over the Parliament building?",
+    "question": "Canada replaced its $2 bill with a coin in 1996. What is the coin's nickname?",
     "options": [
-      "British Flag",
-      "UN flag",
-      "French Flag",
-      "US flag"
+      "Loonie",
+      "Toonie",
+      "Moosie",
+      "Beaver"
     ],
-    "answer": 3,
-    "fun_fact": null,
+    "answer": 1,
+    "fun_fact": "It followed the $1 'loonie,' named for the loon on it.",
     "id": 269,
     "type": "mc"
   },
@@ -3809,8 +3809,8 @@ window.KTZED_QUESTIONS = [
     "options": [
       "The founder of Mazda",
       "The real name of Tojo",
-      "The first Japanese fisherman to see Godzilla",
-      "The last Japanese casualty from World War II"
+      "The pilot who led the Pearl Harbor attack",
+      "A soldier who kept fighting in the Philippines until 1974"
     ],
     "answer": 3,
     "fun_fact": "Onoda, stationed in the Philippines, refused to believe Japan had surrendered and continued fighting until 1974, 29 years after the war ended.",
@@ -3833,7 +3833,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Technology",
-    "question": "In 1879, how did Procter & Gamble accidentally create a new brand of soap?",
+    "question": "According to Procter & Gamble lore, how was floating Ivory soap created in 1879?",
     "options": [
       "A soap maker tried to make shampoo",
       "A soap maker added wrong chemicals",
@@ -3847,7 +3847,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "History",
-    "question": "What was special about the playing cards given to British pilots in World War II?",
+    "question": "What was special about the playing cards secretly sent to Allied prisoners of war in World War II?",
     "options": [
       "They secretly listed safe houses",
       "They contained RAF codes",
@@ -3903,15 +3903,15 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Politics",
-    "question": "Eight years before George Washington was elected President, who was appointed President of the United States by the Continental Congress?",
+    "question": "Who was the first President of the Continental Congress, in 1774?",
     "options": [
-      "Harry Lightfoot Lee",
       "Samuel Adams",
       "John Hancock",
-      "Thomas McKean"
+      "Thomas McKean",
+      "Peyton Randolph"
     ],
     "answer": 3,
-    "fun_fact": null,
+    "fun_fact": "Randolph, a Virginian, presided over the First Continental Congress. John Hancock was president when the Declaration was signed.",
     "id": 279,
     "type": "mc"
   },
@@ -3947,9 +3947,9 @@ window.KTZED_QUESTIONS = [
     "category": "History",
     "question": "A famous exchange of letters between Einstein and Freud was published in 1933 under what title?",
     "options": [
-      "Hitler and Mussolini",
-      "Stalin and Lenin",
-      "Franklin and Eleanor Roosevelt",
+      "Civilization and Its Discontents",
+      "The Future of an Illusion",
+      "Out of My Later Years",
       "Why War?"
     ],
     "answer": 3,
@@ -4029,11 +4029,11 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Politics",
-    "question": "Which US President related a story about a murderous Bigfoot in a Wilderness Magazine?",
+    "question": "Which U.S. president told a story about a murderous Bigfoot-like creature in his 1892 book 'The Wilderness Hunter'?",
     "options": [
       "Harry Truman",
       "U.S. Grant",
-      "Billy Carter",
+      "Grover Cleveland",
       "Teddy Roosevelt"
     ],
     "answer": 3,
@@ -4057,29 +4057,29 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "History",
-    "question": "D-Day was June 6, 1944. What was the password used by the Allied Forces that day?",
+    "question": "On D-Day, U.S. paratroopers used which challenge-and-password pair to identify friends in the dark?",
     "options": [
-      "Overlord",
-      "Sceptre",
-      "Ike",
-      "Mickey Mouse"
+      "Mickey / Mouse",
+      "Liberty / Bell",
+      "Sword / Shield",
+      "Flash / Thunder"
     ],
     "answer": 3,
-    "fun_fact": null,
+    "fun_fact": "Many 101st Airborne troopers also carried toy 'cricket' clickers: one click was answered with two.",
     "id": 290,
     "type": "mc"
   },
   {
     "category": "Sports",
-    "question": "Dwight Eisenhower had thoughts of becoming a football player until he was injured tackling which great athlete?",
+    "question": "As a West Point football player in 1912, Dwight Eisenhower helped tackle which legendary athlete?",
     "options": [
-      "Jim Brown",
-      "O.J. Simpson",
       "Red Grange",
+      "Knute Rockne",
+      "Walter Camp",
       "Jim Thorpe"
     ],
     "answer": 3,
-    "fun_fact": null,
+    "fun_fact": "Ike's own football career ended weeks later with a knee injury in a game against Tufts.",
     "id": 291,
     "type": "mc"
   },
@@ -4101,10 +4101,10 @@ window.KTZED_QUESTIONS = [
     "category": "Music",
     "question": "What was Freddie Mercury's real name?",
     "options": [
-      "Frederick Von Messner",
+      "Frederick Bulmer",
       "Fernando Mercurio",
-      "Fredricio de la Massino",
-      "Farroukh Bulsara"
+      "Faruk Batliwala",
+      "Farrokh Bulsara"
     ],
     "answer": 3,
     "fun_fact": "Born in Zanzibar of Parsi-Indian descent, he legally changed his surname to Mercury in 1970.",
@@ -4141,12 +4141,12 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Music",
-    "question": "Which was the first jazz single to sell one million copies?",
+    "question": "Which song became the first record awarded a gold disc, in 1942?",
     "options": [
       "Laura",
       "Take the A Train",
       "In the Mood",
-      "Chattanooga Choo-Choo"
+      "Chattanooga Choo Choo"
     ],
     "answer": 3,
     "fun_fact": null,
@@ -4201,7 +4201,7 @@ window.KTZED_QUESTIONS = [
     "options": [
       "Little Richard",
       "Janis Joplin",
-      "Peter Townsend",
+      "Pete Townshend",
       "Jimi Hendrix"
     ],
     "answer": 3,
@@ -4255,9 +4255,9 @@ window.KTZED_QUESTIONS = [
     "category": "Music",
     "question": "What was Sting's real name?",
     "options": [
-      "Bono's",
-      "Kid Rock's",
-      "Dave Matthews'",
+      "Paul Hewson",
+      "Robert Ritchie",
+      "David Evans",
       "Gordon Matthew Thomas Sumner"
     ],
     "answer": 3,
@@ -4284,8 +4284,8 @@ window.KTZED_QUESTIONS = [
     "question": "Which Hall of Fame is located in Cleveland, Ohio?",
     "options": [
       "Hockey",
+      "Pro Football",
       "Basketball",
-      "Ohio",
       "Rock and Roll"
     ],
     "answer": 3,
@@ -4311,9 +4311,9 @@ window.KTZED_QUESTIONS = [
     "category": "Music",
     "question": "What soul singer recorded 'Dock of the Bay' three days before dying in a plane crash?",
     "options": [
-      "Bob Dylan",
-      "Paul Banks",
-      "Neil Sedaka",
+      "Sam Cooke",
+      "Marvin Gaye",
+      "Wilson Pickett",
       "Otis Redding"
     ],
     "answer": 3,
@@ -4429,7 +4429,7 @@ window.KTZED_QUESTIONS = [
       "-273"
     ],
     "answer": 3,
-    "fun_fact": "Absolute zero (-273.15°C) is the coldest possible temperature, the point at which all molecular motion stops.",
+    "fun_fact": "Absolute zero (-273.15°C) is the coldest possible temperature. It can be approached but never actually reached.",
     "id": 316,
     "type": "mc"
   },
@@ -4437,9 +4437,9 @@ window.KTZED_QUESTIONS = [
     "category": "Music",
     "question": "In the same year the first Grammy for Rap was given, which song won Best Song AND Best Record of the Year?",
     "options": [
-      "'Blessings' by Betty Winans",
-      "'Fast Cars' by Tracy Chapman",
-      "'Traces' by George Michael",
+      "'Fast Car' by Tracy Chapman",
+      "'Faith' by George Michael",
+      "'Roll With It' by Steve Winwood",
       "'Don't Worry, Be Happy' by Bobby McFerrin"
     ],
     "answer": 3,
@@ -4519,12 +4519,12 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Music",
-    "question": "Which one of the following is often referred to as 'The Godfather of Hip Hop'?",
+    "question": "Who is widely credited as the 'Father of Hip Hop' after DJing a famous 1973 Bronx back-to-school party?",
     "options": [
-      "Grandmaster Funk",
-      "Robinata Troop",
-      "U-Roy",
-      "Kool DJ Herc"
+      "Grandmaster Flash",
+      "Kurtis Blow",
+      "LL Cool J",
+      "DJ Kool Herc"
     ],
     "answer": 3,
     "fun_fact": null,
@@ -4547,7 +4547,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Music",
-    "question": "What is the best-selling album of all time in the United States as of 2007?",
+    "question": "According to the RIAA, what is the best-selling album of all time in the United States?",
     "options": [
       "The Wall by Pink Floyd",
       "Thriller by Michael Jackson",
@@ -4605,13 +4605,13 @@ window.KTZED_QUESTIONS = [
     "category": "General Knowledge",
     "question": "What is generally considered the first novel whose manuscript was typed on a typewriter?",
     "options": [
-      "The Adventures of Huckleberry Finn",
+      "The Adventures of Tom Sawyer",
       "The Great Gatsby",
       "Moby Dick",
-      "The Adventures of Tom Sawyer"
+      "Life on the Mississippi"
     ],
     "answer": 3,
-    "fun_fact": "Mark Twain sent the typed manuscript to his publisher, though he later denied it, possibly to avoid being associated with the unreliable machine.",
+    "fun_fact": "Twain himself claimed it was Tom Sawyer, but researchers have shown it was Life on the Mississippi.",
     "id": 329,
     "type": "mc"
   },
@@ -4645,7 +4645,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Alcohol",
-    "question": "This drink was invented for a party given by Winston Churchill's mother. What is it?",
+    "question": "Which classic cocktail is made with whiskey, sweet vermouth and bitters?",
     "options": [
       "The Gibson",
       "The Sidecar",
@@ -4653,7 +4653,7 @@ window.KTZED_QUESTIONS = [
       "The Manhattan"
     ],
     "answer": 3,
-    "fun_fact": "Lady Randolph Churchill is credited with the cocktail's creation at a party at the Manhattan Club in New York in 1874.",
+    "fun_fact": "A popular story credits a party thrown by Winston Churchill's mother, but she was in England at the time.",
     "id": 332,
     "type": "mc"
   },
@@ -4662,8 +4662,8 @@ window.KTZED_QUESTIONS = [
     "question": "This great boxer, known as the 'Galveston Giant,' was the world heavyweight champion from 1908-1915. Who was he?",
     "options": [
       "Jim Jeffries",
-      "Jim Johnson",
-      "Jack Jeffries",
+      "Jack Dempsey",
+      "Jess Willard",
       "Jack Johnson"
     ],
     "answer": 3,
@@ -4715,11 +4715,11 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Pop Culture",
-    "question": "William Moulton Marston invented the polygraph. What fictional character did he also create?",
+    "question": "Psychologist William Moulton Marston, who helped develop an early lie-detector test, also created which comic book heroine?",
     "options": [
-      "The Thematic Apperception Test",
-      "The IQ Test",
-      "Behavior Therapy",
+      "Supergirl",
+      "Catwoman",
+      "Black Canary",
       "Wonder Woman"
     ],
     "answer": 3,
@@ -4731,9 +4731,9 @@ window.KTZED_QUESTIONS = [
     "category": "General Knowledge",
     "question": "Which astronaut claimed to be 'the first man to wet his pants on the moon'?",
     "options": [
-      "Gus Grissom",
+      "Gene Cernan",
       "Neil Armstrong",
-      "Chuck Rollands",
+      "Pete Conrad",
       "Buzz Aldrin"
     ],
     "answer": 3,
@@ -4843,7 +4843,7 @@ window.KTZED_QUESTIONS = [
     "category": "General Knowledge",
     "question": "Who wrote 'The Murders in the Rue Morgue,' considered the first detective story?",
     "options": [
-      "Charles Lennox",
+      "Wilkie Collins",
       "Jules Verne",
       "Sir Arthur Conan Doyle",
       "Edgar Allan Poe"
@@ -4869,7 +4869,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Sports",
-    "question": "What professional team did hockey legend Wayne Gretzky start his career with?",
+    "question": "With which NHL team did Wayne Gretzky play his first NHL season?",
     "options": [
       "Los Angeles Kings",
       "St. Louis Blues",
@@ -4883,12 +4883,12 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Technology",
-    "question": "Which African American invented the traffic light?",
+    "question": "In 1923, inventor Garrett Morgan patented an improved version of what?",
     "options": [
-      "Otis Boykin",
-      "Lewis Latimer",
-      "George Washington Carver",
-      "Garrett Morgan"
+      "The elevator",
+      "The light bulb",
+      "The typewriter",
+      "The traffic signal"
     ],
     "answer": 3,
     "fun_fact": null,
@@ -4913,24 +4913,24 @@ window.KTZED_QUESTIONS = [
     "category": "Music",
     "question": "What was the first US city to play a Beatles song on the radio?",
     "options": [
-      "Pittsburgh",
+      "Seattle",
       "Memphis",
       "Cleveland",
-      "Seattle"
+      "Chicago"
     ],
     "answer": 3,
-    "fun_fact": "KCBC radio DJ Carroll James played 'I Want to Hold Your Hand' in December 1963, weeks before their official US release.",
+    "fun_fact": "DJ Dick Biondi played 'Please Please Me' on WLS in February 1963. In December 1963, Carroll James at Washington's WWDC played 'I Want to Hold Your Hand,' sparking Beatlemania in the U.S.",
     "id": 351,
     "type": "mc"
   },
   {
     "category": "General Knowledge",
-    "question": "Which is generally considered the best-selling English-language novel of all time?",
+    "question": "Which Agatha Christie novel is often called the best-selling mystery of all time?",
     "options": [
-      "And Then There Were None",
-      "The DaVinci Code",
-      "The Hobbit",
-      "A Tale of Two Cities"
+      "Murder on the Orient Express",
+      "The Murder of Roger Ackroyd",
+      "Death on the Nile",
+      "And Then There Were None"
     ],
     "answer": 3,
     "fun_fact": "'A Tale of Two Cities' has sold an estimated 200 million copies.",
@@ -4953,11 +4953,11 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Music",
-    "question": "Who was the first performer to have at least 36 Billboard Top Ten albums?",
+    "question": "Which band released the 1969 album 'Let It Bleed'?",
     "options": [
       "The Beatles",
-      "Elvis Presley",
-      "Frank Sinatra",
+      "The Kinks",
+      "The Who",
       "The Rolling Stones"
     ],
     "answer": 3,
@@ -5023,15 +5023,15 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Science",
-    "question": "Approximately how fast can a sneeze travel?",
+    "question": "High-speed camera studies at MIT found a sneeze's droplet cloud can travel up to about how far?",
     "options": [
-      "500 miles an hour",
-      "100 feet per hour",
-      "50 feet an hour",
-      "100 miles per hour"
+      "6 inches",
+      "3 feet",
+      "26 feet",
+      "100 feet"
     ],
-    "answer": 3,
-    "fun_fact": null,
+    "answer": 2,
+    "fun_fact": "The old '100 mph sneeze' claim is a myth. Measured sneezes move closer to 10 mph, but the cloud can spread up to about 8 meters (26 feet).",
     "id": 359,
     "type": "mc"
   },
@@ -5054,8 +5054,8 @@ window.KTZED_QUESTIONS = [
     "question": "This American shoe company offered a job to basketball player Chuck Taylor and named a shoe after him. What is it?",
     "options": [
       "Nike",
-      "Airbound",
-      "Rebound",
+      "Keds",
+      "Spalding",
       "Converse"
     ],
     "answer": 3,
@@ -5065,12 +5065,12 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Music",
-    "question": "What is considered the first rap record?",
+    "question": "What 1979 single is considered the first hip-hop record to become a Top 40 hit?",
     "options": [
-      "Public Enemy's Fight the Power",
-      "Ike Turner's Jet 88",
-      "Yannick Bruynoghie's Big Bills Rap",
-      "Sugarhill Gang's Rapper's Delight"
+      "The Message",
+      "Fight the Power",
+      "Walk This Way",
+      "Rapper's Delight"
     ],
     "answer": 3,
     "fun_fact": null,
@@ -5138,12 +5138,12 @@ window.KTZED_QUESTIONS = [
     "question": "What was the first song ever transmitted from space to Earth?",
     "options": [
       "Space Oddity",
-      "The I Love Lucy Theme Song",
-      "There has been no song",
-      "Happy Birthday"
+      "Happy Birthday",
+      "Jingle Bells",
+      "Fly Me to the Moon"
     ],
-    "answer": 3,
-    "fun_fact": "Wally Schirra played 'Jingle Bells' on a smuggled harmonica aboard Gemini 6 in 1965, but 'Happy Birthday' was sung from the ISS in 2013.",
+    "answer": 2,
+    "fun_fact": "Wally Schirra and Tom Stafford played it on a smuggled harmonica and bells aboard Gemini 6 in December 1965.",
     "id": 367,
     "type": "mc"
   },
@@ -5163,15 +5163,15 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Music",
-    "question": "What was the first rock group to play at New York's Carnegie Hall?",
+    "question": "The Beatles' first-ever U.S. concert, in February 1964, was held in which city?",
     "options": [
-      "America",
-      "The Who",
-      "The Beatles",
-      "Chicago"
+      "New York",
+      "Chicago",
+      "Boston",
+      "Washington, D.C."
     ],
     "answer": 3,
-    "fun_fact": null,
+    "fun_fact": "They played the Washington Coliseum on Feb 11, 1964, then Carnegie Hall the next day.",
     "id": 369,
     "type": "mc"
   },
@@ -5196,16 +5196,16 @@ window.KTZED_QUESTIONS = [
       "1944",
       "1949",
       "1936",
-      "1958"
+      "1956"
     ],
     "answer": 3,
-    "fun_fact": "Albert Woolson, a Union drummer boy, died in 1956 at age 109. The last Confederate veteran died in 1958.",
+    "fun_fact": "Albert Woolson, a Union drummer boy, died in 1956 at 106. Later claims of surviving Confederate veterans were debunked.",
     "id": 371,
     "type": "mc"
   },
   {
     "category": "Sports",
-    "question": "Where did the word 'golf' originate?",
+    "question": "Which country is generally considered the birthplace of modern golf?",
     "options": [
       "Ireland",
       "Canada",
@@ -5275,7 +5275,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Pop Culture",
-    "question": "Which was the first TV series regularly broadcast in color?",
+    "question": "Which Western, debuting in 1959, was one of the first TV series broadcast in color?",
     "options": [
       "Gunsmoke",
       "The Flintstones",
@@ -5334,8 +5334,8 @@ window.KTZED_QUESTIONS = [
     "question": "Which English king had wives called Catherine, Anne, Jane, Anne, Catherine and Catherine, in that order?",
     "options": [
       "Henry the Seventh",
-      "William the Fifth",
-      "Charles the Fourth",
+      "Edward the Sixth",
+      "Richard the Third",
       "Henry the Eighth"
     ],
     "answer": 3,
@@ -5388,16 +5388,16 @@ window.KTZED_QUESTIONS = [
   {
     "id": 385,
     "category": "Geography",
-    "question": "What was the former name of the city of Istanbul?",
+    "question": "What is the capital of Turkey?",
     "type": "mc",
     "options": [
-      "Byzantium",
-      "Constantinople",
+      "Istanbul",
       "Ankara",
-      "Adrianople"
+      "Izmir",
+      "Antalya"
     ],
     "answer": 1,
-    "fun_fact": "Istanbul has had two famous former names: it was called Byzantium as a Greek colony, then Constantinople as the capital of the Roman/Byzantine Empire, before becoming Istanbul after Ottoman rule."
+    "fun_fact": "Atatürk moved the capital from Istanbul to Ankara in 1923."
   },
   {
     "id": 386,
@@ -5444,7 +5444,7 @@ window.KTZED_QUESTIONS = [
   {
     "id": 389,
     "category": "Geography",
-    "question": "Yellowstone Caldera is considered a supervolcano that has erupted violently three times in the past two million years. How long ago was its most recent eruption?",
+    "question": "Yellowstone Caldera is a supervolcano that has erupted violently three times in the past two million years. How long ago was its most recent super-eruption?",
     "type": "mc",
     "options": [
       "17,000 years",
@@ -5556,16 +5556,16 @@ window.KTZED_QUESTIONS = [
   {
     "id": 397,
     "category": "History",
-    "question": "Which explorer was the first to reach the South Pole?",
+    "question": "Which British explorer reached the South Pole in January 1912, only to find Amundsen had beaten him there?",
     "type": "mc",
     "options": [
+      "Ernest Shackleton",
       "Richard Byrd",
-      "Sir Ernest Shackleton",
       "Robert Falcon Scott",
-      "Roald Amundsen"
+      "Robert Peary"
     ],
-    "answer": 3,
-    "fun_fact": null
+    "answer": 2,
+    "fun_fact": "Scott and his four companions all died on the return journey."
   },
   {
     "id": 398,
@@ -5654,7 +5654,7 @@ window.KTZED_QUESTIONS = [
   {
     "id": 404,
     "category": "Politics",
-    "question": "Which US President was born in South Carolina but represented Tennessee when he became president?",
+    "question": "Which future president became a national hero by winning the Battle of New Orleans in 1815?",
     "type": "mc",
     "options": [
       "William Henry Harrison",
@@ -5668,13 +5668,13 @@ window.KTZED_QUESTIONS = [
   {
     "id": 405,
     "category": "Geography",
-    "question": "What does the name of the US state of Utah mean in the Ute language?",
+    "question": "The state of Utah takes its name from which Native American people?",
     "type": "mc",
     "options": [
-      "Land around the great lake",
-      "Spirits of the rivers",
-      "Children of the winds",
-      "People of the mountains"
+      "Navajo",
+      "Shoshone",
+      "Paiute",
+      "Ute"
     ],
     "answer": 3,
     "fun_fact": null
@@ -5700,7 +5700,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc",
     "options": [
       "India and Nepal",
-      "Nepal and Tibet",
+      "Nepal and Bhutan",
       "India and China",
       "China and Nepal"
     ],
@@ -5954,7 +5954,7 @@ window.KTZED_QUESTIONS = [
       "North Africa",
       "Greek islands of the Aegean",
       "Sicily",
-      "Modern-day Lebanon (Sidon and Tyre)"
+      "Modern-day Lebanon"
     ],
     "answer": 3,
     "fun_fact": null
@@ -6033,9 +6033,9 @@ window.KTZED_QUESTIONS = [
     "category": "History",
     "question": "Which German general was nicknamed 'The Desert Fox' for his campaigns in North Africa during World War II?",
     "options": [
-      "Hermann Göring",
-      "Bernard Montgomery",
-      "George Patton",
+      "Heinz Guderian",
+      "Gerd von Rundstedt",
+      "Erich von Manstein",
       "Erwin Rommel"
     ],
     "answer": 3,
@@ -6129,11 +6129,11 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "History",
-    "question": "Who was the British Prime Minister who declared war on Germany in 1939, not Churchill?",
+    "question": "Who was the British Prime Minister when Britain declared war on Germany in 1939?",
     "options": [
       "Arthur Balfour",
       "Stanley Baldwin",
-      "Winston Churchill",
+      "Ramsay MacDonald",
       "Neville Chamberlain"
     ],
     "answer": 3,
@@ -6145,9 +6145,9 @@ window.KTZED_QUESTIONS = [
     "category": "History",
     "question": "Which German military commander led the Sixth Army at the Siege of Stalingrad, was defeated, and surrendered to the Russians?",
     "options": [
-      "Heinrich Himmler",
-      "Joseph Goebbels",
-      "Karl Dönitz",
+      "Erich von Manstein",
+      "Heinz Guderian",
+      "Walter Model",
       "Friedrich Paulus"
     ],
     "answer": 3,
@@ -6157,15 +6157,15 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "History",
-    "question": "Andorra was the last country to officially end World War I, it had been forgotten in the Treaty of Versailles. With which country did Andorra finally sign an official peace treaty?",
+    "question": "Which 1919 treaty formally ended World War I between Germany and the Allied Powers?",
     "options": [
-      "Austria",
-      "Portugal",
-      "Spain",
-      "Germany"
+      "Treaty of Brest-Litovsk",
+      "Treaty of Versailles",
+      "Treaty of Ghent",
+      "Peace of Westphalia"
     ],
-    "answer": 3,
-    "fun_fact": "Andorra and Germany were technically still at war until 1958, when they signed an official peace agreement ending WWI, 39 years after everyone else.",
+    "answer": 1,
+    "fun_fact": "It was signed on June 28, 1919, exactly five years after Archduke Franz Ferdinand was assassinated.",
     "id": 440,
     "type": "mc"
   },
@@ -6185,7 +6185,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "History",
-    "question": "The Battle of Stalingrad is widely considered a turning point against Germany. But which battle was the decisive turning point due to the largest tank engagement in history?",
+    "question": "Which 1943 battle on the Eastern Front is considered the largest tank battle in history?",
     "options": [
       "D-Day in Normandy",
       "The Ardennes offensive",
@@ -6201,9 +6201,9 @@ window.KTZED_QUESTIONS = [
     "category": "History",
     "question": "What were the nicknames of the two atomic bombs dropped on Japan in August 1945?",
     "options": [
-      "Sandman and Assassin",
-      "Mother-in-law and Father-in-law",
-      "Bomb 1 and Bomb 2",
+      "Thin Man and Big Boy",
+      "Trinity and Gadget",
+      "Enola and Bockscar",
       "Little Boy and Fat Man"
     ],
     "answer": 3,
@@ -6269,15 +6269,15 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "History",
-    "question": "Which WWII Eastern Front battle is widely regarded as the largest armed conflict in history?",
+    "question": "The Nazi siege of Leningrad lasted roughly how long?",
     "options": [
-      "The Battle of Leningrad",
-      "The Battle of Moscow",
-      "The Battle of Sevastopol",
-      "The Battle of Kursk"
+      "About 100 days",
+      "About 1 year",
+      "About 872 days",
+      "About 5 years"
     ],
-    "answer": 3,
-    "fun_fact": null,
+    "answer": 2,
+    "fun_fact": "The siege ran from September 1941 to January 1944. Around a million civilians died, most from starvation.",
     "id": 448,
     "type": "mc"
   },
@@ -6370,8 +6370,8 @@ window.KTZED_QUESTIONS = [
     "question": "At the Battle of Gaugamela in 331 BC, Alexander the Great defeated which Persian king?",
     "options": [
       "Cyrus the Great",
-      "Leonidas of Sparta",
-      "Marcellus Germanicus",
+      "Xerxes I",
+      "Artaxerxes III",
       "Darius III"
     ],
     "answer": 3,
@@ -6425,9 +6425,9 @@ window.KTZED_QUESTIONS = [
     "category": "History",
     "question": "What British admiral was killed at the Battle of Trafalgar while defeating the combined French and Spanish fleets?",
     "options": [
-      "Arthur Wellesley",
-      "John Paul Jones",
-      "James Wolfe",
+      "Cuthbert Collingwood",
+      "Thomas Hardy",
+      "Edward Pellew",
       "Horatio Nelson"
     ],
     "answer": 3,
@@ -6453,9 +6453,9 @@ window.KTZED_QUESTIONS = [
     "category": "History",
     "question": "The name 'Caligula' was a nickname given to the Roman emperor as a child. What did it originally mean?",
     "options": [
-      "Toy sword",
-      "A type of Roman shield",
-      "A type of pasta",
+      "Little soldier",
+      "Little shield",
+      "Little lion",
       "Little boots"
     ],
     "answer": 3,
@@ -6493,15 +6493,15 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "History",
-    "question": "One result of the Second Anglo-Dutch War was that a Dutch colonial city was renamed. What city did 'New Amsterdam' become?",
+    "question": "In the 1667 Treaty of Breda, the Dutch kept which South American colony while England kept New Netherland?",
     "options": [
-      "New Jersey",
-      "New Mexico",
-      "New Orleans",
-      "New York"
+      "Guyana",
+      "Venezuela",
+      "Brazil",
+      "Suriname"
     ],
     "answer": 3,
-    "fun_fact": null,
+    "fun_fact": "It's often summed up as the Dutch 'trading Manhattan for Suriname.'",
     "id": 464,
     "type": "mc"
   },
@@ -6523,7 +6523,7 @@ window.KTZED_QUESTIONS = [
     "category": "History",
     "question": "What play was President Lincoln watching at Ford's Theatre when he was assassinated?",
     "options": [
-      "Our Fair Lady",
+      "Romeo and Juliet",
       "Othello",
       "Macbeth",
       "Our American Cousin"
@@ -6549,15 +6549,15 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "History",
-    "question": "What remarkable coincidence happened on July 4, 1826, the 50th anniversary of the Declaration of Independence?",
+    "question": "Which U.S. president was born on the Fourth of July?",
     "options": [
-      "Mexico declared independence from Spain",
-      "Russia declared war on Turkey",
-      "Andrew Jackson resigned as President",
-      "Both Thomas Jefferson and John Adams died"
+      "James Monroe",
+      "William Howard Taft",
+      "Warren Harding",
+      "Calvin Coolidge"
     ],
     "answer": 3,
-    "fun_fact": "Adams's reported last words were 'Thomas Jefferson survives', he didn't know Jefferson had died just hours earlier the same day.",
+    "fun_fact": "Coolidge was born July 4, 1872. James Monroe died on July 4, 1831, the third of the first five presidents to die on Independence Day.",
     "id": 468,
     "type": "mc"
   },
@@ -6759,15 +6759,15 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "History",
-    "question": "Toussaint Louverture, a freed slave, led which uprising that established the world's first Black republic?",
+    "question": "Which formerly enslaved man became the best-known leader of the Haitian Revolution?",
     "options": [
-      "Rebellion of Martinique",
-      "Revolution of Devil's Island",
-      "Sandanista Uprising",
-      "Haitian Revolt"
+      "Jean-Jacques Dessalines",
+      "Henri Christophe",
+      "Simón Bolívar",
+      "Toussaint Louverture"
     ],
     "answer": 3,
-    "fun_fact": "Haiti's 1804 revolution was the only successful slave-led uprising in history that resulted in a permanent nation.",
+    "fun_fact": "He was captured by the French in 1802 and died in prison in 1803. Haiti declared independence in 1804.",
     "id": 483,
     "type": "mc"
   },
@@ -6801,26 +6801,26 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "History",
-    "question": "The French Revolution began in 1789 with the storming of which building?",
+    "question": "Which French king was executed by guillotine in January 1793?",
     "options": [
-      "The Tuileries Palace",
-      "The Conciergerie",
-      "The Sorbonne",
-      "The Bastille prison"
+      "Louis XIV",
+      "Louis XV",
+      "Charles X",
+      "Louis XVI"
     ],
     "answer": 3,
-    "fun_fact": null,
+    "fun_fact": "His wife, Marie Antoinette, was executed nine months later.",
     "id": 486,
     "type": "mc"
   },
   {
     "category": "History",
-    "question": "What actually destroyed the Great Spanish Armada in 1588, not the English fleet?",
+    "question": "What caused most of the Spanish Armada's losses in 1588?",
     "options": [
-      "Francis Drake's attack in the English Channel",
-      "Dutch warships",
-      "Admiral Nelson at Trafalgar",
-      "A hurricane off the coast of Ireland"
+      "Cannon fire from the English fleet",
+      "A Dutch naval blockade",
+      "A French ambush off Calais",
+      "Storms off Scotland and Ireland on the voyage home"
     ],
     "answer": 3,
     "fun_fact": "The Armada was battered by a series of Atlantic storms off Scotland and Ireland, not a single hurricane. Combined with English fireships disrupting their formation, over half the fleet was lost, but the English fleet itself never delivered a decisive blow.",
@@ -6857,12 +6857,12 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "History",
-    "question": "Levi Strauss made his fortune during the Gold Rush, but not from gold. What did he invent?",
+    "question": "Levi Strauss made his fortune during the Gold Rush era, but not from gold. What did he and tailor Jacob Davis patent in 1873?",
     "options": [
-      "Electric lamp",
-      "Mattock",
-      "Explosives",
-      "Denim"
+      "The pickaxe",
+      "The gold pan",
+      "Canvas tents",
+      "Riveted work pants (blue jeans)"
     ],
     "answer": 3,
     "fun_fact": null,
@@ -6873,8 +6873,8 @@ window.KTZED_QUESTIONS = [
     "category": "Technology",
     "question": "What device was invented in 1879 by James Ritty, the owner of a tavern in Dayton, Ohio?",
     "options": [
-      "The electric chair",
-      "The microwave oven",
+      "The time clock",
+      "The vending machine",
       "The jukebox",
       "The cash register"
     ],
@@ -6885,15 +6885,15 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Science",
-    "question": "The first cloned mammal, Dolly the sheep, was named after country singer Dolly Parton. Why?",
+    "question": "Dolly the sheep, the first mammal cloned from an adult cell, was created at the Roslin Institute near which city?",
     "options": [
-      "Dolly Parton had just released a single named Dolly",
-      "Dolly Parton was an outspoken supporter of stem cell research",
-      "Dolly Parton was the embryologist's favorite singer",
-      "Dolly Parton is famously busty"
+      "London",
+      "Edinburgh",
+      "Cambridge",
+      "Dublin"
     ],
-    "answer": 3,
-    "fun_fact": "The scientists cloned Dolly from a mammary gland cell, and named her after the most famous pair of mammary glands they could think of.",
+    "answer": 1,
+    "fun_fact": "Dolly was born in July 1996 and lived until 2003.",
     "id": 492,
     "type": "mc"
   },
@@ -6969,11 +6969,11 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Technology",
-    "question": "Who actually made the first commercially practical light bulb, beating Edison to the patent in the UK?",
+    "question": "Which British inventor developed an incandescent light bulb independently of Edison, and later merged with him to form 'Ediswan'?",
     "options": [
-      "N. Tesla",
+      "Nikola Tesla",
       "William Coolidge",
-      "Thomas A. Edison",
+      "Humphry Davy",
       "Joseph Swan"
     ],
     "answer": 3,
@@ -7095,14 +7095,14 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "History",
-    "question": "What triggered the 1969 six-day war between El Salvador and Honduras, also called the Football War?",
+    "question": "The 1969 'Football War' between El Salvador and Honduras, which flared during World Cup qualifiers, lasted about how long?",
     "options": [
-      "Import tariffs on Honduran goods",
-      "Control over oil reserves",
-      "Import tariffs on Salvadoran goods",
-      "A soccer game"
+      "About 100 hours",
+      "About 6 weeks",
+      "About 6 months",
+      "About 3 years"
     ],
-    "answer": 3,
+    "answer": 0,
     "fun_fact": "Riots broke out during World Cup qualifying matches between the two countries. The war lasted 100 hours and killed approximately 3,000 people.",
     "id": 507,
     "type": "mc"
@@ -7153,9 +7153,9 @@ window.KTZED_QUESTIONS = [
     "category": "Sports",
     "question": "In 1954, Roger Bannister became the first person in history to do what?",
     "options": [
-      "Win Nobel Prizes in three different categories",
-      "Orbit the Earth",
-      "Win a transcontinental auto race",
+      "Climb Mount Everest",
+      "Swim the English Channel",
+      "Run 100 meters in under 10 seconds",
       "Run a mile in under four minutes"
     ],
     "answer": 3,
@@ -7165,15 +7165,15 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "History",
-    "question": "Hitler, like several conquerors before him, failed to invade Britain. Which conqueror was the last to successfully invade the island?",
+    "question": "What did the British call the Luftwaffe's 1940-41 bombing campaign against London and other cities?",
     "options": [
-      "Philip II and the Spanish Armada",
-      "Napoleon",
-      "Louis XIV of France",
-      "William I of Normandy"
+      "Operation Thunderclap",
+      "Big Week",
+      "The Bombing",
+      "The Blitz"
     ],
     "answer": 3,
-    "fun_fact": "William the Conqueror's 1066 Norman Invasion was the last successful foreign invasion of Britain.",
+    "fun_fact": "London was bombed on 57 consecutive nights starting in September 1940.",
     "id": 512,
     "type": "mc"
   },
@@ -7194,13 +7194,13 @@ window.KTZED_QUESTIONS = [
   {
     "id": 514,
     "category": "True Crime",
-    "question": "Even though he performed as a clown at neighborhood children's parties, this serial killer murdered 33 young men and boys.",
+    "question": "Which Wisconsin killer's crimes inspired Psycho, The Texas Chain Saw Massacre and The Silence of the Lambs?",
     "type": "mc",
     "options": [
       "Joe Ball",
-      "John Wayne Gacy",
-      "Marie Besnard",
-      "Albert Fish"
+      "Ed Gein",
+      "Albert Fish",
+      "H.H. Holmes"
     ],
     "answer": 1,
     "fun_fact": null
@@ -7320,16 +7320,16 @@ window.KTZED_QUESTIONS = [
   {
     "id": 523,
     "category": "True Crime",
-    "question": "This cult leader was responsible for the 1978 mass death of over 900 of his followers in Guyana.",
+    "question": "Which cult leader died in the 1993 fire that ended the 51-day siege at Waco, Texas?",
     "type": "mc",
     "options": [
       "Jim Jones",
-      "Donald DeFreeze",
-      "Randy Weaver",
-      "David Koresh"
+      "Marshall Applewhite",
+      "David Koresh",
+      "Charles Manson"
     ],
-    "answer": 0,
-    "fun_fact": null
+    "answer": 2,
+    "fun_fact": "The Branch Davidian standoff with federal agents began after a failed ATF raid on February 28, 1993."
   },
   {
     "id": 524,
@@ -7432,7 +7432,7 @@ window.KTZED_QUESTIONS = [
   {
     "id": 531,
     "category": "True Crime",
-    "question": "This Texas mom convicted in 1996 of killing her two young sons claimed an intruder had murdered them.",
+    "question": "This Texas mom, convicted in 1997 of killing her young son, claimed an intruder had murdered her two boys.",
     "type": "mc",
     "options": [
       "Ruth Snyder",
@@ -7446,16 +7446,16 @@ window.KTZED_QUESTIONS = [
   {
     "id": 532,
     "category": "True Crime",
-    "question": "In what year was Al Capone convicted for income-tax evasion?",
+    "question": "Al Capone's Chicago crime syndicate was commonly known as what?",
     "type": "mc",
     "options": [
-      "1941",
-      "1921",
-      "1931",
-      "1928"
+      "The Purple Gang",
+      "The Outfit",
+      "The Five Families",
+      "The Westies"
     ],
-    "answer": 2,
-    "fun_fact": null
+    "answer": 1,
+    "fun_fact": "The Purple Gang ran Detroit, the Five Families run New York, and the Westies were an Irish gang in Hell's Kitchen."
   },
   {
     "id": 533,
@@ -7474,7 +7474,7 @@ window.KTZED_QUESTIONS = [
   {
     "id": 534,
     "category": "Movies",
-    "question": "The script for this director's most famous movie saga was turned down by every major Hollywood studio, yet it became one of the highest-grossing film franchises ever.",
+    "question": "The script for this director's most famous movie saga was turned down by several studios before 20th Century Fox took a chance on it.",
     "type": "mc",
     "options": [
       "George Romero",
@@ -8065,38 +8065,38 @@ window.KTZED_QUESTIONS = [
     "question": "This movie is known as 'Die Slowly' in Germany and 'Skyscraper Attack' in Portugal.",
     "type": "mc",
     "options": [
-      "Die Hard",
-      "Die Hard 2",
-      "Die Hard: With a Vengeance",
-      "Die Hard Dracula"
+      "Lethal Weapon",
+      "Speed",
+      "Under Siege",
+      "Die Hard"
     ],
-    "answer": 0,
+    "answer": 3,
     "fun_fact": null
   },
   {
     "id": 577,
     "category": "Movies",
-    "question": "What American movie is known in China under the title 'I Will Marry A Prostitute and Save Money'?",
+    "question": "In Italy, 'Eternal Sunshine of the Spotless Mind' was retitled 'Se mi lasci ti cancello.' What does that mean?",
     "type": "mc",
     "options": [
-      "Pretty Woman",
-      "Blood Diamond",
-      "Kill Bill",
-      "Jack the Ripper"
+      "Love Is Only a Memory",
+      "Forget Me Tomorrow",
+      "If You Leave Me, I'll Erase You",
+      "The Endless Sunshine"
     ],
-    "answer": 0,
+    "answer": 2,
     "fun_fact": null
   },
   {
     "id": 578,
     "category": "Movies",
-    "question": "What one-word movie title was translated in China as 'The Happy Dumpling-to-be Who Talks And Solves Agricultural Problems'?",
+    "question": "What 1975 movie is known in France as 'Les Dents de la mer' ('The Teeth of the Sea')?",
     "type": "mc",
     "options": [
-      "Donkeys",
-      "Jaguar",
-      "Elephant",
-      "Babe"
+      "The Abyss",
+      "Piranha",
+      "Orca",
+      "Jaws"
     ],
     "answer": 3,
     "fun_fact": null
@@ -8104,15 +8104,15 @@ window.KTZED_QUESTIONS = [
   {
     "id": 579,
     "category": "Movies",
-    "question": "In China this movie was called 'Night In The Cramped Forest'. What is its real title?",
+    "question": "Which Woody Allen film was released in Germany as 'Der Stadtneurotiker' ('The City Neurotic')?",
     "type": "mc",
     "options": [
-      "The Blair Witch Project",
-      "Back to School",
-      "Ginger Snaps",
-      "In the Cut"
+      "Manhattan",
+      "Hannah and Her Sisters",
+      "Sleeper",
+      "Annie Hall"
     ],
-    "answer": 0,
+    "answer": 3,
     "fun_fact": null
   },
   {
@@ -8132,15 +8132,15 @@ window.KTZED_QUESTIONS = [
   {
     "id": 581,
     "category": "Movies",
-    "question": "France also turned this short title into 'The Young People Who Traverse Dimensions While Wearing Sunglasses'.",
+    "question": "In Italy, 'Groundhog Day' was released as 'Ricomincio da capo.' What does that mean?",
     "type": "mc",
     "options": [
-      "Across the Universe",
-      "Young People Ask: How Can I Make Real Friends?",
-      "The Matrix",
-      "The Fourth Dimension"
+      "I'm Starting Over from Scratch",
+      "The Day That Never Ends",
+      "Every Day Is Sunday",
+      "The Weatherman's Curse"
     ],
-    "answer": 2,
+    "answer": 0,
     "fun_fact": null
   },
   {
@@ -8163,12 +8163,12 @@ window.KTZED_QUESTIONS = [
     "question": "Argentina used a little ingenuity to change this title to 'Vaseline'.",
     "type": "mc",
     "options": [
-      "Slime",
-      "Grease",
-      "Jelly",
-      "Slippery Slide"
+      "Hairspray",
+      "Footloose",
+      "Dirty Dancing",
+      "Grease"
     ],
-    "answer": 1,
+    "answer": 3,
     "fun_fact": null
   },
   {
@@ -8188,27 +8188,27 @@ window.KTZED_QUESTIONS = [
   {
     "id": 585,
     "category": "Movies",
-    "question": "What movie title was translated in China as 'Big Dumb Monkey-Man Keeps Whacking Tree With Genitals'?",
+    "question": "Which 1965 musical was released in Spain and Latin America as 'La novicia rebelde' ('The Rebellious Novice')?",
     "type": "mc",
     "options": [
-      "The Jungle Book",
-      "George of the Jungle",
-      "The Lost Tribe",
-      "Tarzan"
+      "Mary Poppins",
+      "My Fair Lady",
+      "Sister Act",
+      "The Sound of Music"
     ],
-    "answer": 1,
+    "answer": 3,
     "fun_fact": null
   },
   {
     "id": 586,
     "category": "Movies",
-    "question": "What movie title was translated in China as 'Imaginary Dead Baseball Players Live in My Cornfield'?",
+    "question": "What 1980 comedy is known in Germany as 'Die unglaubliche Reise in einem verrückten Flugzeug' ('The Incredible Journey in a Crazy Airplane')?",
     "type": "mc",
     "options": [
-      "The Perfect Game",
-      "The Wizard of Oz",
-      "Field of Dreams",
-      "North by Northwest"
+      "Planes, Trains and Automobiles",
+      "Con Air",
+      "Airplane!",
+      "Top Secret!"
     ],
     "answer": 2,
     "fun_fact": null
@@ -8216,13 +8216,13 @@ window.KTZED_QUESTIONS = [
   {
     "id": 587,
     "category": "Movies",
-    "question": "What movie title was translated in China as 'Come to My Cave and Wear This Rubber Codpiece, Cute Boy'?",
+    "question": "Which 1986 teen comedy is called 'Ferris macht blau' ('Ferris Plays Hooky') in Germany?",
     "type": "mc",
     "options": [
-      "Altered States",
-      "Encino Man",
-      "Caveman",
-      "Batman & Robin"
+      "The Breakfast Club",
+      "Sixteen Candles",
+      "Weird Science",
+      "Ferris Bueller's Day Off"
     ],
     "answer": 3,
     "fun_fact": null
@@ -8230,27 +8230,27 @@ window.KTZED_QUESTIONS = [
   {
     "id": 588,
     "category": "Movies",
-    "question": "What movie title was translated in China as 'Oh No! My Girlfriend Has a Penis!'?",
+    "question": "In France, 'Star Wars' was originally released as 'La Guerre des étoiles.' What does that mean?",
     "type": "mc",
     "options": [
-      "Valentino",
-      "Hunger",
-      "The Crying Game",
-      "Jarhead"
+      "The War of the Stars",
+      "The Galactic Empire",
+      "The Force Awakens",
+      "The Space Knights"
     ],
-    "answer": 2,
+    "answer": 0,
     "fun_fact": null
   },
   {
     "id": 589,
     "category": "Movies",
-    "question": "The title of what movie was translated in China as 'Six Naked Pigs'?",
+    "question": "Which 1987 buddy-cop movie is known in Germany as 'Zwei stahlharte Profis' ('Two Steel-Hard Pros')?",
     "type": "mc",
     "options": [
-      "School of Rock",
-      "Billy Elliot",
-      "Wayne's World",
-      "The Full Monty"
+      "48 Hrs.",
+      "Tango & Cash",
+      "Beverly Hills Cop",
+      "Lethal Weapon"
     ],
     "answer": 3,
     "fun_fact": null
@@ -8286,13 +8286,13 @@ window.KTZED_QUESTIONS = [
   {
     "id": 592,
     "category": "Movies",
-    "question": "In China this movie was called 'He's A Ghost!'",
+    "question": "What Tim Burton film is known in France as 'Edward aux mains d'argent' ('Edward with Silver Hands')?",
     "type": "mc",
     "options": [
-      "The Eclipse",
-      "Mr. Soul",
-      "The Sixth Sense",
-      "Slices of Life"
+      "Beetlejuice",
+      "Big Fish",
+      "Edward Scissorhands",
+      "Ed Wood"
     ],
     "answer": 2,
     "fun_fact": null
@@ -8328,13 +8328,13 @@ window.KTZED_QUESTIONS = [
   {
     "id": 595,
     "category": "Movies",
-    "question": "Jennifer Lawrence won the Academy Award for Best Actress for her role in 'Silver Linings Playbook'. She also achieved fame as which heroine?",
+    "question": "Jennifer Lawrence won Best Actress for 'Silver Linings Playbook.' Which heroine did she play in The Hunger Games films?",
     "type": "mc",
     "options": [
-      "Avatar",
-      "Twilight",
-      "Black Swan",
-      "The Hunger Games"
+      "Bella Swan",
+      "Hermione Granger",
+      "Tris Prior",
+      "Katniss Everdeen"
     ],
     "answer": 3,
     "fun_fact": null
@@ -8387,7 +8387,7 @@ window.KTZED_QUESTIONS = [
     "question": "What actress won an Academy Award for her portrayal of British PM Margaret Thatcher in 'The Iron Lady'?",
     "type": "mc",
     "options": [
-      "Judy Dench",
+      "Judi Dench",
       "Susan Sarandon",
       "Meryl Streep",
       "Helen Hunt"
@@ -8416,8 +8416,8 @@ window.KTZED_QUESTIONS = [
     "type": "mc",
     "options": [
       "The Matrix",
-      "Gattaka",
-      "The 5th Element",
+      "Gattaca",
+      "The Fifth Element",
       "Seven"
     ],
     "answer": 2,
@@ -8426,7 +8426,7 @@ window.KTZED_QUESTIONS = [
   {
     "id": 602,
     "category": "Movies",
-    "question": "What actress plays a character who cuts her wrists, fakes a pregnancy, kidnaps a child, and boils a pet bunny?",
+    "question": "Which actress played Alex Forrest, the obsessed woman who boils a pet rabbit in 'Fatal Attraction'?",
     "type": "mc",
     "options": [
       "Glenn Close",
@@ -8440,15 +8440,15 @@ window.KTZED_QUESTIONS = [
   {
     "id": 603,
     "category": "Music",
-    "question": "What famous band founded the Apple Records label in 1968?",
+    "question": "Which Beatles album cover shows the band walking across a zebra crossing?",
     "type": "mc",
     "options": [
-      "The Monkees",
-      "The Rolling Stones",
-      "The Beatles",
-      "The Who"
+      "Let It Be",
+      "Revolver",
+      "Help!",
+      "Abbey Road"
     ],
-    "answer": 2,
+    "answer": 3,
     "fun_fact": null
   },
   {
@@ -8499,7 +8499,7 @@ window.KTZED_QUESTIONS = [
     "question": "In which song can you find the line 'Nibbling on sponge cake, watching the sun bake'?",
     "type": "mc",
     "options": [
-      "McArthur's Park",
+      "MacArthur Park",
       "Cut the Cake",
       "Don't Let the Sun Go Down on Me",
       "Margaritaville"
@@ -8566,15 +8566,15 @@ window.KTZED_QUESTIONS = [
   {
     "id": 612,
     "category": "Pop Culture",
-    "question": "Which platform made 'Live PD' famous before it was cancelled?",
+    "question": "Which reality show followed Duane Chapman as he tracked down bail jumpers?",
     "type": "mc",
     "options": [
-      "Netflix",
-      "A&E",
-      "Hulu",
-      "TruTV"
+      "Cops",
+      "Live PD",
+      "Dog the Bounty Hunter",
+      "The First 48"
     ],
-    "answer": 1,
+    "answer": 2,
     "fun_fact": null
   },
   {
@@ -8681,27 +8681,27 @@ window.KTZED_QUESTIONS = [
     "question": "What does the word 'maverick' derive from, and who was the original maverick?",
     "type": "mc",
     "options": [
-      "a land agent who refused to lower rents",
-      "a man who illegally sold whiskey",
-      "a rancher who refused to brand his cattle despite the common practice at the time",
-      "a man who refused to pay taxes"
+      "A land agent who refused to lower rents",
+      "A man who illegally sold whiskey",
+      "A man who refused to pay taxes",
+      "A Texas rancher who didn't brand his cattle"
     ],
-    "answer": 2,
+    "answer": 3,
     "fun_fact": null
   },
   {
     "id": 621,
     "category": "Science",
-    "question": "Approximately how long does it take sunlight to reach the Earth?",
+    "question": "After the Sun, what is the closest known star to Earth?",
     "type": "mc",
     "options": [
-      "just under 23 minutes",
-      "10 - 12 minutes",
-      "4.3296 minutes",
-      "a little over 8 minutes"
+      "Sirius",
+      "Betelgeuse",
+      "Polaris",
+      "Proxima Centauri"
     ],
     "answer": 3,
-    "fun_fact": null
+    "fun_fact": "It's about 4.2 light-years away. Its light left it more than four years ago."
   },
   {
     "id": 622,
@@ -8762,226 +8762,226 @@ window.KTZED_QUESTIONS = [
   {
     "id": 626,
     "category": "True Crime",
-    "question": "What technology was used to finally identify the Golden State Killer after decades on the run?",
+    "question": "Which serial killer, nicknamed the 'Night Stalker,' terrorized Los Angeles in 1984-85?",
     "type": "mc",
     "options": [
-      "Facial recognition software",
-      "Fingerprint database matching",
-      "Genealogy DNA testing",
-      "Surveillance camera footage"
+      "Richard Ramirez",
+      "Randy Kraft",
+      "Lonnie Franklin Jr.",
+      "Charles Ng"
     ],
-    "answer": 2,
-    "fun_fact": null
+    "answer": 0,
+    "fun_fact": "Ramirez was captured in 1985 when residents of an East LA neighborhood recognized him from newspaper photos and chased him down."
   },
   {
     "id": 627,
     "category": "True Crime",
-    "question": "Where was JonBenét Ramsey's body discovered after she went missing on Christmas night in 1996?",
+    "question": "In 1932, the 20-month-old son of which famous aviator was kidnapped from the family's New Jersey home?",
     "type": "mc",
     "options": [
-      "A neighbor's backyard",
-      "A nearby park",
-      "Her own home's basement",
-      "A storage unit rented by her father"
+      "Howard Hughes",
+      "Charles Lindbergh",
+      "Eddie Rickenbacker",
+      "Wiley Post"
     ],
-    "answer": 2,
-    "fun_fact": null
+    "answer": 1,
+    "fun_fact": "The case led Congress to pass the 'Lindbergh Law,' making kidnapping across state lines a federal crime."
   },
   {
     "id": 628,
     "category": "True Crime",
-    "question": "Scott Peterson was convicted in 2004 for the murder of his pregnant wife. What was her name?",
+    "question": "Which Depression-era gangster was shot dead by FBI agents outside Chicago's Biograph Theater in 1934?",
     "type": "mc",
     "options": [
-      "Stacy Peterson",
-      "Laci Peterson",
-      "Lisa Peterson",
-      "Laura Peterson"
+      "Baby Face Nelson",
+      "Pretty Boy Floyd",
+      "Bugs Moran",
+      "John Dillinger"
     ],
-    "answer": 1,
-    "fun_fact": null
+    "answer": 3,
+    "fun_fact": "He had just watched the gangster film 'Manhattan Melodrama.' The 'Lady in Red,' Anna Sage, helped the FBI set him up."
   },
   {
     "id": 629,
     "category": "True Crime",
-    "question": "What infamous phrase did BTK killer Dennis Rader use to taunt investigators, and what does BTK stand for?",
+    "question": "Bonnie Parker and Clyde Barrow were killed in a 1934 police ambush in which state?",
     "type": "mc",
     "options": [
-      "Burn, Terrorize, Kill",
-      "Bind, Torture, Kill",
-      "Break, Torment, Kill",
-      "Brutal, Twisted, Killer"
+      "Texas",
+      "Oklahoma",
+      "Louisiana",
+      "Arkansas"
     ],
-    "answer": 1,
-    "fun_fact": null
+    "answer": 2,
+    "fun_fact": "The ambush happened on a rural road in Bienville Parish. Officers fired roughly 130 rounds into their car."
   },
   {
     "id": 630,
     "category": "True Crime",
-    "question": "What was the name of the prison from which Richard Matt and David Sweat famously escaped in 2015?",
+    "question": "What was the 1963 heist of a Royal Mail train in England, in which robbers stole about £2.6 million, called?",
     "type": "mc",
     "options": [
-      "Rikers Island",
-      "Attica Correctional Facility",
-      "Clinton Correctional Facility",
-      "Sing Sing Correctional Facility"
+      "The Great Train Robbery",
+      "The Brink's Job",
+      "The Baker Street Robbery",
+      "The Hatton Garden Job"
     ],
-    "answer": 2,
-    "fun_fact": null
+    "answer": 0,
+    "fun_fact": "Robber Ronnie Biggs escaped from prison in 1965 and spent decades on the run, mostly in Brazil."
   },
   {
     "id": 631,
     "category": "True Crime",
-    "question": "Aileen Wuornos claimed all of her victims were killed in self-defense. What was her stated profession at the time?",
+    "question": "The unsolved 1990 Isabella Stewart Gardner Museum art heist, the biggest property theft in U.S. history, happened in which city?",
     "type": "mc",
     "options": [
-      "Nurse",
-      "Teacher",
-      "Sex worker",
-      "Bartender"
+      "New York",
+      "Boston",
+      "Philadelphia",
+      "Chicago"
     ],
-    "answer": 2,
-    "fun_fact": null
+    "answer": 1,
+    "fun_fact": "Thieves dressed as police officers stole 13 works worth an estimated $500 million. Empty frames still hang in the museum."
   },
   {
     "id": 632,
     "category": "True Crime",
-    "question": "In the 2002 Beltway Sniper attacks, how many people were killed?",
+    "question": "Who recognized the Unabomber's writing style after his manifesto was published in 1995, leading to his arrest?",
     "type": "mc",
     "options": [
-      "17",
-      "10",
-      "6",
-      "13"
+      "His mother",
+      "A former student",
+      "His brother",
+      "A neighbor in Montana"
     ],
-    "answer": 1,
-    "fun_fact": null
+    "answer": 2,
+    "fun_fact": "David Kaczynski and his wife recognized phrases from Ted's old letters and went to the FBI."
   },
   {
     "id": 633,
     "category": "True Crime",
-    "question": "The West Memphis Three case: three teenagers were convicted of murdering three eight-year-olds in 1993. What state?",
+    "question": "Lizzie Borden was tried, and acquitted, for the 1892 axe murders of her father and stepmother in which state?",
     "type": "mc",
     "options": [
-      "Tennessee",
-      "Arkansas",
-      "Mississippi",
-      "Missouri"
+      "Connecticut",
+      "Maine",
+      "Rhode Island",
+      "Massachusetts"
     ],
-    "answer": 1,
-    "fun_fact": null
+    "answer": 3,
+    "fun_fact": "The murders happened in Fall River. She was acquitted in 1893, but the jump-rope rhyme about her '40 whacks' stuck."
   },
   {
     "id": 634,
     "category": "True Crime",
-    "question": "Samuel Little is considered by the FBI to be the most prolific serial killer in U.S. history. How many murders did the FBI confirm?",
+    "question": "In 1924, defense lawyer Clarence Darrow saved which pair of wealthy Chicago teenage killers from the death penalty?",
     "type": "mc",
     "options": [
-      "60",
-      "93",
-      "78",
-      "45"
+      "Leopold and Loeb",
+      "Sacco and Vanzetti",
+      "Bonnie and Clyde",
+      "The Menendez brothers"
     ],
-    "answer": 1,
-    "fun_fact": null
+    "answer": 0,
+    "fun_fact": "Nathan Leopold and Richard Loeb killed 14-year-old Bobby Franks to prove they could commit a 'perfect crime.'"
   },
   {
     "id": 635,
     "category": "True Crime",
-    "question": "Investigators cracked the Grim Sleeper cold case after obtaining Lonnie Franklin Jr.'s DNA through what unconventional method?",
+    "question": "The 1888 Whitechapel murders in London were blamed on which never-identified killer?",
     "type": "mc",
     "options": [
-      "A court-ordered familial DNA search",
-      "DNA recovered from a pizza crust he discarded at a restaurant",
-      "A traffic stop requiring a mandatory cheek swab",
-      "DNA lifted from a letter he sent the LAPD"
+      "The Yorkshire Ripper",
+      "Spring-heeled Jack",
+      "Jack the Ripper",
+      "The Mad Butcher"
     ],
-    "answer": 1,
-    "fun_fact": "Police got the DNA from a pizza slice Franklin left at a restaurant, then matched it through a familial search tied to his son's profile already in the state database."
+    "answer": 2,
+    "fun_fact": "Despite more than a century of theories, the killer's identity has never been proven."
   },
   {
     "id": 636,
     "category": "True Crime",
-    "question": "In the Menendez Brothers case, what led police to suspect Erik and Lyle rather than treating it as an outside home invasion?",
+    "question": "How did police finally connect BTK killer Dennis Rader to his crimes in 2005?",
     "type": "mc",
     "options": [
-      "A neighbor reported hearing the brothers laughing shortly after",
-      "Erik confessed to his therapist, who later broke confidentiality",
-      "Surveillance footage contradicted their alibi",
-      "Lyle was found with gunshot residue three days later"
+      "A fingerprint on a taunting letter",
+      "Metadata on a floppy disk he mailed to a TV station",
+      "A traffic camera photo",
+      "A pawn shop receipt"
     ],
     "answer": 1,
-    "fun_fact": "Technically it was Erik's therapist Dr. Jerome Oziel whose girlfriend Judalon Smyth tipped off police after overhearing the confession, not the therapist himself breaking confidentiality."
+    "fun_fact": "Rader had asked police if a floppy disk could be traced. They said no. The file's metadata pointed to his church and the name 'Dennis.'"
   },
   {
     "id": 637,
     "category": "True Crime",
-    "question": "The Hillside Strangler turned out to be two killers. What was their relationship?",
+    "question": "In June 1994, millions watched a slow-speed police chase of a white Ford Bronco carrying which celebrity?",
     "type": "mc",
     "options": [
-      "Former cellmates who reconnected after prison",
-      "Cousins",
-      "Brothers-in-law",
-      "Childhood friends from the same neighborhood"
+      "Mike Tyson",
+      "O.J. Simpson",
+      "Marv Albert",
+      "Rodney King"
     ],
     "answer": 1,
-    "fun_fact": "Kenneth Bianchi and Angelo Buono Jr. were cousins. Bianchi eventually made a deal and testified against Buono to avoid the death penalty."
+    "fun_fact": "About 95 million people watched live. NBC cut away from the NBA Finals to show it."
   },
   {
     "id": 638,
     "category": "True Crime",
-    "question": "Ted Bundy escaped from custody, how many times did he successfully escape before his final capture?",
+    "question": "Who shot and killed Lee Harvey Oswald on live television two days after JFK's assassination?",
     "type": "mc",
     "options": [
-      "Once",
-      "Four times",
-      "Twice",
-      "He never escaped"
+      "James Earl Ray",
+      "Jack Ruby",
+      "Mark David Chapman",
+      "Sirhan Sirhan"
     ],
-    "answer": 2,
-    "fun_fact": null
+    "answer": 1,
+    "fun_fact": "Ruby, a Dallas nightclub owner, shot Oswald in the basement of Dallas police headquarters."
   },
   {
     "id": 639,
     "category": "True Crime",
-    "question": "Jeffrey Dahmer was convicted in 1992. How many murders was he convicted of?",
+    "question": "Outside which New York apartment building was John Lennon shot in December 1980?",
     "type": "mc",
     "options": [
-      "17",
-      "9",
-      "27",
-      "12"
+      "The Chelsea Hotel",
+      "The Dakota",
+      "The Plaza",
+      "Trump Tower"
     ],
-    "answer": 0,
-    "fun_fact": null
+    "answer": 1,
+    "fun_fact": "Mark David Chapman shot Lennon at the entrance. Chapman had gotten Lennon's autograph earlier that day."
   },
   {
     "id": 640,
     "category": "True Crime",
-    "question": "Casey Anthony was acquitted of murdering her daughter Caylee in 2011. What was the primary cause of death alleged by prosecutors?",
+    "question": "The 1996 Las Vegas drive-by shooting of which rapper led to murder charges against Duane 'Keffe D' Davis in 2023?",
     "type": "mc",
     "options": [
-      "Drowning",
-      "Blunt force trauma",
-      "Chloroform poisoning followed by duct tape suffocation",
-      "Strangulation"
+      "The Notorious B.I.G.",
+      "Eazy-E",
+      "Tupac Shakur",
+      "Big L"
     ],
     "answer": 2,
-    "fun_fact": null
+    "fun_fact": "Davis was charged 27 years after the shooting, after describing his role in interviews and a memoir."
   },
   {
     "id": 641,
     "category": "True Crime",
-    "question": "Israel Keyes, considered by the FBI one of the most methodical serial killers in American history, had an unusual logistical strategy. What was it?",
+    "question": "Which New York mob boss, nicknamed the 'Teflon Don' because charges never stuck, was finally convicted in 1992?",
     "type": "mc",
     "options": [
-      "He exclusively targeted victims he stalked online for months in advance",
-      "He pre-buried murder kits in remote locations years before committing crimes there",
-      "He used stolen identities to travel without a paper trail",
-      "He committed all murders within a 200-mile radius of his home"
+      "Carlo Gambino",
+      "Lucky Luciano",
+      "Vito Genovese",
+      "John Gotti"
     ],
-    "answer": 1,
-    "fun_fact": null
+    "answer": 3,
+    "fun_fact": "Gotti's underboss, Sammy 'the Bull' Gravano, testified against him. He died in prison in 2002."
   },
   {
     "id": 642,
@@ -8995,12 +8995,12 @@ window.KTZED_QUESTIONS = [
       "Uranus"
     ],
     "answer": 1,
-    "fun_fact": "Pluto was still classified as a planet when this question was written, it was demoted in 2006."
+    "fun_fact": "Pluto was reclassified as a dwarf planet in 2006, but it still takes about 248 years to orbit the Sun."
   },
   {
     "id": 643,
     "category": "Science",
-    "question": "The Lunar seas are actually plains of two kinds of rock. What rock is also a main component of Mars's surface?",
+    "question": "The dark 'seas' on the Moon are mostly made of which volcanic rock, which is also common on Mars?",
     "type": "mc",
     "options": [
       "Basalt",
@@ -9028,16 +9028,16 @@ window.KTZED_QUESTIONS = [
   {
     "id": 645,
     "category": "Science",
-    "question": "Hypergiants, the largest stars known to scientists, have a mass up to how many times that of our Sun?",
+    "question": "R136a1, one of the most massive stars known, is estimated at roughly how many times the mass of our Sun?",
     "type": "mc",
     "options": [
+      "2",
       "30",
-      "10",
-      "100",
-      "2"
+      "200",
+      "2,000"
     ],
     "answer": 2,
-    "fun_fact": "The 100 solar mass figure is a common estimate, but some hypergiants like R136a1 are thought to exceed 200–300 solar masses. The upper limit of stellar mass is still an active area of research."
+    "fun_fact": "Estimates have ranged from about 200 to over 300 solar masses. It's in a star cluster in the Large Magellanic Cloud."
   },
   {
     "id": 646,
@@ -9045,7 +9045,7 @@ window.KTZED_QUESTIONS = [
     "question": "Distances in space are so enormous that scientists invented new units. How long is one light year in miles?",
     "type": "mc",
     "options": [
-      "Six zillion miles",
+      "Six hundred billion miles",
       "Six trillion miles",
       "Six million miles",
       "Six billion miles"
@@ -9129,13 +9129,13 @@ window.KTZED_QUESTIONS = [
     "question": "What was the name of the first monkey sent into outer space?",
     "type": "mc",
     "options": [
-      "Albert I",
+      "Albert II",
       "Gordo",
       "Sam",
-      "Bonny"
+      "Able"
     ],
     "answer": 0,
-    "fun_fact": null
+    "fun_fact": "Albert II, a rhesus monkey, passed the 100 km mark aboard a V-2 rocket in June 1949 but died on landing."
   },
   {
     "id": 653,
@@ -9154,7 +9154,7 @@ window.KTZED_QUESTIONS = [
   {
     "id": 654,
     "category": "Science",
-    "question": "In 1938, Edward Kasner wrote a 1 followed by 100 zeros and showed it to his baby nephew. What did the kid say, and what did it become?",
+    "question": "Mathematician Edward Kasner asked his young nephew to name the number 1 followed by 100 zeros. What did the boy call it?",
     "type": "mc",
     "options": [
       "Giggle",
@@ -9163,34 +9163,34 @@ window.KTZED_QUESTIONS = [
       "Googol"
     ],
     "answer": 3,
-    "fun_fact": null
+    "fun_fact": "Nine-year-old Milton Sirotta came up with it. Google's name is a play on the word."
   },
   {
     "id": 655,
     "category": "History",
-    "question": "All telephones in the USA were shut down on August 2, 1922. Why?",
+    "question": "How did the U.S. telephone system honor Alexander Graham Bell during his funeral in August 1922?",
     "type": "mc",
     "options": [
-      "The International Brotherhod of Communications Workers went on strike.",
-      "The electrical workers in New York, Chicago, and Washington went on strike.",
-      "It was the day when Alexander Graham Bell died.",
-      "It was the day  for the Orson Welles  War of the Worlds radio telecast."
+      "Every phone rang at once",
+      "Calls were free for a day",
+      "Operators answered with his name",
+      "Phone service was silenced for one minute"
     ],
-    "answer": 2,
-    "fun_fact": "The shutdown lasted one minute, a national tribute as Bell was being buried."
+    "answer": 3,
+    "fun_fact": null
   },
   {
     "id": 656,
     "category": "History",
-    "question": "Which of these events occurred in 1589?",
+    "question": "Who designed an early flushing toilet in the 1590s and installed one for his godmother, Queen Elizabeth I?",
     "type": "mc",
     "options": [
-      "Sir Thomas Crapper invented the modern flush toilet.",
-      "Zacharias Hanssen invented the modern flush toilet.",
-      "Sir John Harington invented the modern flush toilet.",
-      "Otto von Guericke invented the modern flush toilet."
+      "Thomas Crapper",
+      "Alexander Cumming",
+      "Joseph Bramah",
+      "Sir John Harington"
     ],
-    "answer": 2,
+    "answer": 3,
     "fun_fact": "Sir John Harington, the inventor, was Queen Elizabeth I's godson. She reportedly had one installed in her palace."
   },
   {
@@ -9210,16 +9210,16 @@ window.KTZED_QUESTIONS = [
   {
     "id": 658,
     "category": "Science",
-    "question": "What animal has the broadest visual color spectrum, able to see colors humans can't even imagine?",
+    "question": "Which animal has 12 to 16 types of color-detecting cells in its eyes, compared with just three in humans?",
     "type": "mc",
     "options": [
-      "Elephant",
-      "American Kestrel Falcon",
-      "Butterfly",
-      "Bumblebee"
+      "Bald eagle",
+      "Octopus",
+      "Housefly",
+      "Mantis shrimp"
     ],
-    "answer": 2,
-    "fun_fact": null
+    "answer": 3,
+    "fun_fact": "Despite all those receptors, tests suggest mantis shrimp aren't actually better than us at telling similar colors apart."
   },
   {
     "id": 659,
@@ -9237,31 +9237,31 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 660,
-    "category": "History",
-    "question": "Which natural disaster claimed the most lives during the second millennium?",
+    "category": "Geography",
+    "question": "The 1556 earthquake in which Chinese province is considered the deadliest in recorded history?",
     "type": "mc",
     "options": [
-      "earthquakes",
-      "influenza",
-      "tsunami",
-      "plague"
+      "Sichuan",
+      "Yunnan",
+      "Hebei",
+      "Shaanxi"
     ],
-    "answer": 1,
-    "fun_fact": null
+    "answer": 3,
+    "fun_fact": "An estimated 830,000 people died, many in cave homes carved into soft loess cliffs."
   },
   {
     "id": 661,
     "category": "Science",
-    "question": "Which of these animals makes the loudest noise?",
+    "question": "Which animal produces the loudest sounds of any animal on Earth?",
     "type": "mc",
     "options": [
-      "The humpback whale",
-      "The Andean condor",
-      "The whale shark",
-      "The howling monkey"
+      "Sperm whale",
+      "Howler monkey",
+      "Lion",
+      "African elephant"
     ],
     "answer": 0,
-    "fun_fact": null
+    "fun_fact": "Sperm whale echolocation clicks have been measured at around 230 decibels underwater."
   },
   {
     "id": 662,
@@ -9283,18 +9283,18 @@ window.KTZED_QUESTIONS = [
     "question": "About how many lightning bolts strike the Earth each second?",
     "type": "mc",
     "options": [
-      "1,500",
-      "100",
-      "1,000",
-      "3,000"
+      "About 4",
+      "About 45",
+      "About 450",
+      "About 4,500"
     ],
     "answer": 1,
-    "fun_fact": null
+    "fun_fact": "NASA satellite data shows about 44 lightning flashes per second worldwide, roughly 1.4 billion a year."
   },
   {
     "id": 664,
     "category": "Science",
-    "question": "This construction in the United States is struck by lightning around 500 times a year.",
+    "question": "Which U.S. landmark is struck by lightning about 20 to 25 times a year, according to the National Weather Service?",
     "type": "mc",
     "options": [
       "Pentagon",
@@ -9303,7 +9303,7 @@ window.KTZED_QUESTIONS = [
       "Golden Gate Bridge"
     ],
     "answer": 2,
-    "fun_fact": null
+    "fun_fact": "In one storm it was hit 8 times in 24 minutes. It works as a giant lightning rod for the area."
   },
   {
     "id": 665,
@@ -9322,13 +9322,13 @@ window.KTZED_QUESTIONS = [
   {
     "id": 666,
     "category": "Science",
-    "question": "A lightning bolt can produce what voltage?",
+    "question": "According to the National Weather Service, about how many volts does a typical lightning flash carry?",
     "type": "mc",
     "options": [
-      "4 million volts",
-      "400 million volts",
-      "1 million volts",
-      "1 billion volts"
+      "3,000",
+      "30,000",
+      "3 million",
+      "300 million"
     ],
     "answer": 3,
     "fun_fact": null
@@ -9339,10 +9339,10 @@ window.KTZED_QUESTIONS = [
     "question": "Rain forests are home to approximately what percentage of all living animal and plant species?",
     "type": "mc",
     "options": [
-      "12%",
-      "24%",
-      "65%",
-      "80%"
+      "About 10%",
+      "About 25%",
+      "About half",
+      "About 90%"
     ],
     "answer": 2,
     "fun_fact": null
@@ -9350,16 +9350,16 @@ window.KTZED_QUESTIONS = [
   {
     "id": 668,
     "category": "Science",
-    "question": "Every day, this many species of plants and animals become extinct.",
+    "question": "The last known passenger pigeon died at the Cincinnati Zoo in 1914. What was her name?",
     "type": "mc",
     "options": [
-      "140 - 200",
-      "50 - 100",
-      "250 - 350",
-      "10 - 20"
+      "Lonesome George",
+      "Martha",
+      "Celia",
+      "Benjamin"
     ],
     "answer": 1,
-    "fun_fact": null
+    "fun_fact": "Passenger pigeons once numbered in the billions. Hunting and habitat loss wiped them out in about 50 years."
   },
   {
     "id": 669,
@@ -9370,7 +9370,7 @@ window.KTZED_QUESTIONS = [
       "Cancer",
       "Hepatitis B",
       "AIDS",
-      "Psoriosis"
+      "Psoriasis"
     ],
     "answer": 0,
     "fun_fact": null
@@ -9397,7 +9397,7 @@ window.KTZED_QUESTIONS = [
     "options": [
       "Buddha died under this tree.",
       "God Vishnu spoke to him for the first time under this tree.",
-      "It is Buddhas birth place.",
+      "It is Buddha's birthplace.",
       "Buddha found enlightenment under this tree."
     ],
     "answer": 3,
@@ -9409,10 +9409,10 @@ window.KTZED_QUESTIONS = [
     "question": "Methuselah, a Great Basin Bristlecone tree in California, holds what distinction?",
     "type": "mc",
     "options": [
-      "It is the most publicized living organism.",
-      "It is the tallest known living organism.",
-      "It is the oldest known living organism.",
-      "It is the largest living organism."
+      "It is the most photographed tree in America.",
+      "It is the tallest known living tree.",
+      "It is one of the oldest known individual trees, at about 4,800 years old.",
+      "It is the largest living tree by volume."
     ],
     "answer": 2,
     "fun_fact": null
@@ -9503,7 +9503,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 679,
-    "category": "Music",
+    "category": "Science",
     "question": "The most complete Australopithecus skeleton ever found was dubbed 'Lucy'. She was named after what?",
     "type": "mc",
     "options": [
@@ -9588,7 +9588,7 @@ window.KTZED_QUESTIONS = [
   {
     "id": 685,
     "category": "Technology",
-    "question": "How long did it take the Internet to attract its first 50 million users?",
+    "question": "According to a famous 1990s Morgan Stanley estimate, about how long did it take the Internet to reach 50 million users?",
     "type": "mc",
     "options": [
       "4 years",
@@ -9630,13 +9630,13 @@ window.KTZED_QUESTIONS = [
   {
     "id": 688,
     "category": "Technology",
-    "question": "This Apple Computer co-founder is often credited with developing the first personally marketed microcomputer.",
+    "question": "Which Apple co-founder single-handedly designed the Apple I and Apple II computers?",
     "type": "mc",
     "options": [
       "Steve Jobs",
+      "Ronald Wayne",
       "Bill Gates",
-      "John Vincent Atanasoff",
-      "Steve Woz Wozniak"
+      "Steve Wozniak"
     ],
     "answer": 3,
     "fun_fact": null
@@ -9661,12 +9661,12 @@ window.KTZED_QUESTIONS = [
     "question": "The Scoville scale measures the hotness of what?",
     "type": "mc",
     "options": [
-      "Magma",
-      "Sun rays",
-      "Chilli peppers",
-      "Internal combustion engines"
+      "Horseradish",
+      "Mustard",
+      "Wasabi",
+      "Chili peppers"
     ],
-    "answer": 2,
+    "answer": 3,
     "fun_fact": null
   },
   {
@@ -9700,13 +9700,13 @@ window.KTZED_QUESTIONS = [
   {
     "id": 693,
     "category": "Science",
-    "question": "During his famous voyage to the Galapagos Islands, Charles Darwin studied differences in what feature of a particular bird?",
+    "question": "Darwin's finches from the Galápagos are famous for differences in what feature?",
     "type": "mc",
     "options": [
-      "Mockingbird talons",
-      "Monkey paws",
-      "Finch beaks",
-      "Iguana tails"
+      "Tail feathers",
+      "Talons",
+      "Beaks",
+      "Eye color"
     ],
     "answer": 2,
     "fun_fact": null
@@ -9731,7 +9731,7 @@ window.KTZED_QUESTIONS = [
     "question": "Who was the first US President to publish a mathematical proof?",
     "type": "mc",
     "options": [
-      "Benjamin Pierce",
+      "Franklin Pierce",
       "Thomas Jefferson",
       "James Garfield",
       "Herbert Hoover"
@@ -9759,10 +9759,10 @@ window.KTZED_QUESTIONS = [
     "question": "Many credit this book by Rachel Carson with launching the modern environmentalist movement. What was it called?",
     "type": "mc",
     "options": [
-      "Soft Spring",
+      "The Sea Around Us",
       "Silent Spring",
-      "White Spring",
-      "Our Spring"
+      "A Sand County Almanac",
+      "The Population Bomb"
     ],
     "answer": 1,
     "fun_fact": null
@@ -9807,7 +9807,7 @@ window.KTZED_QUESTIONS = [
       "Vietnam"
     ],
     "answer": 1,
-    "fun_fact": null
+    "fun_fact": "Most food historians credit Chinese immigrant cooks in America, though some trace it to dishes from Taishan in southern China."
   },
   {
     "id": 701,
@@ -9826,7 +9826,7 @@ window.KTZED_QUESTIONS = [
   {
     "id": 702,
     "category": "History",
-    "question": "Members of which profession used to be called 'leechers' because of the methods they used to treat patients?",
+    "question": "In Old English, members of which profession were called 'leeches'?",
     "type": "mc",
     "options": [
       "Pharmacists",
@@ -9854,13 +9854,13 @@ window.KTZED_QUESTIONS = [
   {
     "id": 704,
     "category": "Science",
-    "question": "What is the main cause for most pandemics in history?",
+    "question": "Many of history's deadliest diseases, like measles and flu, first jumped to humans from what source?",
     "type": "mc",
     "options": [
-      "The domestication of animals",
-      "Human negligence",
-      "Genetic experiments",
-      "The bad hygiene of the people"
+      "Domesticated animals",
+      "Contaminated soil",
+      "Seawater",
+      "Meteorites"
     ],
     "answer": 0,
     "fun_fact": null
@@ -9882,15 +9882,15 @@ window.KTZED_QUESTIONS = [
   {
     "id": 706,
     "category": "Science",
-    "question": "What is considered the most rare disease in the world?",
+    "question": "What is the only human disease that has been completely eradicated worldwide?",
     "type": "mc",
     "options": [
-      "Smallpox",
-      "Brain tumor",
-      "Schizophrenia",
-      "Glaucoma"
+      "Polio",
+      "Measles",
+      "Malaria",
+      "Smallpox"
     ],
-    "answer": 0,
+    "answer": 3,
     "fun_fact": "Smallpox is considered eradicated, the last naturally occurring case was in 1977."
   },
   {
@@ -9910,35 +9910,35 @@ window.KTZED_QUESTIONS = [
   {
     "id": 708,
     "category": "Science",
-    "question": "Modern cars pollute much less than cars from the 1960s. Today, it takes how many modern cars to produce the same pollution as one car from the 60s?",
+    "question": "What gas makes up about 78% of Earth's atmosphere?",
     "type": "mc",
     "options": [
-      "20",
-      "5",
-      "10",
-      "35"
+      "Oxygen",
+      "Nitrogen",
+      "Argon",
+      "Carbon dioxide"
     ],
-    "answer": 0,
+    "answer": 1,
     "fun_fact": null
   },
   {
     "id": 709,
     "category": "Science",
-    "question": "The average global temperature climbed how much during the previous century due to climate change?",
+    "question": "According to NASA, Earth's average surface temperature has risen by roughly how much since the late 1800s?",
     "type": "mc",
     "options": [
-      "3 degrees Fahrenheit",
-      "4 degrees Fahrenheit",
-      "1 degree Fahrenheit",
-      "2 degrees Fahrenheit"
+      "0.2°F",
+      "About 2°F",
+      "About 10°F",
+      "About 20°F"
     ],
-    "answer": 2,
+    "answer": 1,
     "fun_fact": null
   },
   {
     "id": 710,
     "category": "Geography",
-    "question": "Istanbul is the only city in the world located on two continents. Which two?",
+    "question": "Istanbul famously straddles which two continents?",
     "type": "mc",
     "options": [
       "Europe and Asia",
@@ -9947,7 +9947,7 @@ window.KTZED_QUESTIONS = [
       "Asia and Oceania"
     ],
     "answer": 0,
-    "fun_fact": "The Bosphorus Strait divides Istanbul between the European and Asian sides, the only city straddling two continents."
+    "fun_fact": "The Bosphorus Strait divides Istanbul between its European and Asian sides."
   },
   {
     "id": 711,
@@ -10008,27 +10008,27 @@ window.KTZED_QUESTIONS = [
   {
     "id": 715,
     "category": "Geography",
-    "question": "Angel Falls, the highest waterfall in the world, is located in which country?",
+    "question": "Which waterfall system on the Argentina-Brazil border is the largest in the world, with roughly 275 separate falls?",
     "type": "mc",
     "options": [
-      "Brazil",
-      "Venezuela",
-      "Colombia",
-      "Ecuador"
+      "Victoria Falls",
+      "Niagara Falls",
+      "Iguazu Falls",
+      "Angel Falls"
     ],
-    "answer": 1,
-    "fun_fact": null
+    "answer": 2,
+    "fun_fact": "Seeing it, Eleanor Roosevelt reportedly said, 'Poor Niagara.'"
   },
   {
     "id": 716,
     "category": "Geography",
-    "question": "The deepest lake in the world is Lake Baikal. What fraction of the world's unfrozen fresh surface water does it contain?",
+    "question": "Lake Baikal is the deepest lake in the world. Roughly what share of the world's unfrozen fresh surface water does it hold?",
     "type": "mc",
     "options": [
-      "About 10%",
-      "About 20%",
-      "About 40%",
-      "Over 20%"
+      "About 2%",
+      "About 5%",
+      "About 50%",
+      "About 20%"
     ],
     "answer": 3,
     "fun_fact": "Lake Baikal holds roughly 22-23% of the world's unfrozen fresh surface water, more than all of North America's Great Lakes combined."
@@ -10078,7 +10078,7 @@ window.KTZED_QUESTIONS = [
   {
     "id": 720,
     "category": "Geography",
-    "question": "Which country's name literally means 'rich harbour' in Spanish?",
+    "question": "Which Caribbean island's name literally means 'rich port' in Spanish?",
     "type": "mc",
     "options": [
       "Panama",
@@ -10148,20 +10148,20 @@ window.KTZED_QUESTIONS = [
   {
     "id": 725,
     "category": "History",
-    "question": "Who was the first explorer to reach both the North and South Poles?",
+    "question": "Which explorer's ship, the Endurance, was crushed by Antarctic sea ice in 1915?",
     "type": "mc",
     "options": [
       "Robert Peary",
       "Roald Amundsen",
-      "Ernest Shackleton",
-      "Robert Falcon Scott"
+      "Robert Falcon Scott",
+      "Ernest Shackleton"
     ],
-    "answer": 1,
-    "fun_fact": null
+    "answer": 3,
+    "fun_fact": "Every crew member survived. The wreck was found in 2022, about 10,000 feet down in the Weddell Sea."
   },
   {
     "id": 726,
-    "category": "True Crime",
+    "category": "History",
     "question": "What does the Japanese word 'kamikaze' literally mean?",
     "type": "mc",
     "options": [
@@ -10175,22 +10175,22 @@ window.KTZED_QUESTIONS = [
   },
   {
     "id": 727,
-    "category": "Geography",
-    "question": "What was the first European city to have a complex sewage disposal system?",
+    "category": "History",
+    "question": "Ancient Rome's great sewer, parts of which still drain water today, is called what?",
     "type": "mc",
     "options": [
-      "Rome",
-      "Paris",
-      "London",
-      "Athens"
+      "Via Appia",
+      "Aqua Appia",
+      "Circus Maximus",
+      "Cloaca Maxima"
     ],
-    "answer": 0,
+    "answer": 3,
     "fun_fact": null
   },
   {
     "id": 728,
     "category": "Technology",
-    "question": "Who built the first four-wheeled gasoline-powered automobile?",
+    "question": "Who built the Motorwagen, generally regarded as the first practical gasoline-powered automobile, in 1885?",
     "type": "mc",
     "options": [
       "Gottlieb Daimler",
@@ -10260,7 +10260,7 @@ window.KTZED_QUESTIONS = [
   {
     "id": 733,
     "category": "Geography",
-    "question": "New Amsterdam, a Dutch settlement, was sold to the British and renamed. What is it called today?",
+    "question": "New Amsterdam, a Dutch settlement, was taken over by the English in 1664 and renamed what?",
     "type": "mc",
     "options": [
       "Boston",
@@ -10274,7 +10274,7 @@ window.KTZED_QUESTIONS = [
   {
     "id": 734,
     "category": "Food & Drink",
-    "question": "What product was invented at Jacobs Pharmacy in Atlanta in 1886?",
+    "question": "What product was first sold at Jacobs' Pharmacy in Atlanta in 1886?",
     "type": "mc",
     "options": [
       "Aspirin",
@@ -10361,9 +10361,9 @@ window.KTZED_QUESTIONS = [
     "question": "The Americas were named after which Italian explorer and cartographer?",
     "type": "mc",
     "options": [
-      "Americus Gama",
+      "John Cabot",
       "Amerigo Vespucci",
-      "Marco Polo",
+      "Giovanni da Verrazzano",
       "Christopher Columbus"
     ],
     "answer": 1,
@@ -10380,8 +10380,8 @@ window.KTZED_QUESTIONS = [
       "Freemason",
       "Egyptian"
     ],
-    "answer": 2,
-    "fun_fact": "The all-seeing eye atop the pyramid is the Eye of Providence, adopted from Freemasonic imagery. It appears on the Great Seal of the United States, first used in 1782."
+    "answer": 0,
+    "fun_fact": "The Eye of Providence was a Christian symbol of God watching over humanity. Freemasons didn't adopt it until 1797, 15 years after it appeared on the Great Seal."
   },
   {
     "id": 742,
@@ -10540,7 +10540,7 @@ window.KTZED_QUESTIONS = [
   {
     "id": 753,
     "category": "History",
-    "question": "The first book printed on a printing press was produced in what year?",
+    "question": "Gutenberg's Bible, the first major book printed with movable metal type in Europe, was completed around what year?",
     "type": "mc",
     "options": [
       "1309",
@@ -10610,15 +10610,15 @@ window.KTZED_QUESTIONS = [
   {
     "id": 758,
     "category": "Technology",
-    "question": "Apple Computer, Inc. was founded on April 1, 1976. In which California city?",
+    "question": "Apple's first computers were famously assembled in a family garage in which California town?",
     "type": "mc",
     "options": [
-      "San Francisco",
-      "Los Angeles",
+      "San Jose",
       "Cupertino",
-      "Palo Alto"
+      "Palo Alto",
+      "Los Altos"
     ],
-    "answer": 2,
+    "answer": 3,
     "fun_fact": null
   },
   {
@@ -10669,12 +10669,12 @@ window.KTZED_QUESTIONS = [
     "question": "The African-American fighter pilots who excelled in WWII aerial combat were known by what nickname?",
     "type": "mc",
     "options": [
-      "Montgomery Warcats",
-      "Talladega Warhawks",
-      "Tuskegee Airmen",
-      "Birmingham Warriors"
+      "The Flying Tigers",
+      "The Black Sheep Squadron",
+      "The Doolittle Raiders",
+      "The Tuskegee Airmen"
     ],
-    "answer": 2,
+    "answer": 3,
     "fun_fact": null
   },
   {
@@ -10708,16 +10708,16 @@ window.KTZED_QUESTIONS = [
   {
     "id": 765,
     "category": "History",
-    "question": "The word 'Easter' in English comes from the name of a pagan goddess. What was she the goddess of?",
+    "question": "Which Roman emperor legalized Christianity with the Edict of Milan in 313 AD?",
     "type": "mc",
     "options": [
-      "The harvest",
-      "The moon",
-      "Spring and dawn",
-      "Fire"
+      "Nero",
+      "Augustus",
+      "Diocletian",
+      "Constantine"
     ],
-    "answer": 2,
-    "fun_fact": "Eostre (also spelled Ostara) was an Anglo-Saxon spring goddess. Her name is also the root of the word 'estrogen.'"
+    "answer": 3,
+    "fun_fact": "Constantine later founded Constantinople, today's Istanbul, as his new capital."
   },
   {
     "id": 766,
@@ -10726,7 +10726,7 @@ window.KTZED_QUESTIONS = [
     "type": "mc",
     "options": [
       "Cosmo Kramer",
-      "Dan O'Keefe",
+      "Writer Dan O'Keefe's father",
       "Frank Costanza",
       "Jerry Seinfeld"
     ],
