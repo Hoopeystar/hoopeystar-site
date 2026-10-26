@@ -1188,16 +1188,16 @@ window.KTZED_QUESTIONS = [
   {
     "id": 85,
     "category": "General Knowledge",
-    "question": "The Capybara's name is derived from the Guaraní language. What does it mean?",
+    "question": "What is the only letter that doesn't appear in any U.S. state's name?",
     "type": "mc",
     "options": [
-      "Master of the grasses",
-      "River keeper",
-      "Rabbit pig",
-      "Water squirrel"
+      "J",
+      "Q",
+      "X",
+      "Z"
     ],
-    "answer": 0,
-    "fun_fact": null
+    "answer": 1,
+    "fun_fact": "J is in New Jersey, X is in Texas and New Mexico, and Z is in Arizona."
   },
   {
     "id": 86,
@@ -1314,7 +1314,7 @@ window.KTZED_QUESTIONS = [
   {
     "id": 94,
     "category": "Science",
-    "question": "What is the mortality rate of a cheetah cub growing to adulthood?",
+    "question": "A study in Tanzania's Serengeti found roughly what share of cheetah cubs die before reaching independence?",
     "type": "mc",
     "options": [
       "50% die",
@@ -1323,7 +1323,7 @@ window.KTZED_QUESTIONS = [
       "95% die"
     ],
     "answer": 3,
-    "fun_fact": "Estimates vary, but cub mortality is extremely high, some studies put it as high as 90–95% in the Serengeti, primarily due to predation by lions and hyenas."
+    "fun_fact": "A 1994 study found only about 5% of cubs survived to independence. Lions caused most of the predation deaths."
   },
   {
     "id": 95,
@@ -1482,16 +1482,16 @@ window.KTZED_QUESTIONS = [
   {
     "id": 106,
     "category": "Science",
-    "question": "Hummingbirds are the only birds on the planet able to do what?",
+    "question": "Unlike most birds, hummingbirds can sustain which kind of flight?",
     "type": "mc",
     "options": [
-      "Stay without water for as many as 30 days.",
-      "Carry food that is 3 times heavier than their own weight.",
-      "Fly backwards.",
-      "All of these"
+      "Gliding for hours without flapping",
+      "Flying nonstop for months",
+      "Diving at over 200 mph",
+      "Flying backwards"
     ],
-    "answer": 2,
-    "fun_fact": null
+    "answer": 3,
+    "fun_fact": "Swifts can stay aloft for months, albatrosses glide for hours, and peregrine falcons dive at over 200 mph. Hummingbirds hover and fly backwards."
   },
   {
     "id": 107,
@@ -2755,7 +2755,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "General Knowledge",
-    "question": "What is the longest phobia name in medical terminology?",
+    "question": "Which of these fears has the longest name?",
     "options": [
       "Fear of kidney disease",
       "Fear of the number 666",
@@ -3081,7 +3081,7 @@ window.KTZED_QUESTIONS = [
     "options": [
       "Warriors' Wrath",
       "Warriors' Rage",
-      "Beer Shirt",
+      "Wolf Skin",
       "Bear Shirt"
     ],
     "answer": 3,
@@ -3931,7 +3931,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Politics",
-    "question": "Which President was accused of fathering a child in a cloakroom of the White House?",
+    "question": "DNA tests in 2015 confirmed that which president fathered a daughter with his mistress Nan Britton, who wrote that they had trysts in a White House coat closet?",
     "options": [
       "Grant",
       "Jefferson",
@@ -3939,7 +3939,7 @@ window.KTZED_QUESTIONS = [
       "Harding"
     ],
     "answer": 3,
-    "fun_fact": "Warren G. Harding had an affair with Nan Britton, who claimed he fathered her child, DNA testing in 2015 confirmed it.",
+    "fun_fact": "Their daughter, Elizabeth Ann, was born in 1919. Britton described the closet meetings in her 1927 book, 'The President's Daughter.'",
     "id": 281,
     "type": "mc"
   },
@@ -4001,21 +4001,21 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Pop Culture",
-    "question": "In 1964, Francis Cardinal Spellman banned all Catholic children in New York from doing what?",
+    "question": "In 1962, Buffalo's Catholic bishop, Joseph Burke, banned what at all Catholic school and parish dances?",
     "options": [
-      "Watching too much TV",
-      "Watching Elvis",
-      "Listening to transistor radios",
-      "Doing the Twist"
+      "Slow dancing",
+      "Rock and roll records",
+      "The Mashed Potato",
+      "The Twist"
     ],
     "answer": 3,
-    "fun_fact": null,
+    "fun_fact": "The diocese said the dance went against 'decorum and good taste.'",
     "id": 286,
     "type": "mc"
   },
   {
     "category": "Sports",
-    "question": "Who was the first football coach to have Gatorade splashed on his head?",
+    "question": "Which coach is widely credited as the first to get a Gatorade shower, from nose tackle Jim Burt in 1984?",
     "options": [
       "Barry Switzer",
       "Bill Cowher",
@@ -4023,7 +4023,7 @@ window.KTZED_QUESTIONS = [
       "Bill Parcells"
     ],
     "answer": 3,
-    "fun_fact": "Parcells got doused by Giants players after a 1985 win. The tradition stuck.",
+    "fun_fact": "Burt doused Parcells after a win over Washington on Oct. 28, 1984. Harry Carson turned it into a Giants tradition during their 1986 title run.",
     "id": 287,
     "type": "mc"
   },
@@ -4047,7 +4047,7 @@ window.KTZED_QUESTIONS = [
     "options": [
       "1: George V",
       "0: there was a queen",
-      "2: Albert II and George VI",
+      "2: Edward VIII and George VI",
       "3: George V, Edward VIII, and George VI"
     ],
     "answer": 3,
@@ -5079,15 +5079,15 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "History",
-    "question": "Chewing gum became popular in Europe thanks to US soldiers who fought in which war?",
+    "question": "In the early 1890s, William Wrigley Jr. began giving away chewing gum as a free bonus with which product?",
     "options": [
-      "Persian Gulf War",
-      "Afghanistan war",
-      "WWII",
-      "WWI"
+      "Cigars",
+      "Baking powder",
+      "Newspapers",
+      "Soda pop"
     ],
-    "answer": 3,
-    "fun_fact": null,
+    "answer": 1,
+    "fun_fact": "He started out selling soap with baking powder as the freebie. When the gum proved more popular than the baking powder, he switched to selling gum in 1892.",
     "id": 363,
     "type": "mc"
   },
@@ -5121,15 +5121,15 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Science",
-    "question": "How many teeth do slugs have?",
+    "question": "What is the largest organ of the human body?",
     "options": [
-      "2,000",
-      "1,000",
-      "500",
-      "3,000"
+      "Liver",
+      "Skin",
+      "Lungs",
+      "Brain"
     ],
-    "answer": 3,
-    "fun_fact": "Slugs have a radula, a tongue-like organ with thousands of tiny teeth used to scrape food.",
+    "answer": 1,
+    "fun_fact": null,
     "id": 366,
     "type": "mc"
   },
@@ -5177,15 +5177,15 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Music",
-    "question": "Who was the first woman to have a gold record?",
+    "question": "Who was the first woman inducted into the Rock and Roll Hall of Fame?",
     "options": [
-      "Teresa Brewer",
-      "Connie Francis",
-      "Shirley Temple",
-      "Judy Garland"
+      "Tina Turner",
+      "Etta James",
+      "Ruth Brown",
+      "Aretha Franklin"
     ],
     "answer": 3,
-    "fun_fact": null,
+    "fun_fact": "She was inducted in 1987, the Hall's second class.",
     "id": 370,
     "type": "mc"
   },
@@ -5289,15 +5289,15 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Technology",
-    "question": "What was the first message spelled out in a neon sign?",
+    "question": "French engineer Georges Claude first showed off neon lighting to the public in 1910 in which city?",
     "options": [
-      "Eat at Joe's",
-      "The Sahara",
-      "Enter",
-      "Neon"
+      "London",
+      "New York",
+      "Paris",
+      "Berlin"
     ],
-    "answer": 3,
-    "fun_fact": "The inventor of neon lighting, Georges Claude, made the first sign simply spell out the word 'Neon.'",
+    "answer": 2,
+    "fun_fact": "His glowing red tubes lit up the Paris Motor Show at the Grand Palais in December 1910.",
     "id": 378,
     "type": "mc"
   },
@@ -6927,7 +6927,7 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Science",
-    "question": "In 1991, Pfizer developed a drug called Sildenafil to treat angina. It was a failure for that purpose. What did it accidentally lead to?",
+    "question": "In the early 1990s, Pfizer tested a drug called sildenafil to treat angina. It was a failure for that purpose. What did it accidentally lead to?",
     "options": [
       "The development of Oxycontin",
       "An inexpensive LDL cholesterol drug",
@@ -7418,7 +7418,7 @@ window.KTZED_QUESTIONS = [
   {
     "id": 530,
     "category": "True Crime",
-    "question": "This Texas mother killed her 11-month-old daughter in 2004, amputating the baby's arms with a knife.",
+    "question": "This Texas mother killed her 10-month-old daughter in 2004, amputating the baby's arms with a knife.",
     "type": "mc",
     "options": [
       "Andrea Yates",
@@ -8034,15 +8034,15 @@ window.KTZED_QUESTIONS = [
   {
     "id": 574,
     "category": "Movies",
-    "question": "What movie title was translated in Mexico as 'Dumb But Not That Dumb'?",
+    "question": "Which Quentin Tarantino film was released in Latin America as 'Tiempos violentos' ('Violent Times')?",
     "type": "mc",
     "options": [
-      "Besieged",
-      "Billy Madison",
-      "The Butterfly Effect",
-      "The Station Agent"
+      "Reservoir Dogs",
+      "Jackie Brown",
+      "Kill Bill",
+      "Pulp Fiction"
     ],
-    "answer": 1,
+    "answer": 3,
     "fun_fact": null
   },
   {
@@ -8174,15 +8174,15 @@ window.KTZED_QUESTIONS = [
   {
     "id": 584,
     "category": "Movies",
-    "question": "Denmark came up with 'The Boy Who Drowned in Chocolate Sauce'. What is the real title?",
+    "question": "Which 1994 prison drama was released in Spain as 'Cadena perpetua' ('Life Sentence')?",
     "type": "mc",
     "options": [
-      "The Dark Side of Chocolate",
-      "Willy Wonka and the Chocolate Factory",
-      "Blood and Chocolate",
-      "The Chocolate Soldier"
+      "Escape from Alcatraz",
+      "The Green Mile",
+      "The Shawshank Redemption",
+      "Papillon"
     ],
-    "answer": 1,
+    "answer": 2,
     "fun_fact": null
   },
   {
@@ -9896,16 +9896,16 @@ window.KTZED_QUESTIONS = [
   {
     "id": 707,
     "category": "Science",
-    "question": "The longest coma in recorded history lasted approximately how long?",
+    "question": "What is the hardest substance in the human body?",
     "type": "mc",
     "options": [
-      "2 years",
-      "11 months",
-      "24 years",
-      "37 years"
+      "Bone",
+      "Tooth enamel",
+      "Cartilage",
+      "Fingernails"
     ],
-    "answer": 3,
-    "fun_fact": null
+    "answer": 1,
+    "fun_fact": "Enamel is about 96% mineral, mostly a crystal called hydroxyapatite."
   },
   {
     "id": 708,
@@ -10330,7 +10330,7 @@ window.KTZED_QUESTIONS = [
   {
     "id": 738,
     "category": "History",
-    "question": "The English word 'Easter' is derived from which of the following?",
+    "question": "According to the 8th-century monk Bede, the English word 'Easter' comes from the name of what?",
     "type": "mc",
     "options": [
       "The name of a herb",
@@ -10339,7 +10339,7 @@ window.KTZED_QUESTIONS = [
       "The name of a pagan goddess"
     ],
     "answer": 3,
-    "fun_fact": "Most scholars trace 'Easter' to Eostre, an Anglo-Saxon spring goddess. The name was recorded by the Venerable Bede in 725 AD, though some historians dispute whether the goddess was widely worshipped."
+    "fun_fact": "Bede wrote that the month Eosturmonath was named for a goddess called Eostre. He is the only source for her, so some historians question how widely she was worshipped."
   },
   {
     "id": 739,
@@ -10442,16 +10442,16 @@ window.KTZED_QUESTIONS = [
   {
     "id": 746,
     "category": "Technology",
-    "question": "Which American building was the world's first to have air conditioning installed for comfort?",
+    "question": "Willis Carrier designed the first modern air-conditioning system in 1902 to control humidity at what kind of business?",
     "type": "mc",
     "options": [
-      "The Chicago Stock Exchange",
-      "Madison Square Garden",
-      "The Smithsonian Institute",
-      "The New York Stock Exchange"
+      "A movie theater",
+      "A hospital",
+      "A printing plant",
+      "A department store"
     ],
-    "answer": 3,
-    "fun_fact": "The NYSE installed the first comfort AC system in 1902. Air conditioning was invented by Willis Carrier that same year, originally to control humidity at a Brooklyn printing plant, not to cool people."
+    "answer": 2,
+    "fun_fact": "The Sackett-Wilhelms printing plant in Brooklyn needed steady humidity so the paper wouldn't swell and throw off the color printing."
   },
   {
     "id": 747,
@@ -10470,16 +10470,16 @@ window.KTZED_QUESTIONS = [
   {
     "id": 748,
     "category": "History",
-    "question": "Who had the dubious honor of being Alcatraz's very first inmate?",
+    "question": "Alcatraz operated as a federal penitentiary from 1934 until what year?",
     "type": "mc",
     "options": [
-      "Joseph Harrison",
-      "Leon Gregory",
-      "Frank Bolt",
-      "Charles Copp"
+      "1946",
+      "1963",
+      "1972",
+      "1985"
     ],
-    "answer": 2,
-    "fun_fact": null
+    "answer": 1,
+    "fun_fact": "It closed mainly because it was so expensive to run. Supplies, and even fresh water, had to be shipped out to the island."
   },
   {
     "id": 749,
