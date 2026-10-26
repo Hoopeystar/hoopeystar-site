@@ -176,13 +176,13 @@ window.KTZED_QUESTIONS = [
   {
     "id": 12,
     "category": "Bodycams and Police",
-    "question": "What federal program, launched after Ferguson in 2015, provided $75 million to help local departments purchase body cameras?",
+    "question": "What Justice Department grant program, launched in 2015 after the Ferguson unrest, helped local police departments buy body cameras?",
     "type": "mc",
     "options": [
-      "The Safe Streets Initiative",
+      "The Smart Policing Camera Initiative",
       "The Body-Worn Camera Policy and Implementation Program",
-      "The Community Policing Grant Act",
-      "The Federal Law Enforcement Transparency Fund"
+      "The Officer Video Accountability Grant",
+      "The Community Camera Partnership Fund"
     ],
     "answer": 1,
     "fun_fact": null
@@ -221,12 +221,12 @@ window.KTZED_QUESTIONS = [
     "question": "In the Laquan McDonald case in Chicago, why did the dash cam footage become especially controversial beyond the shooting itself?",
     "type": "mc",
     "options": [
-      "The footage was livestreamed accidentally by an officer",
-      "The city fought to suppress the dash cam video for over a year before a court ordered its release",
-      "The body cam malfunctioned and recorded in reverse",
-      "Officers were caught on camera fabricating the police report in real time"
+      "It was accidentally deleted, then recovered from a backup",
+      "It was leaked to a newspaper before the family saw it",
+      "It was released to the public the same day as the shooting",
+      "The city fought for 13 months to keep it private until a judge ordered its release"
     ],
-    "answer": 1,
+    "answer": 3,
     "fun_fact": null
   },
   {
@@ -436,16 +436,16 @@ window.KTZED_QUESTIONS = [
   {
     "id": 31,
     "category": "True Crime",
-    "question": "What was the name of the cult leader responsible for the 1978 Jonestown Massacre in Guyana, where over 900 people died?",
+    "question": "In 1980, an 8-year-old boy found $5,800 of D.B. Cooper's ransom money buried on a beach along which river?",
     "type": "mc",
     "options": [
-      "David Koresh",
-      "Marshall Applewhite",
-      "Jim Jones",
-      "Charles Manson"
+      "Snake River",
+      "Willamette River",
+      "Columbia River",
+      "Colorado River"
     ],
     "answer": 2,
-    "fun_fact": null
+    "fun_fact": "Brian Ingram found the bundles of $20 bills at Tena Bar near Vancouver, Washington. The serial numbers matched the 1971 ransom. It's still the only Cooper money ever found."
   },
   {
     "id": 32,
@@ -604,16 +604,16 @@ window.KTZED_QUESTIONS = [
   {
     "id": 43,
     "category": "True Crime",
-    "question": "In the 1996 murder of Bill Cosby's son Ennis Cosby, who was convicted of the killing and what was the motive according to prosecutors?",
+    "question": "Ennis Cosby, son of Bill Cosby, was shot while changing a flat tire in Los Angeles in January 1997. What did prosecutors say was the motive?",
     "type": "mc",
     "options": [
-      "A former associate of Bill Cosby's seeking ransom, the killing was unplanned",
-      "Mikhail Markhasev, a Ukrainian immigrant who attempted to rob Ennis during a roadside stop",
-      "A stalker who had targeted the Cosby family for years prior to the shooting",
-      "A carjacker who was later linked to three other homicides in Los Angeles"
+      "A ransom plot",
+      "Road rage",
+      "An attempted robbery",
+      "Revenge against his father"
     ],
-    "answer": 1,
-    "fun_fact": null
+    "answer": 2,
+    "fun_fact": "Mikail Markhasev was convicted of murder and attempted robbery in 1998, and later confessed in a letter."
   },
   {
     "id": 44,
@@ -1272,16 +1272,16 @@ window.KTZED_QUESTIONS = [
   {
     "id": 91,
     "category": "Science",
-    "question": "Surprisingly, the number one killer among animals with about 2–3 million human fatalities a year is a tiny insect. Which is it?",
+    "question": "Which planet in our solar system has the shortest day, spinning once in under 10 hours?",
     "type": "mc",
     "options": [
-      "Bee",
-      "Mosquito",
-      "Tsetse fly",
-      "Wasp"
+      "Saturn",
+      "Jupiter",
+      "Neptune",
+      "Mars"
     ],
     "answer": 1,
-    "fun_fact": null
+    "fun_fact": "A day on Jupiter lasts about 9 hours 56 minutes, despite it being the largest planet."
   },
   {
     "id": 92,
@@ -1783,7 +1783,7 @@ window.KTZED_QUESTIONS = [
       "Dogs"
     ],
     "answer": 3,
-    "fun_fact": "The islands' Latin name, Insularia Canaria, means Island of the Dogs.",
+    "fun_fact": "The islands' Latin name, Canariae Insulae, means Island of the Dogs.",
     "id": 127,
     "type": "mc"
   },
@@ -2139,15 +2139,15 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "General Knowledge",
-    "question": "Why are Charles Dickens' books so long and wordy?",
+    "question": "Why are many of Charles Dickens' novels so long?",
     "options": [
-      "He knew he had a short life",
-      "He was the style of the day",
-      "He wanted more students to study",
-      "He got paid by the word"
+      "He was paid by the word",
+      "Victorian law set a minimum length for novels",
+      "They were first published in monthly installments over many months",
+      "He dictated them and never cut anything"
     ],
-    "answer": 3,
-    "fun_fact": null,
+    "answer": 2,
+    "fun_fact": "The 'paid by the word' story is a myth. He was paid per installment, usually 20 monthly parts over 19 months.",
     "id": 153,
     "type": "mc"
   },
@@ -2461,15 +2461,15 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "History",
-    "question": "The word 'Ouija' is derived from what two words?",
+    "question": "The Ouija board was first patented in 1891 by a company based in which U.S. city?",
     "options": [
-      "An ancient Egyptian word for 'good luck'",
-      "A Nazi code word meaning 'Holy Grail'",
-      "Ancient Hebrew meaning 'spirit talker'",
-      "The French for 'yes' and the German for 'yes'"
+      "Salem",
+      "Baltimore",
+      "New Orleans",
+      "Boston"
     ],
-    "answer": 3,
-    "fun_fact": null,
+    "answer": 1,
+    "fun_fact": "Its name supposedly came from the board itself: in 1890 a medium asked it what to be called, and it spelled 'Ouija.' The popular 'French oui + German ja' story is a myth.",
     "id": 176,
     "type": "mc"
   },
@@ -3023,10 +3023,10 @@ window.KTZED_QUESTIONS = [
     "category": "History",
     "question": "The word 'mentor' comes from Greek mythology. Who was Mentor in Homer's Odyssey?",
     "options": [
-      "A wise king of Sparta",
-      "A trusted friend of Odysseus left to guide his son",
-      "A disguise used by the god Apollo",
-      "The tutor of Achilles"
+      "Odysseus's father",
+      "A trusted friend Odysseus left to guide his son",
+      "The swineherd who sheltered Odysseus",
+      "The helmsman of Odysseus's ship"
     ],
     "answer": 1,
     "fun_fact": "Athena disguised herself as Mentor to advise Telemachus, which may have reinforced the word's meaning, but Mentor was first and foremost Odysseus's trusted friend, not an alias of Athena.",
@@ -3541,10 +3541,10 @@ window.KTZED_QUESTIONS = [
     "category": "Sports",
     "question": "Jackie Robinson's uniform #42 was retired by all of Major League Baseball. What other first did he achieve?",
     "options": [
-      "Rosy Grier",
-      "Jim Brown",
-      "Jesse Owens",
-      "He was the first African-American inducted into the Baseball Hall of Fame"
+      "First African-American MLB manager",
+      "First African-American MLB umpire",
+      "First African-American MLB general manager",
+      "First African-American inducted into the Baseball Hall of Fame"
     ],
     "answer": 3,
     "fun_fact": null,
@@ -3819,15 +3819,15 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "History",
-    "question": "What was Christine Jorgensen most famous for?",
+    "question": "Amelia Earhart disappeared over the Pacific in 1937 while attempting what?",
     "options": [
-      "Voice-over acting",
-      "Mystery writing",
-      "Photography",
-      "Undergoing transgender surgery"
+      "To fly solo across the Atlantic",
+      "To set a women's altitude record",
+      "To fly around the world",
+      "To fly nonstop across the U.S."
     ],
-    "answer": 3,
-    "fun_fact": "In 1952, Jorgensen became one of the first widely publicized recipients of gender reassignment surgery.",
+    "answer": 2,
+    "fun_fact": "She had already become the first woman to fly solo across the Atlantic, in 1932.",
     "id": 273,
     "type": "mc"
   },
@@ -4115,12 +4115,12 @@ window.KTZED_QUESTIONS = [
     "category": "Sports",
     "question": "In 2005, Danny Way became the first person to do what at the Great Wall of China?",
     "options": [
-      "Eject from an SST",
-      "High dive from the Eiffel Tower",
-      "Shoot out of a submarine torpedo tube",
-      "Skateboard over the Great Wall"
+      "Jump over it on a BMX bike",
+      "Jump over it on a skateboard",
+      "Snowboard down it",
+      "Ride a unicycle along it"
     ],
-    "answer": 3,
+    "answer": 1,
     "fun_fact": null,
     "id": 294,
     "type": "mc"
@@ -4757,15 +4757,15 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Music",
-    "question": "'Born to Run' by Springsteen was written as a love letter to a girl named what?",
+    "question": "In Bruce Springsteen's 'Born to Run,' what is the name of the girl he sings to?",
     "options": [
-      "The Letter",
-      "Love on the Rocks",
-      "The Streets of This Town",
-      "Born to Run, the girl was named Wendy"
+      "Mary",
+      "Rosalita",
+      "Wendy",
+      "Sandy"
     ],
-    "answer": 3,
-    "fun_fact": "The opening line is 'In the day we sweat it out on the streets of a runway American dream', addressed to Wendy.",
+    "answer": 2,
+    "fun_fact": "The lyric goes 'Wendy, let me in, I wanna be your friend.' Mary, Rosalita and Sandy all appear in other Springsteen songs.",
     "id": 340,
     "type": "mc"
   },
@@ -5303,14 +5303,14 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "Pop Culture",
-    "question": "The Muppet band Dr. Teeth and the Electric Mayhem included Sgt. Floyd Pepper, Janice, Zoot, Animal and Lips. Who was the keyboardist?",
+    "question": "Who plays keyboards in the Muppets' rock band, the Electric Mayhem?",
     "options": [
-      "Sgt. Floyd Pepper",
+      "Floyd Pepper",
+      "Dr. Teeth",
       "Animal",
-      "Lips",
-      "Dr. Teeth"
+      "Zoot"
     ],
-    "answer": 3,
+    "answer": 1,
     "fun_fact": null,
     "id": 379,
     "type": "mc"
@@ -5472,16 +5472,16 @@ window.KTZED_QUESTIONS = [
   {
     "id": 391,
     "category": "Geography",
-    "question": "Despite being the largest island in the world, this island is sparsely populated due to its unfavorable climate. Which island is it?",
+    "question": "Counting its overseas territories, which country spans the most time zones?",
     "type": "mc",
     "options": [
-      "Madagascar",
-      "New Guinea",
-      "Baffin Island",
-      "Greenland"
+      "France",
+      "Russia",
+      "United States",
+      "China"
     ],
-    "answer": 3,
-    "fun_fact": null
+    "answer": 0,
+    "fun_fact": "France has 12 time zones thanks to territories like French Polynesia, Réunion and New Caledonia. Russia and the U.S. have 11 each."
   },
   {
     "id": 392,
@@ -5906,15 +5906,15 @@ window.KTZED_QUESTIONS = [
   {
     "id": 422,
     "category": "Geography",
-    "question": "Deserts are defined by low precipitation, not just heat. Which region is the largest desert on Earth?",
+    "question": "What is the smallest U.S. state by area?",
     "type": "mc",
     "options": [
-      "The Sahara",
-      "The Kalahari",
-      "The Gobi",
-      "Antarctica"
+      "Rhode Island",
+      "Delaware",
+      "Connecticut",
+      "New Jersey"
     ],
-    "answer": 3,
+    "answer": 0,
     "fun_fact": null
   },
   {
@@ -5976,16 +5976,16 @@ window.KTZED_QUESTIONS = [
   {
     "id": 427,
     "category": "Geography",
-    "question": "What does the word 'Colorado' mean?",
+    "question": "The name 'Colorado' comes from Spanish and describes what color?",
     "type": "mc",
     "options": [
-      "Mountain High",
-      "Rocky Mountains",
-      "Indian Sky",
-      "Colored Red"
+      "Red",
+      "Green",
+      "White",
+      "Gold"
     ],
-    "answer": 3,
-    "fun_fact": null
+    "answer": 0,
+    "fun_fact": "Spanish explorers named the Colorado River for its reddish, silt-laden water, and the state took the river's name."
   },
   {
     "id": 428,
@@ -6117,12 +6117,12 @@ window.KTZED_QUESTIONS = [
     "category": "History",
     "question": "Germany's WWI 'Big Bertha' howitzer was named after which woman?",
     "options": [
-      "Kaiser Wilhelm's mother",
+      "Bertha von Suttner, the peace activist",
+      "Bertha Benz, the motoring pioneer",
       "Bertha Krupp, heiress of the Krupp arms dynasty",
-      "The designer's daughter",
-      "A famous German nurse"
+      "A popular Berlin cabaret singer"
     ],
-    "answer": 1,
+    "answer": 2,
     "fun_fact": "Bertha Krupp was the owner of the Krupp steelworks, not merely the designer's wife, she inherited the company and her husband Gustav took her surname when they married.",
     "id": 437,
     "type": "mc"
@@ -6563,14 +6563,14 @@ window.KTZED_QUESTIONS = [
   },
   {
     "category": "History",
-    "question": "What event began in Salem, Massachusetts in March 1692?",
+    "question": "What notorious event began in Massachusetts in early 1692 and led to 19 people being hanged?",
     "options": [
-      "The first Puritan congregation was founded in Boston",
-      "The Plymouth Colony signed a charter with the Crown",
-      "A smallpox epidemic killed thousands in New England",
-      "The Salem witch trials"
+      "A smallpox quarantine riot",
+      "The Salem witch trials",
+      "Shays' Rebellion",
+      "King Philip's War"
     ],
-    "answer": 3,
+    "answer": 1,
     "fun_fact": null,
     "id": 469,
     "type": "mc"
@@ -7320,7 +7320,7 @@ window.KTZED_QUESTIONS = [
   {
     "id": 523,
     "category": "True Crime",
-    "question": "This cult leader was responsible for the 1978 Jonestown mass death of over 900 people in Guyana.",
+    "question": "This cult leader was responsible for the 1978 mass death of over 900 of his followers in Guyana.",
     "type": "mc",
     "options": [
       "Jim Jones",
@@ -7628,16 +7628,16 @@ window.KTZED_QUESTIONS = [
   {
     "id": 545,
     "category": "Movies",
-    "question": "Rocky Johnson, a professional wrestler, is the father of what actor and former wrestler?",
+    "question": "Dwayne 'The Rock' Johnson's first leading film role was the title character in which 2002 movie?",
     "type": "mc",
     "options": [
-      "Tony Atlas",
-      "The Miz",
-      "The Rock",
-      "John Cena"
+      "Walking Tall",
+      "The Rundown",
+      "The Scorpion King",
+      "Doom"
     ],
     "answer": 2,
-    "fun_fact": null
+    "fun_fact": "He was paid $5.5 million, a record at the time for an actor's first starring role."
   },
   {
     "id": 546,
@@ -7740,16 +7740,16 @@ window.KTZED_QUESTIONS = [
   {
     "id": 553,
     "category": "Music",
-    "question": "What famous rock frontman, born Steven Tallarico in New York in 1948, is known for his trademark scarves?",
+    "question": "Steven Tyler, known for the scarves draped on his microphone stand, is the frontman of which band?",
     "type": "mc",
     "options": [
-      "Stevie Wonder",
-      "Steven Tyler",
-      "Stevie Nicks",
-      "Steve Perry"
+      "Bon Jovi",
+      "Journey",
+      "Def Leppard",
+      "Aerosmith"
     ],
-    "answer": 1,
-    "fun_fact": null
+    "answer": 3,
+    "fun_fact": "He was born Steven Tallarico in New York in 1948."
   },
   {
     "id": 554,
@@ -8608,15 +8608,15 @@ window.KTZED_QUESTIONS = [
   {
     "id": 615,
     "category": "Technology",
-    "question": "The word 'Bluetooth' technology takes its name from the epithet of a king who united the tribes of Denmark. What technology term comes from this king's name?",
+    "question": "Which wireless technology is named after a 10th-century king who united the tribes of Denmark?",
     "type": "mc",
     "options": [
-      "Bluetooth",
-      "Java",
-      "Mozilla",
-      "Linux"
+      "Wi-Fi",
+      "Zigbee",
+      "NFC",
+      "Bluetooth"
     ],
-    "answer": 0,
+    "answer": 3,
     "fun_fact": null
   },
   {
@@ -9672,16 +9672,16 @@ window.KTZED_QUESTIONS = [
   {
     "id": 691,
     "category": "Science",
-    "question": "What scale measures sexual orientation from 0 (exclusively heterosexual) to 6 (exclusively homosexual)?",
+    "question": "What scale ranks mineral hardness from 1 (talc) to 10 (diamond)?",
     "type": "mc",
     "options": [
-      "Johnas scale",
-      "Kinsey Scale",
-      "James Scale",
-      "Jacobs Scale"
+      "Richter Scale",
+      "Beaufort Scale",
+      "Mohs Scale",
+      "Kelvin Scale"
     ],
-    "answer": 1,
-    "fun_fact": null
+    "answer": 2,
+    "fun_fact": "German mineralogist Friedrich Mohs created the scale in 1812."
   },
   {
     "id": 692,
@@ -9812,7 +9812,7 @@ window.KTZED_QUESTIONS = [
   {
     "id": 701,
     "category": "History",
-    "question": "In 1863, this entrepreneur and his partners founded Standard Oil, a company which dominated the oil industry. Who was he?",
+    "question": "In 1870, this entrepreneur and his partners founded Standard Oil, a company which dominated the oil industry. Who was he?",
     "type": "mc",
     "options": [
       "Howard Hughes",
@@ -10134,16 +10134,16 @@ window.KTZED_QUESTIONS = [
   {
     "id": 724,
     "category": "History",
-    "question": "The Norse explorer Leif Erikson reached North America around 1000 AD, roughly 500 years before Columbus. But which European is credited as the first to reach American soil?",
+    "question": "Which Norse explorer is credited with landing in North America around 1000 AD, roughly 500 years before Columbus?",
     "type": "mc",
     "options": [
+      "Erik the Red",
+      "Harald Hardrada",
       "Leif Erikson",
-      "Ferdinand Magellan",
-      "Christopher Columbus",
-      "Amerigo Vespucci"
+      "Ragnar Lodbrok"
     ],
-    "answer": 0,
-    "fun_fact": null
+    "answer": 2,
+    "fun_fact": "He called the land Vinland. The Norse site at L'Anse aux Meadows in Newfoundland confirms Vikings really were there."
   },
   {
     "id": 725,
