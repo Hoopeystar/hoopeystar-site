@@ -4997,12 +4997,12 @@ window.KTZED_QUESTIONS = [
     "category": "Music",
     "question": "What is the name of the famous American musician nicknamed 'The Jewish Elvis'?",
     "options": [
-      "Billy Diamond",
-      "Rodger Diamond",
-      "Walter Diamond",
-      "Neil Diamond"
+      "Barry Manilow",
+      "Neil Diamond",
+      "Billy Joel",
+      "Neil Sedaka"
     ],
-    "answer": 3,
+    "answer": 1,
     "fun_fact": null,
     "id": 357,
     "type": "mc"
